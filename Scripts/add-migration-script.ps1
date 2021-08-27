@@ -16,8 +16,10 @@ function Add-Migration {
     Process {
         foreach($p in $Path) {
             if(Test-Path $p) {
-                dotnet ef migrations add $Name --project $p
+                Set-Location $p
+                dotnet ef --startup-project D:\LabWebApp\Web migrations add $Name
                 Write-Host "Add migration script executed successfully" -BackgroundColor Green -ForegroundColor Black
+                Set-Location D:\LabWebApp\Scripts
             }
             else{
                 Write-Host "Add migration script failed (wrong path)" -BackgroundColor Red -ForegroundColor Black

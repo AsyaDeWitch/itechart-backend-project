@@ -1,10 +1,7 @@
 ﻿//using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-//using System;
-//using System.Collections.Generic;
-//using System.Text;
 
-namespace Web.Data
+namespace DAL.Data
 {
     public class ApplicationDbContext : DbContext //IdentityDbContext
     {

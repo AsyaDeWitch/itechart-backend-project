@@ -6,6 +6,9 @@ using Microsoft.Extensions.Hosting;
 using DAL.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using Microsoft.Extensions.Diagnostics.HealthChecks;
+using Microsoft.AspNetCore.Http;
 
 namespace Web
 {
@@ -29,10 +32,15 @@ namespace Web
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             //Register required services for health checks
-            //services.AddHealthChecks()
+            services.AddHealthChecks()
+                .AddSqlServer(Configuration["ConnectionStrings:DefaultConnection"]);
 
             //Register the Swagger generator
             services.AddSwaggerGen();
+
+            // Register required services for health checks
+            services.AddHealthChecksUI()
+                .AddInMemoryStorage();
 
             services.AddControllers();
         }
@@ -63,6 +71,17 @@ namespace Web
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHealthChecksUI();
+                endpoints.MapHealthChecks("/health", new HealthCheckOptions()
+                {
+                    AllowCachingResponses = false,
+                    ResultStatusCodes =
+                    {
+                        [HealthStatus.Healthy] = StatusCodes.Status200OK,
+                        [HealthStatus.Degraded] = StatusCodes.Status200OK,
+                        [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable
+                    }
+                });
             });
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
@@ -74,6 +93,8 @@ namespace Web
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
                 c.RoutePrefix = string.Empty;
             });
+
+            //app.UseHealthChecksUI(config => config.UIPath = "/hc-ui");
         }
     }
 }

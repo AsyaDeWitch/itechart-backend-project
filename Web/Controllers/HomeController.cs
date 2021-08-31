@@ -12,9 +12,9 @@ namespace Web.Controllers
             _logger = logger;
         }
 
+        [HttpGet]
         [Route("")]
         [Route("Index")]
-        [HttpGet]
         public IActionResult Index()
         {
             return new EmptyResult();
@@ -26,6 +26,6 @@ namespace Web.Controllers
         {
             _logger.LogInformation("GetInfo request. Information level");
             return new OkObjectResult("Hello world!");
-        }
+        }       
     }
 }

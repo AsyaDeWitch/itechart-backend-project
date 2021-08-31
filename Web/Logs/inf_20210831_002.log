@@ -1,0 +1,33 @@
+2021-08-31T13:41:06.0298659+03:00 [INF] (Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager) User profile is available. Using '"C:\Users\A.Dzenisevich\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-08-31T13:41:06.0884064+03:00 [INF] (HealthChecks.UI.Core.HostedService.UIInitializationHostedService) Initializing UI Database
+2021-08-31T13:41:06.5398241+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-08-31T13:41:06.8296407+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44376/index.html - -
+2021-08-31T13:41:06.8365679+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-08-31T13:41:06.8673924+03:00 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2021-08-31T13:41:06.8674476+03:00 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Development"
+2021-08-31T13:41:06.8674763+03:00 [INF] (Microsoft.Hosting.Lifetime) Content root path: "D:\LabWebApp\Web"
+2021-08-31T13:41:06.9497738+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44376/index.html - - - 200 - text/html;charset=utf-8 121.3904ms
+2021-08-31T13:41:07.0798587+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44376/swagger/v1/swagger.json - -
+2021-08-31T13:41:07.1147408+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44376/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 34.8690ms
+2021-08-31T13:41:14.4586284+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44376/hc-ui - -
+2021-08-31T13:41:14.4615696+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44376/hc-ui - - - 404 - - 2.9437ms
+2021-08-31T13:41:16.9054911+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-08-31T13:41:18.0523571+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44376/healthchecks-ui - -
+2021-08-31T13:41:18.0533328+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-08-31T13:41:18.0546891+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-08-31T13:41:18.0551973+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44376/healthchecks-ui - - - 200 - text/html 2.8404ms
+2021-08-31T13:41:26.9111783+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-08-31T13:41:30.1034715+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44376/Home/GetInfo - -
+2021-08-31T13:41:30.1044244+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Web.Controllers.HomeController.GetInfo (Web)"'
+2021-08-31T13:41:30.1214751+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Route matched with "{action = \"GetInfo\", controller = \"Home\", page = \"\", area = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult GetInfo()" on controller "Web.Controllers.HomeController" ("Web").
+2021-08-31T13:41:30.1229624+03:00 [INF] (Web.Controllers.HomeController) GetInfo request. Information level
+2021-08-31T13:41:30.1267455+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor) Executing "OkObjectResult", writing value of type '"System.String"'.
+2021-08-31T13:41:30.1306848+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Executed action "Web.Controllers.HomeController.GetInfo (Web)" in 5.9496ms
+2021-08-31T13:41:30.1308690+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Web.Controllers.HomeController.GetInfo (Web)"'
+2021-08-31T13:41:30.1312711+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44376/Home/GetInfo - - - 200 - text/plain;+charset=utf-8 27.8061ms
+2021-08-31T13:41:32.9635438+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44376/health - -
+2021-08-31T13:41:32.9638346+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Health checks"'
+2021-08-31T13:41:33.2487676+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Health checks"'
+2021-08-31T13:41:33.2499599+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44376/health - - - 200 - text/plain 286.4403ms
+2021-08-31T13:41:36.9398094+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-08-31T13:43:23.1412536+03:00 [INF] () Strating web host

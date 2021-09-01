@@ -1,0 +1,98 @@
+2021-08-31T13:36:38.8899745+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T13:36:38.9324934+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T13:36:38.9329184+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T13:36:48.9458268+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T13:36:48.9869384+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T13:36:48.9872907+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T13:36:58.9988275+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T13:36:59.0023460+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T13:36:59.0024552+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T13:37:09.0105061+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T13:37:09.0121205+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T13:37:09.0122253+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T13:37:19.0328032+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T13:37:19.0333602+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T13:37:19.0333886+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T13:37:24.5615937+03:00 [DBG] (HealthChecks.UI.Middleware.UIApiEndpointMiddleware) Executing api middleware for client "::1", remaining slots: 2
+2021-08-31T13:37:29.0339837+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T13:37:29.0345584+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T13:37:29.0345835+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T13:37:34.5892919+03:00 [DBG] (HealthChecks.UI.Middleware.UIApiEndpointMiddleware) Executing api middleware for client "::1", remaining slots: 2
+2021-08-31T13:37:34.6976252+03:00 [DBG] (HealthChecks.UI.Middleware.UIApiEndpointMiddleware) Executing api middleware for client "::1", remaining slots: 2
+2021-08-31T13:37:34.7701677+03:00 [DBG] (HealthChecks.UI.Middleware.UIApiEndpointMiddleware) Executing api middleware for client "::1", remaining slots: 2
+2021-08-31T13:37:39.0418690+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T13:37:39.0439215+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T13:37:39.0440108+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T13:37:44.7846926+03:00 [DBG] (HealthChecks.UI.Middleware.UIApiEndpointMiddleware) Executing api middleware for client "::1", remaining slots: 2
+2021-08-31T13:37:49.0493196+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T13:37:49.0509157+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T13:37:49.0510110+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T13:37:54.7964453+03:00 [DBG] (HealthChecks.UI.Middleware.UIApiEndpointMiddleware) Executing api middleware for client "::1", remaining slots: 2
+2021-08-31T13:37:59.0655689+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T13:37:59.0664836+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T13:37:59.0665039+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T13:38:03.9217350+03:00 [DBG] (HealthChecks.UI.Middleware.UIApiEndpointMiddleware) Executing api middleware for client "::1", remaining slots: 2
+2021-08-31T13:38:05.6833659+03:00 [DBG] (HealthChecks.UI.Middleware.UIApiEndpointMiddleware) Executing api middleware for client "::1", remaining slots: 2
+2021-08-31T13:38:09.0724638+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T13:38:09.0729765+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T13:38:09.0729948+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T13:41:06.8237142+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T13:41:06.8657431+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T13:41:06.8661359+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T13:41:16.8881061+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T13:41:16.9062087+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T13:41:16.9062569+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T13:41:26.9064485+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T13:41:26.9112994+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T13:41:26.9113264+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T13:41:36.9388069+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T13:41:36.9400525+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T13:41:36.9401086+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T13:43:24.5490970+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T13:43:24.5918356+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T13:43:24.5924447+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T13:43:34.5985983+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T13:43:34.6175946+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T13:43:34.6176401+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T14:33:57.9754523+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T14:33:58.0159540+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T14:33:58.0166248+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T14:34:08.0373310+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T14:34:08.0425091+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T14:34:08.0426594+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T14:34:18.0503770+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T14:34:18.0529176+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T14:34:18.0529444+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T14:34:28.0587978+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T14:34:28.0592821+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T14:34:28.0593197+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T14:35:51.0108765+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T14:35:51.0570685+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T14:35:51.0574800+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T14:36:01.0630391+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T14:36:01.0857302+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T14:36:01.0857736+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T14:36:11.0892079+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T14:36:11.0914383+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T14:36:11.0914701+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T14:36:21.1046023+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T14:36:21.1051288+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T14:36:21.1052015+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T14:57:14.1205249+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T14:57:14.1671863+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T14:57:14.1676152+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T14:57:24.1859818+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T14:57:24.2066274+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T14:57:24.2066628+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T14:57:34.2209435+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T14:57:34.2229644+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T14:57:34.2229905+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T14:57:44.2360549+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T14:57:44.2373276+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T14:57:44.2374210+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T14:57:54.2435246+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T14:57:54.2439740+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T14:57:54.2440238+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-08-31T14:58:04.2575377+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-08-31T14:58:04.2580258+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-08-31T14:58:04.2580520+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.

@@ -94,7 +94,7 @@ namespace Web
                 c.RoutePrefix = string.Empty;
             });
 
-            //app.UseHealthChecksUI(config => config.UIPath = "/hc-ui");
+            app.UseHealthChecksUI(config => config.UIPath = "/healthchecks-ui");
         }
     }
 }

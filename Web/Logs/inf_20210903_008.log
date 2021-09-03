@@ -1,0 +1,50 @@
+2021-09-03T16:48:14.1906053+03:00 [INF] (Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager) User profile is available. Using '"C:\Users\A.Dzenisevich\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-09-03T16:48:14.2560546+03:00 [INF] (HealthChecks.UI.Core.HostedService.UIInitializationHostedService) Initializing UI Database
+2021-09-03T16:48:14.6574511+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-03T16:48:14.9449013+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44376/index.html - -
+2021-09-03T16:48:14.9519752+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-03T16:48:14.9840053+03:00 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2021-09-03T16:48:14.9840786+03:00 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Development"
+2021-09-03T16:48:14.9841124+03:00 [INF] (Microsoft.Hosting.Lifetime) Content root path: "D:\LabWebApp\Web"
+2021-09-03T16:48:15.0645255+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44376/index.html - - - 200 - text/html;charset=utf-8 121.0300ms
+2021-09-03T16:48:15.1836941+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44376/swagger/v1/swagger.json - -
+2021-09-03T16:48:15.2415516+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44376/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 57.8376ms
+2021-09-03T16:48:25.0044393+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-03T16:48:35.0343582+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-03T16:48:36.9257278+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 POST https://localhost:44376/Auth/sign-up application/json 47
+2021-09-03T16:48:36.9287192+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Web.Controllers.AuthController.SignUp (Web)"'
+2021-09-03T16:48:36.9475055+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Route matched with "{action = \"SignUp\", controller = \"Auth\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignUp(BLL.Models.SignUpModel)" on controller "Web.Controllers.AuthController" ("Web").
+2021-09-03T16:48:36.9943856+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor) Executing "BadRequestObjectResult", writing value of type '"System.String"'.
+2021-09-03T16:48:36.9977321+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Executed action "Web.Controllers.AuthController.SignUp (Web)" in 47.159ms
+2021-09-03T16:48:36.9978742+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Web.Controllers.AuthController.SignUp (Web)"'
+2021-09-03T16:48:36.9986095+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 POST https://localhost:44376/Auth/sign-up application/json 47 - 400 - text/plain;+charset=utf-8 72.9647ms
+2021-09-03T16:48:45.0592955+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-03T16:48:53.4729467+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 POST https://localhost:44376/Auth/sign-up application/json 75
+2021-09-03T16:48:53.4738128+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Web.Controllers.AuthController.SignUp (Web)"'
+2021-09-03T16:48:53.4740044+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Route matched with "{action = \"SignUp\", controller = \"Auth\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignUp(BLL.Models.SignUpModel)" on controller "Web.Controllers.AuthController" ("Web").
+2021-09-03T16:48:53.6931902+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2021-09-03T16:48:54.9663345+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("41"ms) [Parameters=["@__normalizedUserName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedUserName] = @__normalizedUserName_0"
+2021-09-03T16:48:55.0682962+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-03T16:48:55.1215231+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("5"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (Size = 4000), @p2='?' (Size = 256), @p3='?' (DbType = Boolean), @p4='?' (DbType = Boolean), @p5='?' (DbType = DateTimeOffset), @p6='?' (Size = 256), @p7='?' (Size = 256), @p8='?' (Size = 4000), @p9='?' (Size = 4000), @p10='?' (DbType = Boolean), @p11='?' (Size = 4000), @p12='?' (DbType = Boolean), @p13='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [AspNetUsers] ([AccessFailedCount], [ConcurrencyStamp], [Email], [EmailConfirmed], [LockoutEnabled], [LockoutEnd], [NormalizedEmail], [NormalizedUserName], [PasswordHash], [PhoneNumber], [PhoneNumberConfirmed], [SecurityStamp], [TwoFactorEnabled], [UserName])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8, @p9, @p10, @p11, @p12, @p13);
+SELECT [Id]
+FROM [AspNetUsers]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();"
+2021-09-03T16:48:55.1537494+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor) Executing "CreatedResult", writing value of type '"null"'.
+2021-09-03T16:48:55.1542753+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Executed action "Web.Controllers.AuthController.SignUp (Web)" in 1680.2265ms
+2021-09-03T16:48:55.1545907+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Web.Controllers.AuthController.SignUp (Web)"'
+2021-09-03T16:48:55.1569785+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 POST https://localhost:44376/Auth/sign-up application/json 75 - 201 0 - 1684.0480ms
+2021-09-03T16:49:05.0865510+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-03T16:49:15.1021010+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-03T16:49:25.1193040+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-03T16:49:35.1302750+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-03T16:49:45.1368420+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-03T16:49:46.4346795+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44376/Auth/email-confirmation - -
+2021-09-03T16:49:46.4350900+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Web.Controllers.AuthController.EmailConfirm (Web)"'
+2021-09-03T16:49:46.4362571+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Route matched with "{action = \"EmailConfirm\", controller = \"Auth\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult EmailConfirm()" on controller "Web.Controllers.AuthController" ("Web").
+2021-09-03T16:54:21.6299898+03:00 [INF] () Strating web host

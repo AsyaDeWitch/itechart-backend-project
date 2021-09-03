@@ -62,7 +62,6 @@ namespace BLL.Services
                     }
                 }
             }
-
             return null;
         }
 
@@ -86,7 +85,6 @@ namespace BLL.Services
                     }
                 }  
             }
-
             return null;
         }
 

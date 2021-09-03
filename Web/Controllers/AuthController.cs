@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BLL.Interfaces;
+using BLL.Models;
 
 namespace Web.Controllers
 {
@@ -22,9 +23,9 @@ namespace Web.Controllers
 
         [HttpPost]
         [Route("sign-in")]
-        public async Task<IActionResult> SignIn(string email, string password)
+        public async Task<IActionResult> SignIn([FromBody] AuthModel signInModel)
         {
-            var user = await _authService.SignInUserAsync(email, password);
+            var user = await _authService.SignInUserAsync(signInModel.Email, signInModel.Password);
 
             if(user != null)
             {
@@ -37,13 +38,13 @@ namespace Web.Controllers
 
         [HttpPost]
         [Route("sign-up")]
-        public async Task<IActionResult> SignUp(string email, string password)
+        public async Task<IActionResult> SignUp([FromBody] AuthModel signUpModel)
         {
-            var user = await _authService.SignUpUserAsync(email, password);
+            var user = await _authService.SignUpUserAsync(signUpModel.Email, signUpModel.Password);
 
             if(user != null)
             {
-                return Created(new Uri("/Auth/sign-in", UriKind.Relative), null);
+                return Created(new Uri("/Auth/email-confirmation", UriKind.Relative), null);
             }
 
             return BadRequest("Email or password is incorrect");
@@ -51,7 +52,7 @@ namespace Web.Controllers
 
         [HttpGet]
         [Route("email-confirmation")]
-        public IActionResult EmailConfirm()
+        public IActionResult ConfirmEmail()
         {
             return View();
         }

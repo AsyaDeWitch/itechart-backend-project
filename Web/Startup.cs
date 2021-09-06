@@ -12,11 +12,9 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
-using System.Security.Cryptography.X509Certificates;
 using BLL.Interfaces;
 using BLL.Services;
 using Microsoft.AspNetCore.Identity.UI.Services;
-using Swashbuckle.AspNetCore.Swagger;
 
 namespace Web
 {
@@ -37,7 +35,8 @@ namespace Web
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDatabaseDeveloperPageExceptionFilter();
             services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(options => options.SignIn.RequireConfirmedAccount = true)
-                .AddEntityFrameworkStores<ApplicationDbContext>();
+                .AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddDefaultTokenProviders(); 
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
@@ -55,8 +54,8 @@ namespace Web
                 });
 
             services.AddScoped<IJwtAuthService, JwtAuthService>();
-
             services.AddTransient<IEmailSender, EmailSenderService>();
+            services.AddScoped<IAdministrationService, AdministrationService>();
 
             //Register required services for health checks
             services.AddHealthChecks()

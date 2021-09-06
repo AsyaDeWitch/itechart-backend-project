@@ -2796,6 +2796,7 @@
           "Microsoft.AspNetCore.Identity": "2.2.0",
           "Microsoft.AspNetCore.Identity.UI": "5.0.9",
           "Microsoft.Extensions.Diagnostics.HealthChecks": "5.0.9",
+          "Microsoft.Extensions.Identity.Core": "5.0.9",
           "Newtonsoft.Json": "13.0.1"
         },
         "compile": {

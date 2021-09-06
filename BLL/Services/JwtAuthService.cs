@@ -9,6 +9,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace BLL.Services
 {
@@ -17,13 +18,34 @@ namespace BLL.Services
         private readonly IConfiguration _config;
         private readonly UserManager<IdentityUser<int>> _userManager;
         private readonly SignInManager<IdentityUser<int>> _signInManager;
+        private readonly IEmailSender _emailSender;
 
-        public JwtAuthService(IConfiguration config, UserManager<IdentityUser<int>> userManager, SignInManager<IdentityUser<int>> signInManager)
+        public JwtAuthService(IConfiguration config, UserManager<IdentityUser<int>> userManager, SignInManager<IdentityUser<int>> signInManager, IEmailSender emailSender)
         {
             _config = config;
             _userManager = userManager;
             _signInManager = signInManager;
+            _emailSender = emailSender;
         }
+
+        public async Task<IdentityResult> ConfirmEmailAsync(string userId, string token)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+
+            if (user != null)
+            {
+                var result = await _userManager.ConfirmEmailAsync(user, token);
+
+                return result;
+            }
+            return IdentityResult.Failed();
+        }
+
+        public async Task<string> GenerateComfirmationLinkAsync(IdentityUser<int> user)
+        {
+            return await _userManager.GenerateEmailConfirmationTokenAsync(user);
+        }
+
         public string GenerateJwt(IdentityUser<int> user)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
@@ -42,6 +64,12 @@ namespace BLL.Services
                 signingCredentials: creditals
                 );
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        public async Task SendConfirmationLinkAsync(string userId, string confirmationLink)
+        {
+            string htmlMessage = "<p><a href=\"" + confirmationLink + "\">Follow the link to confirm your email</a></p>";
+            await _emailSender.SendEmailAsync(userId, "Email confirmation", htmlMessage);
         }
 
         public async Task<IdentityUser<int>> SignInUserAsync(string email, string password)
@@ -77,7 +105,7 @@ namespace BLL.Services
                         Email = email,
                     };
 
-                    var result = await _userManager.CreateAsync(user);
+                    var result = await _userManager.CreateAsync(user, password);
 
                     if (result.Succeeded)
                     {

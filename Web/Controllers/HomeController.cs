@@ -14,15 +14,7 @@ namespace Web.Controllers
         }
 
         [HttpGet]
-        [Route("")]
-        [Route("Index")]
-        public IActionResult Index()
-        {
-            return new EmptyResult();
-        }
-
-        [HttpGet]
-        [Authorize]
+        [Authorize(Roles="Admin")]
         [Route("GetInfo")]
         public IActionResult GetInfo()
         {

@@ -2,8 +2,6 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using BLL.Interfaces;
 using BLL.Models;
@@ -23,7 +21,7 @@ namespace Web.Controllers
 
         [HttpPost]
         [Route("sign-in")]
-        public async Task<IActionResult> SignIn([FromBody] AuthModel signInModel)
+        public async Task<IActionResult> SignInAsync([FromBody] AuthModel signInModel)
         {
             var user = await _authService.SignInUserAsync(signInModel.Email, signInModel.Password);
 
@@ -38,13 +36,17 @@ namespace Web.Controllers
 
         [HttpPost]
         [Route("sign-up")]
-        public async Task<IActionResult> SignUp([FromBody] AuthModel signUpModel)
+        public async Task<IActionResult> SignUpAsync([FromBody] AuthModel signUpModel)
         {
             var user = await _authService.SignUpUserAsync(signUpModel.Email, signUpModel.Password);
 
             if(user != null)
             {
-                return Created(new Uri("/Auth/email-confirmation", UriKind.Relative), null);
+                var token = await _authService.GenerateComfirmationLinkAsync(user);
+                var confirmationLink = Url.Action("ConfirmEmail", "Auth", new { user.Id, token }, Request.Scheme);
+                await _authService.SendConfirmationLinkAsync(user.Email, confirmationLink);
+
+                return Created(new Uri("/Auth/sign-in", UriKind.Relative), null);
             }
 
             return BadRequest("Email or password is incorrect");
@@ -52,9 +54,17 @@ namespace Web.Controllers
 
         [HttpGet]
         [Route("email-confirmation")]
-        public IActionResult ConfirmEmail()
+        public async Task<IActionResult> ConfirmEmailAsync(string id, string token)
         {
-            return View();
+            if (id != null && token != null)
+            {
+                var result = await _authService.ConfirmEmailAsync(id, token);
+                if(result.Succeeded)
+                {
+                    return NoContent();
+                }
+            }
+            return BadRequest("Confirmation link is incorrect");
         }
     }
 }

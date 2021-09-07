@@ -1,0 +1,38 @@
+2021-09-07T10:04:34.6702144+03:00 [INF] (Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager) User profile is available. Using '"C:\Users\A.Dzenisevich\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-09-07T10:04:34.7669524+03:00 [INF] (HealthChecks.UI.Core.HostedService.UIInitializationHostedService) Initializing UI Database
+2021-09-07T10:04:35.2477262+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-07T10:04:35.6020918+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44376/index.html - -
+2021-09-07T10:04:35.6083546+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-07T10:04:35.6374879+03:00 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2021-09-07T10:04:35.6375629+03:00 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Development"
+2021-09-07T10:04:35.6375945+03:00 [INF] (Microsoft.Hosting.Lifetime) Content root path: "D:\LabWebApp\Web"
+2021-09-07T10:04:35.7499585+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44376/index.html - - - 200 - text/html;charset=utf-8 145.9339ms
+2021-09-07T10:04:35.7999412+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44376/swagger-ui-standalone-preset.js - -
+2021-09-07T10:04:35.7999411+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44376/swagger-ui.css - -
+2021-09-07T10:04:35.7999411+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44376/swagger-ui-bundle.js - -
+2021-09-07T10:04:35.8230491+03:00 [INF] (Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware) The file "/swagger-ui-standalone-preset.js" was not modified
+2021-09-07T10:04:35.8230490+03:00 [INF] (Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware) The file "/swagger-ui-bundle.js" was not modified
+2021-09-07T10:04:35.8230491+03:00 [INF] (Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware) The file "/swagger-ui.css" was not modified
+2021-09-07T10:04:35.8244685+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44376/swagger-ui-standalone-preset.js - - - 304 - application/javascript 24.5436ms
+2021-09-07T10:04:35.8244679+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44376/swagger-ui.css - - - 304 - text/css 24.5485ms
+2021-09-07T10:04:35.8244729+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44376/swagger-ui-bundle.js - - - 304 - application/javascript 24.5492ms
+2021-09-07T10:04:36.0029087+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44376/swagger/v1/swagger.json - -
+2021-09-07T10:04:36.0678080+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44376/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 64.9305ms
+2021-09-07T10:04:44.6420898+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44376/Home/GetInfo - -
+2021-09-07T10:04:44.6468957+03:00 [INF] (Microsoft.AspNetCore.Authorization.DefaultAuthorizationService) Authorization failed. "These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)"
+2021-09-07T10:04:44.6513855+03:00 [INF] (Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler) AuthenticationScheme: "Identity.Application" was challenged.
+2021-09-07T10:04:44.6551051+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44376/Home/GetInfo - - - 302 - - 13.4814ms
+2021-09-07T10:04:44.6554154+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44376/Account/Login?ReturnUrl=%2FHome%2FGetInfo - -
+2021-09-07T10:04:44.6566857+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44376/Account/Login?ReturnUrl=%2FHome%2FGetInfo - - - 404 - - 1.2606ms
+2021-09-07T10:04:45.6737653+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-07T10:04:53.4056613+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44376/Home/GetInfo - -
+2021-09-07T10:04:53.4061862+03:00 [INF] (Microsoft.AspNetCore.Authorization.DefaultAuthorizationService) Authorization failed. "These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)"
+2021-09-07T10:04:53.4063792+03:00 [INF] (Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler) AuthenticationScheme: "Identity.Application" was challenged.
+2021-09-07T10:04:53.4074285+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44376/Home/GetInfo - - - 302 - - 1.6964ms
+2021-09-07T10:04:53.4153539+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44376/Account/Login?ReturnUrl=%2FHome%2FGetInfo - -
+2021-09-07T10:04:53.4159854+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44376/Account/Login?ReturnUrl=%2FHome%2FGetInfo - - - 404 - - 0.6327ms
+2021-09-07T10:04:55.6944352+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-07T10:05:05.7046731+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-07T11:07:34.8249969+03:00 [INF] () Strating web host

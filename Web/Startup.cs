@@ -14,7 +14,6 @@ using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using BLL.Interfaces;
 using BLL.Services;
-using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace Web
 {
@@ -54,7 +53,7 @@ namespace Web
                 });
 
             services.AddScoped<IJwtAuthService, JwtAuthService>();
-            services.AddTransient<IEmailSender, EmailSenderService>();
+            services.AddTransient<IEmailSenderService, EmailSenderService>();
             services.AddScoped<IAdministrationService, AdministrationService>();
 
             //Register required services for health checks

@@ -9,7 +9,6 @@ using System.Security.Claims;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Identity.UI.Services;
 
 namespace BLL.Services
 {
@@ -18,9 +17,9 @@ namespace BLL.Services
         private readonly IConfiguration _config;
         private readonly UserManager<IdentityUser<int>> _userManager;
         private readonly SignInManager<IdentityUser<int>> _signInManager;
-        private readonly IEmailSender _emailSender;
+        private readonly IEmailSenderService _emailSender;
 
-        public JwtAuthService(IConfiguration config, UserManager<IdentityUser<int>> userManager, SignInManager<IdentityUser<int>> signInManager, IEmailSender emailSender)
+        public JwtAuthService(IConfiguration config, UserManager<IdentityUser<int>> userManager, SignInManager<IdentityUser<int>> signInManager, IEmailSenderService emailSender)
         {
             _config = config;
             _userManager = userManager;
@@ -69,7 +68,7 @@ namespace BLL.Services
         public async Task SendConfirmationLinkAsync(string userId, string confirmationLink)
         {
             string htmlMessage = "<p><a href=\"" + confirmationLink + "\">Follow the link to confirm your email</a></p>";
-            await _emailSender.SendEmailAsync(userId, "Email confirmation", htmlMessage);
+            await _emailSender.SendEmailByMailKitAsync(userId, htmlMessage);
         }
 
         public async Task<IdentityUser<int>> SignInUserAsync(string email, string password)

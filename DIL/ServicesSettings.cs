@@ -40,8 +40,6 @@ namespace DIL
             services.AddScoped<IJwtAuthService, JwtAuthService>();
             services.AddTransient<IEmailSenderService, EmailSenderService>();
             services.AddScoped<IAdministrationService, AdministrationService>();
-
-
         }
     }
 }

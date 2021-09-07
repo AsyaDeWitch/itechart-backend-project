@@ -8,22 +8,22 @@ namespace BLL.Services
 {
     public class EmailSenderService : IEmailSenderService
     {
-        private string _fromEmail = "itechartlabtester@gmail.com";
-        private string _fromPassword = "AV9Laaqpq9N5PZH1HemL";
-        private string _smtpClient = "smtp.gmail.com";
-        private int _port = 465;
-        private string _subject = "Email confirmation";
+        private readonly string _fromEmail = "itechartlabtester@gmail.com";
+        private readonly string _fromPassword = "AV9Laaqpq9N5PZH1HemL";
+        private readonly string _smtpClient = "smtp.gmail.com";
+        private readonly int _port = 465;
+        private readonly string _subject = "Email confirmation";
 
         public async Task SendEmailByNetMailAsync(string email, string htmlMessage)
         {
-            MailMessage message = new MailMessage();
+            MailMessage message = new();
             message.From = new MailAddress(_fromEmail);
             message.Subject = _subject;
             message.To.Add(new MailAddress(email));
-            message.Body = "<html><body> " + htmlMessage + " </body></html>";
+            message.Body = GetHtmlBody(htmlMessage);
             message.IsBodyHtml = true;
 
-            using (var smtpClient = new System.Net.Mail.SmtpClient(_smtpClient)
+            using (var smtpClient = new SmtpClient(_smtpClient)
             {
                 Port = _port,
                 Credentials = new NetworkCredential(_fromEmail, _fromPassword),
@@ -36,13 +36,13 @@ namespace BLL.Services
 
         public async Task SendEmailByMailKitAsync(string email, string htmlMessage)
         {
-            MimeMessage message = new MimeMessage();
+            MimeMessage message = new();
             message.From.Add(new MailboxAddress("LabWebApp tester",_fromEmail));
             message.To.Add(new MailboxAddress(email, email));
             message.Subject = _subject;
             message.Body = new BodyBuilder()
             {
-                HtmlBody = "<html><body> " + htmlMessage + " </body></html>"
+                HtmlBody = GetHtmlBody(htmlMessage)
             }
             .ToMessageBody();
 
@@ -54,6 +54,11 @@ namespace BLL.Services
 
                 await smtpClient.DisconnectAsync(true);
             }
+        }
+
+        private string GetHtmlBody(string message)
+        {
+            return "<html><body> " + message + " </body></html>";
         }
     }
 }

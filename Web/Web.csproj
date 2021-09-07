@@ -32,6 +32,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BLL\BLL.csproj" />
+    <ProjectReference Include="..\DIL\DIL.csproj" />
   </ItemGroup>
 
 </Project>

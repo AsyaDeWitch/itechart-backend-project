@@ -6,7 +6,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Http;
-using DIL;
+using DIL.Settings;
+using Web.Extensions;
 
 namespace Web
 {
@@ -22,6 +23,9 @@ namespace Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            //appsettings.json configuration
+            services.ConfigureAndValidate<JwtSettings>(Configuration);
+
             ServicesSettings.InjectDependencies(services, Configuration);
             services.AddDatabaseDeveloperPageExceptionFilter();
 

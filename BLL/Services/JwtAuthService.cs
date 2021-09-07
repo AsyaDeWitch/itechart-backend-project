@@ -1,6 +1,5 @@
 ﻿using BLL.Interfaces;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
 using System;
 using System.IdentityModel.Tokens.Jwt;
@@ -12,14 +11,12 @@ namespace BLL.Services
 {
     public class JwtAuthService : IJwtAuthService
     {
-        private readonly IConfiguration _config;
         private readonly UserManager<IdentityUser<int>> _userManager;
         private readonly SignInManager<IdentityUser<int>> _signInManager;
         private readonly IEmailSenderService _emailSender;
 
-        public JwtAuthService(IConfiguration config, UserManager<IdentityUser<int>> userManager, SignInManager<IdentityUser<int>> signInManager, IEmailSenderService emailSender)
+        public JwtAuthService(UserManager<IdentityUser<int>> userManager, SignInManager<IdentityUser<int>> signInManager, IEmailSenderService emailSender)
         {
-            _config = config;
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
@@ -43,9 +40,9 @@ namespace BLL.Services
             return await _userManager.GenerateEmailConfirmationTokenAsync(user);
         }
 
-        public string GenerateJwt(IdentityUser<int> user)
+        public string GenerateJwt(IdentityUser<int> user, string jwtIssuer, string jwtAudience, string jwtKey)
         {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["Jwt:Key"]));
+            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
             var creditals = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
             var claims = new[]
             {
@@ -54,8 +51,8 @@ namespace BLL.Services
             };
 
             var token = new JwtSecurityToken(
-                issuer: _config["Jwt:Issuer"],
-                audience: _config["Jwt:Audience"],
+                issuer: jwtIssuer,
+                audience: jwtAudience,
                 claims: claims,
                 expires: DateTime.Now.AddMinutes(120),
                 signingCredentials: creditals
@@ -106,6 +103,7 @@ namespace BLL.Services
 
                     if (result.Succeeded)
                     {
+                        await _userManager.AddToRoleAsync(user, "User");
                         return user;
                     }
                 }  

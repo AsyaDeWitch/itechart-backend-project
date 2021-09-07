@@ -2,7 +2,7 @@
 
 namespace BLL.Models
 {
-    public class AuthModel
+    public class AuthViewModel
     {
         [Required]
         public string Email { get; set; }

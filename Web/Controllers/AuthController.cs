@@ -5,6 +5,8 @@ using System;
 using System.Threading.Tasks;
 using BLL.Interfaces;
 using BLL.Models;
+using Microsoft.Extensions.Options;
+using DIL.Settings;
 
 namespace Web.Controllers
 {
@@ -13,21 +15,23 @@ namespace Web.Controllers
     public class AuthController : Controller
     {
         private readonly IJwtAuthService _authService;
+        private readonly JwtSettings _jwtSettings;
 
-        public AuthController(IJwtAuthService authService)
+        public AuthController(IJwtAuthService authService, IOptions<JwtSettings> jwtSettings)
         {
             _authService = authService;
+            _jwtSettings = jwtSettings.Value;
         }
 
         [HttpPost]
         [Route("sign-in")]
-        public async Task<IActionResult> SignInAsync([FromBody] AuthModel signInModel)
+        public async Task<IActionResult> SignInAsync([FromBody] AuthViewModel signInModel)
         {
             var user = await _authService.SignInUserAsync(signInModel.Email, signInModel.Password);
 
             if(user != null)
             {
-                var tokenString = _authService.GenerateJwt(user);
+                var tokenString = _authService.GenerateJwt(user, _jwtSettings.Issuer, _jwtSettings.Audience, _jwtSettings.Key);
                 return Ok(new { token = tokenString });
             }
 
@@ -36,7 +40,7 @@ namespace Web.Controllers
 
         [HttpPost]
         [Route("sign-up")]
-        public async Task<IActionResult> SignUpAsync([FromBody] AuthModel signUpModel)
+        public async Task<IActionResult> SignUpAsync([FromBody] AuthViewModel signUpModel)
         {
             var user = await _authService.SignUpUserAsync(signUpModel.Email, signUpModel.Password);
 

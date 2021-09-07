@@ -48,3 +48,4 @@ WHERE [a].[RoleId] = @__role_Id_0"
 2021-09-07T11:30:18.3508266+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Executed action "Web.Controllers.AuthController.SignInAsync (Web)" in 976.1375ms
 2021-09-07T11:30:18.3513556+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Web.Controllers.AuthController.SignInAsync (Web)"'
 2021-09-07T11:30:18.3538011+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 POST https://localhost:44376/Auth/sign-in application/json 75 - 200 - application/json;+charset=utf-8 1032.0066ms
+2021-09-07T11:56:54.1945329+03:00 [INF] () Strating web host

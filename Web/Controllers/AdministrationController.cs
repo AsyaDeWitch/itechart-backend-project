@@ -80,7 +80,7 @@ namespace Web.Controllers
 
         [HttpPost]
         [Route("assign-role-to-user")]
-        public async Task<IActionResult> AssignRoleToUser([FromBody] RoleToUserModel roleToUserModel)
+        public async Task<IActionResult> AssignRoleToUser([FromBody] AssignRoleToUserViewModel roleToUserModel)
         {
             var result = await _administrationService.AssignRoleToUser(roleToUserModel.Email, roleToUserModel.RoleName);
             if (result.Succeeded)

@@ -10,7 +10,8 @@ namespace BLL.Interfaces
         public Task<string> GenerateComfirmationLinkAsync(IdentityUser<int> user);
         public Task SendConfirmationLinkAsync(string userId, string confirmationLink);
         public Task<IdentityResult> ConfirmEmailAsync(string userId, string token);
-        public string GenerateJwt(IdentityUser<int> user);
-        
+        public string GenerateJwt(IdentityUser<int> user, string jwtIssuer, string jwtAudience, string jwtKey);
+
+
     }
 }

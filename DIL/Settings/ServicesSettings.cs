@@ -8,6 +8,12 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
+using BLL.Handlers;
+using BLL.Requiremets;
+using Microsoft.AspNetCore.Mvc.Authorization;
 
 namespace DIL.Settings
 {
@@ -35,11 +41,42 @@ namespace DIL.Settings
                         ValidAudience = Configuration["JwtSettings:Audience"],
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtSettings:Key"]))
                     };
+                    options.Events = new JwtBearerEvents
+                    {
+                        OnAuthenticationFailed = context =>
+                        {
+                            context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                            return Task.CompletedTask;
+                        },
+                        OnForbidden = context =>
+                        {
+                            context.Response.StatusCode = StatusCodes.Status403Forbidden;
+                            return Task.CompletedTask;
+                        }
+                    };
                 });
 
-            services.AddScoped<IJwtAuthService, JwtAuthService>();
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("RequireAdminRole", policy =>
+                policy.Requirements.Add(new RoleAuthorizationRequirement("Admin")));
+            });
+
+            services.AddSingleton<IAuthorizationHandler, RoleAuthorizationHandler>();
+
+            services.AddScoped<IAuthService, AuthService>();
             services.AddTransient<IEmailSenderService, EmailSenderService>();
             services.AddScoped<IAdministrationService, AdministrationService>();
+            services.AddScoped<ITokenService, JwtService>();
+
+            services.AddSingleton<IAuthorizationMiddlewareResultHandler,
+                          RoleAuthorizationMiddlewareResultHandler>();
+
+            services.AddControllers(config =>
+            {
+                var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
+                config.Filters.Add(new AuthorizeFilter(policy));
+            }); 
         }
     }
 }

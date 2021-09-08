@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
@@ -14,10 +13,10 @@ namespace Web.Controllers
     [Route("[controller]")]
     public class AuthController : Controller
     {
-        private readonly IJwtAuthService _authService;
+        private readonly IAuthService _authService;
         private readonly JwtSettings _jwtSettings;
 
-        public AuthController(IJwtAuthService authService, IOptions<JwtSettings> jwtSettings)
+        public AuthController(IAuthService authService, IOptions<JwtSettings> jwtSettings)
         {
             _authService = authService;
             _jwtSettings = jwtSettings.Value;
@@ -27,14 +26,15 @@ namespace Web.Controllers
         [Route("sign-in")]
         public async Task<IActionResult> SignInAsync([FromBody] AuthViewModel signInModel)
         {
-            var user = await _authService.SignInUserAsync(signInModel.Email, signInModel.Password);
+            var (user, tokenString) = await _authService.SignInUserAsync(signInModel.Email, signInModel.Password, _jwtSettings.Issuer, _jwtSettings.Audience, _jwtSettings.Key);
 
             if(user != null)
             {
-                var tokenString = _authService.GenerateJwt(user, _jwtSettings.Issuer, _jwtSettings.Audience, _jwtSettings.Key);
-                return Ok(new { token = tokenString });
+                if(tokenString != null)
+                {
+                    return Ok(new { token = tokenString });
+                }
             }
-
             return Unauthorized();
         }
 

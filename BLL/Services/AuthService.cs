@@ -1,4 +1,5 @@
 ﻿using BLL.Interfaces;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using System;
@@ -9,17 +10,19 @@ using System.Threading.Tasks;
 
 namespace BLL.Services
 {
-    public class JwtAuthService : IJwtAuthService
+    public class AuthService : IAuthService
     {
         private readonly UserManager<IdentityUser<int>> _userManager;
         private readonly SignInManager<IdentityUser<int>> _signInManager;
         private readonly IEmailSenderService _emailSender;
+        private readonly ITokenService _tokenService;
 
-        public JwtAuthService(UserManager<IdentityUser<int>> userManager, SignInManager<IdentityUser<int>> signInManager, IEmailSenderService emailSender)
+        public AuthService(UserManager<IdentityUser<int>> userManager, SignInManager<IdentityUser<int>> signInManager, IEmailSenderService emailSender, ITokenService tokenService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
+            _tokenService = tokenService;
         }
 
         public async Task<IdentityResult> ConfirmEmailAsync(string userId, string token)
@@ -40,25 +43,25 @@ namespace BLL.Services
             return await _userManager.GenerateEmailConfirmationTokenAsync(user);
         }
 
-        public string GenerateJwt(IdentityUser<int> user, string jwtIssuer, string jwtAudience, string jwtKey)
-        {
-            var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
-            var creditals = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-            var claims = new[]
-            {
-                new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
-                new Claim(JwtRegisteredClaimNames.Email, user.Email),
-            };
+        //public string GenerateJwt(IdentityUser<int> user, string jwtIssuer, string jwtAudience, string jwtKey)
+        //{
+        //    var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
+        //    var creditals = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+        //    var claims = new[]
+        //    {
+        //        new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+        //        new Claim(JwtRegisteredClaimNames.Email, user.Email),
+        //    };
 
-            var token = new JwtSecurityToken(
-                issuer: jwtIssuer,
-                audience: jwtAudience,
-                claims: claims,
-                expires: DateTime.Now.AddMinutes(120),
-                signingCredentials: creditals
-                );
-            return new JwtSecurityTokenHandler().WriteToken(token);
-        }
+        //    var token = new JwtSecurityToken(
+        //        issuer: jwtIssuer,
+        //        audience: jwtAudience,
+        //        claims: claims,
+        //        expires: DateTime.Now.AddMinutes(120),
+        //        signingCredentials: creditals
+        //        );
+        //    return new JwtSecurityTokenHandler().WriteToken(token);
+        //}
 
         public async Task SendConfirmationLinkAsync(string userId, string confirmationLink)
         {
@@ -66,7 +69,7 @@ namespace BLL.Services
             await _emailSender.SendEmailByMailKitAsync(userId, htmlMessage);
         }
 
-        public async Task<IdentityUser<int>> SignInUserAsync(string email, string password)
+        public async Task<(IdentityUser<int>, string)> SignInUserAsync(string email, string password, string issuer, string audience, string key)
         {
             if(ValidatorService.IsValidEmail(email))
             {
@@ -79,12 +82,16 @@ namespace BLL.Services
                         var signInResult = await _signInManager.PasswordSignInAsync(user, password, false, false);
                         if (signInResult.Succeeded)
                         {
-                            return user;
+                            var tokenString = _tokenService.BuildToken(user, issuer, audience, key);
+                            if(tokenString != null)
+                            {
+                                return (user, tokenString);
+                            }
                         }
                     }
                 }
             }
-            return null;
+            return (null, null);
         }
 
         public async Task<IdentityUser<int>> SignUpUserAsync(string email, string password)

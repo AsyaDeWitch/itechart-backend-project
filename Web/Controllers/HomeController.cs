@@ -8,18 +8,19 @@ namespace Web.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
         [HttpGet]
-        [Authorize(Roles="Admin")]
+        [Authorize(Policy = "RequireAdminRole")]
         [Route("GetInfo")]
         public IActionResult GetInfo()
-        {
+        {            
             _logger.LogInformation("GetInfo request. Information level");
-            return new OkObjectResult("Hello world!");
+            return Ok("Hello world!");
         }       
     }
 }

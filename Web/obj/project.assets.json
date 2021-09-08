@@ -2822,7 +2822,9 @@
           "Microsoft.AspNetCore.Identity.UI": "5.0.9",
           "Microsoft.Extensions.Diagnostics.HealthChecks": "5.0.9",
           "Microsoft.Extensions.Identity.Core": "5.0.9",
-          "Newtonsoft.Json": "13.0.1"
+          "Microsoft.Extensions.Options": "5.0.0",
+          "Newtonsoft.Json": "13.0.1",
+          "System.IdentityModel.Tokens.Jwt": "6.12.2"
         },
         "compile": {
           "bin/placeholder/BLL.dll": {}

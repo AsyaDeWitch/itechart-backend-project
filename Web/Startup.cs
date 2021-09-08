@@ -23,7 +23,7 @@ namespace Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //appsettings.json configuration
+            //appsettings.json parameters validation
             services.ConfigureAndValidate<JwtSettings>(Configuration);
 
             ServicesSettings.InjectDependencies(services, Configuration);
@@ -39,8 +39,6 @@ namespace Web
             // Register required services for health checks
             services.AddHealthChecksUI()
                 .AddInMemoryStorage();
-
-            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -72,5 +72,24 @@ namespace BLL.Services
                 return false;
             }
         }
+
+        public static bool IsValidPhoneNumber(string phoneNumber)
+        {
+            if(string.IsNullOrEmpty(phoneNumber))
+            {
+                return false;
+            }
+
+            try
+            {
+                return Regex.IsMatch(phoneNumber,
+                    @"^\+?(\d[\d\-. ]+)?(\([\d\-. ]+\))?[\d\-. ]+\d$",
+                    RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
+            }
+            catch (RegexMatchTimeoutException)
+            {
+                return false;
+            }
+        }
     }
 }

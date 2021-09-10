@@ -61,6 +61,21 @@ namespace Web
 
             app.UseRouting();
 
+            app.UseCookiePolicy(new CookiePolicyOptions
+            {
+                MinimumSameSitePolicy = SameSiteMode.Strict,
+                HttpOnly = Microsoft.AspNetCore.CookiePolicy.HttpOnlyPolicy.Always,
+                Secure = CookieSecurePolicy.Always
+            });
+
+            app.Use(async (context, next) =>
+            {
+                var token = context.Request.Cookies["JwtToken"];
+                if (!string.IsNullOrEmpty(token))
+                    context.Request.Headers.Add("Authorization", "Bearer " + token);
+                await next();
+            });
+
             app.UseAuthentication();
             app.UseAuthorization();
 
@@ -91,6 +106,8 @@ namespace Web
             });
 
             app.UseHealthChecksUI(config => config.UIPath = "/healthchecks-ui");
+
+            
         }
     }
 }

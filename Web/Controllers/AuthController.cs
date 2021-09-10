@@ -6,6 +6,7 @@ using BLL.Interfaces;
 using BLL.Models;
 using Microsoft.Extensions.Options;
 using DIL.Settings;
+using Microsoft.AspNetCore.Http;
 
 namespace Web.Controllers
 {
@@ -32,6 +33,10 @@ namespace Web.Controllers
             {
                 if(tokenString != null)
                 {
+                    HttpContext.Response.Cookies.Append("JwtToken", tokenString, new CookieOptions
+                    {
+                        MaxAge = TimeSpan.FromMinutes(120)
+                    });
                     return Ok(new { token = tokenString });
                 }
             }

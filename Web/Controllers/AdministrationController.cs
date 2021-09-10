@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace Web.Controllers
 {
-    [Authorize(Roles = "Admin")]
+    [Authorize(Policy = "RequireAdminRole")]
     [Route("[controller]")]
     public class AdministrationController : Controller
     {
@@ -42,7 +42,7 @@ namespace Web.Controllers
             return BadRequest("Incorrect role name");
         }
 
-        [HttpPut]
+        [HttpPut] //convert to patch syntax
         [Route("update-role")]
         public async Task<IActionResult> UpdateRoleAsync([FromBody] string newRoleName, [FromBody] string oldRoleName)
         {

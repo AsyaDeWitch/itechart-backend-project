@@ -1850,15 +1850,30 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "dependencies": {
+          "Microsoft.AspNetCore.Identity": "2.2.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.9",
           "Microsoft.EntityFrameworkCore": "5.0.9",
-          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.9"
+          "Microsoft.EntityFrameworkCore.SqlServer": "5.0.9",
+          "RIL": "1.0.0"
         },
         "compile": {
           "bin/placeholder/DAL.dll": {}
         },
         "runtime": {
           "bin/placeholder/DAL.dll": {}
+        }
+      },
+      "RIL/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v5.0",
+        "dependencies": {
+          "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "5.0.9"
+        },
+        "compile": {
+          "bin/placeholder/RIL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/RIL.dll": {}
         }
       }
     }
@@ -6525,6 +6540,11 @@
       "type": "project",
       "path": "../DAL/DAL.csproj",
       "msbuildProject": "../DAL/DAL.csproj"
+    },
+    "RIL/1.0.0": {
+      "type": "project",
+      "path": "../RIL/RIL.csproj",
+      "msbuildProject": "../RIL/RIL.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -6538,6 +6558,7 @@
       "Microsoft.Extensions.Identity.Core >= 5.0.9",
       "Microsoft.Extensions.Options >= 5.0.0",
       "Newtonsoft.Json >= 13.0.1",
+      "RIL >= 1.0.0",
       "System.IdentityModel.Tokens.Jwt >= 6.12.2"
     ]
   },
@@ -6570,6 +6591,9 @@
           "projectReferences": {
             "D:\\LabWebApp\\DAL\\DAL.csproj": {
               "projectPath": "D:\\LabWebApp\\DAL\\DAL.csproj"
+            },
+            "D:\\LabWebApp\\RIL\\RIL.csproj": {
+              "projectPath": "D:\\LabWebApp\\RIL\\RIL.csproj"
             }
           }
         }

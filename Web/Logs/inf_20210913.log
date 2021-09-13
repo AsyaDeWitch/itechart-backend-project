@@ -1,0 +1,37 @@
+2021-09-13T11:49:03.6114535+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2021-09-13T11:51:41.6148892+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2021-09-13T11:51:41.8617384+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("12"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1"
+2021-09-13T11:51:41.8793064+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("10"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');"
+2021-09-13T11:51:41.8816961+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT 1"
+2021-09-13T11:51:41.8820366+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT OBJECT_ID(N'[__EFMigrationsHistory]');"
+2021-09-13T11:51:41.8869711+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];"
+2021-09-13T11:51:41.8967423+03:00 [INF] (Microsoft.EntityFrameworkCore.Migrations) Applying migration '"20210913084903_User_Extension"'.
+2021-09-13T11:51:41.9305430+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""ALTER TABLE [AspNetUsers] ADD [AddressDeliveryId] int NULL;"
+2021-09-13T11:51:41.9360698+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("5"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE [Address] (
+    [Id] int NOT NULL IDENTITY,
+    [Country] nvarchar(200) NOT NULL,
+    [City] nvarchar(200) NOT NULL,
+    [Street] nvarchar(200) NOT NULL,
+    [HouseNumber] int NOT NULL,
+    [HouseBuilding] nvarchar(20) NULL DEFAULT N'-',
+    [EntranceNumber] int NOT NULL DEFAULT 1,
+    [FloorNumber] int NOT NULL,
+    [FlatNumber] int NOT NULL,
+    CONSTRAINT [PK_Address] PRIMARY KEY ([Id])
+);"
+2021-09-13T11:51:41.9383632+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE INDEX [IX_AspNetUsers_AddressDeliveryId] ON [AspNetUsers] ([AddressDeliveryId]);"
+2021-09-13T11:51:41.9402813+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""ALTER TABLE [AspNetUsers] ADD CONSTRAINT [FK_AspNetUsers_Address_AddressDeliveryId] FOREIGN KEY ([AddressDeliveryId]) REFERENCES [Address] ([Id]) ON DELETE NO ACTION;"
+2021-09-13T11:51:41.9409422+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
+VALUES (N'20210913084903_User_Extension', N'5.0.9');"

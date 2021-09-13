@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
 using BLL.Interfaces;
-using BLL.Models;
+using BLL.ViewModels;
 using Microsoft.Extensions.Options;
 using DIL.Settings;
 using Microsoft.AspNetCore.Http;

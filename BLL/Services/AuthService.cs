@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
+using RIL.Models;
 using System;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -12,12 +13,12 @@ namespace BLL.Services
 {
     public class AuthService : IAuthService
     {
-        private readonly UserManager<IdentityUser<int>> _userManager;
-        private readonly SignInManager<IdentityUser<int>> _signInManager;
+        private readonly UserManager<ExtendedUser> _userManager;
+        private readonly SignInManager<ExtendedUser> _signInManager;
         private readonly IEmailSenderService _emailSender;
         private readonly ITokenService _tokenService;
 
-        public AuthService(UserManager<IdentityUser<int>> userManager, SignInManager<IdentityUser<int>> signInManager, IEmailSenderService emailSender, ITokenService tokenService)
+        public AuthService(UserManager<ExtendedUser> userManager, SignInManager<ExtendedUser> signInManager, IEmailSenderService emailSender, ITokenService tokenService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
@@ -38,7 +39,7 @@ namespace BLL.Services
             return IdentityResult.Failed();
         }
 
-        public async Task<string> GenerateComfirmationLinkAsync(IdentityUser<int> user)
+        public async Task<string> GenerateComfirmationLinkAsync(ExtendedUser user)
         {
             return await _userManager.GenerateEmailConfirmationTokenAsync(user);
         }
@@ -69,7 +70,7 @@ namespace BLL.Services
             await _emailSender.SendEmailByMailKitAsync(userId, htmlMessage);
         }
 
-        public async Task<(IdentityUser<int>, string)> SignInUserAsync(string email, string password, string issuer, string audience, string key)
+        public async Task<(ExtendedUser, string)> SignInUserAsync(string email, string password, string issuer, string audience, string key)
         {
             if(ValidatorService.IsValidEmail(email))
             {
@@ -94,13 +95,13 @@ namespace BLL.Services
             return (null, null);
         }
 
-        public async Task<IdentityUser<int>> SignUpUserAsync(string email, string password)
+        public async Task<ExtendedUser> SignUpUserAsync(string email, string password)
         {
             if(ValidatorService.IsValidEmail(email))
             { 
                 if (ValidatorService.IsValidPassword(password))
                 {
-                    var user = new IdentityUser<int>
+                    var user = new ExtendedUser
                     {
                         UserName = email,
                         Email = email,

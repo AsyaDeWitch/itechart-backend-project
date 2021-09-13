@@ -3,12 +3,9 @@ using BLL.Interfaces;
 using BLL.ViewModels;
 using DAL.Data;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.JsonPatch;
 using RIL.Models;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BLL.Services
@@ -38,35 +35,39 @@ namespace BLL.Services
             var user = await _userManager.FindByIdAsync(userId);
             if (user != null)
             {
-                if (ValidatorService.IsValidPhoneNumber(userProfile.PhoneNumber))
+                if (!String.IsNullOrWhiteSpace(userProfile.PhoneNumber))
                 {
-                    if (userProfile.UserName != null)
-                    {
-                        user.UserName = userProfile.UserName;
-                    }
-
-                    if (userProfile.PhoneNumber != null)
+                    if (ValidatorService.IsValidPhoneNumber(userProfile.PhoneNumber))
                     {
                         user.PhoneNumber = userProfile.PhoneNumber;
-                    }
-                    
-                    if(userProfile.AddressDelivery != null)
-                    {
-                        user.AddressDelivery = userProfile.AddressDelivery;
-                    }
 
-                    var result = await _userManager.UpdateAsync(user);
-                    if (result.Succeeded)
-                    {
-                        return new ReturnUserProfileViewModel
-                        {
-                            AddressDelivery = user.AddressDelivery,
-                            UserName = user.UserName,
-                            Email = user.Email,
-                            PhoneNumber = user.PhoneNumber,
-                        };
                     }
+                    else
+                        return null; 
                 }
+
+                if (!String.IsNullOrWhiteSpace(userProfile.UserName))
+                {
+                    user.UserName = userProfile.UserName;
+                }
+
+                if (userProfile.AddressDelivery != null)
+                {
+                    user.AddressDelivery = userProfile.AddressDelivery;
+                }
+
+                var result = await _userManager.UpdateAsync(user);
+                if (result.Succeeded)
+                {
+                    return new ReturnUserProfileViewModel
+                    {
+                        AddressDelivery = user.AddressDelivery,
+                        UserName = user.UserName,
+                        Email = user.Email,
+                        PhoneNumber = user.PhoneNumber,
+                    };
+                }
+
             }
             return null;
         }
@@ -83,6 +84,19 @@ namespace BLL.Services
                 Email = user.Email,
                 PhoneNumber = user.PhoneNumber,
             };
+        }
+
+        public async Task<IdentityResult> UpdateUserPassword(JsonPatchDocument<PatchUserViewModel> userPatch, string userId)
+        {
+            var user = await _userManager.FindByIdAsync(userId);
+            if(user != null)
+            {
+                var updatedUser = new PatchUserViewModel();
+
+                userPatch.ApplyTo(updatedUser);
+                return await _userManager.ChangePasswordAsync(user, updatedUser.CurrentPassword, updatedUser.NewPassword);
+            }
+            return IdentityResult.Failed();
         }
     }
 }

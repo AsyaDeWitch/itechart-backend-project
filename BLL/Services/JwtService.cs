@@ -1,5 +1,4 @@
 ﻿using BLL.Interfaces;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
 using RIL.Models;
 using System;
@@ -20,7 +19,6 @@ namespace BLL.Services
             var claims = new[]
             {
                 new Claim("UserId", user.Id.ToString()),
-                new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
                 new Claim(JwtRegisteredClaimNames.Email, user.Email),
             };
 

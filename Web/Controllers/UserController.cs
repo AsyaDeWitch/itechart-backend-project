@@ -11,6 +11,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using Microsoft.Extensions.Options;
 using DIL.Settings;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace Web.Controllers
 {
@@ -44,9 +45,21 @@ namespace Web.Controllers
             return Unauthorized();
         }
 
-        public IActionResult UpdateUserPassword()
+        [HttpPatch]
+        [Route("user/password")]
+        public async Task<IActionResult> UpdateUserPassword([FromBody]JsonPatchDocument<PatchUserViewModel> userPatch)
         {
-            return NoContent();
+            if (HttpContext.Request.Cookies.ContainsKey("JwtToken"))
+            {
+                string token = HttpContext.Request.Cookies["JwtToken"];
+                var userId = _userService.GetUserId(token);
+                var result = await _userService.UpdateUserPassword(userPatch, userId);
+                if (result.Succeeded)
+                {
+                    return NoContent();
+                }
+            }
+            return Unauthorized();
         }
 
         [HttpGet]

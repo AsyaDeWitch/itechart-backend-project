@@ -73,6 +73,8 @@ namespace DIL.Settings
             });
 
             services.AddSingleton<IAuthorizationHandler, RoleAuthorizationHandler>();
+            services.AddSingleton<IAuthorizationMiddlewareResultHandler,
+                          RoleAuthorizationMiddlewareResultHandler>();
 
             services.AddScoped<IAuthService, AuthService>();
             services.AddTransient<IEmailSenderService, EmailSenderService>();
@@ -80,9 +82,6 @@ namespace DIL.Settings
             services.AddScoped<ITokenService, JwtService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserClaimsPrincipalFactory<ExtendedUser>, ExtendedUserClaimsPrincipalFactory>();
-
-            services.AddSingleton<IAuthorizationMiddlewareResultHandler,
-                          RoleAuthorizationMiddlewareResultHandler>();
 
             services.AddControllers(config =>
             {

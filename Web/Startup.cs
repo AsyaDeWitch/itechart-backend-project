@@ -29,6 +29,8 @@ namespace Web
             ServicesSettings.InjectDependencies(services, Configuration);
             services.AddDatabaseDeveloperPageExceptionFilter();
 
+            //services.AddAutoMapper(typeof(Startup).Assembly);
+
             //Register required services for health checks
             services.AddHealthChecks()
                 .AddSqlServer(Configuration["ConnectionStrings:DefaultConnection"]);

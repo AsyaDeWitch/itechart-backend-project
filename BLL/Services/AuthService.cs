@@ -81,12 +81,16 @@ namespace BLL.Services
                         Email = email,
                     };
 
-                    var result = await _userManager.CreateAsync(user, password);
-
-                    if (result.Succeeded)
+                    var existUser = await _userManager.FindByEmailAsync(email);
+                    if(existUser == null)
                     {
-                        await _userManager.AddToRoleAsync(user, "User");
-                        return user;
+                        var result = await _userManager.CreateAsync(user, password);
+
+                        if (result.Succeeded)
+                        {
+                            await _userManager.AddToRoleAsync(user, "User");
+                            return user;
+                        }
                     }
                 }  
             }

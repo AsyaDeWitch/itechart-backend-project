@@ -9,6 +9,8 @@ using BLL.Interfaces;
 using System.Security.Claims;
 using System.IdentityModel.Tokens.Jwt;
 using System.Text;
+using Microsoft.Extensions.Options;
+using DIL.Settings;
 
 namespace Web.Controllers
 {
@@ -16,17 +18,30 @@ namespace Web.Controllers
     public class UserController : Controller
     {
         private readonly IUserService _userService;
+        private readonly JwtSettings _jwtSettings;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, IOptions<JwtSettings> jwtSettings)
         {
             _userService = userService;
+            _jwtSettings = jwtSettings.Value;
         }
 
         [HttpPut]
         [Route("user")]
-        public IActionResult UpdateUserProfile([FromBody] UserProfileViewModel user)
+        public async Task<IActionResult> UpdateUserProfile([FromBody] UserProfileViewModel user)
         {
-            return Ok();
+            if (HttpContext.Request.Cookies.ContainsKey("JwtToken"))
+            {
+                string token = HttpContext.Request.Cookies["JwtToken"];
+                var userId = _userService.GetUserId(token);
+                var updatedUser = await _userService.UpdateUserProfile(user, userId);
+                if (updatedUser != null)
+                {
+                    return Ok(updatedUser);
+                }
+                return BadRequest("Invalid phone number");
+            }
+            return Unauthorized();
         }
 
         public IActionResult UpdateUserPassword()
@@ -36,17 +51,14 @@ namespace Web.Controllers
 
         [HttpGet]
         [Route("user")]
-        public IActionResult GetUserProfile()
+        public async Task<IActionResult> GetUserProfile()
         {
             if (HttpContext.Request.Cookies.ContainsKey("JwtToken"))
             {
-                //validate token
                 string token = HttpContext.Request.Cookies["JwtToken"];
-                //ClaimsPrincipal principal = g 
-                JwtSecurityTokenHandler tokenHandler = new();
-                JwtSecurityToken jwtToken = (JwtSecurityToken)tokenHandler.ReadToken(token);
-                var id = jwtToken.Claims.First(claim => claim.Type == "UserId").Value;
-                return Ok();
+                var userId = _userService.GetUserId(token);
+                var user = await _userService.GetUserProfile(userId);
+                return Ok(user);
             }
             return Unauthorized();
         }

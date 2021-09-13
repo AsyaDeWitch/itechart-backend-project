@@ -4,6 +4,7 @@ using Microsoft.IdentityModel.Tokens;
 using RIL.Models;
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 
@@ -31,6 +32,15 @@ namespace BLL.Services
                 signingCredentials: creditals
                 );
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        public string ExtractUserIdFromToken(string token)
+        {
+            JwtSecurityTokenHandler tokenHandler = new();
+            JwtSecurityToken jwtToken = (JwtSecurityToken)tokenHandler.ReadToken(token);
+            var id = jwtToken.Claims.First(claim => claim.Type == "UserId").Value;
+
+            return id;
         }
 
         public bool IsTokenValid(string jwtIssuer, string jwtAudience, string jwtKey, string jwtToken)

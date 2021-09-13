@@ -1,15 +1,11 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RIL.Models
 
 {
     public class ExtendedUser : IdentityUser<int>
     {
+        public int AddressDeliveryId { get; set; }
         public Address AddressDelivery { get; set; }
     }
 }

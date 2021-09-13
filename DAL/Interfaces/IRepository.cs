@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace DAL.Interfaces
 {
-    interface IRepository
+    public interface IRepository<T> where T: class
     {
+        public T GetById(int id);
     }
 }

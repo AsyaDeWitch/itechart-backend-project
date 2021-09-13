@@ -1,11 +1,7 @@
 ﻿using RIL.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Options;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DAL
@@ -19,13 +15,13 @@ namespace DAL
         {
             var principal = await base.CreateAsync(user);
 
-            if (!string.IsNullOrWhiteSpace(user.AddressDelivery.ToString()))
-            {
-                ((ClaimsIdentity)principal.Identity).AddClaims(new[] 
-                {
-                    new Claim("AddressDelivery", user.AddressDelivery.ToString())
-                });
-            }
+            //if (!string.IsNullOrWhiteSpace(user.AddressDelivery.ToString()))
+            //{
+            //    ((ClaimsIdentity)principal.Identity).AddClaims(new[] 
+            //    {
+            //        new Claim("AddressDelivery", user.AddressDelivery.ToString())
+            //    });
+            //}
             return principal;
         }
     }

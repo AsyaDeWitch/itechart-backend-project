@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Identity;
-using RIL.Models;
+﻿using RIL.Models;
 
 namespace BLL.Interfaces
 {
@@ -7,5 +6,6 @@ namespace BLL.Interfaces
     {
         public string BuildToken(ExtendedUser user, string issuer, string audience, string key);
         public bool IsTokenValid(string issuer, string audience, string key, string token);
+        public string ExtractUserIdFromToken(string token);
     }
 }

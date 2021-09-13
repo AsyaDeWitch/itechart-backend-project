@@ -1,12 +1,6 @@
 ﻿using BLL.Interfaces;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.IdentityModel.Tokens;
 using RIL.Models;
-using System;
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BLL.Services
@@ -43,26 +37,6 @@ namespace BLL.Services
         {
             return await _userManager.GenerateEmailConfirmationTokenAsync(user);
         }
-
-        //public string GenerateJwt(IdentityUser<int> user, string jwtIssuer, string jwtAudience, string jwtKey)
-        //{
-        //    var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
-        //    var creditals = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
-        //    var claims = new[]
-        //    {
-        //        new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
-        //        new Claim(JwtRegisteredClaimNames.Email, user.Email),
-        //    };
-
-        //    var token = new JwtSecurityToken(
-        //        issuer: jwtIssuer,
-        //        audience: jwtAudience,
-        //        claims: claims,
-        //        expires: DateTime.Now.AddMinutes(120),
-        //        signingCredentials: creditals
-        //        );
-        //    return new JwtSecurityTokenHandler().WriteToken(token);
-        //}
 
         public async Task SendConfirmationLinkAsync(string userId, string confirmationLink)
         {

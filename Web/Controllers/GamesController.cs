@@ -27,5 +27,19 @@ namespace Web.Controllers
 
             return Ok(topPlatformsInfo);
         }
+
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("search")]
+        public async Task<IActionResult> SearchGamesByParameters(DateTime? term, int? limit, double? offset, string name)
+        {
+            if (term == null && limit == null && offset == null)
+            {
+                var products = await _gamesService.SearchGamesByName(name);
+                return Ok(products);
+            }
+
+            return Ok();
+        }
     }
 }

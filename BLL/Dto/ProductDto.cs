@@ -1,5 +1,6 @@
 ﻿using DAL.Data;
 using DAL.Repositories;
+using RIL.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -19,6 +20,11 @@ namespace BLL.Dto
         public async Task<List<(int, int)>> GetTopPlatforms()
         {
             return await _productRepository.GetEachPlatformCount();
+        }
+
+        public async Task<List<Product>> GetProductsByName(string name)
+        {
+            return await _productRepository.GetProductsByName(name);
         }
     }
 }

@@ -1,0 +1,41 @@
+2021-09-15T21:17:35.4300344+03:00 [INF] (Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager) User profile is available. Using '"C:\Users\A.Dzenisevich\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-09-15T21:17:35.4902086+03:00 [INF] (HealthChecks.UI.Core.HostedService.UIInitializationHostedService) Initializing UI Database
+2021-09-15T21:17:35.9798267+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-15T21:17:36.3159281+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44376/index.html - -
+2021-09-15T21:17:36.3239197+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-15T21:17:36.3552945+03:00 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2021-09-15T21:17:36.3553487+03:00 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Development"
+2021-09-15T21:17:36.3553761+03:00 [INF] (Microsoft.Hosting.Lifetime) Content root path: "D:\LabWebApp\Web"
+2021-09-15T21:17:36.4443714+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44376/index.html - - - 200 - text/html;charset=utf-8 129.8210ms
+2021-09-15T21:17:36.5693568+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44376/swagger/v1/swagger.json - -
+2021-09-15T21:17:36.6416259+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44376/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 72.2926ms
+2021-09-15T21:17:37.9945374+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44376/Games/search?name=the - -
+2021-09-15T21:17:37.9992855+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Web.Controllers.GamesController.SearchGamesByName (Web)"'
+2021-09-15T21:17:38.0166085+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Route matched with "{action = \"SearchGamesByName\", controller = \"Games\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SearchGamesByName(System.String)" on controller "Web.Controllers.GamesController" ("Web").
+2021-09-15T21:17:47.3683280+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-15T21:17:47.5678546+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2021-09-15T21:17:50.7865421+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("41"ms) [Parameters=["@__p_1='?' (Size = 200)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Id], [p].[DateCreated], [p].[Name], [p].[Platform], [p].[TotalRating]
+FROM [Products] AS [p]
+WHERE LOWER([p].[Name]) LIKE @__p_1"
+2021-09-15T21:17:59.4222911+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-15T21:17:59.4270825+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor) Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[RIL.Models.Product, RIL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+2021-09-15T21:17:59.5254903+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Executed action "Web.Controllers.GamesController.SearchGamesByName (Web)" in 21505.4834ms
+2021-09-15T21:17:59.5259611+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Web.Controllers.GamesController.SearchGamesByName (Web)"'
+2021-09-15T21:17:59.5281987+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44376/Games/search?name=the - - - 200 2098 application/json;+charset=utf-8 21533.8080ms
+2021-09-15T21:18:09.4379927+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-15T21:18:19.4490289+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-15T21:18:24.5907646+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44376/Games/search?name=grand - -
+2021-09-15T21:18:24.5916954+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Web.Controllers.GamesController.SearchGamesByName (Web)"'
+2021-09-15T21:18:24.5919161+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Route matched with "{action = \"SearchGamesByName\", controller = \"Games\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SearchGamesByName(System.String)" on controller "Web.Controllers.GamesController" ("Web").
+2021-09-15T21:18:28.5474669+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2021-09-15T21:18:28.5555502+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("5"ms) [Parameters=["@__p_1='?' (Size = 200)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Id], [p].[DateCreated], [p].[Name], [p].[Platform], [p].[TotalRating]
+FROM [Products] AS [p]
+WHERE LOWER([p].[Name]) LIKE @__p_1"
+2021-09-15T21:18:28.5564463+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor) Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[RIL.Models.Product, RIL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+2021-09-15T21:18:28.5568273+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Executed action "Web.Controllers.GamesController.SearchGamesByName (Web)" in 3964.8991ms
+2021-09-15T21:18:28.5568783+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Web.Controllers.GamesController.SearchGamesByName (Web)"'
+2021-09-15T21:18:28.5570559+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44376/Games/search?name=grand - - - 200 526 application/json;+charset=utf-8 3966.3132ms
+2021-09-15T21:18:29.4563438+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-15T21:21:34.8990000+03:00 [INF] () Strating web host

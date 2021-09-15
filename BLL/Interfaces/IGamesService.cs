@@ -1,7 +1,5 @@
-﻿using System;
+﻿using RIL.Models;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace BLL.Interfaces
@@ -9,6 +7,6 @@ namespace BLL.Interfaces
     public interface IGamesService
     {
         public Task<Dictionary<string, int>> GetTopPlatforms(int quantity);
-
+        public Task<List<Product>> SearchGamesByName(string name);
     }
 }

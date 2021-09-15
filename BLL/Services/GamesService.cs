@@ -28,5 +28,10 @@ namespace BLL.Services
             }
             return resultDictionary;
         }
+
+        public async Task<List<Product>> SearchGamesByName(string name)
+        {
+            return await _productDto.GetProductsByName(name);
+        }
     }
 }

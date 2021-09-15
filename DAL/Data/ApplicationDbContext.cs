@@ -13,6 +13,7 @@ namespace DAL.Data
         }
 
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -44,6 +45,30 @@ namespace DAL.Data
                 .HasDefaultValue(1);
             builder.Entity<Address>()
                 .Property(a => a.FlatNumber)
+                .IsRequired();
+
+            builder.Entity<Product>()
+                .HasKey(p => p.Id);
+            builder.Entity<Product>()
+                .HasIndex(p => p.Name);
+            builder.Entity<Product>()
+                .HasIndex(p => p.Platform);
+            builder.Entity<Product>()
+                .HasIndex(p => p.DateCreated);
+            builder.Entity<Product>()
+                .HasIndex(p => p.TotalRating);
+            builder.Entity<Product>()
+                .Property(p => p.Name)
+                .IsRequired()
+                .HasMaxLength(200);
+            builder.Entity<Product>()
+                .Property(p => p.Platform)
+                .IsRequired();
+            builder.Entity<Product>()
+                .Property(p => p.DateCreated)
+                .IsRequired();
+            builder.Entity<Product>()
+                .Property(p => p.TotalRating)
                 .IsRequired();
         }
     }

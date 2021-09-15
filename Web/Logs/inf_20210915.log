@@ -82,3 +82,4 @@ IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'Date
 2021-09-15T18:51:28.5619954+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
 ""INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
 VALUES (N'20210915155103_Add_Products_Test_Data', N'5.0.9');"
+2021-09-15T20:24:23.3355430+03:00 [INF] () Strating web host

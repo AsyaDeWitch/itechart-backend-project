@@ -1,0 +1,81 @@
+2021-09-15T20:24:24.1581563+03:00 [INF] (Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager) User profile is available. Using '"C:\Users\A.Dzenisevich\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-09-15T20:24:24.2233881+03:00 [INF] (HealthChecks.UI.Core.HostedService.UIInitializationHostedService) Initializing UI Database
+2021-09-15T20:24:24.7400395+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-15T20:24:25.2371788+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44376/index.html - -
+2021-09-15T20:24:25.2462309+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-15T20:24:25.2779818+03:00 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2021-09-15T20:24:25.2780764+03:00 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Development"
+2021-09-15T20:24:25.2781153+03:00 [INF] (Microsoft.Hosting.Lifetime) Content root path: "D:\LabWebApp\Web"
+2021-09-15T20:24:25.3802380+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44376/index.html - - - 200 - text/html;charset=utf-8 144.7693ms
+2021-09-15T20:24:25.3930888+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44376/swagger-ui-bundle.js - -
+2021-09-15T20:24:25.3930933+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44376/swagger-ui-standalone-preset.js - -
+2021-09-15T20:24:25.3930785+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44376/swagger-ui.css - -
+2021-09-15T20:24:25.4061984+03:00 [INF] (Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware) The file "/swagger-ui-bundle.js" was not modified
+2021-09-15T20:24:25.4061891+03:00 [INF] (Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware) The file "/swagger-ui.css" was not modified
+2021-09-15T20:24:25.4061891+03:00 [INF] (Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware) The file "/swagger-ui-standalone-preset.js" was not modified
+2021-09-15T20:24:25.4073108+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44376/swagger-ui-bundle.js - - - 304 - application/javascript 14.1933ms
+2021-09-15T20:24:25.4073116+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44376/swagger-ui.css - - - 304 - text/css 14.2525ms
+2021-09-15T20:24:25.4073108+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44376/swagger-ui-standalone-preset.js - - - 304 - application/javascript 14.1909ms
+2021-09-15T20:24:25.5692390+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44376/swagger/v1/swagger.json - -
+2021-09-15T20:24:25.6541441+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44376/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 84.8713ms
+2021-09-15T20:24:35.3064062+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-15T20:24:45.3265948+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-15T20:24:55.3388505+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-15T20:25:03.1124772+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44376/Games/top-platforms - -
+2021-09-15T20:25:03.1136221+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Web.Controllers.GamesController.GetTopPlatforms (Web)"'
+2021-09-15T20:25:03.1259703+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Route matched with "{action = \"GetTopPlatforms\", controller = \"Games\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetTopPlatforms()" on controller "Web.Controllers.GamesController" ("Web").
+2021-09-15T20:25:03.3882005+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2021-09-15T20:25:04.6353084+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("38"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE [p].[Platform] = @__i_0"
+2021-09-15T20:25:04.6599035+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("2"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE [p].[Platform] = @__i_0"
+2021-09-15T20:25:04.6607759+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE [p].[Platform] = @__i_0"
+2021-09-15T20:25:04.6614821+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE [p].[Platform] = @__i_0"
+2021-09-15T20:25:04.6621588+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE [p].[Platform] = @__i_0"
+2021-09-15T20:25:04.6626848+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE [p].[Platform] = @__i_0"
+2021-09-15T20:25:04.6632103+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE [p].[Platform] = @__i_0"
+2021-09-15T20:25:04.6638281+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE [p].[Platform] = @__i_0"
+2021-09-15T20:25:04.6644846+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE [p].[Platform] = @__i_0"
+2021-09-15T20:25:04.6651281+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE [p].[Platform] = @__i_0"
+2021-09-15T20:25:04.6656985+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE [p].[Platform] = @__i_0"
+2021-09-15T20:25:04.6662686+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE [p].[Platform] = @__i_0"
+2021-09-15T20:25:04.6765928+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor) Executing "OkObjectResult", writing value of type '"System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'.
+2021-09-15T20:25:04.7546021+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Executed action "Web.Controllers.GamesController.GetTopPlatforms (Web)" in 1625.4574ms
+2021-09-15T20:25:04.7550409+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Web.Controllers.GamesController.GetTopPlatforms (Web)"'
+2021-09-15T20:25:04.7572000+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44376/Games/top-platforms - - - 200 44 application/json;+charset=utf-8 1644.7560ms
+2021-09-15T20:25:05.3474742+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-15T20:25:15.3509733+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.9" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "

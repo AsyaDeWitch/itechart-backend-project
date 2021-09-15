@@ -82,6 +82,7 @@ namespace DIL.Settings
             services.AddScoped<ITokenService, JwtService>();
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserClaimsPrincipalFactory<ExtendedUser>, ExtendedUserClaimsPrincipalFactory>();
+            services.AddScoped<IGamesService, GamesService>();
 
             services.AddControllers(config =>
             {

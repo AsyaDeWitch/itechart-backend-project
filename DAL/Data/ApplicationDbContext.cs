@@ -19,57 +19,14 @@ namespace DAL.Data
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<Address>()
-                .HasKey(a => a.Id);
-            builder.Entity<Address>()
-                .Property(a => a.Country)
-                .IsRequired()
-                .HasMaxLength(200);
-            builder.Entity<Address>()
-                .Property(a => a.City)
-                .IsRequired()
-                .HasMaxLength(200);
-            builder.Entity<Address>()
-                .Property(a => a.Street)
-                .IsRequired()
-                .HasMaxLength(200);
-            builder.Entity<Address>()
-                .Property(a => a.HouseNumber)
-                .IsRequired();
-            builder.Entity<Address>()
-                .Property(a => a.HouseBuilding)
-                .HasDefaultValue("-")
-                .HasMaxLength(20);
-            builder.Entity<Address>()
-                .Property(a => a.EntranceNumber)
-                .HasDefaultValue(1);
-            builder.Entity<Address>()
-                .Property(a => a.FlatNumber)
-                .IsRequired();
+            var addressModelSettings = new AddressModelSettings(builder);
+            addressModelSettings.AddSettings();
 
-            builder.Entity<Product>()
-                .HasKey(p => p.Id);
-            builder.Entity<Product>()
-                .HasIndex(p => p.Name);
-            builder.Entity<Product>()
-                .HasIndex(p => p.Platform);
-            builder.Entity<Product>()
-                .HasIndex(p => p.DateCreated);
-            builder.Entity<Product>()
-                .HasIndex(p => p.TotalRating);
-            builder.Entity<Product>()
-                .Property(p => p.Name)
-                .IsRequired()
-                .HasMaxLength(200);
-            builder.Entity<Product>()
-                .Property(p => p.Platform)
-                .IsRequired();
-            builder.Entity<Product>()
-                .Property(p => p.DateCreated)
-                .IsRequired();
-            builder.Entity<Product>()
-                .Property(p => p.TotalRating)
-                .IsRequired();
+            var productModelSettings = new ProductModelSettings(builder);
+            productModelSettings.AddSettings();
+
+            var testDataProvider = new TestDataProvider(builder);
+            testDataProvider.AddTestData();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using DAL.Data;
 using DAL.Repositories;
 using RIL.Models;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -17,14 +18,24 @@ namespace BLL.Dto
             _productRepository = new ProductRepository(_context);
         }
 
-        public async Task<List<(int, int)>> GetTopPlatforms()
+        public async Task<List<(int, int)>> GetTopPlatformsAsync()
         {
-            return await _productRepository.GetEachPlatformCount();
+            return await _productRepository.GetEachPlatformCountAsync();
         }
 
-        public async Task<List<Product>> GetProductsByName(string name)
+        public async Task<List<Product>> GetProductsByNameAsync(string name)
         {
-            return await _productRepository.GetProductsByName(name);
+            return await _productRepository.GetProductsByNameAsync(name);
+        }
+
+        public async Task<List<Product>> GetProductsByParametersWithoutLimitAsync(DateTime term, double offset, string name)
+        {
+            return await _productRepository.GetProductsByParametersWithoutLimitAsync(term, offset, name);
+        }
+
+        public async Task<List<Product>> GetProductsByParametersAsync(DateTime term, int limit, double offset, string name)
+        {
+            return await _productRepository.GetProductsByParametersAsync(term, limit, offset, name);
         }
     }
 }

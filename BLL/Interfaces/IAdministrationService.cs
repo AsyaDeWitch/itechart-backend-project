@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Identity;
+﻿using BLL.ViewModels;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.JsonPatch;
 using System.Threading.Tasks;
 
 namespace BLL.Interfaces
@@ -7,9 +9,9 @@ namespace BLL.Interfaces
     {
         public Task<IdentityResult> CreateRoleAsync(string roleName);
         public Task<IdentityResult> DeleteRoleAsync(string roleName);
-        public Task<IdentityResult> UpdateRoleAsync(string newRoleName, string oldRoleName);
-        public Task<IdentityResult> DeleteUserByEmail(string email);
-        public Task<IdentityResult> DeleteUserById(string id);
-        public Task<IdentityResult> AssignRoleToUser(string email, string roleName);
+        public Task<IdentityResult> UpdateRoleAsync(JsonPatchDocument<PatchUserRoleViewModel> userPatch);
+        public Task<IdentityResult> DeleteUserByEmailAsync(string email);
+        public Task<IdentityResult> DeleteUserByIdAsync(string id);
+        public Task<IdentityResult> AssignRoleToUserAsync(string email, string roleName);
     }
 }

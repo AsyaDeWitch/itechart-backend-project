@@ -17,7 +17,7 @@ namespace DAL.Repositories
             _context = context;
         }
 
-        public async Task<List<(int, int)>> GetEachPlatformCount()
+        public async Task<List<(int, int)>> GetEachPlatformCountAsync()
         {
             var counts = new List<(int, int)>();
             for(int i = 0; i < Enum.GetNames(typeof(Platform)).Length; i++)
@@ -28,9 +28,28 @@ namespace DAL.Repositories
             return counts;
         }
 
-        public async Task<List<Product>> GetProductsByName(string name)
+        public async Task<List<Product>> GetProductsByNameAsync(string name)
         {
             var products = await _context.Products.Where(p => EF.Functions.Like(p.Name.ToLower(), "%" + name.ToLower() + "%".ToLower())).ToListAsync();
+            return products;
+        }
+
+        public async Task<List<Product>> GetProductsByParametersWithoutLimitAsync(DateTime term, double offset, string name)
+        {
+            var products = await _context.Products
+                .Where(p => EF.Functions.Like(p.Name.ToLower(), "%" + name.ToLower() + "%".ToLower()))
+                .Where(p => p.DateCreated >= term && p.TotalRating >= offset)
+                .ToListAsync();
+            return products;
+        }
+
+        public async Task<List<Product>> GetProductsByParametersAsync(DateTime term, int limit, double offset, string name)
+        {
+            var products = await _context.Products
+                .Where(p => EF.Functions.Like(p.Name.ToLower(), "%" + name.ToLower() + "%".ToLower()))
+                .Where(p => p.DateCreated >= term && p.TotalRating >= offset)
+                .Take(limit)
+                .ToListAsync();
             return products;
         }
     }

@@ -28,14 +28,14 @@ namespace BLL.Handlers
             await _defaultHandler.HandleAsync(next, context, policy, authorizeResult);
         }
 
-        private bool Show403ForForbiddenResult(PolicyAuthorizationResult authorizeResult)
+        private static bool Show403ForForbiddenResult(PolicyAuthorizationResult authorizeResult)
         {
             return authorizeResult.Forbidden 
                 && authorizeResult.AuthorizationFailure.FailedRequirements
                 .OfType<RoleAuthorizationRequirement>()
                 .Any();
         }
-        private bool Show401ForUnathorizedResult(PolicyAuthorizationResult authorizeResult)
+        private static bool Show401ForUnathorizedResult(PolicyAuthorizationResult authorizeResult)
         {
             return authorizeResult.Challenged;
         }

@@ -1,5 +1,7 @@
 ﻿using BLL.Interfaces;
+using BLL.ViewModels;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.JsonPatch;
 using RIL.Models;
 using System.Threading.Tasks;
 
@@ -16,7 +18,7 @@ namespace BLL.Services
             _userManager = userManager;
         }
 
-        public async Task<IdentityResult> AssignRoleToUser(string email, string roleName)
+        public async Task<IdentityResult> AssignRoleToUserAsync(string email, string roleName)
         {
             var user = await _userManager.FindByEmailAsync(email);
             if (user != null)
@@ -52,7 +54,7 @@ namespace BLL.Services
             return IdentityResult.Failed();
         }
 
-        public async Task<IdentityResult> DeleteUserByEmail(string email)
+        public async Task<IdentityResult> DeleteUserByEmailAsync(string email)
         {
             var user = await _userManager.FindByEmailAsync(email);
             if (user != null)
@@ -62,7 +64,7 @@ namespace BLL.Services
             return IdentityResult.Failed();
         }
 
-        public async Task<IdentityResult> DeleteUserById(string id)
+        public async Task<IdentityResult> DeleteUserByIdAsync(string id)
         {
             var user = await _userManager.FindByIdAsync(id);
             if (user != null)
@@ -72,12 +74,14 @@ namespace BLL.Services
             return IdentityResult.Failed();
         }
 
-        public async Task<IdentityResult> UpdateRoleAsync(string newRoleName, string oldRoleName)
+        public async Task<IdentityResult> UpdateRoleAsync(JsonPatchDocument<PatchUserRoleViewModel> userPatch)
         {
-            if (await _roleManager.RoleExistsAsync(oldRoleName))
+            var updatedRole = new PatchUserRoleViewModel();
+            userPatch.ApplyTo(updatedRole);
+            if (await _roleManager.RoleExistsAsync(updatedRole.CurrentRole))
             {
-                var role = await _roleManager.FindByNameAsync(oldRoleName);
-                role.Name = newRoleName;
+                var role = await _roleManager.FindByNameAsync(updatedRole.CurrentRole);
+                role.Name = updatedRole.NewRole;
                 return await _roleManager.UpdateAsync(role);
             }
             return IdentityResult.Failed();

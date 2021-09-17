@@ -16,7 +16,7 @@ namespace DAL.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.9")
+                .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
@@ -206,7 +206,7 @@ namespace DAL.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<int>("AddressDeliveryId")
+                    b.Property<int?>("AddressDeliveryId")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -559,9 +559,7 @@ namespace DAL.Migrations
                 {
                     b.HasOne("RIL.Models.Address", "AddressDelivery")
                         .WithMany()
-                        .HasForeignKey("AddressDeliveryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AddressDeliveryId");
 
                     b.Navigation("AddressDelivery");
                 });

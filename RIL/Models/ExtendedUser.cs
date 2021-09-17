@@ -5,7 +5,7 @@ namespace RIL.Models
 {
     public class ExtendedUser : IdentityUser<int>
     {
-        public int AddressDeliveryId { get; set; }
+        public int? AddressDeliveryId { get; set; }
         public Address AddressDelivery { get; set; }
     }
 }

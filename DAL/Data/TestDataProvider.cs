@@ -42,7 +42,7 @@ namespace DAL.Data
                 new { Id = 23, Name = "The Elder Scrolls V: Skyrim", Platform = (int)Platform.Playstation_4, DateCreated = new DateTime(2016, 10, 28), TotalRating = 7.7 },
                 new { Id = 24, Name = "The Elder Scrolls V: Skyrim", Platform = (int)Platform.Xbox_One, DateCreated = new DateTime(2016, 10, 28), TotalRating = 8.2 },
                 new { Id = 25, Name = "The Elder Scrolls V: Skyrim", Platform = (int)Platform.Nintendo_Switch, DateCreated = new DateTime(2017, 11, 17), TotalRating = 8.4 }
-                );
+            );
         }
     }
 }

@@ -13,7 +13,7 @@ namespace DAL.Repositories
             _context = context;
         }
 
-        public Address GetById(int id)
+        public Address GetById(int? id)
         {
             using(_context)
             {

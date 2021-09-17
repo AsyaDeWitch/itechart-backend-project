@@ -20,6 +20,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using DAL;
 using RIL.Models;
+using AutoMapper;
 
 namespace DIL.Settings
 {
@@ -72,6 +73,13 @@ namespace DIL.Settings
                 policy.Requirements.Add(new RoleAuthorizationRequirement("User")));
             });
 
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingSettings());
+            });
+            IMapper mapper = mapperConfig.CreateMapper();
+
+            services.AddSingleton(mapper);
             services.AddSingleton<IAuthorizationHandler, RoleAuthorizationHandler>();
             services.AddSingleton<IAuthorizationMiddlewareResultHandler,
                           RoleAuthorizationMiddlewareResultHandler>();

@@ -15,7 +15,7 @@ namespace BLL.Dto
             _addressRepository = new AddressRepository(_context);
         }
 
-        public Address GetAddressById(int id)
+        public Address GetAddressById(int? id)
         {
             var address = _addressRepository.GetById(id);
             if (address != null)

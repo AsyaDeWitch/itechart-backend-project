@@ -4,11 +4,13 @@ using System;
 using System.Threading.Tasks;
 using BLL.ViewModels;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace Web.Controllers
 {
     [Authorize(Policy = "RequireAdminRole")]
-    [Route("[controller]")]
+    [Route("administration")]
     public class AdministrationController : Controller
     {
         private readonly IAdministrationService _administrationService;
@@ -18,20 +20,36 @@ namespace Web.Controllers
             _administrationService = administrationService;
         }
 
+        /// <summary>
+        /// Performes role creation
+        /// </summary>
+        /// <param name="roleName">Name of new role</param>
+        /// <response code="201">Role created successfully</response>
+        /// <response code="400">Incorrect role name</response>
         [HttpPost]
         [Route("create-role")]
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         public async Task<IActionResult> CreateRoleAsync([FromBody] string roleName)
         {
             var result = await _administrationService.CreateRoleAsync(roleName);
             if (result.Succeeded)
             {
-                return Created(new Uri("/Auth/sign-in", UriKind.Relative), null);
+                return Created(new Uri("/user", UriKind.Relative), null);
             }
             return BadRequest("Incorrect role name");
         }
 
+        /// <summary>
+        /// Performes role deletion
+        /// </summary>
+        /// <param name="roleName">Name of role need to delete</param>
+        /// <response code="204">Role deleted successfully</response>
+        /// <response code="400">Incorrect role name</response>
         [HttpDelete]
         [Route("delete-role")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         public async Task<IActionResult> DeleteRoleAsync([FromBody] string roleName)
         {
             var result = await _administrationService.DeleteRoleAsync(roleName);
@@ -42,53 +60,83 @@ namespace Web.Controllers
             return BadRequest("Incorrect role name");
         }
 
-        [HttpPut] //convert to patch syntax
+        /// <summary>
+        /// Performs role updatition
+        /// </summary>
+        /// <param name="userPatch">User old and new roles</param>
+        /// <response code="204">Role updated successfully</response>
+        /// <response code="400">Incorrect role name(s)</response>
+        [HttpPatch]
         [Route("update-role")]
-        public async Task<IActionResult> UpdateRoleAsync([FromBody] string newRoleName, [FromBody] string oldRoleName)
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        public async Task<IActionResult> UpdateRoleAsync([FromBody] JsonPatchDocument<PatchUserRoleViewModel> userPatch)
         {
-            var result = await _administrationService.UpdateRoleAsync(newRoleName, oldRoleName);
+            var result = await _administrationService.UpdateRoleAsync(userPatch);
             if (result.Succeeded)
             {
-                return Ok();
+                return NoContent();
             }
-            return BadRequest("Incorrect role name");
+            return BadRequest("Incorrect role name(s)");
         }
 
+        /// <summary>
+        /// Performes user deletion by email
+        /// </summary>
+        /// <param name="email">Email of user need to delete</param>
+        /// /// <response code="204">User deleted successfully</response>
+        /// <response code="400">Incorrect role name or user email</response>
         [HttpDelete]
         [Route("delete-user-by-email")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         public async Task<IActionResult> DeleteUserByEmailAsync(string email)
         {
-            var result = await _administrationService.DeleteUserByEmail(email);
+            var result = await _administrationService.DeleteUserByEmailAsync(email);
             if (result.Succeeded)
             {
                 return NoContent();
             }
-            return BadRequest("Incorrect role name");
+            return BadRequest("Incorrect role name or user email");
         }
 
+        /// <summary>
+        /// Performes user deletion by id
+        /// </summary>
+        /// <param name="id">Id of user need to delete</param>
+        /// <response code="204">User deleted successfully</response>
+        /// <response code="400">Incorrect role name or user id</response>
         [HttpDelete]
         [Route("delete-user-by-id")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         public async Task<IActionResult> DeleteUserByIdAsync(string id)
         {
-            var result = await _administrationService.DeleteUserById(id);
+            var result = await _administrationService.DeleteUserByIdAsync(id);
             if (result.Succeeded)
             {
                 return NoContent();
             }
-            return BadRequest("Incorrect role name");
+            return BadRequest("Incorrect user id");
         }
 
+        /// <summary>
+        /// Performes assigning role to user
+        /// </summary>
+        /// <response code="204">Role assigned to user successfully</response>
+        /// <response code="400">Incorrect role name or user email</response>
         [HttpPost]
         [Route("assign-role-to-user")]
-        public async Task<IActionResult> AssignRoleToUser([FromBody] AssignRoleToUserViewModel roleToUserModel)
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        public async Task<IActionResult> AssignRoleToUserAsync([FromBody] AssignRoleToUserViewModel roleToUserModel)
         {
-            var result = await _administrationService.AssignRoleToUser(roleToUserModel.Email, roleToUserModel.RoleName);
+            var result = await _administrationService.AssignRoleToUserAsync(roleToUserModel.Email, roleToUserModel.RoleName);
             if (result.Succeeded)
             {
-                return Ok();
+                return NoContent();
             }
-            return BadRequest("Incorrect role name");
+            return BadRequest("Incorrect role name or user email");
         }
-
     }
 }

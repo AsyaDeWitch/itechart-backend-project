@@ -14,6 +14,12 @@ using Microsoft.AspNetCore.Authorization;
 using BLL.Handlers;
 using BLL.Requiremets;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.AspNetCore.Mvc.Formatters;
+using Microsoft.Extensions.Options;
+using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using DAL;
+using RIL.Models;
 
 namespace DIL.Settings
 {
@@ -24,7 +30,7 @@ namespace DIL.Settings
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
                     Configuration.GetConnectionString("DefaultConnection")));
-            services.AddIdentity<IdentityUser<int>, IdentityRole<int>>(options => options.SignIn.RequireConfirmedAccount = true)
+            services.AddIdentity<ExtendedUser, IdentityRole<int>>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
 
@@ -62,23 +68,44 @@ namespace DIL.Settings
             {
                 options.AddPolicy("RequireAdminRole", policy =>
                 policy.Requirements.Add(new RoleAuthorizationRequirement("Admin")));
+                options.AddPolicy("RequireUserRole", policy =>
+                policy.Requirements.Add(new RoleAuthorizationRequirement("User")));
             });
 
             services.AddSingleton<IAuthorizationHandler, RoleAuthorizationHandler>();
+            services.AddSingleton<IAuthorizationMiddlewareResultHandler,
+                          RoleAuthorizationMiddlewareResultHandler>();
 
             services.AddScoped<IAuthService, AuthService>();
             services.AddTransient<IEmailSenderService, EmailSenderService>();
             services.AddScoped<IAdministrationService, AdministrationService>();
             services.AddScoped<ITokenService, JwtService>();
-
-            services.AddSingleton<IAuthorizationMiddlewareResultHandler,
-                          RoleAuthorizationMiddlewareResultHandler>();
+            services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IUserClaimsPrincipalFactory<ExtendedUser>, ExtendedUserClaimsPrincipalFactory>();
 
             services.AddControllers(config =>
             {
                 var policy = new AuthorizationPolicyBuilder().RequireAuthenticatedUser().Build();
                 config.Filters.Add(new AuthorizeFilter(policy));
-            }); 
+                config.InputFormatters.Insert(0, GetJsonPatchInputFormatter());
+            })
+                .AddNewtonsoftJson();
+        }
+
+        private static NewtonsoftJsonPatchInputFormatter GetJsonPatchInputFormatter()
+        {
+            var builder = new ServiceCollection()
+                .AddLogging()
+                .AddMvc()
+                .AddNewtonsoftJson()
+                .Services.BuildServiceProvider();
+
+            return builder
+                .GetRequiredService<IOptions<MvcOptions>>()
+                .Value
+                .InputFormatters
+                .OfType<NewtonsoftJsonPatchInputFormatter>()
+                .First();
         }
     }
 }

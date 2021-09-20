@@ -9,6 +9,7 @@
     <PackageReference Include="MailKit" Version="2.15.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.9" />
+    <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="5.0.9" />
     <PackageReference Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="5.0.9" />
     <PackageReference Include="Microsoft.Extensions.Identity.Core" Version="5.0.9" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="5.0.0" />
@@ -18,6 +19,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DAL\DAL.csproj" />
+    <ProjectReference Include="..\RIL\RIL.csproj" />
   </ItemGroup>
 
 </Project>

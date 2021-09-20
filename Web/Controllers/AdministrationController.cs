@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Threading.Tasks;
-using BLL.Models;
+using BLL.ViewModels;
 using Microsoft.AspNetCore.Authorization;
 
 namespace Web.Controllers

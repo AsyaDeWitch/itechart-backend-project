@@ -1,8 +1,9 @@
 ﻿using BLL.Interfaces;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.IdentityModel.Tokens;
+using RIL.Models;
 using System;
 using System.IdentityModel.Tokens.Jwt;
+using System.Linq;
 using System.Security.Claims;
 using System.Text;
 
@@ -11,13 +12,13 @@ namespace BLL.Services
     public class JwtService : ITokenService
     {
         private readonly int _expiryDurationInMinites = 120;
-        public string BuildToken(IdentityUser<int> user, string jwtIssuer, string jwtAudience, string jwtKey)
+        public string BuildToken(ExtendedUser user, string jwtIssuer, string jwtAudience, string jwtKey)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
             var creditals = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
             var claims = new[]
             {
-                new Claim(JwtRegisteredClaimNames.Sub, user.UserName),
+                new Claim("UserId", user.Id.ToString()),
                 new Claim(JwtRegisteredClaimNames.Email, user.Email),
             };
 
@@ -29,6 +30,15 @@ namespace BLL.Services
                 signingCredentials: creditals
                 );
             return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
+        public string ExtractUserIdFromToken(string token)
+        {
+            JwtSecurityTokenHandler tokenHandler = new();
+            JwtSecurityToken jwtToken = (JwtSecurityToken)tokenHandler.ReadToken(token);
+            var id = jwtToken.Claims.First(claim => claim.Type == "UserId").Value;
+
+            return id;
         }
 
         public bool IsTokenValid(string jwtIssuer, string jwtAudience, string jwtKey, string jwtToken)

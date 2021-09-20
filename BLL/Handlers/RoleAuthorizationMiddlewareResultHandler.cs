@@ -19,6 +19,11 @@ namespace BLL.Handlers
                 context.Response.StatusCode = (int)HttpStatusCode.Forbidden;
                 return;
             }
+            if (Show401ForUnathorizedResult(authorizeResult))
+            {
+                context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
+                return;
+            }
 
             await _defaultHandler.HandleAsync(next, context, policy, authorizeResult);
         }
@@ -29,6 +34,10 @@ namespace BLL.Handlers
                 && authorizeResult.AuthorizationFailure.FailedRequirements
                 .OfType<RoleAuthorizationRequirement>()
                 .Any();
+        }
+        private bool Show401ForUnathorizedResult(PolicyAuthorizationResult authorizeResult)
+        {
+            return authorizeResult.Challenged;
         }
     }
 }

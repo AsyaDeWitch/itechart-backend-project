@@ -1,5 +1,6 @@
 ﻿using BLL.Interfaces;
 using Microsoft.AspNetCore.Identity;
+using RIL.Models;
 using System.Threading.Tasks;
 
 namespace BLL.Services
@@ -7,9 +8,9 @@ namespace BLL.Services
     public class AdministrationService : IAdministrationService
     {
         private readonly RoleManager<IdentityRole<int>> _roleManager;
-        private readonly UserManager<IdentityUser<int>> _userManager;
+        private readonly UserManager<ExtendedUser> _userManager;
 
-        public AdministrationService(RoleManager<IdentityRole<int>> roleManager, UserManager<IdentityUser<int>> userManager)
+        public AdministrationService(RoleManager<IdentityRole<int>> roleManager, UserManager<ExtendedUser> userManager)
         {
             _roleManager = roleManager;
             _userManager = userManager;

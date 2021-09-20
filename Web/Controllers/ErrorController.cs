@@ -9,11 +9,16 @@ namespace Web.Controllers
     public class ErrorController : Controller
     {
         private readonly ILogger<ErrorController> _logger;
+
         public ErrorController(ILogger<ErrorController> logger)
         {
             _logger = logger;
         }
 
+        /// <summary>
+        /// Receives detail occured exception info and loggin them into log file
+        /// </summary>
+        /// <returns>View with detail occured exception info </returns>
         [Route("Error")]
         public IActionResult Error()
         {
@@ -32,7 +37,6 @@ namespace Web.Controllers
 
                 return View(ex);
             }
-
             return View();
         }
     }

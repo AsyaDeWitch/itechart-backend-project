@@ -8,8 +8,8 @@ namespace BLL.Interfaces
     public interface IUserService
     {
         public string GetUserId(string token);
-        public Task<ReturnUserProfileViewModel> UpdateUserProfile(UserProfileViewModel userProfile, string userId);
-        public Task<ReturnUserProfileViewModel> GetUserProfile(string userId);
-        public Task<IdentityResult> UpdateUserPassword(JsonPatchDocument<PatchUserViewModel> userPatch, string userId);
+        public Task<ReturnUserProfileViewModel> UpdateUserProfileAsync(UserProfileViewModel userProfile, string userId);
+        public Task<ReturnUserProfileViewModel> GetUserProfileAsync(string userId);
+        public Task<IdentityResult> UpdateUserPasswordAsync(JsonPatchDocument<PatchUserPasswordViewModel> userPatch, string userId);
     }
 }

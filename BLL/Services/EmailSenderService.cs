@@ -56,7 +56,7 @@ namespace BLL.Services
             }
         }
 
-        private string GetHtmlBody(string message)
+        private static string GetHtmlBody(string message)
         {
             return "<html><body> " + message + " </body></html>";
         }

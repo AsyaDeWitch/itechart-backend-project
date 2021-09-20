@@ -13,38 +13,20 @@ namespace DAL.Data
         }
 
         public DbSet<Address> Addresses { get; set; }
+        public DbSet<Product> Products { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
 
-            builder.Entity<Address>()
-                .HasKey(a => a.Id);
-            builder.Entity<Address>()
-                .Property(a => a.Country)
-                .IsRequired()
-                .HasMaxLength(200);
-            builder.Entity<Address>()
-                .Property(a => a.City)
-                .IsRequired()
-                .HasMaxLength(200);
-            builder.Entity<Address>()
-                .Property(a => a.Street)
-                .IsRequired()
-                .HasMaxLength(200);
-            builder.Entity<Address>()
-                .Property(a => a.HouseNumber)
-                .IsRequired();
-            builder.Entity<Address>()
-                .Property(a => a.HouseBuilding)
-                .HasDefaultValue("-")
-                .HasMaxLength(20);
-            builder.Entity<Address>()
-                .Property(a => a.EntranceNumber)
-                .HasDefaultValue(1);
-            builder.Entity<Address>()
-                .Property(a => a.FlatNumber)
-                .IsRequired();
+            var addressModelSettings = new AddressModelSettings(builder);
+            addressModelSettings.AddSettings();
+
+            var productModelSettings = new ProductModelSettings(builder);
+            productModelSettings.AddSettings();
+
+            var testDataProvider = new TestDataProvider(builder);
+            testDataProvider.AddTestData();
         }
     }
 }

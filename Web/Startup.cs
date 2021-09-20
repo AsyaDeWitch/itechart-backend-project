@@ -8,6 +8,11 @@ using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Http;
 using DIL.Settings;
 using Web.Extensions;
+using System.IO;
+using Microsoft.OpenApi.Models;
+using System.Reflection;
+using System.Linq;
+using System;
 
 namespace Web
 {
@@ -29,14 +34,40 @@ namespace Web
             ServicesSettings.InjectDependencies(services, Configuration);
             services.AddDatabaseDeveloperPageExceptionFilter();
 
-            //services.AddAutoMapper(typeof(Startup).Assembly);
+            services.AddAutoMapper(typeof(Startup).Assembly);
 
             //Register required services for health checks
             services.AddHealthChecks()
                 .AddSqlServer(Configuration["ConnectionStrings:DefaultConnection"]);
 
             //Register the Swagger generator
-            services.AddSwaggerGen();
+            services.AddSwaggerGen(c =>
+                {
+                    c.SwaggerDoc("v1",
+                        new OpenApiInfo
+                        {
+                            Title = "LabWebApp API V1",
+                            Version = "v1"
+                        }
+                    );
+                    var currentAssembly = Assembly.GetExecutingAssembly();
+                    var xmlDocs = currentAssembly.GetReferencedAssemblies()
+                    .Union(new AssemblyName[] { currentAssembly.GetName() })
+                    .Select(a => Path.Combine(Path.GetDirectoryName(currentAssembly.Location), $"{a.Name}.xml"))
+                    .Where(f => File.Exists(f)).ToArray();
+                    Array.ForEach(xmlDocs, (d) =>
+                    {
+                        c.IncludeXmlComments(d);
+                    });
+
+                    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+                    {
+                        Description = "JWT Authorization cookie using the Bearer scheme",
+                        Name = "Authorization",
+                        In = ParameterLocation.Cookie,
+                        Type = SecuritySchemeType.ApiKey
+                    });
+                });
 
             // Register required services for health checks
             services.AddHealthChecksUI()
@@ -108,8 +139,6 @@ namespace Web
             });
 
             app.UseHealthChecksUI(config => config.UIPath = "/healthchecks-ui");
-
-            
         }
     }
 }

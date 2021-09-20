@@ -1,79 +1,81 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using BLL.ViewModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using BLL.Interfaces;
-using System.Security.Claims;
-using System.IdentityModel.Tokens.Jwt;
-using System.Text;
-using Microsoft.Extensions.Options;
-using DIL.Settings;
 using Microsoft.AspNetCore.JsonPatch;
+using Microsoft.AspNetCore.Http;
 
 namespace Web.Controllers
 {
     [Authorize(Policy = "RequireUserRole")]
+    [Route("user")]
     public class UserController : Controller
     {
         private readonly IUserService _userService;
-        private readonly JwtSettings _jwtSettings;
 
-        public UserController(IUserService userService, IOptions<JwtSettings> jwtSettings)
+        public UserController(IUserService userService)
         {
             _userService = userService;
-            _jwtSettings = jwtSettings.Value;
         }
 
+        /// <summary>
+        /// Updates profile info
+        /// </summary>
+        /// <param name="user">User profile info</param>
+        /// <response code="200">Updated user profile returned</response>
+        /// <response code="400">Invalid phone number</response>
+        /// <returns>Updated user profile</returns>
         [HttpPut]
-        [Route("user")]
-        public async Task<IActionResult> UpdateUserProfile([FromBody] UserProfileViewModel user)
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ReturnUserProfileViewModel))]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        public async Task<IActionResult> UpdateUserProfileAsync([FromBody] UserProfileViewModel user)
         {
-            if (HttpContext.Request.Cookies.ContainsKey("JwtToken"))
+            string token = HttpContext.Request.Cookies["JwtToken"];
+            var userId = _userService.GetUserId(token);
+            var updatedUser = await _userService.UpdateUserProfileAsync(user, userId);
+            if (updatedUser != null)
             {
-                string token = HttpContext.Request.Cookies["JwtToken"];
-                var userId = _userService.GetUserId(token);
-                var updatedUser = await _userService.UpdateUserProfile(user, userId);
-                if (updatedUser != null)
-                {
-                    return Ok(updatedUser);
-                }
-                return BadRequest("Invalid phone number");
+                return Ok(updatedUser);
             }
-            return Unauthorized();
+            return BadRequest("Invalid phone number");
         }
 
+        /// <summary>
+        /// Updates user password
+        /// </summary>
+        /// <param name="userPatch">User old and new passwords</param>
+        /// <response code="204">User password updated successfully</response>
+        /// <response code="400">Invalid old or new password</response>
         [HttpPatch]
-        [Route("user/password")]
-        public async Task<IActionResult> UpdateUserPassword([FromBody]JsonPatchDocument<PatchUserViewModel> userPatch)
+        [Route("password")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
+        public async Task<IActionResult> UpdateUserPasswordAsync([FromBody]JsonPatchDocument<PatchUserPasswordViewModel> userPatch)
         {
-            if (HttpContext.Request.Cookies.ContainsKey("JwtToken"))
+            string token = HttpContext.Request.Cookies["JwtToken"];
+            var userId = _userService.GetUserId(token);
+            var result = await _userService.UpdateUserPasswordAsync(userPatch, userId);
+            if (result.Succeeded)
             {
-                string token = HttpContext.Request.Cookies["JwtToken"];
-                var userId = _userService.GetUserId(token);
-                var result = await _userService.UpdateUserPassword(userPatch, userId);
-                if (result.Succeeded)
-                {
-                    return NoContent();
-                }
+                return NoContent();
             }
-            return Unauthorized();
+            return BadRequest("Invalid old or new password");
         }
 
+        /// <summary>
+        /// Receives user profile
+        /// </summary>
+        /// <response code="200">Updated user profile returned</response>
+        /// <returns>User profile</returns>
         [HttpGet]
-        [Route("user")]
-        public async Task<IActionResult> GetUserProfile()
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ReturnUserProfileViewModel))]
+        public async Task<IActionResult> GetUserProfileAsync()
         {
-            if (HttpContext.Request.Cookies.ContainsKey("JwtToken"))
-            {
-                string token = HttpContext.Request.Cookies["JwtToken"];
-                var userId = _userService.GetUserId(token);
-                var user = await _userService.GetUserProfile(userId);
-                return Ok(user);
-            }
-            return Unauthorized();
+            string token = HttpContext.Request.Cookies["JwtToken"];
+            var userId = _userService.GetUserId(token);
+            var user = await _userService.GetUserProfileAsync(userId);
+            return Ok(user);
         }
     }
 }

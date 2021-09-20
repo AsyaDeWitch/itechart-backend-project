@@ -16,7 +16,7 @@ namespace DAL.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.9")
+                .HasAnnotation("ProductVersion", "5.0.10")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
@@ -206,7 +206,7 @@ namespace DAL.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
-                    b.Property<int>("AddressDeliveryId")
+                    b.Property<int?>("AddressDeliveryId")
                         .HasColumnType("int");
 
                     b.Property<string>("ConcurrencyStamp")
@@ -268,6 +268,242 @@ namespace DAL.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("RIL.Models.Product", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<int>("Platform")
+                        .HasColumnType("int");
+
+                    b.Property<double>("TotalRating")
+                        .HasColumnType("float");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DateCreated");
+
+                    b.HasIndex("Name");
+
+                    b.HasIndex("Platform");
+
+                    b.HasIndex("TotalRating");
+
+                    b.ToTable("Products");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            DateCreated = new DateTime(2015, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "The Witcher 3: Wild Hunt",
+                            Platform = 0,
+                            TotalRating = 9.3000000000000007
+                        },
+                        new
+                        {
+                            Id = 2,
+                            DateCreated = new DateTime(2015, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "The Witcher 3: Wild Hunt",
+                            Platform = 7,
+                            TotalRating = 9.1999999999999993
+                        },
+                        new
+                        {
+                            Id = 3,
+                            DateCreated = new DateTime(2015, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "The Witcher 3: Wild Hunt",
+                            Platform = 4,
+                            TotalRating = 9.0999999999999996
+                        },
+                        new
+                        {
+                            Id = 4,
+                            DateCreated = new DateTime(2019, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "The Witcher 3: Wild Hunt",
+                            Platform = 9,
+                            TotalRating = 8.5
+                        },
+                        new
+                        {
+                            Id = 5,
+                            DateCreated = new DateTime(2009, 6, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "The Sims 3",
+                            Platform = 0,
+                            TotalRating = 8.5999999999999996
+                        },
+                        new
+                        {
+                            Id = 6,
+                            DateCreated = new DateTime(2009, 6, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "The Sims 3",
+                            Platform = 1,
+                            TotalRating = 8.5999999999999996
+                        },
+                        new
+                        {
+                            Id = 7,
+                            DateCreated = new DateTime(1999, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Heroes of Might and Magic III",
+                            Platform = 0,
+                            TotalRating = 9.1999999999999993
+                        },
+                        new
+                        {
+                            Id = 8,
+                            DateCreated = new DateTime(1999, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Heroes of Might and Magic III",
+                            Platform = 1,
+                            TotalRating = 9.1999999999999993
+                        },
+                        new
+                        {
+                            Id = 9,
+                            DateCreated = new DateTime(1999, 12, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Heroes of Might and Magic III",
+                            Platform = 2,
+                            TotalRating = 9.1999999999999993
+                        },
+                        new
+                        {
+                            Id = 10,
+                            DateCreated = new DateTime(2013, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Grand Theft Auto V",
+                            Platform = 6,
+                            TotalRating = 9.6999999999999993
+                        },
+                        new
+                        {
+                            Id = 11,
+                            DateCreated = new DateTime(2013, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Grand Theft Auto V",
+                            Platform = 3,
+                            TotalRating = 9.6999999999999993
+                        },
+                        new
+                        {
+                            Id = 12,
+                            DateCreated = new DateTime(2014, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Grand Theft Auto V",
+                            Platform = 7,
+                            TotalRating = 9.6999999999999993
+                        },
+                        new
+                        {
+                            Id = 13,
+                            DateCreated = new DateTime(2014, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Grand Theft Auto V",
+                            Platform = 4,
+                            TotalRating = 9.6999999999999993
+                        },
+                        new
+                        {
+                            Id = 14,
+                            DateCreated = new DateTime(2015, 4, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Grand Theft Auto V",
+                            Platform = 0,
+                            TotalRating = 9.5999999999999996
+                        },
+                        new
+                        {
+                            Id = 15,
+                            DateCreated = new DateTime(2008, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "World of Warcraft: Wrath of the Lich King",
+                            Platform = 0,
+                            TotalRating = 9.0999999999999996
+                        },
+                        new
+                        {
+                            Id = 16,
+                            DateCreated = new DateTime(2008, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "World of Warcraft: Wrath of the Lich King",
+                            Platform = 1,
+                            TotalRating = 9.0999999999999996
+                        },
+                        new
+                        {
+                            Id = 17,
+                            DateCreated = new DateTime(2018, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Red Dead Redemption 2",
+                            Platform = 7,
+                            TotalRating = 9.6999999999999993
+                        },
+                        new
+                        {
+                            Id = 18,
+                            DateCreated = new DateTime(2018, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Red Dead Redemption 2",
+                            Platform = 4,
+                            TotalRating = 9.6999999999999993
+                        },
+                        new
+                        {
+                            Id = 19,
+                            DateCreated = new DateTime(2018, 11, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "Red Dead Redemption 2",
+                            Platform = 0,
+                            TotalRating = 9.3000000000000007
+                        },
+                        new
+                        {
+                            Id = 20,
+                            DateCreated = new DateTime(2011, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "The Elder Scrolls V: Skyrim",
+                            Platform = 0,
+                            TotalRating = 9.4000000000000004
+                        },
+                        new
+                        {
+                            Id = 21,
+                            DateCreated = new DateTime(2011, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "The Elder Scrolls V: Skyrim",
+                            Platform = 6,
+                            TotalRating = 9.1999999999999993
+                        },
+                        new
+                        {
+                            Id = 22,
+                            DateCreated = new DateTime(2011, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "The Elder Scrolls V: Skyrim",
+                            Platform = 3,
+                            TotalRating = 9.5999999999999996
+                        },
+                        new
+                        {
+                            Id = 23,
+                            DateCreated = new DateTime(2016, 10, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "The Elder Scrolls V: Skyrim",
+                            Platform = 7,
+                            TotalRating = 7.7000000000000002
+                        },
+                        new
+                        {
+                            Id = 24,
+                            DateCreated = new DateTime(2016, 10, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "The Elder Scrolls V: Skyrim",
+                            Platform = 4,
+                            TotalRating = 8.1999999999999993
+                        },
+                        new
+                        {
+                            Id = 25,
+                            DateCreated = new DateTime(2017, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Name = "The Elder Scrolls V: Skyrim",
+                            Platform = 9,
+                            TotalRating = 8.4000000000000004
+                        });
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole<int>", null)
@@ -323,9 +559,7 @@ namespace DAL.Migrations
                 {
                     b.HasOne("RIL.Models.Address", "AddressDelivery")
                         .WithMany()
-                        .HasForeignKey("AddressDeliveryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AddressDeliveryId");
 
                     b.Navigation("AddressDelivery");
                 });

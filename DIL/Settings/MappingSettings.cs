@@ -9,7 +9,9 @@ namespace DIL.Settings
         public MappingSettings()
         {
             CreateMap<Address, AddressViewModel>();
+            CreateMap<AddressViewModel, Address>();
             CreateMap<Product, ProductViewModel>();
+            CreateMap<ProductViewModel, Product>();
         }
     }
 }

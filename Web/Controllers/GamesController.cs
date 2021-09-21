@@ -42,7 +42,7 @@ namespace Web.Controllers
         /// <param name="limit">Count of games need to receive</param>
         /// <param name="offset">Minimum game score on a 10-point scale</param>
         /// <param name="name">Game name or part of the game name</param>
-        /// /// <response code="200">Games mathes search term returned</response>
+        /// <response code="200">Games mathes search term returned</response>
         /// <returns>Games mathes search term</returns>
         [HttpGet]
         [AllowAnonymous]
@@ -53,6 +53,39 @@ namespace Web.Controllers
             var products = await _gamesService.SearchGamesByParametersAsync(term, limit, offset, name);
 
             return Ok(products);
+        }
+
+        /// <summary>
+        /// Performs product description
+        /// </summary>
+        /// <param name="id">Product ID</param>
+        /// <response code="200">Product full description returned</response>
+        /// <returns>Full info about product</returns>
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("id/{id}")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductViewModel))]
+        public async Task<IActionResult> GetProductFullInfoAsync(string id)
+        {
+            var product = await _gamesService.GetProductFullInfoAsync(id);
+
+            return Ok(product);
+        }
+
+        /// <summary>
+        /// Performs product creation
+        /// </summary>
+        /// <param name="product">Full info about product + attached images for logo and background</param>
+        /// <response code="201">Created product full description returned</response>
+        /// <returns>Created product</returns>
+        [HttpPost]
+        [Authorize(Policy = "RequireAdminRole")]
+        [Route("")]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ProductViewModel))]
+        public async Task<IActionResult> CreateProductAsync([FromForm]ProductViewModel product)
+        {
+            var createdProduct = await _gamesService.CreateProductAsync(product);
+            return Created("/games/id/" + createdProduct.Id.ToString(), createdProduct);
         }
     }
 }

@@ -1,0 +1,19 @@
+2021-09-21T11:19:29.7755420+03:00 [INF] (Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager) User profile is available. Using '"C:\Users\A.Dzenisevich\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-09-21T11:19:29.8347742+03:00 [INF] (HealthChecks.UI.Core.HostedService.UIInitializationHostedService) Initializing UI Database
+2021-09-21T11:19:30.2242708+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-21T11:19:30.5457988+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44376/index.html - -
+2021-09-21T11:19:30.5546305+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-21T11:19:30.5875604+03:00 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2021-09-21T11:19:30.5876947+03:00 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Development"
+2021-09-21T11:19:30.5877513+03:00 [INF] (Microsoft.Hosting.Lifetime) Content root path: "D:\LabWebApp\Web"
+2021-09-21T11:19:30.7264697+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44376/index.html - - - 200 - text/html;charset=utf-8 182.1545ms
+2021-09-21T11:19:30.8485217+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44376/swagger/v1/swagger.json - -
+2021-09-21T11:19:30.9627599+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44376/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 114.2217ms
+2021-09-21T11:19:40.6154703+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-21T11:19:50.6368660+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-21T11:20:00.6477176+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-21T11:20:10.6582673+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-21T11:20:20.6767315+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-21T11:20:30.6828106+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-21T11:20:40.6854998+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-21T11:25:52.2793638+03:00 [INF] () Strating web host

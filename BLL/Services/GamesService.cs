@@ -15,12 +15,14 @@ namespace BLL.Services
         private readonly ApplicationDbContext _context;
         private readonly ProductDto _productDto;
         private readonly IMapper _mapper;
+        private readonly IFirebaseService _firebaseService;
 
-        public GamesService(ApplicationDbContext context, IMapper mapper)
+        public GamesService(ApplicationDbContext context, IMapper mapper, IFirebaseService firebaseService)
         {
             _context = context;
             _productDto = new ProductDto(_context);
             _mapper = mapper;
+            _firebaseService = firebaseService;
         }
 
         public async Task<Dictionary<string, int>> GetTopPlatformsAsync(int quantity)
@@ -73,6 +75,37 @@ namespace BLL.Services
                 }
                 return resultProducts;
             }
+        }
+
+        public async Task<ProductViewModel> GetProductFullInfoAsync(string id)
+        {
+            var product = await _productDto.GetProductFullInfoAsync(id);
+
+            return _mapper.Map<ProductViewModel>(product);
+        }
+
+        public async Task<ProductViewModel> CreateProductAsync(ProductViewModel product)
+        {
+            if (product.LogoImageFile != null)
+            {
+                var linkToImage = await _firebaseService.UploadLogoImageAsync(product.LogoImageFile);
+                if (!String.IsNullOrWhiteSpace(linkToImage))
+                {
+                    product.Logo = linkToImage;
+                }
+            }
+            if (product.BackgroundImageFile != null)
+            {
+                var linkToImage = await _firebaseService.UploadBackgroundImageAsync(product.BackgroundImageFile);
+                if (!String.IsNullOrWhiteSpace(linkToImage))
+                {
+                    product.Background = linkToImage;
+                }
+            }
+
+            var createdProduct = await _productDto.CreateProductAsync(_mapper.Map<Product>(product));
+
+            return _mapper.Map<ProductViewModel>(createdProduct);
         }
     }
 }

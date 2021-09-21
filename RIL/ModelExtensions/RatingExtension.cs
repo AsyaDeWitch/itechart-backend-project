@@ -1,11 +1,11 @@
 ﻿using RIL.Models;
 using System.ComponentModel;
 
-namespace RIL
+namespace RIL.ModelExtensions
 {
-    public static class PlatformExtension
+    public static class RatingExtension
     {
-        public static string ToDescriptionString(this Platform value)
+        public static string ToDescriptionString(this Rating value)
         {
             DescriptionAttribute[] attributes = (DescriptionAttribute[])value
                 .GetType()

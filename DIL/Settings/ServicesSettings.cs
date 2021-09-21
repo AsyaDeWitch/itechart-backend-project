@@ -91,6 +91,7 @@ namespace DIL.Settings
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IUserClaimsPrincipalFactory<ExtendedUser>, ExtendedUserClaimsPrincipalFactory>();
             services.AddScoped<IGamesService, GamesService>();
+            services.AddScoped<IFirebaseService, FirebaseService>();
 
             services.AddControllers(config =>
             {

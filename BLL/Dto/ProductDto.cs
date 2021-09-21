@@ -1,5 +1,6 @@
 ﻿using DAL.Data;
 using DAL.Repositories;
+using Microsoft.AspNetCore.Http;
 using RIL.Models;
 using System;
 using System.Collections.Generic;
@@ -36,6 +37,16 @@ namespace BLL.Dto
         public async Task<List<Product>> GetProductsByParametersAsync(DateTime term, int limit, double offset, string name)
         {
             return await _productRepository.GetProductsByParametersAsync(term, limit, offset, name);
+        }
+
+        public async Task<Product> GetProductFullInfoAsync(string id)
+        {
+            return await _productRepository.GetProductFullInfoByIdAsync(id);
+        }
+
+        public async Task<Product> CreateProductAsync(Product product)
+        {
+            return await _productRepository.CreateProductAsync(product);
         }
     }
 }

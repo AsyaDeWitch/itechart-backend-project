@@ -1,0 +1,42 @@
+2021-09-22T11:46:33.6136228+03:00 [INF] (Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager) User profile is available. Using '"C:\Users\A.Dzenisevich\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-09-22T11:46:33.6685577+03:00 [INF] (HealthChecks.UI.Core.HostedService.UIInitializationHostedService) Initializing UI Database
+2021-09-22T11:46:34.1296047+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-22T11:46:34.5732705+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/index.html - -
+2021-09-22T11:46:34.5825849+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-22T11:46:34.6307621+03:00 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2021-09-22T11:46:34.6308864+03:00 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Development"
+2021-09-22T11:46:34.6309469+03:00 [INF] (Microsoft.Hosting.Lifetime) Content root path: "D:\LabWebApp\Web"
+2021-09-22T11:46:34.7895394+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/index.html - - - 200 - text/html;charset=utf-8 218.1884ms
+2021-09-22T11:46:34.9319747+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/swagger/v1/swagger.json - -
+2021-09-22T11:46:35.0476774+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 115.6908ms
+2021-09-22T11:46:44.6556410+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-22T11:46:54.6744137+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-22T11:47:04.6843641+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-22T11:47:14.6927548+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-22T11:47:24.7051436+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-22T11:47:34.7137300+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-22T11:47:44.7192417+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-22T11:47:50.2879158+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 DELETE https://localhost:44370/games/id/30 - -
+2021-09-22T11:47:50.3013179+03:00 [INF] (Microsoft.AspNetCore.Authorization.DefaultAuthorizationService) Authorization was successful.
+2021-09-22T11:47:50.3025428+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Web.Controllers.GamesController.DeleteProductByIdAsync (Web)"'
+2021-09-22T11:47:50.3194520+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Route matched with "{action = \"DeleteProductById\", controller = \"Games\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] DeleteProductByIdAsync(System.String)" on controller "Web.Controllers.GamesController" ("Web").
+2021-09-22T11:47:50.3209345+03:00 [INF] (Microsoft.AspNetCore.Authorization.DefaultAuthorizationService) Authorization was successful.
+2021-09-22T11:47:55.6027638+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-22T11:48:02.4063562+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2021-09-22T11:48:04.8485515+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("26"ms) [Parameters=["@__Parse_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [p].[Id], [p].[Background], [p].[Count], [p].[DateCreated], [p].[Genre], [p].[IsDeleted], [p].[Logo], [p].[Name], [p].[Platform], [p].[Price], [p].[Rating], [p].[TotalRating]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__Parse_0"
+2021-09-22T11:48:08.4448580+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-22T11:48:11.4398405+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("17"ms) [Parameters=["@p11='?' (DbType = Int32), @p0='?' (Size = 4000), @p1='?' (DbType = Int32), @p2='?' (DbType = DateTime2), @p3='?' (Size = 100), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (Size = 200), @p7='?' (DbType = Int32), @p8='?' (DbType = Double), @p9='?' (DbType = Int32), @p10='?' (DbType = Double)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+UPDATE [Products] SET [Background] = @p0, [Count] = @p1, [DateCreated] = @p2, [Genre] = @p3, [IsDeleted] = @p4, [Logo] = @p5, [Name] = @p6, [Platform] = @p7, [Price] = @p8, [Rating] = @p9, [TotalRating] = @p10
+WHERE [Id] = @p11;
+SELECT @@ROWCOUNT;"
+2021-09-22T11:48:15.5596086+03:00 [INF] (Microsoft.AspNetCore.Mvc.StatusCodeResult) Executing HttpStatusCodeResult, setting HTTP status code 204
+2021-09-22T11:48:15.5632689+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Executed action "Web.Controllers.GamesController.DeleteProductByIdAsync (Web)" in 25240.4387ms
+2021-09-22T11:48:15.5636630+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Web.Controllers.GamesController.DeleteProductByIdAsync (Web)"'
+2021-09-22T11:48:20.1032735+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-22T11:48:20.7169859+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 DELETE https://localhost:44370/games/id/30 - - - 204 - - 30429.0919ms
+2021-09-22T11:48:30.1085163+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-22T11:50:08.9213754+03:00 [INF] () Strating web host

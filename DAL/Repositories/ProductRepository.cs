@@ -105,5 +105,19 @@ namespace DAL.Repositories
 
             return oldProduct;
         }
+
+        public async Task DeleteProductByIdAsync(string id)
+        {
+            var product = _context.Products
+                .Where(p => p.Id == int.Parse(id))
+                .FirstOrDefault();
+
+            if(product != null)
+            {
+                product.IsDeleted = true;
+                _context.Update<Product>(product);
+                await _context.SaveChangesAsync();
+            }
+        }
     }
 }

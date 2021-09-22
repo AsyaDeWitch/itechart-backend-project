@@ -109,3 +109,4 @@ SELECT @@ROWCOUNT;"
 2021-09-22T11:32:49.0303916+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Executed action "Web.Controllers.GamesController.UpdateProductAsync (Web)" in 19909.2721ms
 2021-09-22T11:32:49.0304901+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Web.Controllers.GamesController.UpdateProductAsync (Web)"'
 2021-09-22T11:32:49.0651053+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 PUT https://localhost:44370/games multipart/form-data;+boundary=----WebKitFormBoundary0l8CBSCjy2XMGZy6 1439 - 200 568 application/json;+charset=utf-8 19945.0480ms
+2021-09-22T11:46:32.6400704+03:00 [INF] () Strating web host

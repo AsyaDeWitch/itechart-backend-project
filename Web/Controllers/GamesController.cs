@@ -103,5 +103,21 @@ namespace Web.Controllers
             var product = await _gamesService.UpdateProductAsync(updatedProduct);
             return Ok(product);
         }
+
+        /// <summary>
+        /// Performs product removing
+        /// </summary>
+        /// <param name="id">Product ID</param>
+        /// <response code="204">Product removed</response>
+        [HttpDelete]
+        [Authorize(Policy = "RequireAdminRole")]
+        [Route("id/{id}")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> DeleteProductByIdAsync(string id)
+        {
+            await _gamesService.DeleteProductByIdAsync(id);
+
+            return NoContent();
+        }
     }
 }

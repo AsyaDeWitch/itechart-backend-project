@@ -13,5 +13,6 @@ namespace BLL.Interfaces
         public Task<ProductViewModel> GetProductFullInfoAsync(string id);
         public Task<ProductViewModel> CreateProductAsync(ProductViewModel product);
         public Task<ProductViewModel> UpdateProductAsync(ProductViewModel product);
+        public Task DeleteProductByIdAsync(string id);
     }
 }

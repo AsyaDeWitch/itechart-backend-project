@@ -136,5 +136,10 @@ namespace BLL.Services
             var updatedProduct = await _productDto.UpdateProductAsync(_mapper.Map<Product>(product));
             return _mapper.Map<ProductViewModel>(updatedProduct);
         }
+
+        public async Task DeleteProductByIdAsync(string id)
+        {
+            await _productDto.DeleteProductByIdAsync(id);
+        }
     }
 }

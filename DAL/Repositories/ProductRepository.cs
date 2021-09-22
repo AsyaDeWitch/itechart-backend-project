@@ -74,5 +74,36 @@ namespace DAL.Repositories
 
             return product;
         }
+
+        public async Task<Product> UpdateProductAsync(Product newProduct)
+        {
+            var oldProduct = _context.Products
+                .Where(p => p.Id == newProduct.Id)
+                .FirstOrDefault();
+
+            if (oldProduct != null)
+            {
+                if (newProduct.Background != null)
+                {
+                    oldProduct.Background = newProduct.Background;
+                }
+                oldProduct.Count = newProduct.Count;
+                oldProduct.DateCreated = newProduct.DateCreated;
+                oldProduct.Genre = newProduct.Genre;
+                if (newProduct.Logo != null)
+                {
+                    oldProduct.Logo = newProduct.Logo;
+                }
+                oldProduct.Name = newProduct.Name;
+                oldProduct.Platform = newProduct.Platform;
+                oldProduct.Price = newProduct.Price;
+                oldProduct.Rating = newProduct.Rating;
+                oldProduct.TotalRating = newProduct.TotalRating;
+            }
+            _context.Update<Product>(oldProduct);
+            await _context.SaveChangesAsync();
+
+            return oldProduct;
+        }
     }
 }

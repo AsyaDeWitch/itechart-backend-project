@@ -1,0 +1,26 @@
+2021-09-22T11:24:50.6243405+03:00 [INF] (Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager) User profile is available. Using '"C:\Users\A.Dzenisevich\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-09-22T11:24:50.6835720+03:00 [INF] (HealthChecks.UI.Core.HostedService.UIInitializationHostedService) Initializing UI Database
+2021-09-22T11:24:51.1179496+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-22T11:24:51.5230046+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/ - -
+2021-09-22T11:24:51.5317955+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-22T11:24:51.5629300+03:00 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2021-09-22T11:24:51.5630003+03:00 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Development"
+2021-09-22T11:24:51.5630262+03:00 [INF] (Microsoft.Hosting.Lifetime) Content root path: "D:\LabWebApp\Web"
+2021-09-22T11:24:51.6342893+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/index.html - -
+2021-09-22T11:24:51.6469899+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/ - - - 301 - - 126.4240ms
+2021-09-22T11:24:51.7084762+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/index.html - - - 200 - text/html;charset=utf-8 74.1407ms
+2021-09-22T11:24:51.7246456+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/swagger-ui-bundle.js - -
+2021-09-22T11:24:51.7246323+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/swagger-ui.css - -
+2021-09-22T11:24:51.7247332+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/swagger-ui-standalone-preset.js - -
+2021-09-22T11:24:51.7579293+03:00 [INF] (Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware) Sending file. Request path: '"/swagger-ui-standalone-preset.js"'. Physical path: '"N/A"'
+2021-09-22T11:24:51.7579293+03:00 [INF] (Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware) Sending file. Request path: '"/swagger-ui-bundle.js"'. Physical path: '"N/A"'
+2021-09-22T11:24:51.7579293+03:00 [INF] (Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware) Sending file. Request path: '"/swagger-ui.css"'. Physical path: '"N/A"'
+2021-09-22T11:24:51.7610864+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/swagger-ui.css - - - 200 143632 text/css 36.4123ms
+2021-09-22T11:24:51.7650033+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/swagger-ui-standalone-preset.js - - - 200 337162 application/javascript 40.2055ms
+2021-09-22T11:24:51.7766748+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/swagger-ui-bundle.js - - - 200 1091362 application/javascript 51.8771ms
+2021-09-22T11:24:51.9141042+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/swagger/v1/swagger.json - -
+2021-09-22T11:24:51.9327513+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/favicon-32x32.png - -
+2021-09-22T11:24:51.9337108+03:00 [INF] (Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware) Sending file. Request path: '"/favicon-32x32.png"'. Physical path: '"N/A"'
+2021-09-22T11:24:51.9340732+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/favicon-32x32.png - - - 200 628 image/png 1.3101ms
+2021-09-22T11:24:52.0158532+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 101.7499ms
+2021-09-22T11:28:30.9408107+03:00 [INF] () Strating web host

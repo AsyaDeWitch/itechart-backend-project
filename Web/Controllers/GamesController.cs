@@ -87,5 +87,21 @@ namespace Web.Controllers
             var createdProduct = await _gamesService.CreateProductAsync(product);
             return Created("/games/id/" + createdProduct.Id.ToString(), createdProduct);
         }
+
+        /// <summary>
+        /// Performs product editing
+        /// </summary>
+        /// <param name="updatedProduct">Full info about product</param>
+        /// <response code="200">Updated product full description returned</response>
+        /// <returns>Updated product</returns>
+        [HttpPut]
+        [Authorize(Policy = "RequireAdminRole")]
+        [Route("")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductViewModel))]
+        public async Task<IActionResult> UpdateProductAsync([FromForm]ProductViewModel updatedProduct)
+        {
+            var product = await _gamesService.UpdateProductAsync(updatedProduct);
+            return Ok(product);
+        }
     }
 }

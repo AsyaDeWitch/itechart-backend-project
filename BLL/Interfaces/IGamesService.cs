@@ -12,5 +12,6 @@ namespace BLL.Interfaces
         public Task<List<ProductViewModel>> SearchGamesByParametersAsync(DateTime term, int limit, double offset, string name);
         public Task<ProductViewModel> GetProductFullInfoAsync(string id);
         public Task<ProductViewModel> CreateProductAsync(ProductViewModel product);
+        public Task<ProductViewModel> UpdateProductAsync(ProductViewModel product);
     }
 }

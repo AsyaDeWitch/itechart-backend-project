@@ -107,5 +107,34 @@ namespace BLL.Services
 
             return _mapper.Map<ProductViewModel>(createdProduct);
         }
+
+        public async Task<ProductViewModel> UpdateProductAsync(ProductViewModel product)
+        {
+            if(product.Id == 0)
+            {
+                return null;
+            }
+
+            if (product.LogoImageFile != null)
+            {
+                var linkToImage = await _firebaseService.UploadLogoImageAsync(product.LogoImageFile);
+                if (!String.IsNullOrWhiteSpace(linkToImage))
+                {
+                    product.Logo = linkToImage;
+                }
+            }
+
+            if (product.BackgroundImageFile != null)
+            {
+                var linkToImage = await _firebaseService.UploadBackgroundImageAsync(product.BackgroundImageFile);
+                if (!String.IsNullOrWhiteSpace(linkToImage))
+                {
+                    product.Background = linkToImage;
+                }
+            }
+
+            var updatedProduct = await _productDto.UpdateProductAsync(_mapper.Map<Product>(product));
+            return _mapper.Map<ProductViewModel>(updatedProduct);
+        }
     }
 }

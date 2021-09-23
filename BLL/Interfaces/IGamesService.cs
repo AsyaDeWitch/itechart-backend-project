@@ -14,5 +14,6 @@ namespace BLL.Interfaces
         public Task<ProductViewModel> CreateProductAsync(ProductViewModel product);
         public Task<ProductViewModel> UpdateProductAsync(ProductViewModel product);
         public Task DeleteProductByIdAsync(string id);
+        public Task<ProductRatingViewModel> CreateProductRatingAsync(ProductRatingViewModel productRating);
     }
 }

@@ -10,8 +10,12 @@ namespace DIL.Settings
         {
             CreateMap<Address, AddressViewModel>();
             CreateMap<AddressViewModel, Address>();
+
             CreateMap<Product, ProductViewModel>();
             CreateMap<ProductViewModel, Product>();
+
+            CreateMap<ProductRating, ProductRatingViewModel>();
+            CreateMap<ProductRatingViewModel, ProductRating>();
         }
     }
 }

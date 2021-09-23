@@ -119,5 +119,23 @@ namespace DAL.Repositories
                 await _context.SaveChangesAsync();
             }
         }
+
+        public async Task UpdateProductTotalRatingAsync(int id)
+        {
+            var product = _context.Products
+                .Where(p => p.Id == id)
+                .FirstOrDefault();
+            var productRatings = product.Ratings;
+
+            double sum = 0.0;
+            foreach(var productRating in productRatings)
+            {
+                sum += productRating.Rating;
+            }
+            product.TotalRating = sum / productRatings.Count;
+
+            _context.Update<Product>(product);
+            await _context.SaveChangesAsync();
+        }
     }
 }

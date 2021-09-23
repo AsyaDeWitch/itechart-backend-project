@@ -13,10 +13,12 @@ namespace Web.Controllers
     public class GamesController : Controller
     {
         private readonly IGamesService _gamesService;
+        private readonly IUserService _userService;
 
-        public GamesController(IGamesService gamesService)
+        public GamesController(IGamesService gamesService, IUserService userService)
         {
             _gamesService = gamesService;
+            _userService = userService;
         }
 
         /// <summary>
@@ -118,6 +120,24 @@ namespace Web.Controllers
             await _gamesService.DeleteProductByIdAsync(id);
 
             return NoContent();
+        }
+
+        /// <summary>
+        /// Performs product rating creation
+        /// </summary>
+        /// <param name="productRating">Product rating info</param>
+        /// <response code="201">Created product rating returned</response>
+        /// <returns>Created product rating</returns>
+        [HttpPost]
+        [Authorize(Policy = "RequireUserRole")]
+        [Route("rating")]
+        [ProducesResponseType(StatusCodes.Status201Created /*PRVM*/)]
+        public async Task<IActionResult> CreateProductRatingAsync([FromBody]ProductRatingViewModel productRating)
+        {
+            string token = HttpContext.Request.Cookies["JwtToken"];
+            productRating.UserId = int.Parse(_userService.GetUserId(token));
+            var createdProductRating = await _gamesService.CreateProductRatingAsync(productRating);
+            return Created("/games/rating/", createdProductRating);
         }
     }
 }

@@ -1,0 +1,27 @@
+2021-09-23T17:20:34.3612531+03:00 [INF] (Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager) User profile is available. Using '"C:\Users\A.Dzenisevich\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-09-23T17:20:34.4285314+03:00 [INF] (HealthChecks.UI.Core.HostedService.UIInitializationHostedService) Initializing UI Database
+2021-09-23T17:20:34.8214995+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-23T17:20:35.1939487+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/index.html - -
+2021-09-23T17:20:35.2019642+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-23T17:20:35.2335784+03:00 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2021-09-23T17:20:35.2336938+03:00 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Development"
+2021-09-23T17:20:35.2337473+03:00 [INF] (Microsoft.Hosting.Lifetime) Content root path: "D:\LabWebApp\Web"
+2021-09-23T17:20:35.3610266+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/index.html - - - 200 - text/html;charset=utf-8 168.3821ms
+2021-09-23T17:20:35.4909257+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/swagger/v1/swagger.json - -
+2021-09-23T17:20:35.6003505+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 109.4096ms
+2021-09-23T17:20:40.7984381+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 POST https://localhost:44370/games/rating application/json 42
+2021-09-23T17:20:40.8124703+03:00 [INF] (Microsoft.AspNetCore.Authorization.DefaultAuthorizationService) Authorization was successful.
+2021-09-23T17:20:40.8136454+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Web.Controllers.GamesController.CreateProductRatingAsync (Web)"'
+2021-09-23T17:20:40.8313113+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Route matched with "{action = \"CreateProductRating\", controller = \"Games\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateProductRatingAsync(BLL.ViewModels.ProductRatingViewModel)" on controller "Web.Controllers.GamesController" ("Web").
+2021-09-23T17:20:40.8335507+03:00 [INF] (Microsoft.AspNetCore.Authorization.DefaultAuthorizationService) Authorization was successful.
+2021-09-23T17:20:45.1628512+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2021-09-23T17:20:45.2583789+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-09-23T17:20:45.5678430+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("41"ms) [Parameters=["@__p_0='?' (DbType = Int32), @__p_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [p].[ProductId], [p].[UserId], [p].[Rating]
+FROM [ProductRatings] AS [p]
+WHERE ([p].[ProductId] = @__p_0) AND ([p].[UserId] = @__p_1)"
+2021-09-23T17:20:45.6257118+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor) Executing "CreatedResult", writing value of type '"null"'.
+2021-09-23T17:20:45.6291801+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Executed action "Web.Controllers.GamesController.CreateProductRatingAsync (Web)" in 4794.7419ms
+2021-09-23T17:20:45.6295746+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Web.Controllers.GamesController.CreateProductRatingAsync (Web)"'
+2021-09-23T17:20:45.6324600+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 POST https://localhost:44370/games/rating application/json 42 - 201 0 - 4834.0694ms
+2021-09-23T17:20:55.2661297+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "

@@ -57,5 +57,10 @@ namespace BLL.Dto
         {
             await _productRepository.DeleteProductByIdAsync(id);
         }
+
+        public async Task UpdateProductTotalRatingAsync(int id)
+        {
+            await _productRepository.UpdateProductTotalRatingAsync(id);
+        }
     }
 }

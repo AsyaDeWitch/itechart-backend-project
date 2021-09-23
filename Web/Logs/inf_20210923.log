@@ -213,3 +213,4 @@ SELECT @@ROWCOUNT;"
 2021-09-23T16:16:17.1017949+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
 ""INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
 VALUES (N'20210923131045_Add_ProductRatings', N'5.0.10');"
+2021-09-23T17:10:38.5065481+03:00 [INF] () Strating web host

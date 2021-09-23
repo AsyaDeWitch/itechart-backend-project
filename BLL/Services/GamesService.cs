@@ -14,6 +14,7 @@ namespace BLL.Services
     {
         private readonly ApplicationDbContext _context;
         private readonly ProductDto _productDto;
+        private readonly ProductRatingDto _productRatingDto;
         private readonly IMapper _mapper;
         private readonly IFirebaseService _firebaseService;
 
@@ -21,6 +22,7 @@ namespace BLL.Services
         {
             _context = context;
             _productDto = new ProductDto(_context);
+            _productRatingDto = new ProductRatingDto(_context);
             _mapper = mapper;
             _firebaseService = firebaseService;
         }
@@ -140,6 +142,16 @@ namespace BLL.Services
         public async Task DeleteProductByIdAsync(string id)
         {
             await _productDto.DeleteProductByIdAsync(id);
+        }
+
+        public async Task<ProductRatingViewModel> CreateProductRatingAsync(ProductRatingViewModel productRating)
+        {
+            var newProductRating = await _productRatingDto.CreateProductRatingAsync(_mapper.Map<ProductRating>(productRating));
+            if (newProductRating != null)
+            {
+                await _productDto.UpdateProductTotalRatingAsync(productRating.ProductId);
+            }
+            return _mapper.Map<ProductRatingViewModel>(newProductRating);
         }
     }
 }

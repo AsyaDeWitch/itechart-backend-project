@@ -6,6 +6,7 @@ using DAL.Data;
 using RIL.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace BLL.Services
@@ -152,6 +153,47 @@ namespace BLL.Services
                 await _productDto.UpdateProductTotalRatingAsync(productRating.ProductId);
             }
             return _mapper.Map<ProductRatingViewModel>(newProductRating);
+        }
+
+        public async Task<ProductRatingViewModel> UpdateProductRatingAsync(ProductRatingViewModel productRating)
+        {
+            if(productRating.Rating != 0)
+            {
+                var newProductRating = await _productRatingDto.UpdateProductRatingAsync(_mapper.Map<ProductRating>(productRating));
+                if (newProductRating != null)
+                {
+                    await _productDto.UpdateProductTotalRatingAsync(productRating.ProductId);
+                }
+                return _mapper.Map<ProductRatingViewModel>(newProductRating);
+            }
+            return null;
+        }
+
+        public async Task DeleteProductRatingAsync(ProductRatingViewModel productRating)
+        {
+            await _productRatingDto.DeleteProductRatingAsync(_mapper.Map<ProductRating>(productRating));
+            await _productDto.UpdateProductTotalRatingAsync(productRating.ProductId);
+        }
+
+        public async Task<PaginatedList<ProductViewModel>> GetProductListAsync(int? sortingParameter, int[] genreFilter, int[] ageFilter, int? pageNumber, int? pageSize)
+        {
+            var list = await _productDto.GetProductsByFiltersAsync(genreFilter, ageFilter);
+
+            list = sortingParameter switch
+            {
+                (int)SortingParameterViewModel.Price_asc => list.OrderBy(p => p.Price).ToList(),
+                (int)SortingParameterViewModel.Price_desc => list.OrderByDescending(p => p.Price).ToList(),
+                (int)SortingParameterViewModel.TotalRating_asc => list.OrderBy(p => p.TotalRating).ToList(),
+                (int)SortingParameterViewModel.TotalRating_desc => list.OrderByDescending(p => p.TotalRating).ToList(),
+                _ => list.OrderBy(p => p.Name).ToList(),
+            };
+
+            var resultList = new List<ProductViewModel>();
+            foreach(var product in list)
+            {
+                resultList.Add(_mapper.Map<ProductViewModel>(product));
+            }
+            return await PaginatedList<ProductViewModel>.CreateAsync(resultList, pageNumber ?? 1, pageSize ?? 10);
         }
     }
 }

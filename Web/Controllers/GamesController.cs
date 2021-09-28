@@ -1,8 +1,10 @@
 ﻿using BLL.Interfaces;
 using BLL.ViewModels;
+using DIL.ActionFilters;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RIL.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -131,13 +133,68 @@ namespace Web.Controllers
         [HttpPost]
         [Authorize(Policy = "RequireUserRole")]
         [Route("rating")]
-        [ProducesResponseType(StatusCodes.Status201Created /*PRVM*/)]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ProductRatingViewModel))]
         public async Task<IActionResult> CreateProductRatingAsync([FromBody]ProductRatingViewModel productRating)
         {
             string token = HttpContext.Request.Cookies["JwtToken"];
             productRating.UserId = int.Parse(_userService.GetUserId(token));
             var createdProductRating = await _gamesService.CreateProductRatingAsync(productRating);
             return Created("/games/rating/", createdProductRating);
+        }
+
+        /// <summary>
+        /// Performs product rating editing
+        /// </summary>
+        /// <param name="productRating">Product rating info</param>
+        /// <response code="201">Updated product rating returned</response>
+        /// <returns>Updated product rating</returns>
+        [HttpPut]
+        [Authorize(Policy = "RequireUserRole")]
+        [Route("rating")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductRatingViewModel))]
+        public async Task<IActionResult> UpdateProductRatingAsync([FromBody] ProductRatingViewModel productRating)
+        {
+            string token = HttpContext.Request.Cookies["JwtToken"];
+            productRating.UserId = int.Parse(_userService.GetUserId(token));
+            var updatedProductRating = await _gamesService.UpdateProductRatingAsync(productRating);
+            return Ok(updatedProductRating);
+        }
+
+        /// <summary>
+        /// Performs product rating deleting
+        /// </summary>
+        /// <param name="productRating">Product rating info</param>
+        /// <response code="204">Product rating successfully deleted</response>
+        [HttpDelete]
+        [Authorize(Policy = "RequireUserRole")]
+        [Route("rating")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> DeleteProductRatingAsync([FromBody] ProductRatingViewModel productRating)
+        {
+            string token = HttpContext.Request.Cookies["JwtToken"];
+            productRating.UserId = int.Parse(_userService.GetUserId(token));
+            await _gamesService.DeleteProductRatingAsync(productRating);
+            return NoContent();
+        }
+
+        /// <summary>
+        /// Performs product listing page data loading
+        /// </summary>
+        /// <param name="ageFilter">Array of needed age ratings</param>
+        /// <param name="genreFilter">Array of needed genres</param>
+        /// <param name="sortingParameter">Sort parameter</param>
+        /// <param name="pageNumber">Page number</param>
+        /// <param name="pageSize">Page size</param>
+        /// <response code="200">Product listing page returned</response>
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("list")]
+        [ServiceFilter(typeof(SortAndFilterParamsValidationActionFilter))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PaginatedList<ProductViewModel>))]
+        public async Task<IActionResult> GetProductListAsync(int? sortingParameter, int[] genreFilter, int[] ageFilter, int? pageNumber, int? pageSize)
+        {
+            var paginatedList = await _gamesService.GetProductListAsync(sortingParameter, genreFilter, ageFilter, pageNumber, pageSize);
+            return Ok(paginatedList);
         }
     }
 }

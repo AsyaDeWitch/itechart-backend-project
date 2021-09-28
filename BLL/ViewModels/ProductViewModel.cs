@@ -47,7 +47,7 @@ namespace BLL.ViewModels
         /// </summary>
         /// <example>RPG</example>
         [Required]
-        public string Genre { get; set; }
+        public int Genre { get; set; }
 
         /// <summary>
         /// Rating by age

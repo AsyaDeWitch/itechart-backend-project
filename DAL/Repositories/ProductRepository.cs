@@ -125,7 +125,8 @@ namespace DAL.Repositories
             var product = _context.Products
                 .Where(p => p.Id == id)
                 .FirstOrDefault();
-            var productRatings = product.Ratings;
+
+            var productRatings = _context.ProductRatings.Where(pr => pr.ProductId == id).ToList();
 
             double sum = 0.0;
             foreach(var productRating in productRatings)
@@ -136,6 +137,44 @@ namespace DAL.Repositories
 
             _context.Update<Product>(product);
             await _context.SaveChangesAsync();
+        }
+
+        public async Task<List<Product>> GetProductsAsync()
+        {
+            var products = await _context.Products
+                .Where(p => p.IsDeleted == false)
+                .ToListAsync();
+            return products;
+        }
+
+        public async Task<List<Product>> GetProductsByAgeFilterAsync(int[] ageFilter)
+        {
+            var products =  _context.Products
+                .ToList()
+                .Where(p => p.IsDeleted == false)
+                .Where(p => Array.Exists(ageFilter, x => x == p.Rating))
+                .ToList();
+            return products;
+        }
+
+        public async Task<List<Product>> GetProductsByGenreFilterAsync(int[] genreFilter)
+        {
+            var products =  _context.Products
+                .ToList()
+                .Where(p => p.IsDeleted == false)
+                .Where(p => Array.Exists(genreFilter, x => x == p.Genre))
+                .ToList();
+            return products;
+        }
+
+        public async Task<List<Product>> GetProductsByAgeAndGenreFilterAsync(int[] genreFilter, int[] ageFilter)
+        {
+            var products =  _context.Products
+                .ToList()
+                .Where(p => p.IsDeleted == false)
+                .Where(p => Array.Exists(genreFilter, x => x == p.Genre) && Array.Exists(ageFilter, x => x == p.Rating))
+                .ToList();
+            return products;
         }
     }
 }

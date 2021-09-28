@@ -62,5 +62,30 @@ namespace BLL.Dto
         {
             await _productRepository.UpdateProductTotalRatingAsync(id);
         }
+
+        public async Task<List<Product>> GetProductsByFiltersAsync(int[] genreFilter, int[] ageFilter)
+        {
+            List<Product> list;
+            if(genreFilter.Length != 0 && ageFilter.Length != 0)
+            {
+                list = await _productRepository.GetProductsByAgeAndGenreFilterAsync(genreFilter, ageFilter);
+            }
+            else
+            {
+                if (ageFilter.Length != 0)
+                {
+                    list = await _productRepository.GetProductsByAgeFilterAsync(ageFilter);
+                }
+                else if (genreFilter.Length != 0)
+                {
+                    list = await _productRepository.GetProductsByGenreFilterAsync(genreFilter);
+                }
+                else
+                {
+                    list = await _productRepository.GetProductsAsync();
+                }
+            }
+            return list;
+        }
     }
 }

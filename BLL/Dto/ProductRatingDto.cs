@@ -20,5 +20,15 @@ namespace BLL.Dto
         {
             return await _productRatingRepository.CreateProductRatingAsync(productRating);
         }
+
+        public async Task<ProductRating> UpdateProductRatingAsync(ProductRating productRating)
+        {
+            return await _productRatingRepository.UpdateProductRatingAsync(productRating);
+        }
+
+        public async Task DeleteProductRatingAsync(ProductRating productRating)
+        {
+           await _productRatingRepository.DeleteProductRatingAsync(productRating);
+        }
     }
 }

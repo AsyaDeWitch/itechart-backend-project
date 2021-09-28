@@ -21,6 +21,7 @@ using System.Linq;
 using DAL;
 using RIL.Models;
 using AutoMapper;
+using DIL.ActionFilters;
 
 namespace DIL.Settings
 {
@@ -92,6 +93,7 @@ namespace DIL.Settings
             services.AddScoped<IUserClaimsPrincipalFactory<ExtendedUser>, ExtendedUserClaimsPrincipalFactory>();
             services.AddScoped<IGamesService, GamesService>();
             services.AddScoped<IFirebaseService, FirebaseService>();
+            services.AddScoped<SortAndFilterParamsValidationActionFilter>();
 
             services.AddControllers(config =>
             {

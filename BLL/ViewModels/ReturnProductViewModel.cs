@@ -1,11 +1,9 @@
-﻿using Microsoft.AspNetCore.Http;
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BLL.ViewModels
 {
-    public class ProductViewModel
+    public class ReturnProductViewModel
     {
         /// <summary>
         /// Product Id
@@ -21,12 +19,11 @@ namespace BLL.ViewModels
         public string Name { get; set; }
 
         /// <summary>
-        /// Platform number
+        /// Platform name
         /// </summary>
-        /// <remarks>Matching between name and number specified in Platform enum</remarks>
-        /// <example>0</example>
+        /// <example>Windows</example>
         [Required]
-        public int Platform { get; set; }
+        public string Platform { get; set; }
 
         /// <summary>
         /// Product creation date
@@ -43,19 +40,18 @@ namespace BLL.ViewModels
         public double TotalRating { get; set; }
 
         /// <summary>
-        /// Product genre number
+        /// Product genre
         /// </summary>
-        /// <example>0</example>
+        /// <example>RPG</example>
         [Required]
-        public int Genre { get; set; }
+        public string Genre { get; set; }
 
         /// <summary>
-        /// Rating by age
+        /// Rating by age name
         /// </summary>
-        /// <remarks>Matching between string description rating and number specified in Rating enum</remarks>
-        /// <example>0</example>
+        /// <example>Rated G: General audiences – All ages admitted</example>
         [Required]
-        public int Rating { get; set; }
+        public string Rating { get; set; }
 
         /// <summary>
         /// Link to logo image
@@ -82,24 +78,5 @@ namespace BLL.ViewModels
         /// <example>2</example>
         [Required]
         public int Count { get; set; }
-
-        /// <summary>
-        /// Field for soft deletion flag
-        /// </summary>
-        /// <example>false</example>
-        [Required]
-        public bool IsDeleted { get; set; }
-
-        /// <summary>
-        /// Logo image file
-        /// </summary>
-        [NotMapped]
-        public IFormFile LogoImageFile { get; set; }
-
-        /// <summary>
-        /// Background image file
-        /// </summary>
-        [NotMapped]
-        public IFormFile BackgroundImageFile { get; set; }
     }
 }

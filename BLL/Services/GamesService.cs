@@ -41,18 +41,18 @@ namespace BLL.Services
             return resultDictionary;
         }
 
-        public async Task<List<ProductViewModel>> SearchGamesByNameAsync(string name)
+        public async Task<List<ReturnProductViewModel>> SearchGamesByNameAsync(string name)
         {
             var products = await _productDto.GetProductsByNameAsync(name);
-            var resultProducts = new List<ProductViewModel>();
+            var resultProducts = new List<ReturnProductViewModel>();
             for(int i = 0; i < products.Count; i++)
             {
-                resultProducts.Add(_mapper.Map<ProductViewModel>(products[i]));
+                resultProducts.Add(_mapper.Map<ReturnProductViewModel>(products[i]));
             }
             return resultProducts;
         }
 
-        public async Task<List<ProductViewModel>> SearchGamesByParametersAsync(DateTime term, int limit, double offset, string name)
+        public async Task<List<ReturnProductViewModel>> SearchGamesByParametersAsync(DateTime term, int limit, double offset, string name)
         {
             if (name == null)
             {
@@ -61,33 +61,33 @@ namespace BLL.Services
             if (limit == 0)
             {
                 var products = await _productDto.GetProductsByParametersWithoutLimitAsync(term, offset, name);
-                var resultProducts = new List<ProductViewModel>();
+                var resultProducts = new List<ReturnProductViewModel>();
                 for (int i = 0; i < products.Count; i++)
                 {
-                    resultProducts.Add(_mapper.Map<ProductViewModel>(products[i]));
+                    resultProducts.Add(_mapper.Map<ReturnProductViewModel>(products[i]));
                 }
                 return resultProducts;
             }
             else
             {
                 var products = await _productDto.GetProductsByParametersAsync(term, limit, offset, name);
-                var resultProducts = new List<ProductViewModel>();
+                var resultProducts = new List<ReturnProductViewModel>();
                 for (int i = 0; i < products.Count; i++)
                 {
-                    resultProducts.Add(_mapper.Map<ProductViewModel>(products[i]));
+                    resultProducts.Add(_mapper.Map<ReturnProductViewModel>(products[i]));
                 }
                 return resultProducts;
             }
         }
 
-        public async Task<ProductViewModel> GetProductFullInfoAsync(string id)
+        public async Task<ReturnProductViewModel> GetProductFullInfoAsync(string id)
         {
             var product = await _productDto.GetProductFullInfoAsync(id);
 
-            return _mapper.Map<ProductViewModel>(product);
+            return _mapper.Map<ReturnProductViewModel>(product);
         }
 
-        public async Task<ProductViewModel> CreateProductAsync(ProductViewModel product)
+        public async Task<ReturnProductViewModel> CreateProductAsync(ProductViewModel product)
         {
             if (product.LogoImageFile != null)
             {
@@ -108,10 +108,10 @@ namespace BLL.Services
 
             var createdProduct = await _productDto.CreateProductAsync(_mapper.Map<Product>(product));
 
-            return _mapper.Map<ProductViewModel>(createdProduct);
+            return _mapper.Map<ReturnProductViewModel>(createdProduct);
         }
 
-        public async Task<ProductViewModel> UpdateProductAsync(ProductViewModel product)
+        public async Task<ReturnProductViewModel> UpdateProductAsync(ProductViewModel product)
         {
             if(product.Id == 0)
             {
@@ -137,7 +137,7 @@ namespace BLL.Services
             }
 
             var updatedProduct = await _productDto.UpdateProductAsync(_mapper.Map<Product>(product));
-            return _mapper.Map<ProductViewModel>(updatedProduct);
+            return _mapper.Map<ReturnProductViewModel>(updatedProduct);
         }
 
         public async Task DeleteProductByIdAsync(string id)
@@ -175,7 +175,7 @@ namespace BLL.Services
             await _productDto.UpdateProductTotalRatingAsync(productRating.ProductId);
         }
 
-        public async Task<PaginatedList<ProductViewModel>> GetProductListAsync(int? sortingParameter, int[] genreFilter, int[] ageFilter, int? pageNumber, int? pageSize)
+        public async Task<PaginatedList<ReturnProductViewModel>> GetProductListAsync(int? sortingParameter, int[] genreFilter, int[] ageFilter, int? pageNumber, int? pageSize)
         {
             var list = await _productDto.GetProductsByFiltersAsync(genreFilter, ageFilter);
 
@@ -188,12 +188,12 @@ namespace BLL.Services
                 _ => list.OrderBy(p => p.Name).ToList(),
             };
 
-            var resultList = new List<ProductViewModel>();
+            var resultList = new List<ReturnProductViewModel>();
             foreach(var product in list)
             {
-                resultList.Add(_mapper.Map<ProductViewModel>(product));
+                resultList.Add(_mapper.Map<ReturnProductViewModel>(product));
             }
-            return await PaginatedList<ProductViewModel>.CreateAsync(resultList, pageNumber ?? 1, pageSize ?? 10);
+            return await PaginatedList<ReturnProductViewModel>.CreateAsync(resultList, pageNumber ?? 1, pageSize ?? 10);
         }
     }
 }

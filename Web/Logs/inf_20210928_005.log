@@ -63,3 +63,4 @@ ORDER BY [MigrationId];"
 2021-09-28T15:08:24.1550249+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
 ""INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
 VALUES (N'20210928120709_Add_Order', N'5.0.10');"
+2021-09-28T15:33:27.6380773+03:00 [INF] () Strating web host

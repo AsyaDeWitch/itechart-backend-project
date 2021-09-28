@@ -51,7 +51,7 @@ namespace Web.Controllers
         [HttpGet]
         [AllowAnonymous]
         [Route("search")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ProductViewModel>))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ReturnProductViewModel>))]
         public async Task<IActionResult> SearchGamesByParameters(DateTime term, int limit, double offset, string name)
         {
             var products = await _gamesService.SearchGamesByParametersAsync(term, limit, offset, name);
@@ -68,7 +68,7 @@ namespace Web.Controllers
         [HttpGet]
         [AllowAnonymous]
         [Route("id/{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductViewModel))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ReturnProductViewModel))]
         public async Task<IActionResult> GetProductFullInfoAsync(string id)
         {
             var product = await _gamesService.GetProductFullInfoAsync(id);
@@ -85,7 +85,7 @@ namespace Web.Controllers
         [HttpPost]
         [Authorize(Policy = "RequireAdminRole")]
         [Route("")]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ProductViewModel))]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ReturnProductViewModel))]
         public async Task<IActionResult> CreateProductAsync([FromForm]ProductViewModel product)
         {
             var createdProduct = await _gamesService.CreateProductAsync(product);
@@ -101,7 +101,7 @@ namespace Web.Controllers
         [HttpPut]
         [Authorize(Policy = "RequireAdminRole")]
         [Route("")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductViewModel))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ReturnProductViewModel))]
         public async Task<IActionResult> UpdateProductAsync([FromForm]ProductViewModel updatedProduct)
         {
             var product = await _gamesService.UpdateProductAsync(updatedProduct);
@@ -190,7 +190,7 @@ namespace Web.Controllers
         [AllowAnonymous]
         [Route("list")]
         [ServiceFilter(typeof(SortAndFilterParamsValidationActionFilter))]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PaginatedList<ProductViewModel>))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PaginatedList<ReturnProductViewModel>))]
         public async Task<IActionResult> GetProductListAsync(int? sortingParameter, int[] genreFilter, int[] ageFilter, int? pageNumber, int? pageSize)
         {
             var paginatedList = await _gamesService.GetProductListAsync(sortingParameter, genreFilter, ageFilter, pageNumber, pageSize);

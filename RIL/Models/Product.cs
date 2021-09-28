@@ -19,5 +19,7 @@ namespace RIL.Models
         public bool IsDeleted { get; set; }
         public ICollection<ExtendedUser> Users { get; set; }
         public List<ProductRating> Ratings { get; set; }
+        public ICollection<Order> Orders { get; set; }
+        public List<ProductOrder> ProductOrders { get; set; }
     }
 }

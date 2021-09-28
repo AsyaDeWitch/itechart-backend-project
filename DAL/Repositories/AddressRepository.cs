@@ -1,10 +1,9 @@
 ﻿using DAL.Data;
-using DAL.Interfaces;
 using RIL.Models;
 
 namespace DAL.Repositories
 {
-    public class AddressRepository : IRepository<Address>
+    public class AddressRepository
     {
         private readonly ApplicationDbContext _context;
 

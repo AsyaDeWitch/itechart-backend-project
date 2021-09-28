@@ -15,6 +15,8 @@ namespace DAL.Data
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductRating> ProductRatings { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<ProductOrder> ProductOrders { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -28,6 +30,12 @@ namespace DAL.Data
 
             var productRatingModelSettings = new ProductRatingModelSettings(builder);
             productRatingModelSettings.AddSettings();
+
+            var orderModelSettings = new OrderModelSettings(builder);
+            orderModelSettings.AddSettings();
+
+            var productOrderModelSettings = new ProductOrderModelSettings(builder);
+            productOrderModelSettings.AddSettings();
 
             var testDataProvider = new TestDataProvider(builder);
             testDataProvider.AddTestData();

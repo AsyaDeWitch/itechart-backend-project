@@ -1,6 +1,7 @@
 ﻿using DAL.Data;
 using DAL.Repositories;
 using RIL.Models;
+using System.Threading.Tasks;
 
 namespace BLL.Dto
 {
@@ -15,12 +16,12 @@ namespace BLL.Dto
             _addressRepository = new AddressRepository(_context);
         }
 
-        public Address GetAddressById(int? id)
+        public async Task<Address> GetAddressById(int? id)
         {
-            var address = _addressRepository.GetById(id);
-            if (address != null)
+            if (id != null)
             {
-                return address;
+                var kek = await _addressRepository.GetById(id);
+                return kek;
             }
             return null;
         }

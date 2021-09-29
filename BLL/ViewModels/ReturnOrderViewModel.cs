@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace BLL.ViewModels
 {
-    public class OrderViewModel
+    public class ReturnOrderViewModel
     {
         /// <summary>
         /// Order Id
@@ -10,6 +11,13 @@ namespace BLL.ViewModels
         /// <example>12</example>
         [Required]
         public int Id { get; set; }
+
+        /// <summary>
+        /// Order creation date
+        /// </summary>
+        /// <example>2013-12-31T00:00:00.00Z</example>
+        [Required]
+        public DateTime CreationDate { get; set; }
 
         /// <summary>
         /// Products in order total amount
@@ -21,24 +29,18 @@ namespace BLL.ViewModels
         /// Order status
         /// </summary>
         /// <example>0</example>
-        public int Status { get; set; }
+        public string Status { get; set; }
 
         /// <summary>
         /// Order delivery type
         /// </summary>
         /// <example>0</example>
         [Required]
-        public int DeliveryType { get; set; }
+        public string DeliveryType { get; set; }
 
         /// <summary>
         /// Order addess delivery
         /// </summary>
         public AddressViewModel AddressDelivery { get; set; }
-
-        /// <summary>
-        /// User Id
-        /// </summary>
-        /// <example>1</example>
-        public int UserId { get; set; }
     }
 }

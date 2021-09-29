@@ -31,10 +31,14 @@ namespace DAL.Data
             _builder.Entity<Order>()
                 .Property(o => o.Status)
                 .IsRequired()
-                .HasDefaultValue(1);
+                .HasDefaultValue((int)OrderStatus.Awaiting_Payment);
             _builder.Entity<Order>()
                 .Property(o => o.DeliveryType)
                 .IsRequired();
+
+            _builder.Entity<Order>()
+                .HasOne(o => o.User)
+                .WithMany(u => u.Orders);
         }
     }
 }

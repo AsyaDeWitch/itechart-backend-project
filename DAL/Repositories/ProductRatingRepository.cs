@@ -32,7 +32,6 @@ namespace DAL.Repositories
             if (oldProductRating != null)
             {
                 oldProductRating.Rating = productRating.Rating;
-                _context.ProductRatings.Update(oldProductRating);
                 await _context.SaveChangesAsync();
 
                 return oldProductRating;

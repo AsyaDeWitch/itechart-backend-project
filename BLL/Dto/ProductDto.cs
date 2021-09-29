@@ -87,5 +87,10 @@ namespace BLL.Dto
             }
             return list;
         }
+
+        public async Task UpdateProductCountAsync(List<ProductOrder> boughtProducts)
+        {
+            await _productRepository.UpdateProductCountAsync(boughtProducts);
+        }
     }
 }

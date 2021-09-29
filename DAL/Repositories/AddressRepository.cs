@@ -1,5 +1,7 @@
 ﻿using DAL.Data;
+using Microsoft.EntityFrameworkCore;
 using RIL.Models;
+using System.Threading.Tasks;
 
 namespace DAL.Repositories
 {
@@ -12,18 +14,11 @@ namespace DAL.Repositories
             _context = context;
         }
 
-        public Address GetById(int? id)
+        public async Task<Address> GetById(int? id)
         {
-            using(_context)
-            {
-                Address address = _context.Addresses
-                    .Find(id);
-                if (address != null)
-                {
-                    return address;
-                }
-            }
-            return null;
+            return await _context.Addresses
+                .AsNoTracking()
+                .FirstOrDefaultAsync(a => a.Id == id);
         }
     }
 }

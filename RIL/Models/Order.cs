@@ -14,5 +14,7 @@ namespace RIL.Models
         public Address AddressDelivery { get; set; }
         public ICollection<Product> Products { get; set; }
         public List<ProductOrder> ProductOrders { get; set; }
+        public int UserId { get; set; }
+        public ExtendedUser User { get; set; }
     }
 }

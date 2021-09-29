@@ -93,7 +93,10 @@ namespace DIL.Settings
             services.AddScoped<IUserClaimsPrincipalFactory<ExtendedUser>, ExtendedUserClaimsPrincipalFactory>();
             services.AddScoped<IGamesService, GamesService>();
             services.AddScoped<IFirebaseService, FirebaseService>();
+            services.AddScoped<IOrderService, OrderService>();
             services.AddScoped<SortAndFilterParamsValidationActionFilter>();
+            services.AddScoped<ProductValidationActionFilter>();
+            services.AddScoped<OrderAndProductsValidationActionFilter>();
 
             services.AddControllers(config =>
             {

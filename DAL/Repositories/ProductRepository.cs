@@ -23,6 +23,7 @@ namespace DAL.Repositories
             for(int i = 0; i < Enum.GetNames(typeof(Platform)).Length; i++)
             {
                 int temp = await _context.Products
+                    .AsNoTracking()
                     .Where(p => p.IsDeleted == false)
                     .CountAsync(p => p.Platform == i);
                 counts.Add((i, temp));
@@ -33,6 +34,7 @@ namespace DAL.Repositories
         public async Task<List<Product>> GetProductsByNameAsync(string name)
         {
             var products = await _context.Products
+                .AsNoTracking()
                 .Where(p => p.IsDeleted == false)
                 .Where(p => EF.Functions.Like(p.Name.ToLower(), "%" + name.ToLower() + "%".ToLower()))
                 .ToListAsync();
@@ -42,6 +44,7 @@ namespace DAL.Repositories
         public async Task<List<Product>> GetProductsByParametersWithoutLimitAsync(DateTime term, double offset, string name)
         {
             var products = await _context.Products
+                .AsNoTracking()
                 .Where(p => EF.Functions.Like(p.Name.ToLower(), "%" + name.ToLower() + "%".ToLower()))
                 .Where(p => p.IsDeleted == false && p.DateCreated >= term && p.TotalRating >= offset)
                 .ToListAsync();
@@ -51,6 +54,7 @@ namespace DAL.Repositories
         public async Task<List<Product>> GetProductsByParametersAsync(DateTime term, int limit, double offset, string name)
         {
             var products = await _context.Products
+                .AsNoTracking()
                 .Where(p => EF.Functions.Like(p.Name.ToLower(), "%" + name.ToLower() + "%".ToLower()))
                 .Where(p => p.IsDeleted == false && p.DateCreated >= term && p.TotalRating >= offset)
                 .Take(limit)
@@ -61,6 +65,7 @@ namespace DAL.Repositories
         public async Task<Product> GetProductFullInfoByIdAsync(string id)
         {
             var product = await _context.Products
+                .AsNoTracking()
                 .Where(p => p.Id == int.Parse(id))
                 .FirstOrDefaultAsync();
 
@@ -77,9 +82,9 @@ namespace DAL.Repositories
 
         public async Task<Product> UpdateProductAsync(Product newProduct)
         {
-            var oldProduct = _context.Products
+            var oldProduct = await _context.Products
                 .Where(p => p.Id == newProduct.Id)
-                .FirstOrDefault();
+                .FirstOrDefaultAsync();
 
             if (oldProduct != null)
             {
@@ -100,7 +105,6 @@ namespace DAL.Repositories
                 oldProduct.Rating = newProduct.Rating;
                 oldProduct.TotalRating = newProduct.TotalRating;
             }
-            _context.Update<Product>(oldProduct);
             await _context.SaveChangesAsync();
 
             return oldProduct;
@@ -108,25 +112,24 @@ namespace DAL.Repositories
 
         public async Task DeleteProductByIdAsync(string id)
         {
-            var product = _context.Products
+            var product = await _context.Products
                 .Where(p => p.Id == int.Parse(id))
-                .FirstOrDefault();
+                .FirstOrDefaultAsync();
 
             if(product != null)
             {
                 product.IsDeleted = true;
-                _context.Update<Product>(product);
                 await _context.SaveChangesAsync();
             }
         }
 
         public async Task UpdateProductTotalRatingAsync(int id)
         {
-            var product = _context.Products
+            var product = await _context.Products
                 .Where(p => p.Id == id)
-                .FirstOrDefault();
+                .FirstOrDefaultAsync();
 
-            var productRatings = _context.ProductRatings.Where(pr => pr.ProductId == id).ToList();
+            var productRatings = await _context.ProductRatings.Where(pr => pr.ProductId == id).ToListAsync();
 
             double sum = 0.0;
             foreach(var productRating in productRatings)
@@ -135,13 +138,13 @@ namespace DAL.Repositories
             }
             product.TotalRating = sum / productRatings.Count;
 
-            _context.Update<Product>(product);
             await _context.SaveChangesAsync();
         }
 
         public async Task<List<Product>> GetProductsAsync()
         {
             var products = await _context.Products
+                .AsNoTracking()
                 .Where(p => p.IsDeleted == false)
                 .ToListAsync();
             return products;
@@ -149,8 +152,9 @@ namespace DAL.Repositories
 
         public async Task<List<Product>> GetProductsByAgeFilterAsync(int[] ageFilter)
         {
-            var products =  _context.Products
-                .ToList()
+            var products =  (await _context.Products
+                .AsNoTracking()
+                .ToListAsync())
                 .Where(p => p.IsDeleted == false)
                 .Where(p => Array.Exists(ageFilter, x => x == p.Rating))
                 .ToList();
@@ -159,8 +163,9 @@ namespace DAL.Repositories
 
         public async Task<List<Product>> GetProductsByGenreFilterAsync(int[] genreFilter)
         {
-            var products =  _context.Products
-                .ToList()
+            var products =  (await _context.Products
+                .AsNoTracking()
+                .ToListAsync())
                 .Where(p => p.IsDeleted == false)
                 .Where(p => Array.Exists(genreFilter, x => x == p.Genre))
                 .ToList();
@@ -169,12 +174,40 @@ namespace DAL.Repositories
 
         public async Task<List<Product>> GetProductsByAgeAndGenreFilterAsync(int[] genreFilter, int[] ageFilter)
         {
-            var products =  _context.Products
-                .ToList()
+            var products = (await _context.Products
+                .AsNoTracking()
+                .ToListAsync())
                 .Where(p => p.IsDeleted == false)
                 .Where(p => Array.Exists(genreFilter, x => x == p.Genre) && Array.Exists(ageFilter, x => x == p.Rating))
                 .ToList();
             return products;
+        }
+
+        public async Task<bool> IsContainedInDb(int id)
+        {
+            return await _context.Products
+                .AsNoTracking()
+                .AnyAsync(p => p.Id == id);
+        }
+
+        public async Task<int> GetProductCount(int id)
+        {
+            return (await _context.Products
+                .AsNoTracking()
+                .Where(p => p.Id == id)
+                .FirstOrDefaultAsync()).Count;
+        }
+
+        public async Task UpdateProductCountAsync(List<ProductOrder> boughtProducts)
+        {
+            foreach(var boughtProduct in boughtProducts)
+            {
+                var product = await _context.Products
+                    .Where(p => p.Id == boughtProduct.ProductId)
+                    .FirstOrDefaultAsync();
+                product.Count -= boughtProduct.ProductAmount;
+                await _context.SaveChangesAsync();
+            }
         }
     }
 }

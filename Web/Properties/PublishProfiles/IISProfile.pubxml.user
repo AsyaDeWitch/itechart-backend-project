@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword />
+    <History>True|2021-10-01T13:26:26.5178397Z;True|2021-10-01T14:42:45.3615295+03:00;True|2021-10-01T14:40:20.7626511+03:00;True|2021-10-01T14:38:53.2680627+03:00;True|2021-10-01T14:37:32.2865098+03:00;True|2021-10-01T12:34:52.1024222+03:00;True|2021-10-01T12:09:37.5151034+03:00;True|2021-10-01T11:40:34.0815505+03:00;True|2021-10-01T11:39:44.7021791+03:00;True|2021-10-01T11:37:12.6971861+03:00;True|2021-09-30T19:41:05.8670391+03:00;True|2021-09-30T19:22:56.0375068+03:00;True|2021-09-30T19:19:39.4841474+03:00;True|2021-09-30T18:33:31.2270237+03:00;True|2021-09-30T18:31:29.1064793+03:00;False|2021-09-30T18:31:16.6813456+03:00;True|2021-09-30T18:29:18.8520275+03:00;False|2021-09-30T18:28:57.3259196+03:00;True|2021-09-30T17:25:33.0347956+03:00;False|2021-09-30T17:25:07.5319461+03:00;True|2021-09-30T16:27:38.3104051+03:00;True|2021-09-30T16:26:38.8997398+03:00;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Data Source=%28LocalDb%29\MSSQLLocalDB%3bInitial Catalog=aspnet-LabWebApp-53bc9b9d-9d6a-45d4-8429-2a2761773502%3bUser Id=iTechArtLab%3bPassword =jRu7S7rU%25Hvy%3bAttachDBFilename=|DataDirectory|\aspnet-LabWebApp-53bc9b9d-9d6a-45d4-8429-2a2761773502.mdf" providerName="System.Data.SqlClient</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

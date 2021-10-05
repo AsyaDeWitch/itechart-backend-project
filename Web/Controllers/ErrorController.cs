@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Diagnostics;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -19,6 +20,7 @@ namespace Web.Controllers
         /// Receives detail occured exception info and loggin them into log file
         /// </summary>
         /// <returns>View with detail occured exception info </returns>
+        [AllowAnonymous]
         [Route("Error")]
         public IActionResult Error()
         {

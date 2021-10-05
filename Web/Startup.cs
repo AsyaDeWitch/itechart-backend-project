@@ -36,6 +36,8 @@ namespace Web
 
             services.AddAutoMapper(typeof(Startup).Assembly);
 
+            //services.AddResponseCompression();
+
             //Register required services for health checks
             services.AddHealthChecks()
                 .AddSqlServer(Configuration["ConnectionStrings:DefaultConnection"]);
@@ -111,6 +113,8 @@ namespace Web
 
             app.UseAuthentication();
             app.UseAuthorization();
+
+            //app.UseResponseCompression();
 
             app.UseEndpoints(endpoints =>
             {

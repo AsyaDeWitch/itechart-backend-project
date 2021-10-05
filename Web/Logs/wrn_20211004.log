@@ -1,0 +1,4 @@
+2021-10-04T11:40:29.2828363+03:00 [WRN] (Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository) Using an in-memory repository. Keys will not be persisted to storage.
+2021-10-04T11:40:29.2964901+03:00 [WRN] (Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager) Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits.
+2021-10-04T11:40:29.3454505+03:00 [WRN] (Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager) No XML encryptor configured. Key {4330e9ea-2651-4914-98c6-83361f9b0325} may be persisted to storage in unencrypted form.
+2021-10-04T11:41:03.3883090+03:00 [WRN] (Microsoft.EntityFrameworkCore.Query) The query uses the 'First'/'FirstOrDefault' operator without 'OrderBy' and filter operators. This may lead to unpredictable results.

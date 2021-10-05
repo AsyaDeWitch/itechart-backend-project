@@ -5,6 +5,8 @@ using System.Threading.Tasks;
 using BLL.Interfaces;
 using Microsoft.AspNetCore.JsonPatch;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Caching.Memory;
+using System;
 
 namespace Web.Controllers
 {
@@ -13,10 +15,12 @@ namespace Web.Controllers
     public class UserController : Controller
     {
         private readonly IUserService _userService;
+        private readonly IMemoryCache _memoryCache;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, IMemoryCache memoryCache)
         {
             _userService = userService;
+            _memoryCache = memoryCache;
         }
 
         /// <summary>
@@ -36,6 +40,7 @@ namespace Web.Controllers
             var updatedUser = await _userService.UpdateUserProfileAsync(user, userId);
             if (updatedUser != null)
             {
+                _memoryCache.Remove(userId);
                 return Ok(updatedUser);
             }
             return BadRequest("Invalid phone number");
@@ -55,6 +60,8 @@ namespace Web.Controllers
         {
             string token = HttpContext.Request.Cookies["JwtToken"];
             var userId = _userService.GetUserId(token);
+            _memoryCache.Remove(userId);
+
             var result = await _userService.UpdateUserPasswordAsync(userPatch, userId);
             if (result.Succeeded)
             {
@@ -72,10 +79,26 @@ namespace Web.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ReturnUserProfileViewModel))]
         public async Task<IActionResult> GetUserProfileAsync()
         {
+            ReturnUserProfileViewModel user;
             string token = HttpContext.Request.Cookies["JwtToken"];
             var userId = _userService.GetUserId(token);
-            var user = await _userService.GetUserProfileAsync(userId);
+
+            if (_memoryCache.TryGetValue(userId, out user))
+            {
+                return Ok(user);
+            }
+
+            user = await _userService.GetUserProfileAsync(userId);
+            if(user != null)
+            {
+                _memoryCache.Set(userId, user, new MemoryCacheEntryOptions
+                {
+                    AbsoluteExpirationRelativeToNow = TimeSpan.FromDays(1),
+                    SlidingExpiration = TimeSpan.FromHours(6),
+                });
+            }
             return Ok(user);
+
         }
     }
 }

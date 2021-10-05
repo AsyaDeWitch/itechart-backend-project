@@ -7,7 +7,7 @@ namespace BLL.ViewModels
         /// <summary>
         /// User name
         /// </summary>
-        /// <example>Asya</example>
+        /// <example>Test</example>
         [Required]
         public string UserName { get; set; }
 

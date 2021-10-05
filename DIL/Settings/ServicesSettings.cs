@@ -22,6 +22,11 @@ using DAL;
 using RIL.Models;
 using AutoMapper;
 using DIL.ActionFilters;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.ResponseCompression;
+using System.IO.Compression;
+using Microsoft.Extensions.Caching.Memory;
+using System.Text.Json.Serialization;
 
 namespace DIL.Settings
 {
@@ -35,6 +40,17 @@ namespace DIL.Settings
             services.AddIdentity<ExtendedUser, IdentityRole<int>>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+            services.AddResponseCompression(options =>
+            {
+                options.Providers.Add<GzipCompressionProvider>();
+            });
+            services.Configure<GzipCompressionProviderOptions>(options =>
+            {
+                options.Level = CompressionLevel.Fastest;
+            });
+
+            services.AddMemoryCache();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
@@ -84,6 +100,7 @@ namespace DIL.Settings
             services.AddSingleton<IAuthorizationHandler, RoleAuthorizationHandler>();
             services.AddSingleton<IAuthorizationMiddlewareResultHandler,
                           RoleAuthorizationMiddlewareResultHandler>();
+            //services.AddSingleton<IMemoryCache>();
 
             services.AddScoped<IAuthService, AuthService>();
             services.AddTransient<IEmailSenderService, EmailSenderService>();
@@ -104,7 +121,10 @@ namespace DIL.Settings
                 config.Filters.Add(new AuthorizeFilter(policy));
                 config.InputFormatters.Insert(0, GetJsonPatchInputFormatter());
             })
-                .AddNewtonsoftJson();
+                .AddNewtonsoftJson(options =>
+                {
+                    options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                });
         }
 
         private static NewtonsoftJsonPatchInputFormatter GetJsonPatchInputFormatter()

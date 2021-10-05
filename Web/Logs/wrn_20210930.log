@@ -1,3 +1,0 @@
-2021-09-30T19:52:32.5250348+03:00 [WRN] (Microsoft.AspNetCore.DataProtection.Repositories.EphemeralXmlRepository) Using an in-memory repository. Keys will not be persisted to storage.
-2021-09-30T19:52:32.5348031+03:00 [WRN] (Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager) Neither user profile nor HKLM registry available. Using an ephemeral key repository. Protected data will be unavailable when application exits.
-2021-09-30T19:52:32.5789121+03:00 [WRN] (Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager) No XML encryptor configured. Key {c90bbfa1-ef95-4e8c-af71-2e8aa4e8e58c} may be persisted to storage in unencrypted form.

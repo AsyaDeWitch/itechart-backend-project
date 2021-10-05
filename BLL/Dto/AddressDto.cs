@@ -20,8 +20,7 @@ namespace BLL.Dto
         {
             if (id != null)
             {
-                var kek = await _addressRepository.GetById(id);
-                return kek;
+                return await _addressRepository.GetById(id);
             }
             return null;
         }

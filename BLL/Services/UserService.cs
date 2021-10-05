@@ -43,7 +43,6 @@ namespace BLL.Services
                     if (ValidatorService.IsValidPhoneNumber(userProfile.PhoneNumber))
                     {
                         user.PhoneNumber = userProfile.PhoneNumber;
-
                     }
                     else
                         return null; 
@@ -51,13 +50,19 @@ namespace BLL.Services
 
                 if (!String.IsNullOrWhiteSpace(userProfile.UserName))
                 {
-                    user.UserName = userProfile.UserName;
+                    if(user.UserName != userProfile.UserName)
+                    {
+                        user.UserName = userProfile.UserName;
+                    }
                 }
 
                 if (userProfile.AddressDelivery != null)
                 {
-                    
                     user.AddressDelivery = _mapper.Map<Address>(userProfile.AddressDelivery);
+                }
+                else
+                {
+                    user.AddressDelivery = await _addressDto.GetAddressById(user.AddressDeliveryId);
                 }
 
                 var result = await _userManager.UpdateAsync(user);
@@ -79,7 +84,7 @@ namespace BLL.Services
         public async Task<ReturnUserProfileViewModel> GetUserProfileAsync(string userId)
         {
             var user = await _userManager.FindByIdAsync(userId);
-            var address = _addressDto.GetAddressById(user.AddressDeliveryId);
+            var address = await _addressDto.GetAddressById(user.AddressDeliveryId);
 
             return new ReturnUserProfileViewModel
             {

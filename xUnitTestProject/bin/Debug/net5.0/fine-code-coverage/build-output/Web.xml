@@ -1,0 +1,247 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Web</name>
+    </assembly>
+    <members>
+        <member name="M:Web.Controllers.AdministrationController.CreateRoleAsync(System.String)">
+            <summary>
+            Performes role creation
+            </summary>
+            <param name="roleName">Name of new role</param>
+            <response code="201">Role created successfully</response>
+            <response code="400">Incorrect role name</response>
+        </member>
+        <member name="M:Web.Controllers.AdministrationController.DeleteRoleAsync(System.String)">
+            <summary>
+            Performes role deletion
+            </summary>
+            <param name="roleName">Name of role need to delete</param>
+            <response code="204">Role deleted successfully</response>
+            <response code="400">Incorrect role name</response>
+        </member>
+        <member name="M:Web.Controllers.AdministrationController.UpdateRoleAsync(Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{BLL.ViewModels.PatchUserRoleViewModel})">
+            <summary>
+            Performs role updatition
+            </summary>
+            <param name="userPatch">User old and new roles</param>
+            <response code="204">Role updated successfully</response>
+            <response code="400">Incorrect role name(s)</response>
+        </member>
+        <member name="M:Web.Controllers.AdministrationController.DeleteUserByEmailAsync(System.String)">
+            <summary>
+            Performes user deletion by email
+            </summary>
+            <param name="email">Email of user need to delete</param>
+            /// <response code="204">User deleted successfully</response>
+            <response code="400">Incorrect role name or user email</response>
+        </member>
+        <member name="M:Web.Controllers.AdministrationController.DeleteUserByIdAsync(System.String)">
+            <summary>
+            Performes user deletion by id
+            </summary>
+            <param name="id">Id of user need to delete</param>
+            <response code="204">User deleted successfully</response>
+            <response code="400">Incorrect role name or user id</response>
+        </member>
+        <member name="M:Web.Controllers.AdministrationController.AssignRoleToUserAsync(BLL.ViewModels.AssignRoleToUserViewModel)">
+            <summary>
+            Performes assigning role to user
+            </summary>
+            <response code="204">Role assigned to user successfully</response>
+            <response code="400">Incorrect role name or user email</response>
+        </member>
+        <member name="M:Web.Controllers.AuthController.SignInAsync(BLL.ViewModels.AuthViewModel)">
+            <summary>
+            Performs user auhentication
+            </summary>
+            <param name="signInModel">Sign In Model</param>
+            <response code="200">JWT token string returned</response>
+            <response code="401">Unsuccessful authentication</response>
+            <returns>JWT token string</returns>
+        </member>
+        <member name="M:Web.Controllers.AuthController.SignUpAsync(BLL.ViewModels.AuthViewModel)">
+            <summary>
+            Performs user creation
+            </summary>
+            <param name="signUpModel">Sign Up Model</param>
+            <response code="201">User created successfully</response>
+            <response code="400">Email or password is incorrect</response>
+        </member>
+        <member name="M:Web.Controllers.AuthController.ConfirmEmailAsync(System.String,System.String)">
+            <summary>
+            Performs user email confirmation
+            </summary>
+            <param name="id">User id</param>
+            <param name="token">User JWT token</param>
+            <response code="204">User email confirmed successfully</response>
+            <response code="400">Confirmation link is incorrect</response>
+        </member>
+        <member name="M:Web.Controllers.ErrorController.Error">
+            <summary>
+            Receives detail occured exception info and loggin them into log file
+            </summary>
+            <returns>View with detail occured exception info </returns>
+        </member>
+        <member name="M:Web.Controllers.GamesController.GetTopPlatforms">
+            <summary>
+            Performs main page data loading
+            </summary>
+            <response code="200">Top 3 platforms info returned</response>
+            <returns>Top 3 platforms info </returns>
+        </member>
+        <member name="M:Web.Controllers.GamesController.SearchGamesByParameters(System.DateTime,System.Int32,System.Double,System.String)">
+            <summary>
+            Receives data matches search term from search field
+            </summary>
+            <param name="term">Minimum release date for the game</param>
+            <param name="limit">Count of games need to receive</param>
+            <param name="offset">Minimum game score on a 10-point scale</param>
+            <param name="name">Game name or part of the game name</param>
+            <response code="200">Games mathes search term returned</response>
+            <returns>Games mathes search term</returns>
+        </member>
+        <member name="M:Web.Controllers.GamesController.GetProductFullInfoAsync(System.String)">
+            <summary>
+            Performs product description
+            </summary>
+            <param name="id">Product ID</param>
+            <response code="200">Product full description returned</response>
+            <returns>Full info about product</returns>
+        </member>
+        <member name="M:Web.Controllers.GamesController.CreateProductAsync(BLL.ViewModels.ProductViewModel)">
+            <summary>
+            Performs product creation
+            </summary>
+            <param name="product">Full info about product + attached images for logo and background</param>
+            <response code="201">Created product full description returned</response>
+            <returns>Created product</returns>
+        </member>
+        <member name="M:Web.Controllers.GamesController.UpdateProductAsync(BLL.ViewModels.ProductViewModel)">
+            <summary>
+            Performs product editing
+            </summary>
+            <param name="updatedProduct">Full info about product</param>
+            <response code="200">Updated product full description returned</response>
+            <returns>Updated product</returns>
+        </member>
+        <member name="M:Web.Controllers.GamesController.DeleteProductByIdAsync(System.String)">
+            <summary>
+            Performs product removing
+            </summary>
+            <param name="id">Product ID</param>
+            <response code="204">Product removed</response>
+        </member>
+        <member name="M:Web.Controllers.GamesController.CreateProductRatingAsync(BLL.ViewModels.ProductRatingViewModel)">
+            <summary>
+            Performs product rating creation
+            </summary>
+            <param name="productRating">Product rating info</param>
+            <response code="201">Created product rating returned</response>
+            <returns>Created product rating</returns>
+        </member>
+        <member name="M:Web.Controllers.GamesController.UpdateProductRatingAsync(BLL.ViewModels.ProductRatingViewModel)">
+            <summary>
+            Performs product rating editing
+            </summary>
+            <param name="productRating">Product rating info</param>
+            <response code="201">Updated product rating returned</response>
+            <returns>Updated product rating</returns>
+        </member>
+        <member name="M:Web.Controllers.GamesController.DeleteProductRatingAsync(BLL.ViewModels.ProductRatingViewModel)">
+            <summary>
+            Performs product rating deleting
+            </summary>
+            <param name="productRating">Product rating info</param>
+            <response code="204">Product rating successfully deleted</response>
+        </member>
+        <member name="M:Web.Controllers.GamesController.GetProductListAsync(System.Nullable{System.Int32},System.Int32[],System.Int32[],System.Nullable{System.Int32},System.Nullable{System.Int32})">
+            <summary>
+            Performs product listing page data loading
+            </summary>
+            <param name="ageFilter">Array of needed age ratings</param>
+            <param name="genreFilter">Array of needed genres</param>
+            <param name="sortingParameter">Sort parameter</param>
+            <param name="pageNumber">Page number</param>
+            <param name="pageSize">Page size</param>
+            <response code="200">Product listing page returned</response>
+        </member>
+        <member name="M:Web.Controllers.HomeController.GetInfo">
+            <summary>
+            Test action for Admin role policy, logging and responce body, contains string "Hello World"
+            </summary>
+            <response code="200">String "Hello world" returned</response>
+            <returns>"Hello world" string</returns>
+        </member>
+        <member name="M:Web.Controllers.OrdersController.CreateOrderAsync(BLL.ViewModels.ProductOrderViewModel[])">
+            <summary>
+            Performs order creation
+            </summary>
+            <param name="products">Product ids with amount need to add to order</param>
+            <response code="201">Created order returned</response>
+            <returns>Created order</returns>
+        </member>
+        <member name="M:Web.Controllers.OrdersController.GetOrderAsync(System.Nullable{System.Int32})">
+            <summary>
+            Performs order list data loading
+            </summary>
+            <param name="id">Order id</param>
+            <response code="200">Order returned</response>
+            <returns>Order</returns>
+        </member>
+        <member name="M:Web.Controllers.OrdersController.UpdateOrderAsync(System.Int32,BLL.ViewModels.OrderProductsViewModel)">
+            <summary>
+            Performs order list products updating
+            </summary>
+            <param name="id">Order id</param>
+            <param name="orderProducts">Order info need to update and product ids with amount need to add to order or to update in order</param>
+            <response code="200">Updated order returned</response>
+            <returns>Updated order</returns>
+        </member>
+        <member name="M:Web.Controllers.OrdersController.DeleteProductsFromOrderAsync(System.Int32,BLL.ViewModels.ProductOrderViewModel[])">
+            <summary>
+            Performs order removing
+            </summary>
+            <param name="id">Order id</param>
+            <param name="products">Product ids with amount need to delte from order</param>
+            <response code="204">Products from order successfully deleted</response>
+        </member>
+        <member name="M:Web.Controllers.OrdersController.BuyOrderAsync(System.Int32)">
+            <summary>
+            Performs order creation
+            </summary>
+            <response code="204">Order successfully bought</response>
+        </member>
+        <member name="M:Web.Controllers.OrdersController.GetOrdersListAsync">
+            <summary>
+            Performs order list loading
+            </summary>
+            <response code="200">Order list returned</response>
+            <returns>Order list</returns>
+        </member>
+        <member name="M:Web.Controllers.UserController.UpdateUserProfileAsync(BLL.ViewModels.UserProfileViewModel)">
+            <summary>
+            Updates profile info
+            </summary>
+            <param name="user">User profile info</param>
+            <response code="200">Updated user profile returned</response>
+            <response code="400">Invalid phone number</response>
+            <returns>Updated user profile</returns>
+        </member>
+        <member name="M:Web.Controllers.UserController.UpdateUserPasswordAsync(Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{BLL.ViewModels.PatchUserPasswordViewModel})">
+            <summary>
+            Updates user password
+            </summary>
+            <param name="userPatch">User old and new passwords</param>
+            <response code="204">User password updated successfully</response>
+            <response code="400">Invalid old or new password</response>
+        </member>
+        <member name="M:Web.Controllers.UserController.GetUserProfileAsync">
+            <summary>
+            Receives user profile
+            </summary>
+            <response code="200">Updated user profile returned</response>
+            <returns>User profile</returns>
+        </member>
+    </members>
+</doc>

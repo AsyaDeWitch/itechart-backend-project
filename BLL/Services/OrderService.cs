@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
-using BLL.Dto;
 using BLL.Interfaces;
 using BLL.ViewModels;
-using DAL.Data;
+using DAL.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using RIL.Models;
 using System.Collections.Generic;
@@ -13,30 +12,22 @@ namespace BLL.Services
     public class OrderService : IOrderService
     {
         private readonly UserManager<ExtendedUser> _userManager;
-        private readonly ApplicationDbContext _context;
         private readonly IMapper _mapper;
-        private readonly OrderDto _orderDto;
-        private readonly ProductOrderDto _productOrderDto;
-        private readonly AddressDto _addressDto;
-        private readonly ProductDto _productDto;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public OrderService( UserManager<ExtendedUser> userManager, ApplicationDbContext context, IMapper mapper)
+        public OrderService( UserManager<ExtendedUser> userManager, IMapper mapper, IUnitOfWork unitOfWork)
         {
             _userManager = userManager;
-            _context = context;
-            _orderDto = new OrderDto(_context);
-            _productOrderDto = new ProductOrderDto(_context);
-            _addressDto = new AddressDto(_context);
-            _productDto = new ProductDto(_context);
             _mapper = mapper;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task BuyOrderAsync(int orderId)
         {
-            if(await _orderDto.BuyOrderAsync(orderId))
+            if(await _unitOfWork.Orders.BuyAsync(orderId))
             {
-                var products = await _productOrderDto.GetOrderProductListAsync(orderId);
-                await _productDto.UpdateProductCountAsync(products);
+                var products = await _unitOfWork.ProductOrders.GetProductListByOrderIdAsync(orderId);
+                await _unitOfWork.Products.UpdateCountAsync(products);
             }
         }
 
@@ -49,7 +40,7 @@ namespace BLL.Services
             }
 
             var user = await _userManager.FindByIdAsync(userId.ToString());
-            var order = await _orderDto.CreateOrderAsync(user, totalAmount);
+            var order = await _unitOfWork.Orders.CreateAsync(user, totalAmount);
 
             var productOrders = new List<ProductOrder>();
             foreach (var product in products)
@@ -59,7 +50,7 @@ namespace BLL.Services
                 productOrders.Add(productOrder);
             }
 
-            productOrders = await _productOrderDto.AddProductsToOrderAsync(order.Id, productOrders);
+            productOrders = await _unitOfWork.ProductOrders.AddProductsToOrderAsync(order.Id, productOrders);
 
             var productList = new List<ProductOrderViewModel>();
             foreach (var product in productOrders)
@@ -81,22 +72,22 @@ namespace BLL.Services
             {
                 productOrders.Add(_mapper.Map<ProductOrder>(product));
             }
-            await _productOrderDto.DeleteProductsFromOrderAsync(orderId, productOrders);
+            await _unitOfWork.ProductOrders.DeleteProductsFromOrderAsync(orderId, productOrders);
 
             int totalAmount = 0;
-            productOrders = await _productOrderDto.GetOrderProductListAsync(orderId);
+            productOrders = await _unitOfWork.ProductOrders.GetProductListByOrderIdAsync(orderId);
             foreach (var product in productOrders)
             {
                 totalAmount += product.ProductAmount;
             }
 
-            await _orderDto.UpdateProductTotalAmount(orderId, totalAmount);
+            await _unitOfWork.Orders.UpdateProductTotalAmountAsync(orderId, totalAmount);
         }
 
-        public async Task<ReturnProductOrderViewModel> GetOrderAsync(int ordertId)
+        public async Task<ReturnProductOrderViewModel> GetOrderAsync(int orderId)
         {
-            var order = await _orderDto.GetOrderInfoAsync(ordertId);
-            var products = await _productOrderDto.GetOrderProductListAsync(ordertId);
+            var order = await _unitOfWork.Orders.GetByIdAsync(orderId);
+            var products = await _unitOfWork.ProductOrders.GetProductListByOrderIdAsync(orderId);
 
             var productList = new List<ProductOrderViewModel>();
             foreach (var product in products)
@@ -113,13 +104,12 @@ namespace BLL.Services
 
         public async Task<List<ReturnOrderViewModel>> GetOrdersListAsync(int userId)
         {
-            var orders = await _orderDto.GetOrdersListAsync(userId);
+            var orders = await _unitOfWork.Orders.GetListByUserIdAsync(userId);
             var orderList = new List<ReturnOrderViewModel>();
             foreach (var order in orders)
             {
                 orderList.Add(_mapper.Map<ReturnOrderViewModel>(order));
             }
-
             return orderList;
         }
 
@@ -128,10 +118,11 @@ namespace BLL.Services
             if (order.AddressDelivery == null)
             {
                 var user = await _userManager.FindByIdAsync(order.UserId.ToString());
-                var address = await _addressDto.GetAddressById(user.AddressDeliveryId);
+                var address = await _unitOfWork.Addresses.GetByIdAsync(user.AddressDeliveryId);
                 order.AddressDelivery = _mapper.Map<AddressViewModel>(address);
             }
-            var updatedOrder = await _orderDto.UpdateOrderInfoAsync(orderId, _mapper.Map<Order>(order));
+            order.Id = orderId;
+            var updatedOrder = await _unitOfWork.Orders.UpdateAsync(_mapper.Map<Order>(order));
 
             if(updatedOrder != null)
             {
@@ -142,14 +133,14 @@ namespace BLL.Services
                     productOrder.Order = updatedOrder;
                     productOrders.Add(productOrder);
                 }
-                productOrders = await _productOrderDto.UpdateOrderProductListAsync(orderId, productOrders);
+                productOrders = await _unitOfWork.ProductOrders.UpdateProductListInOrderAsync(orderId, productOrders);
 
                 int totalAmount = 0;
                 foreach (var product in productOrders)
                 {
                     totalAmount += product.ProductAmount;
                 }
-                await _orderDto.UpdateProductTotalAmount(orderId, totalAmount);
+                await _unitOfWork.Orders.UpdateProductTotalAmountAsync(orderId, totalAmount);
 
                 var productList = new List<ProductOrderViewModel>();
                 foreach (var product in productOrders)
@@ -165,7 +156,7 @@ namespace BLL.Services
             }
             else
             {
-                var productOrders = await _productOrderDto.GetOrderProductListAsync(orderId);
+                var productOrders = await _unitOfWork.ProductOrders.GetProductListByOrderIdAsync(orderId);
                 var productList = new List<ProductOrderViewModel>();
                 foreach (var product in productOrders)
                 {
@@ -173,7 +164,7 @@ namespace BLL.Services
                 }
                 return new ReturnProductOrderViewModel()
                 {
-                    ReturnOrderViewModel = _mapper.Map<ReturnOrderViewModel>(await _orderDto.GetOrderInfoAsync(orderId)),
+                    ReturnOrderViewModel = _mapper.Map<ReturnOrderViewModel>(await _unitOfWork.Orders.GetByIdAsync(orderId)),
                     ProductOrderViewModels = productList,
                 };
             } 

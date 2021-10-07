@@ -1,10 +1,11 @@
 ﻿using DAL.Data;
+using DAL.Interfaces;
 using RIL.Models;
 using System.Threading.Tasks;
 
 namespace DAL.Repositories
 {
-    public class ProductRatingRepository
+    public class ProductRatingRepository : IProductRatingRepository
     {
         private readonly ApplicationDbContext _context;
 
@@ -13,40 +14,40 @@ namespace DAL.Repositories
             _context = context;
         }
 
-        public async Task<ProductRating> CreateProductRatingAsync(ProductRating productRating)
+        public async Task<ProductRating> CreateAsync(ProductRating productRating)
         {
             if(await _context.ProductRatings.FindAsync(productRating.ProductId, productRating.UserId) == null)
             {
                 await _context.ProductRatings.AddAsync(productRating);
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(); //!!!!!!!!!!!!!!!!!!!!!!!
 
                 return productRating;
             }
             return null;
         }
 
-        public async Task<ProductRating> UpdateProductRatingAsync(ProductRating productRating)
+        public async Task<ProductRating> UpdateAsync(ProductRating newProductRating)
         {
-            var oldProductRating = await _context.ProductRatings
-                .FindAsync(productRating.ProductId, productRating.UserId);
-            if (oldProductRating != null)
+            var productRating = await _context.ProductRatings
+                .FindAsync(newProductRating.ProductId, newProductRating.UserId);
+            if (productRating != null)
             {
-                oldProductRating.Rating = productRating.Rating;
-                await _context.SaveChangesAsync();
+                productRating.Rating = newProductRating.Rating;
+                await _context.SaveChangesAsync(); //!!!!!!!!!!!!!!!!!!!!!!!!
 
-                return oldProductRating;
+                return productRating;
             }
             return null;
         }
 
-        public async Task DeleteProductRatingAsync(ProductRating productRating)
+        public async Task DeleteAsync(ProductRating deletedProductRating)
         {
-            var oldProductRating = await _context.ProductRatings
-                .FindAsync(productRating.ProductId, productRating.UserId);
-            if (oldProductRating != null)
+            var productRating = await _context.ProductRatings
+                .FindAsync(deletedProductRating.ProductId, deletedProductRating.UserId);
+            if (productRating != null)
             {
-                _context.ProductRatings.Remove(oldProductRating);
-                await _context.SaveChangesAsync();
+                _context.ProductRatings.Remove(productRating);
+                await _context.SaveChangesAsync(); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!
             }
         }
     }

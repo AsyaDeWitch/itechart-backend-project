@@ -36,7 +36,7 @@ namespace BLL.Services
 
         private string GetNewImageName(IFormFile formFile)
         {
-            string imageName = new String(Path.GetFileNameWithoutExtension(formFile.FileName).Replace(' ', '-'));
+            string imageName = new(Path.GetFileNameWithoutExtension(formFile.FileName).Replace(' ', '-'));
             imageName = imageName + DateTime.Now.ToString("yyyyMMdd'-'HHmmss") + Path.GetExtension(formFile.FileName);
             return imageName;
         }

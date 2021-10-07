@@ -1,12 +1,13 @@
-﻿using System;
+﻿using BLL.Interfaces;
+using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace BLL.Services
 {
-    class ValidatorService
+    public class ValidatorService : IValidatorService
     {
-        public static bool IsValidEmail(string email)
+        public bool IsValidEmail(string email)
         {
             if (string.IsNullOrWhiteSpace(email))
             {
@@ -52,7 +53,7 @@ namespace BLL.Services
             }
         }
 
-        public static bool IsValidPassword(string password)
+        public bool IsValidPassword(string password)
         {
             if (string.IsNullOrWhiteSpace(password))
             {
@@ -73,7 +74,7 @@ namespace BLL.Services
             }
         }
 
-        public static bool IsValidPhoneNumber(string phoneNumber)
+        public bool IsValidPhoneNumber(string phoneNumber)
         {
             if(string.IsNullOrEmpty(phoneNumber))
             {

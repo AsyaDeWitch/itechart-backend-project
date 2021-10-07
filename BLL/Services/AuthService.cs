@@ -11,13 +11,15 @@ namespace BLL.Services
         private readonly SignInManager<ExtendedUser> _signInManager;
         private readonly IEmailSenderService _emailSender;
         private readonly ITokenService _tokenService;
+        private readonly IValidatorService _validatorService;
 
-        public AuthService(UserManager<ExtendedUser> userManager, SignInManager<ExtendedUser> signInManager, IEmailSenderService emailSender, ITokenService tokenService)
+        public AuthService(UserManager<ExtendedUser> userManager, SignInManager<ExtendedUser> signInManager, IEmailSenderService emailSender, ITokenService tokenService, IValidatorService validatorService)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _tokenService = tokenService;
+            _validatorService = validatorService;
         }
 
         public async Task<IdentityResult> ConfirmEmailAsync(string userId, string token)
@@ -46,13 +48,13 @@ namespace BLL.Services
 
         public async Task<(ExtendedUser, string)> SignInUserAsync(string email, string password, string issuer, string audience, string key)
         {
-            if(ValidatorService.IsValidEmail(email))
+            if(_validatorService.IsValidEmail(email))
             {
                 var user = await _userManager.FindByEmailAsync(email);
 
                 if (user != null)
                 {
-                    if (ValidatorService.IsValidPassword(password))
+                    if (_validatorService.IsValidPassword(password))
                     {
                         var signInResult = await _signInManager.PasswordSignInAsync(user, password, false, false);
                         if (signInResult.Succeeded)
@@ -71,9 +73,9 @@ namespace BLL.Services
 
         public async Task<ExtendedUser> SignUpUserAsync(string email, string password)
         {
-            if(ValidatorService.IsValidEmail(email))
+            if(_validatorService.IsValidEmail(email))
             { 
-                if (ValidatorService.IsValidPassword(password))
+                if (_validatorService.IsValidPassword(password))
                 {
                     var user = new ExtendedUser
                     {

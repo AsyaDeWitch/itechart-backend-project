@@ -98,7 +98,6 @@ namespace Web.Controllers
                 });
             }
             return Ok(user);
-
         }
     }
 }

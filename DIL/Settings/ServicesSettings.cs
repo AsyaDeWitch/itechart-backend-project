@@ -25,8 +25,8 @@ using DIL.ActionFilters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.ResponseCompression;
 using System.IO.Compression;
-using Microsoft.Extensions.Caching.Memory;
-using System.Text.Json.Serialization;
+using DAL.Interfaces;
+using DAL.Repositories;
 
 namespace DIL.Settings
 {
@@ -100,17 +100,26 @@ namespace DIL.Settings
             services.AddSingleton<IAuthorizationHandler, RoleAuthorizationHandler>();
             services.AddSingleton<IAuthorizationMiddlewareResultHandler,
                           RoleAuthorizationMiddlewareResultHandler>();
-            //services.AddSingleton<IMemoryCache>();
 
             services.AddScoped<IAuthService, AuthService>();
             services.AddTransient<IEmailSenderService, EmailSenderService>();
             services.AddScoped<IAdministrationService, AdministrationService>();
             services.AddScoped<ITokenService, JwtService>();
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IUserClaimsPrincipalFactory<ExtendedUser>, ExtendedUserClaimsPrincipalFactory>();
             services.AddScoped<IGamesService, GamesService>();
             services.AddScoped<IFirebaseService, FirebaseService>();
             services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IValidatorService, ValidatorService>();
+
+            services.AddScoped<IAddressRepository, AddressRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IProductOrderRepository, ProductOrderRepository>();
+            services.AddScoped<IProductRatingRepository, ProductRatingRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IUnitOfWork,UnitOfWork>();
+
+            services.AddScoped<IUserClaimsPrincipalFactory<ExtendedUser>, ExtendedUserClaimsPrincipalFactory>();
+            
             services.AddScoped<SortAndFilterParamsValidationActionFilter>();
             services.AddScoped<ProductValidationActionFilter>();
             services.AddScoped<OrderAndProductsValidationActionFilter>();

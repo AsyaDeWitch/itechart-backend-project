@@ -1,6 +1,5 @@
 ﻿using BLL.ViewModels;
-using DAL.Data;
-using DAL.Repositories;
+using DAL.Interfaces;
 using Microsoft.AspNetCore.Mvc.Filters;
 using System.Linq;
 using System.Threading.Tasks;
@@ -9,11 +8,11 @@ namespace DIL.ActionFilters
 {
     public class ProductValidationActionFilter : IAsyncActionFilter
     {
-        private readonly ProductRepository _productRepository;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public ProductValidationActionFilter(ApplicationDbContext context)
+        public ProductValidationActionFilter(IUnitOfWork unitOfWork)
         {
-            _productRepository = new ProductRepository(context);
+            _unitOfWork = unitOfWork;
         }
 
         public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
@@ -23,9 +22,9 @@ namespace DIL.ActionFilters
             {
                 foreach(var product in products)
                 {
-                    if (await _productRepository.IsContainedInDb(product.ProductId))
+                    if (await _unitOfWork.Products.IsContainedInDbAsync(product.ProductId))
                     {
-                        var count = await _productRepository.GetProductCount(product.ProductId);
+                        var count = await _unitOfWork.Products.GetCountByIdAsync(product.ProductId);
                         if(product.ProductAmount > count)
                         {
                             product.ProductAmount = count;

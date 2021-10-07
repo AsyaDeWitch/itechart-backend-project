@@ -1,8 +1,7 @@
 ﻿using AutoMapper;
-using BLL.Dto;
 using BLL.Interfaces;
 using BLL.ViewModels;
-using DAL.Data;
+using DAL.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.JsonPatch;
 using RIL.Models;
@@ -15,17 +14,17 @@ namespace BLL.Services
     {
         private readonly ITokenService _tokenService;
         private readonly UserManager<ExtendedUser> _userManager;
-        private readonly ApplicationDbContext _context;
-        private readonly AddressDto _addressDto;
         private readonly IMapper _mapper;
+        private readonly IValidatorService _validatorService;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public UserService(ITokenService tokenService, UserManager<ExtendedUser> userManager, ApplicationDbContext context, IMapper mapper)
+        public UserService(ITokenService tokenService, UserManager<ExtendedUser> userManager, IMapper mapper, IValidatorService validatorService, IUnitOfWork unitOfWork)
         {
             _tokenService = tokenService;
             _userManager = userManager;
-            _context = context;
-            _addressDto = new AddressDto(_context);
             _mapper = mapper;
+            _validatorService = validatorService;
+            _unitOfWork = unitOfWork;
         }
 
         public string GetUserId(string token)
@@ -40,7 +39,7 @@ namespace BLL.Services
             {
                 if (!String.IsNullOrWhiteSpace(userProfile.PhoneNumber))
                 {
-                    if (ValidatorService.IsValidPhoneNumber(userProfile.PhoneNumber))
+                    if (_validatorService.IsValidPhoneNumber(userProfile.PhoneNumber))
                     {
                         user.PhoneNumber = userProfile.PhoneNumber;
                     }
@@ -62,7 +61,7 @@ namespace BLL.Services
                 }
                 else
                 {
-                    user.AddressDelivery = await _addressDto.GetAddressById(user.AddressDeliveryId);
+                    user.AddressDelivery = await _unitOfWork.Addresses.GetByIdAsync(user.AddressDeliveryId);
                 }
 
                 var result = await _userManager.UpdateAsync(user);
@@ -76,7 +75,6 @@ namespace BLL.Services
                         PhoneNumber = user.PhoneNumber,
                     };
                 }
-
             }
             return null;
         }
@@ -84,7 +82,7 @@ namespace BLL.Services
         public async Task<ReturnUserProfileViewModel> GetUserProfileAsync(string userId)
         {
             var user = await _userManager.FindByIdAsync(userId);
-            var address = await _addressDto.GetAddressById(user.AddressDeliveryId);
+            var address = await _unitOfWork.Addresses.GetByIdAsync(user.AddressDeliveryId);
 
             return new ReturnUserProfileViewModel
             {
@@ -103,7 +101,7 @@ namespace BLL.Services
                 var updatedUser = new PatchUserPasswordViewModel();
 
                 userPatch.ApplyTo(updatedUser);
-                if (ValidatorService.IsValidPassword(updatedUser.NewPassword))
+                if (_validatorService.IsValidPassword(updatedUser.NewPassword))
                 {
                     return await _userManager.ChangePasswordAsync(user, updatedUser.CurrentPassword, updatedUser.NewPassword);
                 } 

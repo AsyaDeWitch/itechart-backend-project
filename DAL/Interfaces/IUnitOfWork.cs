@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace DAL.Interfaces
+﻿namespace DAL.Interfaces
 {
     public interface IUnitOfWork
     {
@@ -13,7 +7,5 @@ namespace DAL.Interfaces
         public IProductOrderRepository ProductOrders { get; }
         public IProductRatingRepository ProductRatings { get; }
         public IProductRepository Products { get; }
-
-        public Task SaveChangesAsync();
     }
 }

@@ -1,7 +1,6 @@
 ﻿using DAL.Data;
 using DAL.Interfaces;
 using System;
-using System.Threading.Tasks;
 
 namespace DAL
 {
@@ -65,11 +64,6 @@ namespace DAL
             {
                 return _productRepository;
             }
-        }
-
-        public async Task SaveChangesAsync()
-        {
-            await _context.SaveChangesAsync();
         }
 
         public virtual void Dispose(bool disposing)

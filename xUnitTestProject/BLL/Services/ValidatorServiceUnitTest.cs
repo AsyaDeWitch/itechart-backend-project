@@ -11,6 +11,8 @@ namespace xUnitTestProject.BLL.Services
         [InlineData("test12345@mail.ru", true)]
         [InlineData("test@", false)]
         [InlineData("@gmail.com", false)]
+        [InlineData("in@something@yandex.ru", false)]
+        [InlineData(" ", false)]
         public void GivenEmailString_WhenIsValidEmail_ThenBoolResultReturned(string email, bool expected)
         {
             // Arrange
@@ -30,6 +32,7 @@ namespace xUnitTestProject.BLL.Services
         [InlineData("QWERtyui", false)]
         [InlineData("QWERtyu1", false)]
         [InlineData("!QWERty1", true)]
+        [InlineData("   ", false)]
         public void GivenPasswordString_WhenIsValidPassword_ThenBoolResultReturned(string password, bool expected)
         {
             //Arrange
@@ -48,6 +51,7 @@ namespace xUnitTestProject.BLL.Services
         [InlineData("80-29-000-00-00", true)]
         [InlineData("12345678", true)]
         [InlineData("qwerty", false)]
+        [InlineData("    ", false)]
         public void GivenPhoneNumberString_WhenIsValidPhoneNumber_ThenBoolResultReturned(string phoneNumber, bool expected)
         {
             //Arrange

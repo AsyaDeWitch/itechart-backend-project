@@ -14,14 +14,14 @@ namespace BLL.Services
                 return false;
             }
 
-            try
-            {
+            //try
+            //{
                 // Normalize the domain
                 email = Regex.Replace(email, @"(@)(.+)$", DomainMapper,
                                       RegexOptions.None, TimeSpan.FromMilliseconds(200));
 
-                // Examines the domain part of the email and normalizes it.
-                string DomainMapper(Match match)
+            // Examines the domain part of the email and normalizes it.
+                static string DomainMapper(Match match)
                 {
                     // Use IdnMapping class to convert Unicode domain names.
                     var idn = new IdnMapping();
@@ -31,26 +31,26 @@ namespace BLL.Services
 
                     return match.Groups[1].Value + domainName;
                 }
-            }
-            catch (RegexMatchTimeoutException)
-            {
-                return false;
-            }
-            catch (ArgumentException)
-            {
-                return false;
-            }
+            //}
+            //catch (RegexMatchTimeoutException)
+            //{
+            //    return false;
+            //}
+            //catch (ArgumentException)
+            //{
+            //    return false;
+            //}
 
-            try
-            {
+            //try
+            //{
                 return Regex.IsMatch(email,
                     @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
                     RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
-            }
-            catch (RegexMatchTimeoutException)
-            {
-                return false;
-            }
+            //}
+            //catch (RegexMatchTimeoutException)
+            //{
+            //    return false;
+            //}
         }
 
         public bool IsValidPassword(string password)
@@ -60,37 +60,37 @@ namespace BLL.Services
                 return false;
             }
 
-            try
-            {
+            //try
+            //{
                 //min 1 lowercase, 1 uppercase, 1 number, 1 special character (non-letter and non-number)
                 //8+ characters
                 return Regex.IsMatch(password,
                     @"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!*()@%&])[\s\S]{8,}$",
                     RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
-            }
-            catch (RegexMatchTimeoutException)
-            {
-                return false;
-            }
+            //}
+            //catch (RegexMatchTimeoutException)
+            //{
+            //    return false;
+            //}
         }
 
         public bool IsValidPhoneNumber(string phoneNumber)
         {
-            if(string.IsNullOrEmpty(phoneNumber))
+            if(string.IsNullOrWhiteSpace(phoneNumber))
             {
                 return false;
             }
 
-            try
-            {
+            //try
+            //{
                 return Regex.IsMatch(phoneNumber,
                     @"^\+?(\d[\d\-. ]+)?(\([\d\-. ]+\))?[\d\-. ]+\d$",
                     RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
-            }
-            catch (RegexMatchTimeoutException)
-            {
-                return false;
-            }
+            //}
+            //catch (RegexMatchTimeoutException)
+            //{
+            //    return false;
+            //}
         }
     }
 }

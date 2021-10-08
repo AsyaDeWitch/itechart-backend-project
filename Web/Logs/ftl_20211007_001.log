@@ -105,3 +105,4 @@ WHERE ([p].[IsDeleted] <> CAST(1 AS bit)) AND ([p].[Platform] = @__i_0)"
 2021-10-07T14:13:37.1617210+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
 2021-10-07T14:13:37.1618363+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
 2021-10-07T14:13:37.1618720+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-07T20:43:13.1459376+03:00 [INF] () Strating web host

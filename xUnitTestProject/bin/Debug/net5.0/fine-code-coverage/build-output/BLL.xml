@@ -202,8 +202,18 @@
             <remarks>Matching between string description rating and number specified in Rating enum</remarks>
             <example>0</example>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:BLL.ViewModels.ProductViewModel.Logo" -->
-        <!-- Badly formed XML comment ignored for member "P:BLL.ViewModels.ProductViewModel.Background" -->
+        <member name="P:BLL.ViewModels.ProductViewModel.Logo">
+            <summary>
+            Link to logo image
+            </summary>
+            <example>https://firebasestorage.googleapis.com/[project_path]/[image_path]?alt=[type]</example>
+        </member>
+        <member name="P:BLL.ViewModels.ProductViewModel.Background">
+            <summary>
+            Link to background image
+            </summary>
+            <example>https://firebasestorage.googleapis.com/[project_path]/[image_path]?alt=[type]</example>
+        </member>
         <member name="P:BLL.ViewModels.ProductViewModel.Price">
             <summary>
             Product path
@@ -230,6 +240,48 @@
         <member name="P:BLL.ViewModels.ProductViewModel.BackgroundImageFile">
             <summary>
             Background image file
+            </summary>
+        </member>
+        <member name="F:BLL.ViewModels.SortingParameterViewModel.TotalRating_asc">
+            <summary>
+            Total rating ascending sorting parameter
+            </summary>
+        </member>
+        <member name="F:BLL.ViewModels.SortingParameterViewModel.TotalRating_desc">
+            <summary>
+            Total rating descending sorting parameter
+            </summary>
+        </member>
+        <member name="F:BLL.ViewModels.SortingParameterViewModel.Price_asc">
+            <summary>
+            Price ascending sorting parameter
+            </summary>
+        </member>
+        <member name="F:BLL.ViewModels.SortingParameterViewModel.Price_desc">
+            <summary>
+            Price descending sorting parameter
+            </summary>
+        </member>
+        <member name="F:BLL.ViewModels.SortingParameterViewModel.Default">
+            <summary>
+            Default sorting by name alphabetically
+            </summary>
+        </member>
+        <member name="P:BLL.ViewModels.UserProfileViewModel.UserName">
+            <summary>
+            User name
+            </summary>
+            <example>Test</example>
+        </member>
+        <member name="P:BLL.ViewModels.UserProfileViewModel.PhoneNumber">
+            <summary>
+            User phone number
+            </summary>
+            <example>+375290000000</example>
+        </member>
+        <member name="P:BLL.ViewModels.UserProfileViewModel.AddressDelivery">
+            <summary>
+            User addess delivery
             </summary>
         </member>
         <member name="P:BLL.ViewModels.ReturnOrderViewModel.Id">
@@ -354,48 +406,6 @@
         <member name="P:BLL.ViewModels.ReturnUserProfileViewModel.AddressDelivery">
             <summary>
             User Delivery address
-            </summary>
-        </member>
-        <member name="F:BLL.ViewModels.SortingParameterViewModel.TotalRating_asc">
-            <summary>
-            Total rating ascending sorting parameter
-            </summary>
-        </member>
-        <member name="F:BLL.ViewModels.SortingParameterViewModel.TotalRating_desc">
-            <summary>
-            Total rating descending sorting parameter
-            </summary>
-        </member>
-        <member name="F:BLL.ViewModels.SortingParameterViewModel.Price_asc">
-            <summary>
-            Price ascending sorting parameter
-            </summary>
-        </member>
-        <member name="F:BLL.ViewModels.SortingParameterViewModel.Price_desc">
-            <summary>
-            Price descending sorting parameter
-            </summary>
-        </member>
-        <member name="F:BLL.ViewModels.SortingParameterViewModel.Default">
-            <summary>
-            Default sorting by name alphabetically
-            </summary>
-        </member>
-        <member name="P:BLL.ViewModels.UserProfileViewModel.UserName">
-            <summary>
-            User name
-            </summary>
-            <example>Test</example>
-        </member>
-        <member name="P:BLL.ViewModels.UserProfileViewModel.PhoneNumber">
-            <summary>
-            User phone number
-            </summary>
-            <example>+375290000000</example>
-        </member>
-        <member name="P:BLL.ViewModels.UserProfileViewModel.AddressDelivery">
-            <summary>
-            User addess delivery
             </summary>
         </member>
     </members>

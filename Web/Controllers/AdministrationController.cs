@@ -72,7 +72,9 @@ namespace Web.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         public async Task<IActionResult> UpdateRoleAsync([FromBody] JsonPatchDocument<PatchUserRoleViewModel> userPatch)
         {
-            var result = await _administrationService.UpdateRoleAsync(userPatch);
+            var updatedRole = new PatchUserRoleViewModel();
+            userPatch.ApplyTo(updatedRole);
+            var result = await _administrationService.UpdateRoleAsync(updatedRole);
             if (result.Succeeded)
             {
                 return NoContent();

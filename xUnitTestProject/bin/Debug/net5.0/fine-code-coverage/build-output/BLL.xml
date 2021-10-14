@@ -371,8 +371,18 @@
             </summary>
             <example>Rated G: General audiences – All ages admitted</example>
         </member>
-        <!-- Badly formed XML comment ignored for member "P:BLL.ViewModels.ReturnProductViewModel.Logo" -->
-        <!-- Badly formed XML comment ignored for member "P:BLL.ViewModels.ReturnProductViewModel.Background" -->
+        <member name="P:BLL.ViewModels.ReturnProductViewModel.Logo">
+            <summary>
+            Link to logo image
+            </summary>
+            <example>https://firebasestorage.googleapis.com/[project_path]/[image_path]?alt=[type]</example>
+        </member>
+        <member name="P:BLL.ViewModels.ReturnProductViewModel.Background">
+            <summary>
+            Link to background image
+            </summary>
+            <example>https://firebasestorage.googleapis.com/[project_path]/[image_path]?alt=[type]</example>
+        </member>
         <member name="P:BLL.ViewModels.ReturnProductViewModel.Price">
             <summary>
             Product path

@@ -11,11 +11,11 @@ namespace BLL.Services
 {
     public class JwtService : ITokenService
     {
-        private readonly int _expiryDurationInMinites = 120;
+        private const int ExpiryDurationInMinutes = 120;
         public string BuildToken(ExtendedUser user, string jwtIssuer, string jwtAudience, string jwtKey)
         {
             var securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(jwtKey));
-            var creditals = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
+            var credentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256);
             var claims = new[]
             {
                 new Claim("UserId", user.Id.ToString()),
@@ -26,8 +26,8 @@ namespace BLL.Services
                 issuer: jwtIssuer,
                 audience: jwtAudience,
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(_expiryDurationInMinites),
-                signingCredentials: creditals
+                expires: DateTime.Now.AddMinutes(ExpiryDurationInMinutes),
+                signingCredentials: credentials
                 );
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
@@ -35,9 +35,16 @@ namespace BLL.Services
         public string ExtractUserIdFromToken(string token)
         {
             JwtSecurityTokenHandler tokenHandler = new();
-            JwtSecurityToken jwtToken = (JwtSecurityToken)tokenHandler.ReadToken(token);
-            var id = jwtToken.Claims.First(claim => claim.Type == "UserId").Value;
-
+            string id;
+            try
+            {
+                var jwtToken = (JwtSecurityToken)tokenHandler.ReadToken(token);
+                id = jwtToken.Claims.First(claim => claim.Type == "UserId").Value;
+            }
+            catch (Exception e)
+            {
+                id = null;
+            }
             return id;
         }
 
@@ -57,7 +64,7 @@ namespace BLL.Services
                     ValidAudience = jwtAudience,
                     IssuerSigningKey = securityKey,
                 }, 
-                out SecurityToken validatedToken);
+                out var validatedToken);
             }
             catch
             {

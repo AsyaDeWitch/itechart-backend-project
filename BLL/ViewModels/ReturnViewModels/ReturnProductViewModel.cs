@@ -56,13 +56,13 @@ namespace BLL.ViewModels
         /// <summary>
         /// Link to logo image
         /// </summary>
-        /// <example>https://firebasestorage.googleapis.com/[project_path]/[image_path]?alt=[type]&token=[token_string]</example>
+        /// <example>https://firebasestorage.googleapis.com/[project_path]/[image_path]?alt=[type]</example>
         public string Logo { get; set; }
 
         /// <summary>
         /// Link to background image
         /// </summary>
-        /// <example>https://firebasestorage.googleapis.com/[project_path]/[image_path]?alt=[type]&token=[token_string]</example>
+        /// <example>https://firebasestorage.googleapis.com/[project_path]/[image_path]?alt=[type]</example>
         public string Background { get; set; }
 
         /// <summary>

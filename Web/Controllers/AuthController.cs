@@ -24,7 +24,7 @@ namespace Web.Controllers
         }
 
         /// <summary>
-        /// Performs user auhentication
+        /// Performs user authentication
         /// </summary>
         /// <param name="signInModel">Sign In Model</param>
         /// <response code="200">JWT token string returned</response>
@@ -68,7 +68,7 @@ namespace Web.Controllers
 
             if(user != null)
             {
-                var token = await _authService.GenerateComfirmationLinkAsync(user);
+                var token = await _authService.GenerateConfirmationLinkAsync(user);
                 var confirmationLink = Url.Action("ConfirmEmail", "Auth", new { user.Id, token }, Request.Scheme);
                 await _authService.SendConfirmationLinkAsync(user.Email, confirmationLink);
 

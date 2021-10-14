@@ -12,10 +12,11 @@ namespace DAL
         private readonly IProductOrderRepository _productOrderRepository;
         private readonly IProductRatingRepository _productRatingRepository;
         private readonly IProductRepository _productRepository;
+        private readonly IExtendedUserRepository _extendedUserRepository;
         private bool _isDisposed;
 
-        public UnitOfWork(ApplicationDbContext context, IAddressRepository addressRepository, IOrderRepository orderRepository,
-            IProductOrderRepository productOrderRepository, IProductRatingRepository productRatingRepository, IProductRepository productRepository)
+        public UnitOfWork(ApplicationDbContext context, IAddressRepository addressRepository, IOrderRepository orderRepository, IProductOrderRepository productOrderRepository, 
+            IProductRatingRepository productRatingRepository, IProductRepository productRepository, IExtendedUserRepository extendedUserRepository)
         {
             _context = context;
             _addressRepository = addressRepository;
@@ -23,6 +24,7 @@ namespace DAL
             _productOrderRepository = productOrderRepository;
             _productRatingRepository = productRatingRepository;
             _productRepository = productRepository;
+            _extendedUserRepository = extendedUserRepository;
             _isDisposed = false;
         }
 
@@ -63,6 +65,14 @@ namespace DAL
             get
             {
                 return _productRepository;
+            }
+        }
+
+        public IExtendedUserRepository ExtendedUsers
+        {
+            get
+            {
+                return _extendedUserRepository;
             }
         }
 

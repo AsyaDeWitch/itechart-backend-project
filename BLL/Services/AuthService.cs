@@ -1,4 +1,5 @@
 ﻿using BLL.Interfaces;
+using DAL.Interfaces;
 using Microsoft.AspNetCore.Identity;
 using RIL.Models;
 using System.Threading.Tasks;
@@ -7,42 +8,39 @@ namespace BLL.Services
 {
     public class AuthService : IAuthService
     {
-        private readonly UserManager<ExtendedUser> _userManager;
-        private readonly SignInManager<ExtendedUser> _signInManager;
+        private readonly IUnitOfWork _unitOfWork;
         private readonly IEmailSenderService _emailSender;
         private readonly ITokenService _tokenService;
         private readonly IValidatorService _validatorService;
 
-        public AuthService(UserManager<ExtendedUser> userManager, SignInManager<ExtendedUser> signInManager, IEmailSenderService emailSender, ITokenService tokenService, IValidatorService validatorService)
+        public AuthService(IUnitOfWork unitOfWork, IEmailSenderService emailSender, ITokenService tokenService, IValidatorService validatorService)
         {
-            _userManager = userManager;
-            _signInManager = signInManager;
             _emailSender = emailSender;
             _tokenService = tokenService;
             _validatorService = validatorService;
+            _unitOfWork = unitOfWork;
         }
 
         public async Task<IdentityResult> ConfirmEmailAsync(string userId, string token)
         {
-            var user = await _userManager.FindByIdAsync(userId);
+            var user = await _unitOfWork.ExtendedUsers.FindByIdAsync(userId);
 
-            if (user != null)
+            if (user == null)
             {
-                var result = await _userManager.ConfirmEmailAsync(user, token);
-
-                return result;
+                return IdentityResult.Failed();
             }
-            return IdentityResult.Failed();
+            var result = await _unitOfWork.ExtendedUsers.ConfirmEmailAsync(user, token);
+            return result;
         }
 
-        public async Task<string> GenerateComfirmationLinkAsync(ExtendedUser user)
+        public async Task<string> GenerateConfirmationLinkAsync(ExtendedUser user)
         {
-            return await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            return await _unitOfWork.ExtendedUsers.GenerateEmailConfirmationTokenAsync(user);
         }
 
         public async Task SendConfirmationLinkAsync(string userId, string confirmationLink)
         {
-            string htmlMessage = "<p><a href=\"" + confirmationLink + "\">Follow the link to confirm your email</a></p>";
+            var htmlMessage = "<p><a href=\"" + confirmationLink + "\">Follow the link to confirm your email</a></p>";
             await _emailSender.SendEmailByMailKitAsync(userId, htmlMessage);
         }
 
@@ -50,20 +48,17 @@ namespace BLL.Services
         {
             if(_validatorService.IsValidEmail(email))
             {
-                var user = await _userManager.FindByEmailAsync(email);
+                var user = await _unitOfWork.ExtendedUsers.FindByEmailAsync(email);
 
-                if (user != null)
+                if (user != null && _validatorService.IsValidPassword(password))
                 {
-                    if (_validatorService.IsValidPassword(password))
+                    var signInResult = await _unitOfWork.ExtendedUsers.PasswordSignInAsync(user, password);
+                    if (signInResult.Succeeded)
                     {
-                        var signInResult = await _signInManager.PasswordSignInAsync(user, password, false, false);
-                        if (signInResult.Succeeded)
+                        var tokenString = _tokenService.BuildToken(user, issuer, audience, key);
+                        if (tokenString != null)
                         {
-                            var tokenString = _tokenService.BuildToken(user, issuer, audience, key);
-                            if(tokenString != null)
-                            {
-                                return (user, tokenString);
-                            }
+                            return (user, tokenString);
                         }
                     }
                 }
@@ -73,28 +68,20 @@ namespace BLL.Services
 
         public async Task<ExtendedUser> SignUpUserAsync(string email, string password)
         {
-            if(_validatorService.IsValidEmail(email))
-            { 
-                if (_validatorService.IsValidPassword(password))
+            if(_validatorService.IsValidEmail(email) && _validatorService.IsValidPassword(password))
+            {
+                var existUser = await _unitOfWork.ExtendedUsers.FindByEmailAsync(email);
+                if (existUser == null)
                 {
-                    var user = new ExtendedUser
-                    {
-                        UserName = email,
-                        Email = email,
-                    };
+                    var user = await _unitOfWork.ExtendedUsers.CreateForSignUpAsync(email);
+                    var result = await _unitOfWork.ExtendedUsers.CreateAsync(user, password);
 
-                    var existUser = await _userManager.FindByEmailAsync(email);
-                    if(existUser == null)
+                    if (result.Succeeded)
                     {
-                        var result = await _userManager.CreateAsync(user, password);
-
-                        if (result.Succeeded)
-                        {
-                            await _userManager.AddToRoleAsync(user, "User");
-                            return user;
-                        }
+                        await _unitOfWork.ExtendedUsers.AddToRoleAsync(user, "User");
+                        return user;
                     }
-                }  
+                }
             }
             return null;
         }

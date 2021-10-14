@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using BLL.Interfaces;
+﻿using BLL.Interfaces;
 using BLL.ViewModels;
 using DAL.Interfaces;
 using RIL.Models;
@@ -13,23 +12,23 @@ namespace BLL.Services
     public class GamesService : IGamesService
     {
         private readonly IUnitOfWork _unitOfWork;
-        private readonly IMapper _mapper;
         private readonly IFirebaseService _firebaseService;
+        private readonly IConverter _converter;
 
-        public GamesService(IMapper mapper, IFirebaseService firebaseService, IUnitOfWork unitOfWork)
+        public GamesService(IFirebaseService firebaseService, IUnitOfWork unitOfWork, IConverter converter)
         {
             _unitOfWork = unitOfWork;
-            _mapper = mapper;
             _firebaseService = firebaseService;
+            _converter = converter;
         }
 
         public async Task<Dictionary<string, int>> GetTopPlatformsAsync(int quantity)
         {
-            List<(int, int)> resultList = await _unitOfWork.Products.GetEachPlatformCountAsync();
+            var resultList = await _unitOfWork.Products.GetEachPlatformCountAsync();
             resultList.Sort((x, y) => y.Item2.CompareTo(x.Item2));
 
             Dictionary<string, int> resultDictionary = new();
-            for (int i = 0; i < quantity; i++)
+            for (var i = 0; i < quantity; i++)
             {
                 resultDictionary.Add(((Platform)resultList[i].Item1).ToString(), resultList[i].Item2);
             }
@@ -40,17 +39,16 @@ namespace BLL.Services
         {
             var products = await _unitOfWork.Products.GetProductsByParametersAsync(term, limit, offset, name);
             var resultProducts = new List<ReturnProductViewModel>();
-            for (int i = 0; i < products.Count; i++)
-            {
-                resultProducts.Add(_mapper.Map<ReturnProductViewModel>(products[i]));
-            }
+            resultProducts.AddRange
+            (products
+                .Select(p => _converter.Product.ConvertToReturnProductViewModel(p)));
             return resultProducts;
         }
 
         public async Task<ReturnProductViewModel> GetProductFullInfoAsync(string id)
         {
             var product = await _unitOfWork.Products.GetByIdAsync(int.Parse(id));
-            return _mapper.Map<ReturnProductViewModel>(product);
+            return _converter.Product.ConvertToReturnProductViewModel(product);
         }
 
         public async Task<ReturnProductViewModel> CreateProductAsync(ProductViewModel product)
@@ -58,7 +56,7 @@ namespace BLL.Services
             if (product.LogoImageFile != null)
             {
                 var linkToImage = await _firebaseService.UploadLogoImageAsync(product.LogoImageFile);
-                if (!String.IsNullOrWhiteSpace(linkToImage))
+                if (!string.IsNullOrWhiteSpace(linkToImage))
                 {
                     product.Logo = linkToImage;
                 }
@@ -66,14 +64,14 @@ namespace BLL.Services
             if (product.BackgroundImageFile != null)
             {
                 var linkToImage = await _firebaseService.UploadBackgroundImageAsync(product.BackgroundImageFile);
-                if (!String.IsNullOrWhiteSpace(linkToImage))
+                if (!string.IsNullOrWhiteSpace(linkToImage))
                 {
                     product.Background = linkToImage;
                 }
             }
 
-            var createdProduct = await _unitOfWork.Products.CreateAsync(_mapper.Map<Product>(product));
-            return _mapper.Map<ReturnProductViewModel>(createdProduct);
+            var createdProduct = await _unitOfWork.Products.CreateAsync(_converter.Product.ConvertToProduct(product));
+            return _converter.Product.ConvertToReturnProductViewModel(createdProduct);
         }
 
         public async Task<ReturnProductViewModel> UpdateProductAsync(ProductViewModel product)
@@ -86,7 +84,7 @@ namespace BLL.Services
             if (product.LogoImageFile != null)
             {
                 var linkToImage = await _firebaseService.UploadLogoImageAsync(product.LogoImageFile);
-                if (!String.IsNullOrWhiteSpace(linkToImage))
+                if (!string.IsNullOrWhiteSpace(linkToImage))
                 {
                     product.Logo = linkToImage;
                 }
@@ -95,14 +93,14 @@ namespace BLL.Services
             if (product.BackgroundImageFile != null)
             {
                 var linkToImage = await _firebaseService.UploadBackgroundImageAsync(product.BackgroundImageFile);
-                if (!String.IsNullOrWhiteSpace(linkToImage))
+                if (!string.IsNullOrWhiteSpace(linkToImage))
                 {
                     product.Background = linkToImage;
                 }
             }
 
-            var updatedProduct = await _unitOfWork.Products.UpdateAsync(_mapper.Map<Product>(product));
-            return _mapper.Map<ReturnProductViewModel>(updatedProduct);
+            var updatedProduct = await _unitOfWork.Products.UpdateAsync(_converter.Product.ConvertToProduct(product));
+            return _converter.Product.ConvertToReturnProductViewModel(updatedProduct);
         }
 
         public async Task DeleteProductByIdAsync(string id)
@@ -112,31 +110,32 @@ namespace BLL.Services
 
         public async Task<ProductRatingViewModel> CreateProductRatingAsync(ProductRatingViewModel productRating)
         {
-            var newProductRating = await _unitOfWork.ProductRatings.CreateAsync(_mapper.Map<ProductRating>(productRating));
+            var newProductRating = await _unitOfWork.ProductRatings.CreateAsync(_converter.ProductRating.ConvertToProductRating(productRating));
             if (newProductRating != null)
             {
                 await _unitOfWork.Products.UpdateTotalRatingAsync(productRating.ProductId);
             }
-            return _mapper.Map<ProductRatingViewModel>(newProductRating);
+
+            return _converter.ProductRating.ConvertToProductRatingViewModel(newProductRating);
         }
 
         public async Task<ProductRatingViewModel> UpdateProductRatingAsync(ProductRatingViewModel productRating)
         {
-            if(productRating.Rating != 0)
+            if(productRating.Rating == 0)
             {
-                var newProductRating = await _unitOfWork.ProductRatings.UpdateAsync(_mapper.Map<ProductRating>(productRating));
-                if (newProductRating != null)
-                {
-                    await _unitOfWork.Products.UpdateTotalRatingAsync(productRating.ProductId);
-                }
-                return _mapper.Map<ProductRatingViewModel>(newProductRating);
+                return null;
             }
-            return null;
+            var newProductRating = await _unitOfWork.ProductRatings.UpdateAsync(_converter.ProductRating.ConvertToProductRating(productRating));
+            if (newProductRating != null)
+            {
+                await _unitOfWork.Products.UpdateTotalRatingAsync(productRating.ProductId);
+            }
+            return _converter.ProductRating.ConvertToProductRatingViewModel(newProductRating);
         }
 
         public async Task DeleteProductRatingAsync(ProductRatingViewModel productRating)
         {
-            await _unitOfWork.ProductRatings.DeleteAsync(_mapper.Map<ProductRating>(productRating));
+            await _unitOfWork.ProductRatings.DeleteAsync(_converter.ProductRating.ConvertToProductRating(productRating));
             await _unitOfWork.Products.UpdateTotalRatingAsync(productRating.ProductId);
         }
 
@@ -154,10 +153,9 @@ namespace BLL.Services
             };
 
             var resultList = new List<ReturnProductViewModel>();
-            foreach(var product in list)
-            {
-                resultList.Add(_mapper.Map<ReturnProductViewModel>(product));
-            }
+            resultList.AddRange
+            (list
+                .Select(p => _converter.Product.ConvertToReturnProductViewModel(p)));
             return await PaginatedList<ReturnProductViewModel>.CreateAsync(resultList, pageNumber ?? 1, pageSize ?? 10);
         }
     }

@@ -1,0 +1,718 @@
+TpTrace Verbose: 0 : 6256, 1, 2021/10/14, 21:32:58.549, 8175291604912, datacollector.dll, Version: 16.11.0
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:32:58.551, 8175291622149, datacollector.dll, DataCollectorMain.Run: Starting data collector run with args: --port,53763,--parentprocessid,19144,--diag,D:\LabWebApp\xUnitTestProject\bin\Debug\net5.0\fine-code-coverage\coverage-tool-output\diagnostics.datacollector.21-10-14_21-32-58_45733_4.log,--tracelevel,4
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:32:58.551, 8175291622912, datacollector.dll, DataCollector: Monitoring parent process with id: '19144'
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:32:58.556, 8175291673826, datacollector.dll, Trying to connect to server on socket : 127.0.0.1:53763 
+TpTrace Verbose: 0 : 6256, 1, 2021/10/14, 21:32:58.577, 8175291883045, datacollector.dll, SocketCommunicationManager : SetupClientAsync : Attempting to connect to the server.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:58.583, 8175291940501, datacollector.dll, Connected to the server successfully 
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:58.583, 8175291941029, datacollector.dll, Using the buffer size of 16384 bytes
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:32:58.629, 8175292408106, datacollector.dll, DataCollector: Start Request Processing.
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:32:58.632, 8175292430979, datacollector.dll, DataCollectionRequestHandler.ProcessRequests : Datacollector received message: (DataCollection.BeforeTestRunStart) -> {
+  "SettingsXml": "<RunSettings><RunConfiguration><ResultsDirectory>D:\\LabWebApp\\xUnitTestProject\\bin\\Debug\\net5.0\\fine-code-coverage\\coverage-tool-output</ResultsDirectory><TargetPlatform>X64</TargetPlatform><TargetFrameworkVersion>.NETCoreApp,Version=v5.0</TargetFrameworkVersion><DesignMode>False</DesignMode><CollectSourceInformation>False</CollectSourceInformation><TestAdaptersPaths>C:\\Program Files\\dotnet\\sdk\\5.0.402\\Extensions</TestAdaptersPaths></RunConfiguration><LoggerRunSettings><Loggers><Logger friendlyName=\"blame\" enabled=\"True\" /><Logger friendlyName=\"Console\" uri=\"logger://microsoft/TestPlatform/ConsoleLogger/v1\" assemblyQualifiedName=\"Microsoft.VisualStudio.TestPlatform.CommandLine.Internal.ConsoleLogger, vstest.console, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a\" codeBase=\"C:\\Program Files\\dotnet\\sdk\\5.0.402\\vstest.console.dll\" enabled=\"True\" /></Loggers></LoggerRunSettings><DataCollectionRunSettings><DataCollectors><DataCollector friendlyName=\"blame\" enabled=\"True\"><Configuration><ResultsDirectory>D:\\LabWebApp\\xUnitTestProject\\bin\\Debug\\net5.0\\fine-code-coverage\\coverage-tool-output</ResultsDirectory></Configuration></DataCollector></DataCollectors></DataCollectionRunSettings></RunSettings>",
+  "Sources": [
+    "D:\\LabWebApp\\xUnitTestProject\\bin\\Debug\\net5.0\\fine-code-coverage\\build-output\\xUnitTestProject.dll"
+  ],
+  "IsTelemetryOptedIn": false
+}
+TpTrace Verbose: 0 : 6256, 1, 2021/10/14, 21:32:58.655, 8175292664773, datacollector.dll, TestPluginCache: Update extensions started. Skip filter = False
+TpTrace Verbose: 0 : 6256, 1, 2021/10/14, 21:32:58.656, 8175292669619, datacollector.dll, TestPluginCache: Using directories for assembly resolution 'C:\Program Files\dotnet\sdk\5.0.402\Extensions'.
+TpTrace Verbose: 0 : 6256, 1, 2021/10/14, 21:32:58.656, 8175292670050, datacollector.dll, TestPluginCache: Updated the available extensions to 'C:\Program Files\dotnet\sdk\5.0.402\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll,C:\Program Files\dotnet\sdk\5.0.402\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll'.
+TpTrace Verbose: 0 : 6256, 1, 2021/10/14, 21:32:58.659, 8175292707090, datacollector.dll, TestPluginCache.DiscoverTestExtensions: finding test extensions in assemblies ends with: Collector.dll TPluginInfo: Microsoft.VisualStudio.TestPlatform.Common.DataCollector.DataCollectorConfig TExtension: Microsoft.VisualStudio.TestPlatform.ObjectModel.DataCollection.DataCollector
+TpTrace Verbose: 0 : 6256, 1, 2021/10/14, 21:32:58.659, 8175292708473, datacollector.dll, TestPluginCache.GetExtensionPaths: Filtered extension paths: C:\Program Files\dotnet\sdk\5.0.402\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll
+C:\Program Files\dotnet\sdk\5.0.402\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll
+TpTrace Verbose: 0 : 6256, 1, 2021/10/14, 21:32:58.660, 8175292708833, datacollector.dll, TestPluginCache.GetExtensionPaths: Added default extension paths: 
+TpTrace Verbose: 0 : 6256, 1, 2021/10/14, 21:32:58.660, 8175292709047, datacollector.dll, TestPluginCache.GetExtensionPaths: Added unfilterableExtensionPaths: 
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:32:58.660, 8175292712757, datacollector.dll, AssemblyResolver.ctor: Creating AssemblyResolver with searchDirectories C:\Program Files\dotnet\sdk\5.0.402\Extensions,C:\Program Files\dotnet\sdk\5.0.402
+TpTrace Verbose: 0 : 6256, 1, 2021/10/14, 21:32:58.661, 8175292721345, datacollector.dll, TestPluginCache.DiscoverTestExtensions: Discovering the extensions using extension path.
+TpTrace Verbose: 0 : 6256, 1, 2021/10/14, 21:32:58.661, 8175292722259, datacollector.dll, TestPluginCache.GetExtensionPaths: Filtered extension paths: C:\Program Files\dotnet\sdk\5.0.402\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll
+C:\Program Files\dotnet\sdk\5.0.402\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll
+TpTrace Verbose: 0 : 6256, 1, 2021/10/14, 21:32:58.661, 8175292722564, datacollector.dll, TestPluginCache.GetExtensionPaths: Added default extension paths: 
+TpTrace Verbose: 0 : 6256, 1, 2021/10/14, 21:32:58.661, 8175292722809, datacollector.dll, TestPluginCache.GetExtensionPaths: Added unfilterableExtensionPaths: 
+TpTrace Verbose: 0 : 6256, 1, 2021/10/14, 21:32:58.661, 8175292723162, datacollector.dll, TestPluginCache.DiscoverTestExtensions: Discovering the extensions using allExtensionPaths: C:\Program Files\dotnet\sdk\5.0.402\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll
+C:\Program Files\dotnet\sdk\5.0.402\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:32:58.661, 8175292723821, datacollector.dll, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\5.0.402\Extensions,C:\Program Files\dotnet\sdk\5.0.402
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:32:58.661, 8175292724265, datacollector.dll, AssemblyResolver.AddSearchDirectories: Adding more searchDirectories C:\Program Files\dotnet\sdk\5.0.402\Extensions,C:\Program Files\dotnet\sdk\5.0.402
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:32:58.661, 8175292726957, datacollector.dll, AssemblyResolver.OnResolve: Microsoft.TestPlatform.Extensions.BlameDataCollector: Resolving assembly.
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:32:58.661, 8175292727429, datacollector.dll, AssemblyResolver.OnResolve: Microsoft.TestPlatform.Extensions.BlameDataCollector: Searching in: 'C:\Program Files\dotnet\sdk\5.0.402\Extensions'.
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:32:58.662, 8175292730031, datacollector.dll, AssemblyResolver.OnResolve: Microsoft.TestPlatform.Extensions.BlameDataCollector: Loading assembly 'C:\Program Files\dotnet\sdk\5.0.402\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll'.
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:32:58.662, 8175292733370, datacollector.dll, AssemblyResolver.OnResolve: Resolved assembly: Microsoft.TestPlatform.Extensions.BlameDataCollector, from path: C:\Program Files\dotnet\sdk\5.0.402\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll
+TpTrace Error: 0 : 6256, 1, 2021/10/14, 21:32:58.663, 8175292740676, datacollector.dll, The type "Microsoft.TestPlatform.Extensions.BlameDataCollector.BlameCollector" defined in "Microsoft.TestPlatform.Extensions.BlameDataCollector.dll" does not have ExtensionUri attribute.
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:32:58.664, 8175292749766, datacollector.dll, AssemblyResolver.OnResolve: Microsoft.TestPlatform.Extensions.EventLogCollector: Resolving assembly.
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:32:58.664, 8175292750508, datacollector.dll, AssemblyResolver.OnResolve: Microsoft.TestPlatform.Extensions.EventLogCollector: Searching in: 'C:\Program Files\dotnet\sdk\5.0.402\Extensions'.
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:32:58.664, 8175292752312, datacollector.dll, AssemblyResolver.OnResolve: Microsoft.TestPlatform.Extensions.EventLogCollector: Loading assembly 'C:\Program Files\dotnet\sdk\5.0.402\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll'.
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:32:58.664, 8175292754659, datacollector.dll, AssemblyResolver.OnResolve: Resolved assembly: Microsoft.TestPlatform.Extensions.EventLogCollector, from path: C:\Program Files\dotnet\sdk\5.0.402\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll
+TpTrace Error: 0 : 6256, 1, 2021/10/14, 21:32:58.665, 8175292764962, datacollector.dll, The type "Microsoft.TestPlatform.Extensions.EventLogCollector.EventLogDataCollector" defined in "Microsoft.TestPlatform.Extensions.EventLogCollector.dll" does not have ExtensionUri attribute.
+TpTrace Verbose: 0 : 6256, 1, 2021/10/14, 21:32:58.665, 8175292767109, datacollector.dll, TestPluginCache: Discovered the extensions using extension path 'C:\Program Files\dotnet\sdk\5.0.402\Extensions\Microsoft.TestPlatform.Extensions.BlameDataCollector.dll,C:\Program Files\dotnet\sdk\5.0.402\Extensions\Microsoft.TestPlatform.Extensions.EventLogCollector.dll'.
+TpTrace Verbose: 0 : 6256, 1, 2021/10/14, 21:32:58.665, 8175292767492, datacollector.dll, TestPluginCache: Discoverers are ''.
+TpTrace Verbose: 0 : 6256, 1, 2021/10/14, 21:32:58.665, 8175292767743, datacollector.dll, TestPluginCache: Executors are ''.
+TpTrace Verbose: 0 : 6256, 1, 2021/10/14, 21:32:58.665, 8175292767927, datacollector.dll, TestPluginCache: Executors2 are ''.
+TpTrace Verbose: 0 : 6256, 1, 2021/10/14, 21:32:58.665, 8175292768104, datacollector.dll, TestPluginCache: Setting providers are ''.
+TpTrace Verbose: 0 : 6256, 1, 2021/10/14, 21:32:58.665, 8175292768280, datacollector.dll, TestPluginCache: Loggers are ''.
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:32:58.666, 8175292776006, datacollector.dll, TestPluginManager.CreateTestExtension: Attempting to load test extension: Microsoft.TestPlatform.Extensions.BlameDataCollector.BlameCollector
+TpTrace Error: 0 : 6256, 1, 2021/10/14, 21:32:58.667, 8175292778880, datacollector.dll, The type "Microsoft.TestPlatform.Extensions.BlameDataCollector.BlameCollector" defined in "Microsoft.TestPlatform.Extensions.BlameDataCollector.dll" does not have ExtensionUri attribute.
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:32:58.670, 8175292815136, datacollector.dll, Listening on Endpoint : 127.0.0.1:53765
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:32:58.675, 8175292862144, datacollector.dll, DataCollectionRequestHandler.ProcessRequests : DataCollection started.
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:32:58.687, 8175292986644, datacollector.dll, DataCollectionRequestHandler.ProcessRequests : Datacollector received message: (DataCollection.TestHostLaunched) -> {
+  "ProcessId": 23992
+}
+TpTrace Information: 0 : 6256, 5, 2021/10/14, 21:32:58.835, 8175294465134, datacollector.dll, Using the buffer size of 16384 bytes
+TpTrace Information: 0 : 6256, 5, 2021/10/14, 21:32:58.835, 8175294465654, datacollector.dll, Accepted Client request and set the flag
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.877, 8175304883002, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.883, 8175304944982, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.885, 8175304961839, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.OrderServiceUnitTest.GivenUserId_WhenGetOrdersListAsync_ThenProductOrderListReturned - 3a1554b6-3b2b-faa5-0f31-427973a710d9' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.886, 8175304968961, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.886, 8175304971033, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.886, 8175304972097, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenNonExistentCurrentRole_WhenUpdateRoleAsync_ThenFailedIdentityResultReturned - 6cd133c0-c934-59ac-374e-61bb5ea1318a' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.886, 8175304977646, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.887, 8175304979045, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.887, 8175304979874, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.Web.Controllers.UserControllerUnitTest.UpdateUserProfileAsync__ - bfd618be-7084-89f1-7a6c-e3fff4723f3d' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.887, 8175304988763, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.888, 8175304990336, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.888, 8175304996048, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.OrderConverterUnitTest.GivenOrder_WhenConvertToAddress_ThenReturnOrderViewModelReturned - 1a422491-b896-223e-3728-e6dd282ccf3f' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.889, 8175305000736, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.889, 8175305002511, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.889, 8175305003382, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.EmailSenderServiceUnitTest.GivenEmailAndMessage_WhenSendEmailByMailKitAsync_ThenNothingReturned - cdb766a0-f86e-984f-8f5a-af721d62971e' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.889, 8175305008269, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.890, 8175305009680, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.890, 8175305010440, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AuthServiceUnitTest.GivenEmailPasswordIssuerAudienceAndKey_WhenSignInUserAsync_ThenUserAndTokenReturned - a96780d7-912b-206a-119f-b7d3f15465b5' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.890, 8175305014533, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.890, 8175305015938, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.890, 8175305016682, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenEmailString_WhenIsValidEmail_ThenBoolResultReturned(email: " ", expected: False) - 0a260ee8-c697-603e-b5e1-f33729322d4c' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.891, 8175305020591, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.891, 8175305022096, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.891, 8175305022951, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.ViewModelsUnitTest.GivenReturnProductOrderViewModel_WhenGetProperties_ThenPropertiesReturned - 4d406014-5e32-fa99-a976-09924167dbcf' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.891, 8175305027101, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.891, 8175305028463, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.892, 8175305029187, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.ProductOrderConverterUnitTest.GivenProductOrder_WhenConvertToProductOrderViewModel_ThenProductOrderViewModelReturned - 207e7a7c-29b3-257e-b6ae-f03e145342f4' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.913, 8175305241982, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.913, 8175305244048, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.913, 8175305245089, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.FirebaseServiceUnitTest.GivenNullLogoImageFile_WhenUploadLogoImageAsync_ThenNullReturned - cf831869-f991-24a9-6e70-e0d85297b4d9' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.914, 8175305249753, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.914, 8175305251211, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.914, 8175305252008, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.JwtServiceUnitTest.GivenParameters_WhenIsTokenValid_ThenBoolResultReturned - 6a3d90de-e356-ea7f-f85f-9bd080109d80' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.914, 8175305256509, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.914, 8175305257956, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.914, 8175305258730, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.ConverterUnitTest.GivenConverter_WhenGetProperties_ThenPropertiesReturned - f8cd493c-73a2-552c-6e27-c5b434e89427' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.919, 8175305301733, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.921, 8175305323297, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.924, 8175305349232, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenEmailString_WhenIsValidEmail_ThenBoolResultReturned(email: " ", expected: False) - 0a260ee8-c697-603e-b5e1-f33729322d4c' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.934, 8175305450270, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.934, 8175305452462, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.934, 8175305453664, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.Web.Controllers.UserControllerUnitTest.UpdateUserProfileAsync__ - bfd618be-7084-89f1-7a6c-e3fff4723f3d' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.935, 8175305465233, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.935, 8175305466829, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.935, 8175305467644, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenEmailString_WhenIsValidEmail_ThenBoolResultReturned(email: "test@gmail.com", expected: True) - 5ad4da47-5724-6e10-aa18-f3383d832c67' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.936, 8175305472723, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.936, 8175305474217, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.936, 8175305475216, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.Web.Controllers.UserControllerUnitTest.GetUserProfileAsync_ReturnsOkObjectResult_WithReturnUserProfileViewModel - 131ee5ca-00b4-f57e-1e0f-2eb4c170aff3' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.937, 8175305481920, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.937, 8175305484202, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.937, 8175305485499, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.Web.Controllers.UserControllerUnitTest.GetUserProfileAsync_ReturnsOkObjectResult_WithReturnUserProfileViewModel - 131ee5ca-00b4-f57e-1e0f-2eb4c170aff3' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.938, 8175305491198, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.938, 8175305492739, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.938, 8175305493593, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.Web.Controllers.UserControllerUnitTest.UpdateUserPasswordAsync__ - 4e1e6397-2b47-c016-2cf8-35d8919ec624' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.939, 8175305499160, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.939, 8175305501556, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.939, 8175305502742, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.Web.Controllers.UserControllerUnitTest.UpdateUserPasswordAsync__ - 4e1e6397-2b47-c016-2cf8-35d8919ec624' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.939, 8175305508570, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.940, 8175305510066, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.940, 8175305510861, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.ProductRatingConverterUnitTest.GivenProductRatingViewModel_WhenConvertToProductRating_ThenAddressReturned - 8dde2616-ef9b-adde-2a95-47407b82a12c' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.940, 8175305515861, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.940, 8175305517515, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.940, 8175305518721, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenEmailString_WhenIsValidEmail_ThenBoolResultReturned(email: "test@gmail.com", expected: True) - 5ad4da47-5724-6e10-aa18-f3383d832c67' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.941, 8175305526221, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.941, 8175305528640, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.942, 8175305529935, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenEmailString_WhenIsValidEmail_ThenBoolResultReturned(email: "test@itechart-group.com", expected: True) - db12b704-83c0-0627-7b53-8c5923adeded' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.942, 8175305535410, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.942, 8175305537808, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.943, 8175305539081, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenEmailString_WhenIsValidEmail_ThenBoolResultReturned(email: "test@itechart-group.com", expected: True) - db12b704-83c0-0627-7b53-8c5923adeded' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.950, 8175305613718, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.950, 8175305615793, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.950, 8175305616744, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenEmailString_WhenIsValidEmail_ThenBoolResultReturned(email: "test@", expected: False) - 75bd8cc3-fb84-0dba-7b25-719c08f011eb' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.951, 8175305622225, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.951, 8175305623858, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.951, 8175305624804, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenEmailString_WhenIsValidEmail_ThenBoolResultReturned(email: "test@", expected: False) - 75bd8cc3-fb84-0dba-7b25-719c08f011eb' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.952, 8175305631311, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.952, 8175305632868, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.952, 8175305633700, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenEmailString_WhenIsValidEmail_ThenBoolResultReturned(email: "test12345@mail.ru", expected: True) - af9b8078-7eed-cd93-af1b-33405dbe6f81' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.952, 8175305638671, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.953, 8175305640208, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.953, 8175305641119, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenEmailString_WhenIsValidEmail_ThenBoolResultReturned(email: "test12345@mail.ru", expected: True) - af9b8078-7eed-cd93-af1b-33405dbe6f81' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.953, 8175305648628, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.954, 8175305650216, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.954, 8175305651146, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenEmailString_WhenIsValidEmail_ThenBoolResultReturned(email: "in@something@yandex.ru", expected: False) - 983add61-812d-cef5-dff5-9468ff1d8848' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.954, 8175305655815, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.954, 8175305657304, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.954, 8175305658169, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenEmailString_WhenIsValidEmail_ThenBoolResultReturned(email: "in@something@yandex.ru", expected: False) - 983add61-812d-cef5-dff5-9468ff1d8848' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.955, 8175305663337, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.955, 8175305664914, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.955, 8175305665766, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenEmailString_WhenIsValidEmail_ThenBoolResultReturned(email: "@gmail.com", expected: False) - 769fd3a6-8a00-c446-fdd7-80da72d9de92' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.956, 8175305670140, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.956, 8175305671557, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.956, 8175305672384, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenEmailString_WhenIsValidEmail_ThenBoolResultReturned(email: "@gmail.com", expected: False) - 769fd3a6-8a00-c446-fdd7-80da72d9de92' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.956, 8175305677383, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.956, 8175305678801, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.957, 8175305679551, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPhoneNumberString_WhenIsValidPhoneNumber_ThenBoolResultReturned(phoneNumber: "    ", expected: False) - dcda7e88-3d05-b396-2456-eac8aadd803c' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.957, 8175305683851, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.957, 8175305685274, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.957, 8175305686072, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPhoneNumberString_WhenIsValidPhoneNumber_ThenBoolResultReturned(phoneNumber: "    ", expected: False) - dcda7e88-3d05-b396-2456-eac8aadd803c' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.958, 8175305690934, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.958, 8175305692338, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.958, 8175305693098, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPhoneNumberString_WhenIsValidPhoneNumber_ThenBoolResultReturned(phoneNumber: "qwerty", expected: False) - 7afb4dad-d5c0-1a83-cc05-56d74a57d1f2' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.958, 8175305697331, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.958, 8175305698746, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.959, 8175305699573, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPhoneNumberString_WhenIsValidPhoneNumber_ThenBoolResultReturned(phoneNumber: "qwerty", expected: False) - 7afb4dad-d5c0-1a83-cc05-56d74a57d1f2' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.959, 8175305704665, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.959, 8175305706092, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.959, 8175305706967, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPhoneNumberString_WhenIsValidPhoneNumber_ThenBoolResultReturned(phoneNumber: "80-29-000-00-00", expected: True) - 1f1667e3-2786-3624-f8d9-d03031372dfe' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.960, 8175305711142, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.960, 8175305712577, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.960, 8175305713499, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPhoneNumberString_WhenIsValidPhoneNumber_ThenBoolResultReturned(phoneNumber: "80-29-000-00-00", expected: True) - 1f1667e3-2786-3624-f8d9-d03031372dfe' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.960, 8175305718343, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.961, 8175305719723, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.961, 8175305720474, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPhoneNumberString_WhenIsValidPhoneNumber_ThenBoolResultReturned(phoneNumber: "+375290000000", expected: True) - 7a2679a9-b27a-7e04-dc17-fddef8bf2ad4' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.961, 8175305724819, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.961, 8175305726549, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.961, 8175305727488, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPhoneNumberString_WhenIsValidPhoneNumber_ThenBoolResultReturned(phoneNumber: "+375290000000", expected: True) - 7a2679a9-b27a-7e04-dc17-fddef8bf2ad4' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.962, 8175305732558, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.962, 8175305734030, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.962, 8175305734850, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPhoneNumberString_WhenIsValidPhoneNumber_ThenBoolResultReturned(phoneNumber: "123-456-78", expected: True) - 2508c778-d576-e836-c8c5-d481aa32b54d' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.963, 8175305739278, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.963, 8175305740681, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.963, 8175305741499, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPhoneNumberString_WhenIsValidPhoneNumber_ThenBoolResultReturned(phoneNumber: "123-456-78", expected: True) - 2508c778-d576-e836-c8c5-d481aa32b54d' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.970, 8175305812516, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.970, 8175305814631, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.970, 8175305815619, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPhoneNumberString_WhenIsValidPhoneNumber_ThenBoolResultReturned(phoneNumber: "12345678", expected: True) - 4c6a5383-63bc-041d-4150-1ad5603bbf64' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.971, 8175305821126, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.971, 8175305822633, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.971, 8175305823577, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPhoneNumberString_WhenIsValidPhoneNumber_ThenBoolResultReturned(phoneNumber: "12345678", expected: True) - 4c6a5383-63bc-041d-4150-1ad5603bbf64' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.972, 8175305829770, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.972, 8175305831248, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.972, 8175305832076, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPasswordString_WhenIsValidPassword_ThenBoolResultReturned(password: "12345678", expected: False) - 5dc33c4e-bab7-43a6-3b1f-11accd57a042' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.972, 8175305836917, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.972, 8175305838415, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.973, 8175305839245, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPasswordString_WhenIsValidPassword_ThenBoolResultReturned(password: "12345678", expected: False) - 5dc33c4e-bab7-43a6-3b1f-11accd57a042' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.973, 8175305844701, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.973, 8175305846269, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.973, 8175305847082, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPasswordString_WhenIsValidPassword_ThenBoolResultReturned(password: "QWERTYUI", expected: False) - 8da2a8ed-6288-0673-882e-43e671abdec5' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.974, 8175305851456, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.974, 8175305852962, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.974, 8175305853838, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPasswordString_WhenIsValidPassword_ThenBoolResultReturned(password: "QWERTYUI", expected: False) - 8da2a8ed-6288-0673-882e-43e671abdec5' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.975, 8175305859737, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.975, 8175305861267, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.975, 8175305862056, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPasswordString_WhenIsValidPassword_ThenBoolResultReturned(password: "QWERtyui", expected: False) - dff6332a-559e-4070-809f-5bf68e8776cb' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.975, 8175305867095, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.975, 8175305868635, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.976, 8175305869519, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPasswordString_WhenIsValidPassword_ThenBoolResultReturned(password: "QWERtyui", expected: False) - dff6332a-559e-4070-809f-5bf68e8776cb' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.976, 8175305875625, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.976, 8175305877099, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.976, 8175305877871, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPasswordString_WhenIsValidPassword_ThenBoolResultReturned(password: "QWERtyu1", expected: False) - 2cc8109c-08bc-d41b-2935-f90b954d9a75' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.977, 8175305882738, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.977, 8175305884292, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.977, 8175305885246, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPasswordString_WhenIsValidPassword_ThenBoolResultReturned(password: "QWERtyu1", expected: False) - 2cc8109c-08bc-d41b-2935-f90b954d9a75' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.978, 8175305890830, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.978, 8175305892302, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.978, 8175305893089, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPasswordString_WhenIsValidPassword_ThenBoolResultReturned(password: "!QWERty1", expected: True) - ab982da1-64b5-6979-952c-221afa2df00b' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.978, 8175305898133, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.979, 8175305899772, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.979, 8175305900722, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPasswordString_WhenIsValidPassword_ThenBoolResultReturned(password: "!QWERty1", expected: True) - ab982da1-64b5-6979-952c-221afa2df00b' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.981, 8175305923199, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.981, 8175305925188, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.981, 8175305926172, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPasswordString_WhenIsValidPassword_ThenBoolResultReturned(password: "   ", expected: False) - d75ce8ec-450e-d151-d7aa-35eb95188ce3' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.982, 8175305931624, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.982, 8175305933140, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.982, 8175305934050, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPasswordString_WhenIsValidPassword_ThenBoolResultReturned(password: "   ", expected: False) - d75ce8ec-450e-d151-d7aa-35eb95188ce3' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.983, 8175305939484, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.983, 8175305940881, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.983, 8175305941651, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPasswordString_WhenIsValidPassword_ThenBoolResultReturned(password: "qwertyui", expected: False) - e518dad3-9267-eebb-66ef-0754e017e7cd' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.983, 8175305946342, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.983, 8175305947725, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.983, 8175305948557, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.ValidatorServiceUnitTest.GivenPasswordString_WhenIsValidPassword_ThenBoolResultReturned(password: "qwertyui", expected: False) - e518dad3-9267-eebb-66ef-0754e017e7cd' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.984, 8175305954440, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.984, 8175305955795, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.984, 8175305956560, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenProductRating_WhenUpdateProductRatingAsync_ThenProductRatingReturned - 3a27e770-e9f4-783f-650a-f1a728bd9b74' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.985, 8175305961327, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.985, 8175305962704, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.985, 8175305963520, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.FirebaseServiceUnitTest.GivenNullLogoImageFile_WhenUploadLogoImageAsync_ThenNullReturned - cf831869-f991-24a9-6e70-e0d85297b4d9' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.986, 8175305977408, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.987, 8175305978841, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.987, 8175305980361, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.FirebaseServiceUnitTest.GivenLogoImageFile_WhenUploadLogoImageAsync_ThenLinkReturned - 7a373c94-d8e2-624c-d1f3-4ab77c0600d2' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.987, 8175305985166, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.987, 8175305986539, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.987, 8175305987374, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.ViewModelsUnitTest.GivenReturnProductOrderViewModel_WhenGetProperties_ThenPropertiesReturned - 4d406014-5e32-fa99-a976-09924167dbcf' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.988, 8175305993021, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.988, 8175305994418, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.988, 8175305995195, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.ViewModelsUnitTest.GivenReturnProductViewModel_WhenGetProperties_ThenPropertiesReturned - 586e4701-70d6-34a6-5721-3d0941a402ce' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.989, 8175305999866, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.989, 8175306001240, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.989, 8175306002064, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.ViewModelsUnitTest.GivenReturnProductViewModel_WhenGetProperties_ThenPropertiesReturned - 586e4701-70d6-34a6-5721-3d0941a402ce' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.989, 8175306007124, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.989, 8175306008484, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.990, 8175306009250, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.ViewModelsUnitTest.GivenAuthViewModel_WhenGetProperties_ThenPropertiesReturned - f4158ac8-db4d-9f72-5df9-dfeabef6a30e' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.990, 8175306013921, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.990, 8175306015293, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.990, 8175306016111, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.ViewModelsUnitTest.GivenAuthViewModel_WhenGetProperties_ThenPropertiesReturned - f4158ac8-db4d-9f72-5df9-dfeabef6a30e' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.991, 8175306021172, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.991, 8175306022540, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.991, 8175306023301, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.ViewModelsUnitTest.GivenAssignRoleToUserViewModel_WhenGetProperties_ThenPropertiesReturned - cb076ca1-9cd9-80ef-564a-d9d9a9474268' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.991, 8175306027935, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.992, 8175306029300, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.992, 8175306030118, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.ViewModelsUnitTest.GivenAssignRoleToUserViewModel_WhenGetProperties_ThenPropertiesReturned - cb076ca1-9cd9-80ef-564a-d9d9a9474268' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.992, 8175306036118, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.992, 8175306037567, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.992, 8175306038370, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.ViewModelsUnitTest.GivenOrderProductsViewModel_WhenGetProperties_ThenPropertiesReturned - 3406043a-62d9-8a1b-4bac-ba3335f141d4' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.993, 8175306044782, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.993, 8175306046287, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.993, 8175306047175, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.ViewModelsUnitTest.GivenOrderProductsViewModel_WhenGetProperties_ThenPropertiesReturned - 3406043a-62d9-8a1b-4bac-ba3335f141d4' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.994, 8175306053677, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.994, 8175306055221, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.994, 8175306056054, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.AddressConverterUnitTest.GivenAddress_WhenConvertToAddress_ThenAddressViewModelReturned - 72c3317e-fe28-4191-f797-b1ec67fa0384' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.995, 8175306060941, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.995, 8175306062395, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:32:59.995, 8175306063199, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.UserServiceUnitTest.GivenWrongPassword_WhenUpdateUserPasswordAsync_ThenFailedIdentityResultReturned - b9a3e092-4474-d965-f1f3-f26f58e4bce7' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.000, 8175306114374, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.000, 8175306116227, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.000, 8175306117261, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.JwtServiceUnitTest.GivenParameters_WhenIsTokenValid_ThenBoolResultReturned - 6a3d90de-e356-ea7f-f85f-9bd080109d80' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.002, 8175306133429, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.002, 8175306135059, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.002, 8175306135910, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.JwtServiceUnitTest.GivenToken_WhenExtractUserIdFromToken_ThenUserIdReturned - 421ed535-657f-00db-4574-a85a47cee89b' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.003, 8175306141012, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.003, 8175306142474, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.003, 8175306143362, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.JwtServiceUnitTest.GivenToken_WhenExtractUserIdFromToken_ThenUserIdReturned - 421ed535-657f-00db-4574-a85a47cee89b' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.004, 8175306149704, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.004, 8175306151100, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.004, 8175306151881, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.JwtServiceUnitTest.GivenParameters_WhenBuildToken_ThenTokenReturned - 99fd2be5-55ed-8b86-37f1-0b9404953429' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.041, 8175306521889, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.041, 8175306523870, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.041, 8175306524871, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.ProductRatingConverterUnitTest.GivenProductRatingViewModel_WhenConvertToProductRating_ThenAddressReturned - 8dde2616-ef9b-adde-2a95-47407b82a12c' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.042, 8175306530241, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.042, 8175306531567, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.042, 8175306532295, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.ProductRatingConverterUnitTest.GivenAddress_WhenConvertToAddress_ThenAddressViewModelReturned - 0546f641-a54c-9615-996f-98003964c547' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.061, 8175306726461, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.061, 8175306728488, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.062, 8175306729530, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.AddressConverterUnitTest.GivenAddress_WhenConvertToAddress_ThenAddressViewModelReturned - 72c3317e-fe28-4191-f797-b1ec67fa0384' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.068, 8175306792701, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.068, 8175306795168, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.068, 8175306796460, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.AddressConverterUnitTest.GivenAddressViewModel_WhenConvertToAddressViewModel_ThenAddressReturned - 5e8d15d5-706b-90fa-b339-e7ecfcaac4d7' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.075, 8175306867732, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.076, 8175306869666, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.076, 8175306870639, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.ConverterUnitTest.GivenConverter_WhenGetProperties_ThenPropertiesReturned - f8cd493c-73a2-552c-6e27-c5b434e89427' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.082, 8175306930229, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.082, 8175306932459, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.082, 8175306933576, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.ProductConverterUnitTest.GivenProductViewModel_WhenConvertToAddressViewModel_ThenProductReturned - 468b4f40-4b15-ecd4-4823-ef04fb77c7ac' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.083, 8175306939732, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.083, 8175306941738, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.083, 8175306942816, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.AddressConverterUnitTest.GivenAddressViewModel_WhenConvertToAddressViewModel_ThenAddressReturned - 5e8d15d5-706b-90fa-b339-e7ecfcaac4d7' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.087, 8175306982548, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.087, 8175306985214, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.087, 8175306986512, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenNonExistentCurrentRole_WhenUpdateRoleAsync_ThenFailedIdentityResultReturned - 6cd133c0-c934-59ac-374e-61bb5ea1318a' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.094, 8175307054163, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.094, 8175307056813, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.094, 8175307057976, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenEmail_WhenDeleteUserByEmailAsync_ThenIdentityResultReturned - 52d295fd-a1ee-1e9b-da6b-fb47f5bc6528' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.098, 8175307092860, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.098, 8175307095392, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.098, 8175307096717, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.ProductConverterUnitTest.GivenProductViewModel_WhenConvertToAddressViewModel_ThenProductReturned - 468b4f40-4b15-ecd4-4823-ef04fb77c7ac' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.099, 8175307103956, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.099, 8175307105864, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.099, 8175307106832, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.ProductConverterUnitTest.GivenProduct_WhenConvertToAddress_ThenReturnProductViewModelReturned - 0ac2a00c-626f-d3a3-0a20-cedfce5e0a48' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.264, 8175308752264, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.264, 8175308754181, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.264, 8175308755381, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.ProductOrderConverterUnitTest.GivenProductOrder_WhenConvertToProductOrderViewModel_ThenProductOrderViewModelReturned - 207e7a7c-29b3-257e-b6ae-f03e145342f4' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.270, 8175308812830, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.270, 8175308814859, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.270, 8175308815888, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.ProductOrderConverterUnitTest.GivenProductOrderList_WhenConvertToProductOrderViewModelList_ThenAddressViewModelReturned - b02770f5-f3c2-77cb-db84-bc7c39f4c29c' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.271, 8175308822192, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.271, 8175308823705, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.271, 8175308824656, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.OrderConverterUnitTest.GivenOrder_WhenConvertToAddress_ThenReturnOrderViewModelReturned - 1a422491-b896-223e-3728-e6dd282ccf3f' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.272, 8175308832846, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.272, 8175308834341, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.272, 8175308835240, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.OrderConverterUnitTest.GivenOrderViewModel_WhenConvertToAddressViewModel_ThenOrderReturned - 31bded48-129a-4dc9-279f-59f92214779c' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.274, 8175308857203, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.275, 8175308858902, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.275, 8175308859988, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.OrderConverterUnitTest.GivenOrderViewModel_WhenConvertToAddressViewModel_ThenOrderReturned - 31bded48-129a-4dc9-279f-59f92214779c' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.276, 8175308873763, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.276, 8175308875568, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.276, 8175308876713, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.JwtServiceUnitTest.GivenParameters_WhenBuildToken_ThenTokenReturned - 99fd2be5-55ed-8b86-37f1-0b9404953429' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.298, 8175309096944, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.299, 8175309098953, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.299, 8175309100197, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.ProductConverterUnitTest.GivenProduct_WhenConvertToAddress_ThenReturnProductViewModelReturned - 0ac2a00c-626f-d3a3-0a20-cedfce5e0a48' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.319, 8175309303444, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.319, 8175309305323, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.319, 8175309306318, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.UserServiceUnitTest.GivenWrongPassword_WhenUpdateUserPasswordAsync_ThenFailedIdentityResultReturned - b9a3e092-4474-d965-f1f3-f26f58e4bce7' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.326, 8175309369092, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.326, 8175309370535, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.326, 8175309371343, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.UserServiceUnitTest.GivenUserProfileAndUserId_WhenUpdateUserPasswordAsync_ThenIdentityResultReturned - 827a292e-e356-6034-5dc7-d55c25e8e09b' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.334, 8175309449611, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.334, 8175309451673, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.334, 8175309453632, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.ProductRatingConverterUnitTest.GivenAddress_WhenConvertToAddress_ThenAddressViewModelReturned - 0546f641-a54c-9615-996f-98003964c547' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.339, 8175309506194, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.339, 8175309507550, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.339, 8175309508436, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenProductRating_WhenUpdateProductRatingAsync_ThenProductRatingReturned - 3a27e770-e9f4-783f-650a-f1a728bd9b74' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.340, 8175309513729, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.340, 8175309514713, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.340, 8175309515358, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenProductWithLogoAndImageFile_WhenCreateProductAsync_ThenProductReturned - 08dbc236-58dd-5b50-a477-b8d6323e13f0' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.345, 8175309568252, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.346, 8175309570337, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.346, 8175309571630, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AuthServiceUnitTest.GivenEmailPasswordIssuerAudienceAndKey_WhenSignInUserAsync_ThenUserAndTokenReturned - a96780d7-912b-206a-119f-b7d3f15465b5' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.347, 8175309579184, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.347, 8175309580746, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.347, 8175309581759, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AuthServiceUnitTest.GivenUser_WhenGenerateConfirmationLinkAsync_ThenConfirmationLinkReturned - b70e83f3-ac0c-b7f6-47ad-1742918cc7ea' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.372, 8175309837292, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.373, 8175309839393, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.373, 8175309840633, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenEmail_WhenDeleteUserByEmailAsync_ThenIdentityResultReturned - 52d295fd-a1ee-1e9b-da6b-fb47f5bc6528' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.377, 8175309888274, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.378, 8175309889692, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.378, 8175309890514, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenUserId_WhenDeleteUserByIdAsync_ThenIdentityResultReturned - c0faae2e-3094-6894-7001-0a7f74cba973' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.479, 8175310908283, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.480, 8175310911424, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.480, 8175310912661, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenProductWithLogoAndImageFile_WhenCreateProductAsync_ThenProductReturned - 08dbc236-58dd-5b50-a477-b8d6323e13f0' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.481, 8175310918971, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.481, 8175310920237, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.481, 8175310921021, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenProductWithLogoAndImageFile_WhenUpdateProductAsync_ThenProductReturned - 76ca0804-bf78-effb-74fd-ad9cd1551bde' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.537, 8175311481192, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.537, 8175311483125, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.537, 8175311484240, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.UserServiceUnitTest.GivenUserProfileAndUserId_WhenUpdateUserPasswordAsync_ThenIdentityResultReturned - 827a292e-e356-6034-5dc7-d55c25e8e09b' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.539, 8175311507023, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.539, 8175311508688, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.540, 8175311509666, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.UserServiceUnitTest.GivenNonExistentUserId_WhenUpdateUserProfileAsync_ThenNullReturned - 30042423-6694-92ed-bb00-3b814e62d2c5' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.540, 8175311518048, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.541, 8175311519663, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.541, 8175311520709, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.UserServiceUnitTest.GivenNonExistentUserId_WhenUpdateUserProfileAsync_ThenNullReturned - 30042423-6694-92ed-bb00-3b814e62d2c5' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.541, 8175311527797, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.542, 8175311529244, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.542, 8175311530174, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.UserServiceUnitTest.GivenNullPhoneNumberAndUserName_WhenUpdateUserProfileAsync_ThenReturnUserProfileViewModelReturned - b9de90e7-5ffd-e9b0-8777-7c685fba5db2' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.544, 8175311553473, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.544, 8175311554667, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.544, 8175311555447, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AuthServiceUnitTest.GivenUser_WhenGenerateConfirmationLinkAsync_ThenConfirmationLinkReturned - b70e83f3-ac0c-b7f6-47ad-1742918cc7ea' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.545, 8175311561324, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.545, 8175311562664, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.545, 8175311563283, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AuthServiceUnitTest.GivenFailedSignInResult_WhenSignInUserAsync_ThenNullReturned - 215f7f77-b9ff-c576-dcd4-9fe5fbb120b2' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.566, 8175311777460, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.567, 8175311778928, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.567, 8175311779886, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenUserId_WhenDeleteUserByIdAsync_ThenIdentityResultReturned - c0faae2e-3094-6894-7001-0a7f74cba973' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.567, 8175311785117, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.567, 8175311786136, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.567, 8175311786816, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenEmailAndRoleName_WhenAssignRoleToUserAsync_ThenIdentityResultReturned - 360d1eca-167c-623e-9593-7679ba1a0dc5' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.601, 8175312121790, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.601, 8175312123447, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.601, 8175312124402, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenProductWithLogoAndImageFile_WhenUpdateProductAsync_ThenProductReturned - 76ca0804-bf78-effb-74fd-ad9cd1551bde' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.602, 8175312130944, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.602, 8175312131940, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.602, 8175312132594, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenProductRating_WhenDeleteProductRatingAsync_ThenNothingReturned - bbbce308-17ba-9efb-e451-50f704cb1368' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.687, 8175312987182, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.687, 8175312988664, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.688, 8175312989503, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.OrderServiceUnitTest.GivenUserId_WhenGetOrdersListAsync_ThenProductOrderListReturned - 3a1554b6-3b2b-faa5-0f31-427973a710d9' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.693, 8175313041697, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.693, 8175313043586, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.693, 8175313044614, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.OrderServiceUnitTest.GivenNullUpdatedOrder_WhenUpdateOrderAsync_ThenProductOrderReturned - aac4d7aa-306f-ef11-118c-90566656666b' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.720, 8175313318801, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.721, 8175313320858, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.721, 8175313321990, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AuthServiceUnitTest.GivenFailedSignInResult_WhenSignInUserAsync_ThenNullReturned - 215f7f77-b9ff-c576-dcd4-9fe5fbb120b2' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.722, 8175313329311, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.722, 8175313330675, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.722, 8175313331628, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AuthServiceUnitTest.GivenEmailPasswordIssuerAudienceAndKey_WhenSignInUserAsync_ThenNullReturned - 458debdf-30af-7610-4bdf-90f39de31463' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.726, 8175313371595, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.726, 8175313372897, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.726, 8175313373711, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.UserServiceUnitTest.GivenNullPhoneNumberAndUserName_WhenUpdateUserProfileAsync_ThenReturnUserProfileViewModelReturned - b9de90e7-5ffd-e9b0-8777-7c685fba5db2' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.727, 8175313379114, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.727, 8175313380645, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.727, 8175313381588, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.UserServiceUnitTest.GivenNonExistentUserId_WhenUpdateUserPasswordAsync_ThenFailedIdentityResultReturned - 0f7c7ef3-79ed-9542-9709-d159a8c97b04' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.728, 8175313397072, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.728, 8175313398513, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.729, 8175313399377, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.UserServiceUnitTest.GivenNonExistentUserId_WhenUpdateUserPasswordAsync_ThenFailedIdentityResultReturned - 0f7c7ef3-79ed-9542-9709-d159a8c97b04' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.729, 8175313404432, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.729, 8175313405336, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.729, 8175313405976, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.UserServiceUnitTest.GivenToken_WhenGetUserId_ThenReturnUserProfileViewModelReturned - 3ac8a6cd-4d1c-2f1c-5243-9957d221a948' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.734, 8175313453989, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.734, 8175313455679, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.734, 8175313456816, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenEmailAndRoleName_WhenAssignRoleToUserAsync_ThenIdentityResultReturned - 360d1eca-167c-623e-9593-7679ba1a0dc5' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.735, 8175313463672, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.735, 8175313465000, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.735, 8175313465934, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenNonExistentUserId_WhenDeleteUserByIdAsync_ThenFailedIdentityResultReturned - 406d8256-8d84-ec99-f25d-12685f0bf73b' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.736, 8175313471141, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.736, 8175313472520, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.736, 8175313473474, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.UserServiceUnitTest.GivenToken_WhenGetUserId_ThenReturnUserProfileViewModelReturned - 3ac8a6cd-4d1c-2f1c-5243-9957d221a948' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.737, 8175313479619, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.737, 8175313481060, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.737, 8175313481930, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.UserServiceUnitTest.GivenUserProfileAndUserId_WhenUpdateUserProfileAsync_ThenReturnUserProfileViewModelReturned - 45e3d97b-26a4-a525-ab02-17be771116f2' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.737, 8175313486603, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.737, 8175313487904, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.737, 8175313488796, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenNonExistentUserId_WhenDeleteUserByIdAsync_ThenFailedIdentityResultReturned - 406d8256-8d84-ec99-f25d-12685f0bf73b' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.738, 8175313493402, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.738, 8175313494795, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.738, 8175313495609, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenUserId_WhenDeleteUserByIdAsync_ThenFailedIdentityResultReturned - 1e94c9f0-eade-b21b-debd-979b550b0e55' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.828, 8175314395312, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.828, 8175314396720, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.828, 8175314397530, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.ProductOrderConverterUnitTest.GivenProductOrderList_WhenConvertToProductOrderViewModelList_ThenAddressViewModelReturned - b02770f5-f3c2-77cb-db84-bc7c39f4c29c' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.830, 8175314414184, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.830, 8175314415768, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.830, 8175314416769, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.ProductOrderConverterUnitTest.GivenProducts_WhenConvertToProductOrderList_ThenProductOrderListReturned - 31d853ee-b4fc-09da-0096-8e89d8a77567' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.831, 8175314422562, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.831, 8175314423986, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.831, 8175314424871, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.ProductOrderConverterUnitTest.GivenProducts_WhenConvertToProductOrderList_ThenProductOrderListReturned - 31d853ee-b4fc-09da-0096-8e89d8a77567' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.832, 8175314430089, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.832, 8175314431391, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.832, 8175314432239, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.ProductOrderConverterUnitTest.GivenProductsAndOrder_WhenConvertToProductOrderList_ThenProductOrderListReturned - 27ebd614-afd6-136d-f127-c3ee01877fa1' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.895, 8175315064868, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.895, 8175315066286, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.895, 8175315067073, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AuthServiceUnitTest.GivenEmailPasswordIssuerAudienceAndKey_WhenSignInUserAsync_ThenNullReturned - 458debdf-30af-7610-4bdf-90f39de31463' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.904, 8175315149350, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.904, 8175315150708, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.904, 8175315151588, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenUserId_WhenDeleteUserByIdAsync_ThenFailedIdentityResultReturned - 1e94c9f0-eade-b21b-debd-979b550b0e55' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.904, 8175315156588, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.904, 8175315157568, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.904, 8175315158200, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenRoleName_WhenCreateRoleAsync_ThenIdentityResultReturned - 1cc813fc-730c-d8ad-f37d-6d145e13a298' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.907, 8175315179107, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.907, 8175315180592, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.907, 8175315181653, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenRoleName_WhenCreateRoleAsync_ThenIdentityResultReturned - 1cc813fc-730c-d8ad-f37d-6d145e13a298' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.907, 8175315188274, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.908, 8175315189365, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.908, 8175315190042, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenEmailAndRoleName_WhenAssignRoleToUserAsync_ThenFailedIdentityResultReturned - b23dd249-9819-77e8-bd64-50fea85c9f4e' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.913, 8175315240857, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.913, 8175315242376, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.913, 8175315243251, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.UserServiceUnitTest.GivenUserProfileAndUserId_WhenUpdateUserProfileAsync_ThenReturnUserProfileViewModelReturned - 45e3d97b-26a4-a525-ab02-17be771116f2' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.914, 8175315248974, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.914, 8175315249892, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.914, 8175315250540, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.UserServiceUnitTest.GivenUserId_WhenGetUserProfileAsync_ThenReturnUserProfileViewModelReturned - 04d3bf4f-0c31-45de-c1c2-1d4ac78356d0' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.990, 8175316010254, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.990, 8175316011947, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:00.990, 8175316012882, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Converters.ProductOrderConverterUnitTest.GivenProductsAndOrder_WhenConvertToProductOrderList_ThenProductOrderListReturned - 27ebd614-afd6-136d-f127-c3ee01877fa1' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.065, 8175316763267, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.065, 8175316764576, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.065, 8175316765412, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.UserServiceUnitTest.GivenUserId_WhenGetUserProfileAsync_ThenReturnUserProfileViewModelReturned - 04d3bf4f-0c31-45de-c1c2-1d4ac78356d0' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.067, 8175316780892, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.067, 8175316782355, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.067, 8175316783320, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.UserServiceUnitTest.GivenWrongPhoneNumber_WhenUpdateUserProfileAsync_ThenNullReturned - ed6ef44e-c864-4c2d-8adc-29ed17ee8c8d' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.067, 8175316788930, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.068, 8175316790150, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.068, 8175316790982, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenEmailAndRoleName_WhenAssignRoleToUserAsync_ThenFailedIdentityResultReturned - b23dd249-9819-77e8-bd64-50fea85c9f4e' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.162, 8175317729700, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.162, 8175317731107, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.162, 8175317731911, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AuthServiceUnitTest.GivenUserIdAndToken_WhenConfirmEmailAsync_ThenIdentityResultReturned - 5b846659-df74-e999-4efa-a48b89bcc92d' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.166, 8175317770925, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.166, 8175317772216, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.166, 8175317772963, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.UserServiceUnitTest.GivenWrongPhoneNumber_WhenUpdateUserProfileAsync_ThenNullReturned - ed6ef44e-c864-4c2d-8adc-29ed17ee8c8d' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.169, 8175317806668, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.169, 8175317807678, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.169, 8175317808377, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.UserServiceUnitTest.GivenUserProfileAndUserId_WhenUpdateUserProfileAsync_ThenNullReturned - 39dcffc9-424c-a6c5-27e3-6ee0db1a1772' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.171, 8175317826113, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.171, 8175317827141, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.171, 8175317827896, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenRoleName_WhenCreateRoleAsync_ThenFailedIdentityResultReturned - 503d49e3-aeaa-4f48-c4c8-c53ee5d52863' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.173, 8175317847838, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.174, 8175317849012, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.174, 8175317849787, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenRoleName_WhenCreateRoleAsync_ThenFailedIdentityResultReturned - 503d49e3-aeaa-4f48-c4c8-c53ee5d52863' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.174, 8175317855314, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.174, 8175317856258, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.174, 8175317856871, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenEmail_WhenDeleteRoleAsync_ThenFailedIdentityResultReturned - d65b8ad2-b3e9-dafa-19c0-13595fd43f67' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.237, 8175318488119, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.238, 8175318489424, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.238, 8175318490217, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.OrderServiceUnitTest.GivenNullUpdatedOrder_WhenUpdateOrderAsync_ThenProductOrderReturned - aac4d7aa-306f-ef11-118c-90566656666b' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.242, 8175318534221, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.242, 8175318536184, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.242, 8175318537355, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.OrderServiceUnitTest.GivenUserId_WhenGetOrderAsync_ThenProductOrderReturned - f813a3b6-97e5-a3a8-0a67-6c5708b3c68b' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.253, 8175318642877, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.253, 8175318644137, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.253, 8175318644898, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AuthServiceUnitTest.GivenUserIdAndToken_WhenConfirmEmailAsync_ThenIdentityResultReturned - 5b846659-df74-e999-4efa-a48b89bcc92d' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.254, 8175318649662, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.254, 8175318650993, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.254, 8175318651873, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AuthServiceUnitTest.GivenEmailAndPassword_WhenSignUpUserAsync_ThenNullReturned - 754740c9-b1d2-e300-356e-a4d005e94d73' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.261, 8175318726784, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.261, 8175318728048, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.261, 8175318728758, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.UserServiceUnitTest.GivenUserProfileAndUserId_WhenUpdateUserProfileAsync_ThenNullReturned - 39dcffc9-424c-a6c5-27e3-6ee0db1a1772' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.263, 8175318747495, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.263, 8175318748382, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.264, 8175318749061, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenEmail_WhenDeleteRoleAsync_ThenFailedIdentityResultReturned - d65b8ad2-b3e9-dafa-19c0-13595fd43f67' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.264, 8175318753495, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.264, 8175318754271, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.264, 8175318754833, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenNonExistentEmail_WhenDeleteRoleAsync_ThenFailedIdentityResultReturned - c8d4b23e-8153-eb58-14db-bb86fb9ccaa4' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.268, 8175318791423, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.268, 8175318792457, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.268, 8175318793196, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenNonExistentEmail_WhenDeleteRoleAsync_ThenFailedIdentityResultReturned - c8d4b23e-8153-eb58-14db-bb86fb9ccaa4' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.268, 8175318797389, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.268, 8175318798210, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.268, 8175318798769, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenRoleName_WhenDeleteRoleAsync_ThenIdentityResultReturned - 6c5ea128-7b5e-1d4e-bc30-d9f6e5865c46' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.271, 8175318823307, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.271, 8175318824337, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.271, 8175318825173, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenRoleName_WhenDeleteRoleAsync_ThenIdentityResultReturned - 6c5ea128-7b5e-1d4e-bc30-d9f6e5865c46' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.272, 8175318829230, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.272, 8175318830089, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.272, 8175318830650, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenRoleName_WhenDeleteRoleAsync_ThenFailedIdentityResultReturned - 35dcef5e-cb68-c7b0-d3ad-11ee236686b1' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.273, 8175318844430, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.273, 8175318845428, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.273, 8175318846100, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenRoleName_WhenDeleteRoleAsync_ThenFailedIdentityResultReturned - 35dcef5e-cb68-c7b0-d3ad-11ee236686b1' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.278, 8175318892220, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.278, 8175318893974, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.278, 8175318895097, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenPatchUserRole_WhenUpdateRoleAsync_ThenIdentityResultReturned - a0ba3c8d-da43-1423-997d-bad567861454' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.279, 8175318900689, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.279, 8175318901748, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.279, 8175318902485, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.EmailSenderServiceUnitTest.GivenEmailAndMessage_WhenSendEmailByMailKitAsync_ThenNothingReturned - cdb766a0-f86e-984f-8f5a-af721d62971e' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.279, 8175318907217, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.279, 8175318908000, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.279, 8175318908567, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenPatchUserRole_WhenUpdateRoleAsync_ThenIdentityResultReturned - a0ba3c8d-da43-1423-997d-bad567861454' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.280, 8175318913516, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.280, 8175318914489, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.280, 8175318915154, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenNonExistentEmail_WhenAssignRoleToUserAsync_ThenFailedIdentityResultReturned - 2dcb35ca-9ffc-6a0d-1048-c95af88de161' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.280, 8175318918885, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.281, 8175318919655, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.281, 8175318920226, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AdministrationServiceUnitTest.GivenNonExistentEmail_WhenAssignRoleToUserAsync_ThenFailedIdentityResultReturned - 2dcb35ca-9ffc-6a0d-1048-c95af88de161' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.393, 8175320039018, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.393, 8175320040379, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.393, 8175320041184, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AuthServiceUnitTest.GivenEmailAndPassword_WhenSignUpUserAsync_ThenNullReturned - 754740c9-b1d2-e300-356e-a4d005e94d73' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.513, 8175321240593, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.513, 8175321241944, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.513, 8175321242791, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.OrderServiceUnitTest.GivenUserId_WhenGetOrderAsync_ThenProductOrderReturned - f813a3b6-97e5-a3a8-0a67-6c5708b3c68b' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.513, 8175321248255, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.514, 8175321249201, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.514, 8175321249837, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.OrderServiceUnitTest.GivenUserIdAndProducts_WhenCreateOrderAsync_ThenProductOrderReturned - d1afa215-5e72-22ae-0287-f24347216ea2' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.590, 8175322015014, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.590, 8175322016330, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.590, 8175322017063, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.FirebaseServiceUnitTest.GivenLogoImageFile_WhenUploadLogoImageAsync_ThenLinkReturned - 7a373c94-d8e2-624c-d1f3-4ab77c0600d2' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.592, 8175322030644, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.592, 8175322031614, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.592, 8175322032262, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.FirebaseServiceUnitTest.GivenNullBackgroundImageFile_WhenUploadBackgroundImageAsync_ThenNullReturned - db4be575-2aaf-e800-c7e4-4bdcf9a8aa11' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.596, 8175322069474, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.596, 8175322070480, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.596, 8175322071173, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.FirebaseServiceUnitTest.GivenNullBackgroundImageFile_WhenUploadBackgroundImageAsync_ThenNullReturned - db4be575-2aaf-e800-c7e4-4bdcf9a8aa11' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.597, 8175322085005, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.597, 8175322086110, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.597, 8175322086846, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.FirebaseServiceUnitTest.GivenBackgroundImageFile_WhenUploadBackgroundImageAsync_ThenLinkReturned - e9be49a8-48bd-ce6d-28a0-f6611ce621e6' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.658, 8175322693925, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.658, 8175322695187, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.658, 8175322695920, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AuthServiceUnitTest.GivenEmailAndPassword_WhenSignUpUserAsync_ThenUserReturned - 0cc8cb77-3848-7ad2-e1f3-10c235033104' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.730, 8175323413126, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.730, 8175323414423, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.730, 8175323415175, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AuthServiceUnitTest.GivenEmailAndPassword_WhenSignUpUserAsync_ThenUserReturned - 0cc8cb77-3848-7ad2-e1f3-10c235033104' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.731, 8175323420074, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.731, 8175323420969, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.731, 8175323421609, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AuthServiceUnitTest.GivenUserIdAndConfirmationLink_WhenSendConfirmationLinkAsync_ThenNothingReturned - 1112f922-6596-9ca1-f0b0-de42ac0764fc' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.732, 8175323433496, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.732, 8175323434406, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.732, 8175323435057, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AuthServiceUnitTest.GivenUserIdAndConfirmationLink_WhenSendConfirmationLinkAsync_ThenNothingReturned - 1112f922-6596-9ca1-f0b0-de42ac0764fc' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.733, 8175323439615, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.733, 8175323440493, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.733, 8175323441107, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AuthServiceUnitTest.GivenNonExistentUser_WhenSignInUserAsync_ThenNullReturned - 396da57f-c366-0ffc-987d-d5e891b87128' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.734, 8175323449046, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.734, 8175323449985, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.734, 8175323450639, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AuthServiceUnitTest.GivenNonExistentUser_WhenSignInUserAsync_ThenNullReturned - 396da57f-c366-0ffc-987d-d5e891b87128' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.736, 8175323477246, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.736, 8175323478323, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.737, 8175323479062, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AuthServiceUnitTest.GivenFailedSignUpResult_WhenSignUpUserAsync_ThenNullReturned - cc5c4064-e0a1-a1e3-27d3-bc80e6aee683' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.803, 8175324140186, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.803, 8175324141484, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.803, 8175324142244, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AuthServiceUnitTest.GivenFailedSignUpResult_WhenSignUpUserAsync_ThenNullReturned - cc5c4064-e0a1-a1e3-27d3-bc80e6aee683' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.803, 8175324147229, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.803, 8175324148143, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.803, 8175324148764, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AuthServiceUnitTest.GivenUserIdAndToken_WhenConfirmEmailAsync_ThenFailedIdentityResultReturned - 14aa299e-5627-332e-537d-46214c3bff9c' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.804, 8175324155617, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.804, 8175324156512, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.804, 8175324157147, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.AuthServiceUnitTest.GivenUserIdAndToken_WhenConfirmEmailAsync_ThenFailedIdentityResultReturned - 14aa299e-5627-332e-537d-46214c3bff9c' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.813, 8175324240646, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.813, 8175324241881, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.813, 8175324242627, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenProductRating_WhenDeleteProductRatingAsync_ThenNothingReturned - bbbce308-17ba-9efb-e451-50f704cb1368' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.813, 8175324247908, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.813, 8175324248809, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.814, 8175324249430, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenProductId_WhenDeleteProductByIdAsync_ThenNothingReturned - 062f95be-826c-9692-2c98-8125c64c6e58' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.814, 8175324257735, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.814, 8175324258657, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.815, 8175324259302, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenProductId_WhenDeleteProductByIdAsync_ThenNothingReturned - 062f95be-826c-9692-2c98-8125c64c6e58' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.815, 8175324263769, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.815, 8175324264650, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.815, 8175324265257, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenParameters_WhenSearchGamesByParametersAsync_ThenListResultReturned - dc12e052-98fd-8fef-7d41-1ad56e31fdfc' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.845, 8175324566793, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.845, 8175324568161, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.846, 8175324569586, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.OrderServiceUnitTest.GivenUserIdAndProducts_WhenCreateOrderAsync_ThenProductOrderReturned - d1afa215-5e72-22ae-0287-f24347216ea2' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.847, 8175324583260, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.847, 8175324584263, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:01.847, 8175324584901, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.OrderServiceUnitTest.GivenOrderIdAndProducts_WhenDeleteProductsFromOrderAsync_ThenNothingReturned - 454b66dc-dd29-506b-5246-31c864ef0843' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.023, 8175326340093, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.023, 8175326341503, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.023, 8175326342322, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.OrderServiceUnitTest.GivenOrderIdAndProducts_WhenDeleteProductsFromOrderAsync_ThenNothingReturned - 454b66dc-dd29-506b-5246-31c864ef0843' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.023, 8175326346839, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.023, 8175326347782, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.023, 8175326348427, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.OrderServiceUnitTest.GivenOrderId_WhenBuyOrderAsync_ThenNothingReturned - d796548e-6745-6b0d-a3d0-706f42bbbf7c' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.200, 8175328111533, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.200, 8175328112838, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.200, 8175328113643, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.OrderServiceUnitTest.GivenOrderId_WhenBuyOrderAsync_ThenNothingReturned - d796548e-6745-6b0d-a3d0-706f42bbbf7c' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.202, 8175328133647, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.202, 8175328134556, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.202, 8175328135181, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.OrderServiceUnitTest.GivenNullOrderAddress_WhenUpdateOrderAsync_ThenProductOrderReturned - 2c90d88b-92d4-c1d9-5c0e-ee88c9ab175d' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.244, 8175328552831, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.244, 8175328554081, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.244, 8175328554808, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.EmailSenderServiceUnitTest.GivenEmailAndMessage_WhenSendEmailByNetMailAsync_ThenNothingReturned - 6fbe6347-e5d8-aa76-696b-92af58b3d40f' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.338, 8175329494639, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.338, 8175329496025, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.338, 8175329496822, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenParameters_WhenSearchGamesByParametersAsync_ThenListResultReturned - dc12e052-98fd-8fef-7d41-1ad56e31fdfc' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.339, 8175329501850, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.339, 8175329502773, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.339, 8175329503391, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenParameters_WhenGetProductListAsync_ThenPaginatedProductListReturned - 0d2ce319-f39e-0025-c089-0c8cc84c5299' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.493, 8175331039530, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.493, 8175331040848, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.493, 8175331041675, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.OrderServiceUnitTest.GivenNullOrderAddress_WhenUpdateOrderAsync_ThenProductOrderReturned - 2c90d88b-92d4-c1d9-5c0e-ee88c9ab175d' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.493, 8175331045983, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.493, 8175331046904, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.493, 8175331047525, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.OrderServiceUnitTest.GivenOrderIdOrderAndProducts_WhenUpdateOrderAsync_ThenProductOrderReturned - a23903fe-b093-e627-da3d-60141e895ed8' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.687, 8175332982629, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.687, 8175332983936, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.687, 8175332984727, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.FirebaseServiceUnitTest.GivenBackgroundImageFile_WhenUploadBackgroundImageAsync_ThenLinkReturned - e9be49a8-48bd-ce6d-28a0-f6611ce621e6' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.733, 8175333440592, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.733, 8175333441870, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:02.733, 8175333442650, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.OrderServiceUnitTest.GivenOrderIdOrderAndProducts_WhenUpdateOrderAsync_ThenProductOrderReturned - a23903fe-b093-e627-da3d-60141e895ed8' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:03.343, 8175339542990, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:03.343, 8175339544339, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:03.343, 8175339545098, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.EmailSenderServiceUnitTest.GivenEmailAndMessage_WhenSendEmailByNetMailAsync_ThenNothingReturned - 6fbe6347-e5d8-aa76-696b-92af58b3d40f' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:06.309, 8175369204972, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:06.309, 8175369206270, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:06.309, 8175369207053, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenParameters_WhenGetProductListAsync_ThenPaginatedProductListReturned - 0d2ce319-f39e-0025-c089-0c8cc84c5299' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.022, 8175556334260, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.022, 8175556335696, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.022, 8175556336468, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenProductWith0Id_WhenUpdateProductAsync_ThenNullReturned - 3e7212a3-54d7-2ff0-c94f-da1318d2ab92' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.023, 8175556344777, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.023, 8175556345711, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.023, 8175556346381, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenProductWith0Id_WhenUpdateProductAsync_ThenNullReturned - 3e7212a3-54d7-2ff0-c94f-da1318d2ab92' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.023, 8175556350362, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.023, 8175556351235, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.023, 8175556351867, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenQuantity_WhenGetTopPlatformsAsync_ThenDictionaryResultReturned - a570a15d-e36f-fbee-b035-e3d4e22f0278' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.099, 8175557109095, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.099, 8175557110548, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.099, 8175557111398, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenQuantity_WhenGetTopPlatformsAsync_ThenDictionaryResultReturned - a570a15d-e36f-fbee-b035-e3d4e22f0278' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.173, 8175557851674, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.174, 8175557852977, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.174, 8175557853719, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenProductId_WhenGetProductFullInfoAsync_ThenProductReturned - 3c237203-f004-6e38-bb9b-e8a1c3d72889' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.204, 8175558152502, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.204, 8175558153798, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.204, 8175558154543, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenProductId_WhenGetProductFullInfoAsync_ThenProductReturned - 3c237203-f004-6e38-bb9b-e8a1c3d72889' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.204, 8175558158895, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.204, 8175558159793, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.204, 8175558160403, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenProduct_WhenCreateProductAsync_ThenProductReturned - 1031b834-f6d7-719a-8015-b3e4b0db3c50' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.234, 8175558460209, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.234, 8175558461471, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.235, 8175558462254, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenProduct_WhenCreateProductAsync_ThenProductReturned - 1031b834-f6d7-719a-8015-b3e4b0db3c50' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.235, 8175558466484, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.235, 8175558467365, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.235, 8175558467959, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenRatingWith0Value_WhenUpdateProductRatingAsync_ThenNullReturned - c37df108-9a3f-4f06-7b37-7d16c3fa3f1d' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.235, 8175558471417, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.236, 8175558472282, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.236, 8175558472894, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenRatingWith0Value_WhenUpdateProductRatingAsync_ThenNullReturned - c37df108-9a3f-4f06-7b37-7d16c3fa3f1d' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.236, 8175558476853, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.236, 8175558477737, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.236, 8175558478352, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenProductRating_WhenCreateProductRatingAsync_ThenProductRatingReturned - 2eabb3bc-152e-a810-9b21-bfa64c8375b7' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.279, 8175558904940, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.279, 8175558906189, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.279, 8175558906933, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenProductRating_WhenCreateProductRatingAsync_ThenProductRatingReturned - 2eabb3bc-152e-a810-9b21-bfa64c8375b7' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.279, 8175558911204, datacollector.dll, DataCollectionTestCaseEventHandler: Test case starting.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.280, 8175558912088, datacollector.dll, Blame Collector : Test Case Start
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.280, 8175558912693, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenProduct_WhenUpdateProductAsync_ThenProductReturned - 0ac22ee3-bf6e-e9b7-4c45-82ccb808cedd' started.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.309, 8175559208414, datacollector.dll, DataCollectionTestCaseEventHandler : Test case completing.
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.309, 8175559209667, datacollector.dll, Blame Collector : Test Case End
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.309, 8175559210420, datacollector.dll, DataCollectionTestCaseEventHandler: Test case 'xUnitTestProject.BLL.Services.GamesServiceUnitTest.GivenProduct_WhenUpdateProductAsync_ThenProductReturned - 0ac22ee3-bf6e-e9b7-4c45-82ccb808cedd' completed
+TpTrace Information: 0 : 6256, 7, 2021/10/14, 21:33:25.314, 8175559261295, datacollector.dll, DataCollectionTestCaseEventHandler: Test session ended
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:33:25.387, 8175559986746, datacollector.dll, DataCollectionRequestHandler.ProcessRequests : Datacollector received message: (DataCollection.AfterTestRunEnd) -> false
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:33:25.387, 8175559990621, datacollector.dll, Blame Collector : Session End
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:33:25.387, 8175559990955, datacollector.dll, BlameCollector.CollectDumpAndAbortTesthost: Custom path to dump directory was provided via VSTEST_DUMP_PATH. Skipping attachment upload, the caller is responsible for collecting and uploading the dumps themselves.
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:33:25.387, 8175559991671, datacollector.dll, DataCollectionManager.CleanupPlugins: CleanupPlugins called
+TpTrace Verbose: 0 : 6256, 1, 2021/10/14, 21:33:25.387, 8175559991915, datacollector.dll, DataCollectionManager.CleanupPlugins: Cleaning up 1 plugins
+TpTrace Verbose: 0 : 6256, 1, 2021/10/14, 21:33:25.388, 8175559992637, datacollector.dll, dataCollectorInfo.DisposeDataCollector: calling Dispose() on Microsoft.TestPlatform.Extensions.BlameDataCollector.BlameCollector
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:33:25.388, 8175559993072, datacollector.dll, DataCollectionManager.CleanupPlugins: CleanupPlugins finished
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:33:25.390, 8175560013754, datacollector.dll, DataCollectionRequestHandler.ProcessRequests : Session End message received from server. Closing the connection.
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:33:25.390, 8175560014934, datacollector.dll, Closing the connection !
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:33:25.390, 8175560015184, datacollector.dll, DataCollectionRequestHandler.ProcessRequests : DataCollection completed
+TpTrace Information: 0 : 6256, 1, 2021/10/14, 21:33:25.390, 8175560015386, datacollector.dll, Program.Main: exiting datacollector process.

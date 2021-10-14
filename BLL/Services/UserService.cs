@@ -1,11 +1,7 @@
-﻿using AutoMapper;
-using BLL.Interfaces;
+﻿using BLL.Interfaces;
 using BLL.ViewModels;
 using DAL.Interfaces;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.JsonPatch;
-using RIL.Models;
-using System;
 using System.Threading.Tasks;
 
 namespace BLL.Services
@@ -13,18 +9,16 @@ namespace BLL.Services
     public class UserService : IUserService
     {
         private readonly ITokenService _tokenService;
-        private readonly UserManager<ExtendedUser> _userManager;
-        private readonly IMapper _mapper;
         private readonly IValidatorService _validatorService;
         private readonly IUnitOfWork _unitOfWork;
+        private readonly IConverter _converter;
 
-        public UserService(ITokenService tokenService, UserManager<ExtendedUser> userManager, IMapper mapper, IValidatorService validatorService, IUnitOfWork unitOfWork)
+        public UserService(ITokenService tokenService, IValidatorService validatorService, IUnitOfWork unitOfWork, IConverter converter)
         {
             _tokenService = tokenService;
-            _userManager = userManager;
-            _mapper = mapper;
             _validatorService = validatorService;
             _unitOfWork = unitOfWork;
+            _converter = converter;
         }
 
         public string GetUserId(string token)
@@ -34,10 +28,10 @@ namespace BLL.Services
 
         public async Task<ReturnUserProfileViewModel> UpdateUserProfileAsync(UserProfileViewModel userProfile, string userId)
         {
-            var user = await _userManager.FindByIdAsync(userId);
+            var user = await _unitOfWork.ExtendedUsers.FindByIdAsync(userId);
             if (user != null)
             {
-                if (!String.IsNullOrWhiteSpace(userProfile.PhoneNumber))
+                if (!string.IsNullOrWhiteSpace(userProfile.PhoneNumber))
                 {
                     if (_validatorService.IsValidPhoneNumber(userProfile.PhoneNumber))
                     {
@@ -47,7 +41,7 @@ namespace BLL.Services
                         return null; 
                 }
 
-                if (!String.IsNullOrWhiteSpace(userProfile.UserName))
+                if (!string.IsNullOrWhiteSpace(userProfile.UserName))
                 {
                     if(user.UserName != userProfile.UserName)
                     {
@@ -57,19 +51,19 @@ namespace BLL.Services
 
                 if (userProfile.AddressDelivery != null)
                 {
-                    user.AddressDelivery = _mapper.Map<Address>(userProfile.AddressDelivery);
+                    user.AddressDelivery = _converter.Address.ConvertToAddress(userProfile.AddressDelivery);
                 }
                 else
                 {
                     user.AddressDelivery = await _unitOfWork.Addresses.GetByIdAsync(user.AddressDeliveryId);
                 }
 
-                var result = await _userManager.UpdateAsync(user);
+                var result = await _unitOfWork.ExtendedUsers.UpdateAsync(user);
                 if (result.Succeeded)
                 {
                     return new ReturnUserProfileViewModel
                     {
-                        AddressDelivery = _mapper.Map<AddressViewModel>(user.AddressDelivery),
+                        AddressDelivery = _converter.Address.ConvertToAddressViewModel(user.AddressDelivery),
                         UserName = user.UserName,
                         Email = user.Email,
                         PhoneNumber = user.PhoneNumber,
@@ -81,32 +75,26 @@ namespace BLL.Services
 
         public async Task<ReturnUserProfileViewModel> GetUserProfileAsync(string userId)
         {
-            var user = await _userManager.FindByIdAsync(userId);
+            var user = await _unitOfWork.ExtendedUsers.FindByIdAsync(userId);
             var address = await _unitOfWork.Addresses.GetByIdAsync(user.AddressDeliveryId);
 
             return new ReturnUserProfileViewModel
             {
-                AddressDelivery = _mapper.Map <AddressViewModel>(address),
+                AddressDelivery = _converter.Address.ConvertToAddressViewModel(address),
                 UserName = user.UserName,
                 Email = user.Email,
                 PhoneNumber = user.PhoneNumber,
             };
         }
 
-        public async Task<IdentityResult> UpdateUserPasswordAsync(JsonPatchDocument<PatchUserPasswordViewModel> userPatch, string userId)
+        public async Task<IdentityResult> UpdateUserPasswordAsync(PatchUserPasswordViewModel updatedUser, string userId)
         {
-            var user = await _userManager.FindByIdAsync(userId);
-            if(user != null)
+            var user = await _unitOfWork.ExtendedUsers.FindByIdAsync(userId);
+            if(user == null || !_validatorService.IsValidPassword(updatedUser.NewPassword))
             {
-                var updatedUser = new PatchUserPasswordViewModel();
-
-                userPatch.ApplyTo(updatedUser);
-                if (_validatorService.IsValidPassword(updatedUser.NewPassword))
-                {
-                    return await _userManager.ChangePasswordAsync(user, updatedUser.CurrentPassword, updatedUser.NewPassword);
-                } 
+                return IdentityResult.Failed();
             }
-            return IdentityResult.Failed();
+            return await _unitOfWork.ExtendedUsers.ChangePasswordAsync(user, updatedUser.CurrentPassword, updatedUser.NewPassword);
         }
     }
 }

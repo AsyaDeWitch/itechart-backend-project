@@ -53,7 +53,7 @@
         </member>
         <member name="M:Web.Controllers.AuthController.SignInAsync(BLL.ViewModels.AuthViewModel)">
             <summary>
-            Performs user auhentication
+            Performs user authentication
             </summary>
             <param name="signInModel">Sign In Model</param>
             <response code="200">JWT token string returned</response>

@@ -86,9 +86,9 @@ namespace DAL.Repositories
 
         public async Task<Order> UpdateProductTotalAmountAsync(int id, int totalAmount)
         {
-            var oldOrder = _context.Orders
+            var oldOrder = await _context.Orders
                .Where(o => o.Id == id && o.Status == (int)OrderStatus.Awaiting_Payment)
-               .FirstOrDefault();
+               .FirstOrDefaultAsync();
 
             if (oldOrder != null)
             {

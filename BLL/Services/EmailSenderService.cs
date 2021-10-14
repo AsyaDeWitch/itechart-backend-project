@@ -33,7 +33,7 @@ namespace BLL.Services
             })
             {
                 await smtpClient.SendMailAsync(message);
-            };
+            }
         }
 
         public async Task SendEmailByMailKitAsync(string email, string htmlMessage)

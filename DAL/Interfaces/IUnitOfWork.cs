@@ -7,5 +7,6 @@
         public IProductOrderRepository ProductOrders { get; }
         public IProductRatingRepository ProductRatings { get; }
         public IProductRepository Products { get; }
+        public IExtendedUserRepository ExtendedUsers { get; }
     }
 }

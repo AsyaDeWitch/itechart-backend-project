@@ -1,6 +1,5 @@
 ﻿using AutoFixture;
 using AutoFixture.Xunit2;
-using AutoMapper;
 using BLL.Interfaces;
 using BLL.Services;
 using BLL.ViewModels;
@@ -27,13 +26,18 @@ namespace xUnitTestProject.BLL.Services
             // Arrange
             var fixture = new Fixture { RepeatCount = 900 };
             var platformAndCountPairs = fixture.Create<List<(int, int)>>();
-            A.CallTo(() => service.Products.GetEachPlatformCountAsync()).Returns(platformAndCountPairs);
+
+            A.CallTo(() => service.Products.GetEachPlatformCountAsync())
+                .Returns(platformAndCountPairs);
+
             if(value > platformAndCountPairs.Count || value <= 0)
             {
                 value = platformAndCountPairs.Count;
             }
-            platformAndCountPairs.Sort((x, y) => y.Item2.CompareTo(x.Item2));
-            platformAndCountPairs = platformAndCountPairs.Take(value).ToList();
+            platformAndCountPairs
+                .Sort((x, y) => y.Item2.CompareTo(x.Item2));
+            platformAndCountPairs = platformAndCountPairs.Take(value)
+                .ToList();
 
             //Act
             var result = await sut.GetTopPlatformsAsync(value);
@@ -51,7 +55,9 @@ namespace xUnitTestProject.BLL.Services
             fixture.Behaviors.Remove(new ThrowingRecursionBehavior());
             fixture.Behaviors.Add(new OmitOnRecursionBehavior());
             var gamesList = fixture.Create<List<Product>>();
-            A.CallTo(() => service.Products.GetProductsByParametersAsync(term, limit, offset, name)).Returns(gamesList);
+
+            A.CallTo(() => service.Products.GetProductsByParametersAsync(term, limit, offset, name))
+                .Returns(gamesList);
 
             //Act
             var result = await sut.SearchGamesByParametersAsync(term, limit, offset, name);
@@ -69,7 +75,9 @@ namespace xUnitTestProject.BLL.Services
             fixture.Behaviors.Remove(new ThrowingRecursionBehavior());
             fixture.Behaviors.Add(new OmitOnRecursionBehavior());
             var game = fixture.Create<Product>();
-            A.CallTo(() => service.Products.GetByIdAsync(id)).Returns(game);
+
+            A.CallTo(() => service.Products.GetByIdAsync(id))
+                .Returns(game);
 
             //Act
             var result = await sut.GetProductFullInfoAsync(id.ToString());
@@ -80,14 +88,18 @@ namespace xUnitTestProject.BLL.Services
 
         [Theory]
         [AutoFakeItEasyData]
-        public async Task GivenProduct_WhenCreateProductAsync_ThenProductReturned(ProductViewModel product, [Frozen] IUnitOfWork service, [Frozen] IMapper mapper, GamesService sut)
+        public async Task GivenProduct_WhenCreateProductAsync_ThenProductReturned(ProductViewModel product, [Frozen] IUnitOfWork service, [Frozen] IConverter converter, GamesService sut)
         {
             // Arrange
             var fixture = new Fixture();
             fixture.Behaviors.Remove(new ThrowingRecursionBehavior());
             fixture.Behaviors.Add(new OmitOnRecursionBehavior());
-            var game = fixture.Create<Product>();
-            A.CallTo(() => service.Products.CreateAsync(mapper.Map<Product>(product))).Returns(game);
+            var createdProduct = fixture.Create<Product>();
+
+            A.CallTo(() => converter.Product.ConvertToProduct(product))
+                .Returns(createdProduct);
+            A.CallTo(() => service.Products.CreateAsync(createdProduct))
+                .Returns(createdProduct);
 
             //Act
             var result = await sut.CreateProductAsync(product);
@@ -98,19 +110,25 @@ namespace xUnitTestProject.BLL.Services
 
         [Theory]
         [AutoFakeItEasyData]
-        public async Task GivenProductWithLogoAndImageFile_WhenCreateProductAsync_ThenProductReturned(ProductViewModel product, [Frozen] IUnitOfWork service, [Frozen] IMapper mapper, [Frozen] IFirebaseService firebase, [Frozen] IFormFile formfile, GamesService sut)
+        public async Task GivenProductWithLogoAndImageFile_WhenCreateProductAsync_ThenProductReturned(ProductViewModel product, [Frozen] IUnitOfWork service, [Frozen] IConverter converter, [Frozen] IFirebaseService firebase, [Frozen] IFormFile formFile, GamesService sut)
         {
             // Arrange
             var fixture = new Fixture();
             fixture.Behaviors.Remove(new ThrowingRecursionBehavior());
             fixture.Behaviors.Add(new OmitOnRecursionBehavior());
-            product.LogoImageFile = formfile;
-            product.BackgroundImageFile = formfile;
+            product.LogoImageFile = formFile;
+            product.BackgroundImageFile = formFile;
             var imageLink = fixture.Create<string>();
-            var game = fixture.Create<Product>();
-            A.CallTo(() => firebase.UploadBackgroundImageAsync(product.BackgroundImageFile)).Returns(imageLink);
-            A.CallTo(() => firebase.UploadLogoImageAsync(product.LogoImageFile)).Returns(imageLink);
-            A.CallTo(() => service.Products.CreateAsync(mapper.Map<Product>(product))).Returns(game);
+            var createdProduct = fixture.Create<Product>();
+
+            A.CallTo(() => firebase.UploadBackgroundImageAsync(product.BackgroundImageFile))
+                .Returns(imageLink);
+            A.CallTo(() => firebase.UploadLogoImageAsync(product.LogoImageFile))
+                .Returns(imageLink);
+            A.CallTo(() => converter.Product.ConvertToProduct(product))
+                .Returns(createdProduct);
+            A.CallTo(() => service.Products.CreateAsync(createdProduct))
+                .Returns(createdProduct);
 
             //Act
             var result = await sut.CreateProductAsync(product);
@@ -121,14 +139,18 @@ namespace xUnitTestProject.BLL.Services
 
         [Theory]
         [AutoFakeItEasyData]
-        public async Task GivenProduct_WhenUpdateProductAsync_ThenProductReturned(ProductViewModel product, [Frozen] IUnitOfWork service, [Frozen] IMapper mapper, GamesService sut)
+        public async Task GivenProduct_WhenUpdateProductAsync_ThenProductReturned(ProductViewModel product, [Frozen] IUnitOfWork service, [Frozen] IConverter converter, GamesService sut)
         {
             // Arrange
             var fixture = new Fixture();
             fixture.Behaviors.Remove(new ThrowingRecursionBehavior());
             fixture.Behaviors.Add(new OmitOnRecursionBehavior());
-            var game = fixture.Create<Product>();
-            A.CallTo(() => service.Products.UpdateAsync(mapper.Map<Product>(product))).Returns(game);
+            var updatedProduct = fixture.Create<Product>();
+
+            A.CallTo(() => converter.Product.ConvertToProduct(product))
+                .Returns(updatedProduct);
+            A.CallTo(() => service.Products.UpdateAsync(updatedProduct))
+                .Returns(updatedProduct);
 
             //Act
             var result = await sut.UpdateProductAsync(product);
@@ -139,19 +161,25 @@ namespace xUnitTestProject.BLL.Services
 
         [Theory]
         [AutoFakeItEasyData]
-        public async Task GivenProductWithLogoAndImageFile_WhenUpdateProductAsync_ThenProductReturned(ProductViewModel product, [Frozen] IUnitOfWork service, [Frozen] IMapper mapper, [Frozen] IFirebaseService firebase, [Frozen] IFormFile formfile, GamesService sut)
+        public async Task GivenProductWithLogoAndImageFile_WhenUpdateProductAsync_ThenProductReturned(ProductViewModel product, [Frozen] IUnitOfWork service, [Frozen] IConverter converter, [Frozen] IFirebaseService firebase, [Frozen] IFormFile formFile, GamesService sut)
         {
             // Arrange
             var fixture = new Fixture();
             fixture.Behaviors.Remove(new ThrowingRecursionBehavior());
             fixture.Behaviors.Add(new OmitOnRecursionBehavior());
-            product.LogoImageFile = formfile;
-            product.BackgroundImageFile = formfile;
+            product.LogoImageFile = formFile;
+            product.BackgroundImageFile = formFile;
             var imageLink = fixture.Create<string>();
-            var game = fixture.Create<Product>();
-            A.CallTo(() => firebase.UploadBackgroundImageAsync(product.BackgroundImageFile)).Returns(imageLink);
-            A.CallTo(() => firebase.UploadLogoImageAsync(product.LogoImageFile)).Returns(imageLink);
-            A.CallTo(() => service.Products.UpdateAsync(mapper.Map<Product>(product))).Returns(game);
+            var updatedProduct = fixture.Create<Product>();
+
+            A.CallTo(() => firebase.UploadBackgroundImageAsync(product.BackgroundImageFile))
+                .Returns(imageLink);
+            A.CallTo(() => firebase.UploadLogoImageAsync(product.LogoImageFile))
+                .Returns(imageLink);
+            A.CallTo(() => converter.Product.ConvertToProduct(product))
+                .Returns(updatedProduct);
+            A.CallTo(() => service.Products.UpdateAsync(updatedProduct))
+                .Returns(updatedProduct);
 
             //Act
             var result = await sut.UpdateProductAsync(product);
@@ -184,45 +212,56 @@ namespace xUnitTestProject.BLL.Services
             await sut.DeleteProductByIdAsync(id.ToString());
 
             //Assert
-            A.CallTo(() => service.Products.DeleteByIdAsync(id)).MustHaveHappenedOnceExactly();
+            A.CallTo(() => service.Products.DeleteByIdAsync(id))
+                .MustHaveHappenedOnceExactly();
         }
 
         [Theory]
         [AutoFakeItEasyData]
-        public async Task GivenProductRating_WhenCreateProductRatingAsync_ThenProductRatingReturned(ProductRatingViewModel productRating, [Frozen] IUnitOfWork service, [Frozen] IMapper mapper, GamesService sut)
+        public async Task GivenProductRating_WhenCreateProductRatingAsync_ThenProductRatingReturned(ProductRatingViewModel productRating, [Frozen] IUnitOfWork service, [Frozen] IConverter converter, GamesService sut)
         {
             // Arrange
             var fixture = new Fixture();
             fixture.Behaviors.Remove(new ThrowingRecursionBehavior());
             fixture.Behaviors.Add(new OmitOnRecursionBehavior());
             var newProductRating = fixture.Create<ProductRating>();
-            A.CallTo(() => service.ProductRatings.CreateAsync(mapper.Map<ProductRating>(productRating))).Returns(newProductRating);
+
+            A.CallTo(() => converter.ProductRating.ConvertToProductRating(productRating))
+                .Returns(newProductRating);
+            A.CallTo(() => service.ProductRatings.CreateAsync(newProductRating))
+                .Returns(newProductRating);
 
             //Act
             var result = await sut.CreateProductRatingAsync(productRating);
 
             //Assert
             Assert.IsAssignableFrom<ProductRatingViewModel>(result);
-            A.CallTo(() => service.Products.UpdateTotalRatingAsync(productRating.ProductId)).MustHaveHappenedOnceExactly();
+            A.CallTo(() => service.Products.UpdateTotalRatingAsync(productRating.ProductId))
+                .MustHaveHappenedOnceExactly();
         }
 
         [Theory]
         [AutoFakeItEasyData]
-        public async Task GivenProductRating_WhenUpdateProductRatingAsync_ThenProductRatingReturned(ProductRatingViewModel productRating, [Frozen] IUnitOfWork service, [Frozen] IMapper mapper, GamesService sut)
+        public async Task GivenProductRating_WhenUpdateProductRatingAsync_ThenProductRatingReturned(ProductRatingViewModel productRating, [Frozen] IUnitOfWork service, [Frozen] IConverter converter, GamesService sut)
         {
             // Arrange
             var fixture = new Fixture();
             fixture.Behaviors.Remove(new ThrowingRecursionBehavior());
             fixture.Behaviors.Add(new OmitOnRecursionBehavior());
             var newProductRating = fixture.Create<ProductRating>();
-            A.CallTo(() => service.ProductRatings.UpdateAsync(mapper.Map<ProductRating>(productRating))).Returns(newProductRating);
+
+            A.CallTo(() => converter.ProductRating.ConvertToProductRating(productRating))
+                .Returns(newProductRating);
+            A.CallTo(() => service.ProductRatings.UpdateAsync(newProductRating))
+                .Returns(newProductRating);
 
             //Act
             var result = await sut.UpdateProductRatingAsync(productRating);
 
             //Assert
             Assert.IsAssignableFrom<ProductRatingViewModel>(result);
-            A.CallTo(() => service.Products.UpdateTotalRatingAsync(productRating.ProductId)).MustHaveHappenedOnceExactly();
+            A.CallTo(() => service.Products.UpdateTotalRatingAsync(productRating.ProductId))
+                .MustHaveHappenedOnceExactly();
         }
 
         [Theory]
@@ -241,16 +280,25 @@ namespace xUnitTestProject.BLL.Services
 
         [Theory]
         [AutoFakeItEasyData]
-        public async Task GivenProductRating_WhenDeleteProductRatingAsync_ThenNothingReturned(ProductRatingViewModel productRating, [Frozen] IUnitOfWork service, GamesService sut)
+        public async Task GivenProductRating_WhenDeleteProductRatingAsync_ThenNothingReturned(ProductRatingViewModel productRating, [Frozen] IUnitOfWork service, [Frozen] IConverter converter, GamesService sut)
         {
             // Arrange
+            var fixture = new Fixture { RepeatCount = 10 };
+            fixture.Behaviors.Remove(new ThrowingRecursionBehavior());
+            fixture.Behaviors.Add(new OmitOnRecursionBehavior());
+            var newProductRating = fixture.Create<ProductRating>();
+
+            A.CallTo(() => converter.ProductRating.ConvertToProductRating(productRating))
+                .Returns(newProductRating);
 
             //Act
             await sut.DeleteProductRatingAsync(productRating);
 
             //Assert
-            //A.CallTo(() => service.ProductRatings.DeleteAsync(mapper.Map<ProductRating>(productRating))).MustHaveHappenedOnceExactly();
-            A.CallTo(() => service.Products.UpdateTotalRatingAsync(productRating.ProductId)).MustHaveHappenedOnceExactly();
+            A.CallTo(() => service.ProductRatings.DeleteAsync(newProductRating))
+                .MustHaveHappenedOnceExactly();
+            A.CallTo(() => service.Products.UpdateTotalRatingAsync(productRating.ProductId))
+                .MustHaveHappenedOnceExactly();
         }
 
         [Theory]
@@ -268,7 +316,8 @@ namespace xUnitTestProject.BLL.Services
             fixture.Behaviors.Add(new OmitOnRecursionBehavior());
             var productList = fixture.Create<List<Product>>();
 
-            A.CallTo(() => service.Products.GetListByAgeAndGenreFilterAsync(genreFilter, ageFilter)).Returns(productList);
+            A.CallTo(() => service.Products.GetListByAgeAndGenreFilterAsync(genreFilter, ageFilter))
+                .Returns(productList);
 
             //Act
             var result = await sut.GetProductListAsync(sortingParameter, genreFilter, ageFilter, pageNumber,pageSize);

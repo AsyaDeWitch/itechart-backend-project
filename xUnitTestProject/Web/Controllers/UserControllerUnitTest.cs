@@ -15,8 +15,8 @@ namespace xUnitTestProject.Web.Controllers
 {
     public class UserControllerUnitTest
     {
-        private readonly TestServer _server;
-        private readonly HttpClient _client;
+        //private readonly TestServer _server;
+        //private readonly HttpClient _client;
 
         [Fact]
         public void UpdateUserProfileAsync__()

@@ -11,8 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
-using BLL.Handlers;
-using BLL.Requiremets;
+using DIL.Handlers;
+using DIL.Requirements;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Options;
@@ -27,6 +27,7 @@ using Microsoft.AspNetCore.ResponseCompression;
 using System.IO.Compression;
 using DAL.Interfaces;
 using DAL.Repositories;
+using BLL.Converters;
 
 namespace DIL.Settings
 {
@@ -116,7 +117,15 @@ namespace DIL.Settings
             services.AddScoped<IProductOrderRepository, ProductOrderRepository>();
             services.AddScoped<IProductRatingRepository, ProductRatingRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IExtendedUserRepository, ExtendedUserRepository>();
             services.AddScoped<IUnitOfWork,UnitOfWork>();
+
+            services.AddScoped<IProductOrderConverter, ProductOrderConverter>();
+            services.AddScoped<IProductRatingConverter, ProductRatingConverter>();
+            services.AddScoped<IOrderConverter, OrderConverter>();
+            services.AddScoped<IProductConverter, ProductConverter>();
+            services.AddScoped<IAddressConverter, AddressConverter>();
+            services.AddScoped<IConverter, Converter>();
 
             services.AddScoped<IUserClaimsPrincipalFactory<ExtendedUser>, ExtendedUserClaimsPrincipalFactory>();
             

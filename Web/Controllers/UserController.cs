@@ -62,7 +62,10 @@ namespace Web.Controllers
             var userId = _userService.GetUserId(token);
             _memoryCache.Remove(userId);
 
-            var result = await _userService.UpdateUserPasswordAsync(userPatch, userId);
+            var updatedUser = new PatchUserPasswordViewModel();
+            userPatch.ApplyTo(updatedUser);
+
+            var result = await _userService.UpdateUserPasswordAsync(updatedUser, userId);
             if (result.Succeeded)
             {
                 return NoContent();
@@ -79,11 +82,10 @@ namespace Web.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ReturnUserProfileViewModel))]
         public async Task<IActionResult> GetUserProfileAsync()
         {
-            ReturnUserProfileViewModel user;
             string token = HttpContext.Request.Cookies["JwtToken"];
             var userId = _userService.GetUserId(token);
 
-            if (_memoryCache.TryGetValue(userId, out user))
+            if (_memoryCache.TryGetValue(userId, out ReturnUserProfileViewModel user))
             {
                 return Ok(user);
             }

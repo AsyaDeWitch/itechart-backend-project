@@ -41,7 +41,7 @@ namespace BLL.Services
                 var jwtToken = (JwtSecurityToken)tokenHandler.ReadToken(token);
                 id = jwtToken.Claims.First(claim => claim.Type == "UserId").Value;
             }
-            catch (Exception e)
+            catch(Exception)
             {
                 id = null;
             }
@@ -64,9 +64,9 @@ namespace BLL.Services
                     ValidAudience = jwtAudience,
                     IssuerSigningKey = securityKey,
                 }, 
-                out var validatedToken);
+                out _);
             }
-            catch
+            catch(Exception)
             {
                 return false;
             }

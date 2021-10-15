@@ -25,6 +25,7 @@ using DIL.ActionFilters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.ResponseCompression;
 using System.IO.Compression;
+using BLL.Chachers;
 using DAL.Interfaces;
 using DAL.Repositories;
 using BLL.Converters;
@@ -33,11 +34,11 @@ namespace DIL.Settings
 {
     public class ServicesSettings
     {
-        public static void InjectDependencies(IServiceCollection services, IConfiguration Configuration)
+        public static void InjectDependencies(IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<ExtendedUser, IdentityRole<int>>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
@@ -64,9 +65,9 @@ namespace DIL.Settings
                         ValidateAudience = true,
                         ValidateLifetime = true,
                         ValidateIssuerSigningKey = true,
-                        ValidIssuer = Configuration["JwtSettings:Issuer"],
-                        ValidAudience = Configuration["JwtSettings:Audience"],
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtSettings:Key"]))
+                        ValidIssuer = configuration["JwtSettings:Issuer"],
+                        ValidAudience = configuration["JwtSettings:Audience"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtSettings:Key"]))
                     };
                     options.Events = new JwtBearerEvents
                     {
@@ -95,9 +96,9 @@ namespace DIL.Settings
             {
                 mc.AddProfile(new MappingSettings());
             });
-            IMapper mapper = mapperConfig.CreateMapper();
-
+            var mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
+
             services.AddSingleton<IAuthorizationHandler, RoleAuthorizationHandler>();
             services.AddSingleton<IAuthorizationMiddlewareResultHandler,
                           RoleAuthorizationMiddlewareResultHandler>();
@@ -125,7 +126,10 @@ namespace DIL.Settings
             services.AddScoped<IOrderConverter, OrderConverter>();
             services.AddScoped<IProductConverter, ProductConverter>();
             services.AddScoped<IAddressConverter, AddressConverter>();
+            services.AddScoped<IUserConverter, UserConverter>();
             services.AddScoped<IConverter, Converter>();
+
+            services.AddScoped<IMemoryCacher, MemoryCacher>();
 
             services.AddScoped<IUserClaimsPrincipalFactory<ExtendedUser>, ExtendedUserClaimsPrincipalFactory>();
             

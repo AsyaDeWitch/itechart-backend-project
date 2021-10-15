@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using AutoFixture;
-using AutoFixture.Xunit2;
 using BLL.Converters;
 using BLL.ViewModels;
 using RIL.Models;

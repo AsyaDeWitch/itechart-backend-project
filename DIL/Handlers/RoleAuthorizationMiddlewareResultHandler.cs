@@ -19,7 +19,7 @@ namespace DIL.Handlers
                 context.Response.StatusCode = (int)HttpStatusCode.Forbidden;
                 return;
             }
-            if (Show401ForUnathorizedResult(authorizeResult))
+            if (Show401ForUnauthorizedResult(authorizeResult))
             {
                 context.Response.StatusCode = (int)HttpStatusCode.Unauthorized;
                 return;
@@ -35,7 +35,7 @@ namespace DIL.Handlers
                 .OfType<RoleAuthorizationRequirement>()
                 .Any();
         }
-        private static bool Show401ForUnathorizedResult(PolicyAuthorizationResult authorizeResult)
+        private static bool Show401ForUnauthorizedResult(PolicyAuthorizationResult authorizeResult)
         {
             return authorizeResult.Challenged;
         }

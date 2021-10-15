@@ -11,7 +11,6 @@ namespace DAL.Data
             : base(options)
         {
         }
-
         public DbSet<Address> Addresses { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductRating> ProductRatings { get; set; }

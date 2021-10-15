@@ -16,28 +16,28 @@ namespace DAL.Repositories
 
         public async Task<ProductRating> CreateAsync(ProductRating productRating)
         {
-            if(await _context.ProductRatings.FindAsync(productRating.ProductId, productRating.UserId) == null)
+            if(await _context.ProductRatings.FindAsync(productRating.ProductId, productRating.UserId) != null)
             {
-                await _context.ProductRatings.AddAsync(productRating);
-                await _context.SaveChangesAsync(); //!!!!!!!!!!!!!!!!!!!!!!!
-
-                return productRating;
+                return null;
             }
-            return null;
+
+            await _context.ProductRatings.AddAsync(productRating);
+            await _context.SaveChangesAsync();
+            return productRating;
         }
 
         public async Task<ProductRating> UpdateAsync(ProductRating newProductRating)
         {
             var productRating = await _context.ProductRatings
                 .FindAsync(newProductRating.ProductId, newProductRating.UserId);
-            if (productRating != null)
+            if (productRating == null)
             {
-                productRating.Rating = newProductRating.Rating;
-                await _context.SaveChangesAsync(); //!!!!!!!!!!!!!!!!!!!!!!!!
-
-                return productRating;
+                return null;
             }
-            return null;
+
+            productRating.Rating = newProductRating.Rating;
+            await _context.SaveChangesAsync();
+            return productRating;
         }
 
         public async Task DeleteAsync(ProductRating deletedProductRating)
@@ -47,7 +47,7 @@ namespace DAL.Repositories
             if (productRating != null)
             {
                 _context.ProductRatings.Remove(productRating);
-                await _context.SaveChangesAsync(); //!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+                await _context.SaveChangesAsync();
             }
         }
     }

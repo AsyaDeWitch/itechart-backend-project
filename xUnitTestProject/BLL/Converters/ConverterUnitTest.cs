@@ -18,6 +18,7 @@ namespace xUnitTestProject.BLL.Converters
             var productRating = sut.ProductRating;
             var productOrder = sut.ProductOrder;
             var product = sut.Product;
+            var user = sut.User;
 
             //Assert
             Assert.NotNull(address);
@@ -25,6 +26,7 @@ namespace xUnitTestProject.BLL.Converters
             Assert.NotNull(product);
             Assert.NotNull(productRating);
             Assert.NotNull(productOrder);
+            Assert.NotNull(user);
         }
     }
 }

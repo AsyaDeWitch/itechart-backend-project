@@ -31,7 +31,7 @@ namespace DAL.Data
             _builder.Entity<Order>()
                 .Property(o => o.Status)
                 .IsRequired()
-                .HasDefaultValue((int)OrderStatus.Awaiting_Payment);
+                .HasDefaultValue((int)OrderStatus.AwaitingPayment);
             _builder.Entity<Order>()
                 .Property(o => o.DeliveryType)
                 .IsRequired();

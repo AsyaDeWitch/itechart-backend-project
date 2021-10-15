@@ -46,8 +46,8 @@ namespace Web.Controllers
         /// <param name="limit">Count of games need to receive</param>
         /// <param name="offset">Minimum game score on a 10-point scale</param>
         /// <param name="name">Game name or part of the game name</param>
-        /// <response code="200">Games mathes search term returned</response>
-        /// <returns>Games mathes search term</returns>
+        /// <response code="200">Games matches search term returned</response>
+        /// <returns>Games matches search term</returns>
         [HttpGet]
         [AllowAnonymous]
         [Route("search")]

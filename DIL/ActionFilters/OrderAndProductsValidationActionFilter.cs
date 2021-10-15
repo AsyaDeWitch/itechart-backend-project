@@ -51,12 +51,12 @@ namespace DIL.ActionFilters
                 if (order.DeliveryType > Enum.GetValues(typeof(DeliveryType)).Cast<int>().Last()
                     || order.DeliveryType < Enum.GetValues(typeof(DeliveryType)).Cast<int>().First())
                 {
-                    order.DeliveryType = (int)DeliveryType.On_Demand_Delivery;
+                    order.DeliveryType = (int)DeliveryType.OnDemandDelivery;
                 }
                 if (order.Status > Enum.GetValues(typeof(OrderStatus)).Cast<int>().Last()
                     || order.Status < Enum.GetValues(typeof(OrderStatus)).Cast<int>().First())
                 {
-                    order.Status = (int)OrderStatus.Awaiting_Payment;
+                    order.Status = (int)OrderStatus.AwaitingPayment;
                 }
                 context.ActionArguments["orderProducts"] = new OrderProductsViewModel
                 {

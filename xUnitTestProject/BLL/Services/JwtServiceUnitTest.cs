@@ -9,11 +9,16 @@ namespace xUnitTestProject.BLL.Services
     public class JwtServiceUnitTest
     {
         [Theory]
-        [InlineAutoFakeItEasyData("http://localhost:5000/", "http://localhost:5001/", "DzenisevichSecretKey", "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJVc2VySWQiOiI2IiwiZW1haWwiOiJpdGVjaGFydGxhYnRlc3RlckBnbWFpbC5jb20iLCJleHAiOjE2MzQyMzY0MjUsImlzcyI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC8iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjUwMDEvIn0.rxFdaZFmxG1fOOVYBJXN7erZZO6RBgoTxPle_1K0Vf8", true)]
+        [InlineAutoFakeItEasyData("http://localhost:5000/", "http://localhost:5001/", "DzenisevichSecretKey", null, true)]
         [InlineAutoFakeItEasyData("issuer", "audience", "key", "token", false)]
-        public void GivenParameters_WhenIsTokenValid_ThenBoolResultReturned(string jwtIssuer, string jwtAudience, string jwtKey, string jwtToken, bool expectedResult,JwtService sut)
+        public void GivenParameters_WhenIsTokenValid_ThenBoolResultReturned(string jwtIssuer, string jwtAudience, string jwtKey, string jwtToken, bool expectedResult, JwtService sut)
         {
             // Arrange
+            var fixture = new Fixture();
+            fixture.Behaviors.Remove(new ThrowingRecursionBehavior());
+            fixture.Behaviors.Add(new OmitOnRecursionBehavior());
+            var user = fixture.Create<ExtendedUser>();
+            jwtToken ??= sut.BuildToken(user, jwtIssuer, jwtAudience, jwtKey);
 
             //Act
             var result = sut.IsTokenValid(jwtIssuer, jwtAudience, jwtKey, jwtToken);

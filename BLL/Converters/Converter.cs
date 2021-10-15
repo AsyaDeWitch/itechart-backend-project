@@ -9,16 +9,18 @@ namespace BLL.Converters
         private readonly IProductRatingConverter _productRatingConverter;
         private readonly IProductOrderConverter _productOrderConverter;
         private readonly IProductConverter _productConverter;
+        private readonly IUserConverter _userConverter;
 
         public Converter(IAddressConverter addressConverter, IOrderConverter orderConverter,
             IProductRatingConverter productRatingConverter,
-            IProductOrderConverter productOrderConverter, IProductConverter productConverter)
+            IProductOrderConverter productOrderConverter, IProductConverter productConverter, IUserConverter userConverter)
         {
             _addressConverter = addressConverter;
             _orderConverter = orderConverter;
             _productRatingConverter = productRatingConverter;
             _productOrderConverter = productOrderConverter;
             _productConverter = productConverter;
+            _userConverter = userConverter;
         }
 
         public IAddressConverter Address
@@ -58,6 +60,14 @@ namespace BLL.Converters
             get
             {
                 return _productConverter;
+            }
+        }
+
+        public IUserConverter User
+        {
+            get
+            {
+                return _userConverter;
             }
         }
     }

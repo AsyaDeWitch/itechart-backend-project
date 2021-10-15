@@ -8,19 +8,19 @@ namespace RIL.Models
         Pending,
 
         [Description("Awaiting Payment")]
-        Awaiting_Payment,
+        AwaitingPayment,
 
         [Description("Awaiting Fulfillment")]
-        Awaiting_Fulfillment,
+        AwaitingFulfillment,
 
         [Description("Awaiting Shipment")]
-        Awaiting_Shipment,
+        AwaitingShipment,
 
         [Description("Awaiting Pickup")]
-        Awaiting_Pickup,
+        AwaitingPickup,
 
         [Description("Partially Shipped")]
-        Partially_Shipped,
+        PartiallyShipped,
 
         [Description("Completed")]
         Completed,
@@ -41,9 +41,9 @@ namespace RIL.Models
         Disputed,
 
         [Description("Manual Verification Required")]
-        Manual_Verification_Required,
+        ManualVerificationRequired,
 
         [Description("Partially Refunded")]
-        Partially_Refunded,
+        PartiallyRefunded,
     }
 }

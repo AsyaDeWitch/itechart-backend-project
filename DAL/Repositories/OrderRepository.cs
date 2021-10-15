@@ -24,13 +24,13 @@ namespace DAL.Repositories
                 .Where(o => o.Id == id)
                 .FirstOrDefaultAsync();
 
-            if (order != null && order.Status != (int)OrderStatus.Completed)
+            if (order == null || order.Status == (int)OrderStatus.Completed)
             {
-                order.Status = (int)OrderStatus.Completed;
-                await _context.SaveChangesAsync();
-                return true;
+                return false;
             }
-            return false;
+            order.Status = (int)OrderStatus.Completed;
+            await _context.SaveChangesAsync();
+            return true;
         }
 
         public async Task<Order> GetByIdAsync(int id)
@@ -47,7 +47,7 @@ namespace DAL.Repositories
             {
                 CreationDate = DateTime.Now,
                 TotalAmount = totalAmount,
-                DeliveryType = (int)DeliveryType.On_Demand_Delivery,
+                DeliveryType = (int)DeliveryType.OnDemandDelivery,
                 AddressDelivery = user.AddressDelivery,
                 User = user,
             };
@@ -69,32 +69,36 @@ namespace DAL.Repositories
         public async Task<Order> UpdateAsync(Order newOrder)
         {
             var order = await _context.Orders
-               .Where(o => o.Id == newOrder.Id && o.Status == (int)OrderStatus.Awaiting_Payment)
+               .Where(o => o.Id == newOrder.Id && o.Status == (int)OrderStatus.AwaitingPayment)
                .FirstOrDefaultAsync();
 
-            if (order != null)
+            if (order == null)
             {
-                order.DeliveryType = newOrder.DeliveryType;
-                if(newOrder.AddressDelivery != null)
-                {
-                    order.AddressDelivery = newOrder.AddressDelivery;
-                }
-                await _context.SaveChangesAsync();
+                return null;
             }
+
+            order.DeliveryType = newOrder.DeliveryType;
+            if (newOrder.AddressDelivery != null)
+            {
+                order.AddressDelivery = newOrder.AddressDelivery;
+            }
+
+            await _context.SaveChangesAsync();
             return order;
         }
 
         public async Task<Order> UpdateProductTotalAmountAsync(int id, int totalAmount)
         {
             var oldOrder = await _context.Orders
-               .Where(o => o.Id == id && o.Status == (int)OrderStatus.Awaiting_Payment)
+               .Where(o => o.Id == id && o.Status == (int)OrderStatus.AwaitingPayment)
                .FirstOrDefaultAsync();
 
-            if (oldOrder != null)
+            if (oldOrder == null)
             {
-                oldOrder.TotalAmount = totalAmount;
-                await _context.SaveChangesAsync();
+                return null;
             }
+            oldOrder.TotalAmount = totalAmount;
+            await _context.SaveChangesAsync();
             return oldOrder;
         }
     }

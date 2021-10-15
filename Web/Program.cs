@@ -25,7 +25,7 @@ namespace Web
                 .CreateLogger();
             try
             {
-                Log.Information("Strating web host");
+                Log.Information("Starting web host");
                 //CreateWebHostBuilder(args).Build().Run();
                 CreateHostBuilder(args).Build().Run();
             }

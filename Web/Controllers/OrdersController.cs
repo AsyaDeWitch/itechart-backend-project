@@ -75,7 +75,7 @@ namespace Web.Controllers
         [ServiceFilter(typeof(OrderAndProductsValidationActionFilter))]
         public async Task<IActionResult> UpdateOrderAsync(int id, [FromBody] OrderProductsViewModel orderProducts)
         {
-            string token = HttpContext.Request.Cookies["JwtToken"];
+            var token = HttpContext.Request.Cookies["JwtToken"];
             var userId = int.Parse(_userService.GetUserId(token));
             orderProducts.Order.UserId = userId;
             var updatedOrder = await _orderService.UpdateOrderAsync(id, orderProducts.Order, orderProducts.Products);
@@ -124,7 +124,7 @@ namespace Web.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ReturnOrderViewModel>))]
         public async Task<IActionResult> GetOrdersListAsync()
         {
-            string token = HttpContext.Request.Cookies["JwtToken"];
+            var token = HttpContext.Request.Cookies["JwtToken"];
             var userId = int.Parse(_userService.GetUserId(token));
             
             var orderList = await _orderService.GetOrdersListAsync(userId);

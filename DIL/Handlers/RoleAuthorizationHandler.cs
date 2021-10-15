@@ -9,13 +9,9 @@ namespace DIL.Handlers
         protected override Task HandleRequirementAsync(AuthorizationHandlerContext context, RoleAuthorizationRequirement requirement)
         {
             var user = context.User;
-
-            if(user != null)
+            if (user.IsInRole(requirement.Role))
             {
-                if (user.IsInRole(requirement.Role))
-                {
-                    context.Succeed(requirement);
-                }
+                context.Succeed(requirement);
             }
             return Task.CompletedTask;
         }

@@ -18,7 +18,7 @@ namespace BLL.ViewModels
         public string PhoneNumber { get; set; }
 
         /// <summary>
-        /// User addess delivery
+        /// User address delivery
         /// </summary>
         public AddressViewModel AddressDelivery { get; set; } 
     }

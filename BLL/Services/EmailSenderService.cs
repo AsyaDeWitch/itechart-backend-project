@@ -24,16 +24,14 @@ namespace BLL.Services
             message.Body = GetHtmlBody(htmlMessage);
             message.IsBodyHtml = true;
 
-            using (var smtpClient = new SmtpClient(_smtpClient)
+            using var smtpClient = new SmtpClient(_smtpClient)
             {
                 Port = _portNetMail,
                 DeliveryMethod = SmtpDeliveryMethod.Network,
                 Credentials = new NetworkCredential(_fromEmail, _fromPassword),
                 EnableSsl = true,
-            })
-            {
-                await smtpClient.SendMailAsync(message);
-            }
+            };
+            await smtpClient.SendMailAsync(message);
         }
 
         public async Task SendEmailByMailKitAsync(string email, string htmlMessage)
@@ -48,14 +46,12 @@ namespace BLL.Services
             }
             .ToMessageBody();
 
-            using (var smtpClient = new MailKit.Net.Smtp.SmtpClient())
-            {
-                await smtpClient.ConnectAsync(_smtpClient, _portMailKit, true);
-                await smtpClient.AuthenticateAsync(_fromEmail, _fromPassword);
-                await smtpClient.SendAsync(message);
+            using var smtpClient = new MailKit.Net.Smtp.SmtpClient();
+            await smtpClient.ConnectAsync(_smtpClient, _portMailKit, true);
+            await smtpClient.AuthenticateAsync(_fromEmail, _fromPassword);
+            await smtpClient.SendAsync(message);
 
-                await smtpClient.DisconnectAsync(true);
-            }
+            await smtpClient.DisconnectAsync(true);
         }
 
         private static string GetHtmlBody(string message)

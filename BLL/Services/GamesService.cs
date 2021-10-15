@@ -145,10 +145,10 @@ namespace BLL.Services
 
             list = sortingParameter switch
             {
-                (int)SortingParameterViewModel.Price_asc => list.OrderBy(p => p.Price).ToList(),
-                (int)SortingParameterViewModel.Price_desc => list.OrderByDescending(p => p.Price).ToList(),
-                (int)SortingParameterViewModel.TotalRating_asc => list.OrderBy(p => p.TotalRating).ToList(),
-                (int)SortingParameterViewModel.TotalRating_desc => list.OrderByDescending(p => p.TotalRating).ToList(),
+                (int)SortingParameterViewModel.PriceAsc => list.OrderBy(p => p.Price).ToList(),
+                (int)SortingParameterViewModel.PriceDesc => list.OrderByDescending(p => p.Price).ToList(),
+                (int)SortingParameterViewModel.TotalRatingAsc => list.OrderBy(p => p.TotalRating).ToList(),
+                (int)SortingParameterViewModel.TotalRatingDesc => list.OrderByDescending(p => p.TotalRating).ToList(),
                 _ => list.OrderBy(p => p.Name).ToList(),
             };
 

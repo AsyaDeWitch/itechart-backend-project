@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
 
 namespace Web.Controllers
 {
@@ -27,19 +26,19 @@ namespace Web.Controllers
             // Get the details of the exception that occurred
             var exFeature = HttpContext.Features.Get<IExceptionHandlerPathFeature>();
 
-            if (exFeature != null)
+            if (exFeature == null)
             {
-                // Get which route the exception occurred at
-                string path = exFeature.Path;
-
-                // Get the exception that occurred
-                Exception ex = exFeature.Error;
-
-                _logger.LogError(ex, path);
-
-                return View(ex);
+                return View();
             }
-            return View();
+            // Get which route the exception occurred at
+            var path = exFeature.Path;
+
+            // Get the exception that occurred
+            var ex = exFeature.Error;
+
+            _logger.LogError(ex, path);
+
+            return View(ex);
         }
     }
 }

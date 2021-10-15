@@ -21,9 +21,9 @@ namespace DAL.Repositories
         public async Task<List<(int, int)>> GetEachPlatformCountAsync()
         {
             var counts = new List<(int, int)>();
-            for(int i = 0; i < Enum.GetNames(typeof(Platform)).Length; i++)
+            for(var i = 0; i < Enum.GetNames(typeof(Platform)).Length; i++)
             {
-                int temp = await _context.Products
+                var temp = await _context.Products
                     .AsNoTracking()
                     .Where(p => p.IsDeleted == false)
                     .CountAsync(p => p.Platform == i);
@@ -124,12 +124,8 @@ namespace DAL.Repositories
                 .FirstOrDefaultAsync();
 
             var productRatings = await _context.ProductRatings.Where(pr => pr.ProductId == id).ToListAsync();
-
-            double sum = 0.0;
-            foreach(var productRating in productRatings)
-            {
-                sum += productRating.Rating;
-            }
+            var sum = productRatings
+                .Sum(p => p.Rating);
             product.TotalRating = sum / productRatings.Count;
             await _context.SaveChangesAsync();
         }
@@ -173,21 +169,15 @@ namespace DAL.Repositories
                 .Where(p => Array.Exists(genreFilter, x => x == p.Genre) && Array.Exists(ageFilter, x => x == p.Rating))
                 .ToList();
             }
-            else
+            if (ageFilter.Length != 0)
             {
-                if (ageFilter.Length != 0)
-                {
-                    return await GetListByAgeFilterAsync(ageFilter);
-                }
-                else if (genreFilter.Length != 0)
-                {
-                    return await GetListByGenreFilterAsync(genreFilter);
-                }
-                else
-                {
-                    return await GetListAsync();
-                }
-            }  
+                return await GetListByAgeFilterAsync(ageFilter);
+            }
+            if (genreFilter.Length != 0)
+            { 
+                return await GetListByGenreFilterAsync(genreFilter);
+            }
+            return await GetListAsync();
         }
 
         public async Task<bool> IsContainedInDbAsync(int id)

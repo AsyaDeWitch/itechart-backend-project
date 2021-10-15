@@ -21,7 +21,7 @@ namespace Web.Controllers
         }
 
         /// <summary>
-        /// Performes role creation
+        /// Performs role creation
         /// </summary>
         /// <param name="roleName">Name of new role</param>
         /// <response code="201">Role created successfully</response>
@@ -41,7 +41,7 @@ namespace Web.Controllers
         }
 
         /// <summary>
-        /// Performes role deletion
+        /// Performs role deletion
         /// </summary>
         /// <param name="roleName">Name of role need to delete</param>
         /// <response code="204">Role deleted successfully</response>
@@ -61,7 +61,7 @@ namespace Web.Controllers
         }
 
         /// <summary>
-        /// Performs role updatition
+        /// Performs role updation
         /// </summary>
         /// <param name="userPatch">User old and new roles</param>
         /// <response code="204">Role updated successfully</response>
@@ -83,7 +83,7 @@ namespace Web.Controllers
         }
 
         /// <summary>
-        /// Performes user deletion by email
+        /// Performs user deletion by email
         /// </summary>
         /// <param name="email">Email of user need to delete</param>
         /// /// <response code="204">User deleted successfully</response>
@@ -123,7 +123,7 @@ namespace Web.Controllers
         }
 
         /// <summary>
-        /// Performes assigning role to user
+        /// Performs assigning role to user
         /// </summary>
         /// <response code="204">Role assigned to user successfully</response>
         /// <response code="400">Incorrect role name or user email</response>

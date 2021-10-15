@@ -31,7 +31,7 @@ namespace BLL.ViewModels
         public int DeliveryType { get; set; }
 
         /// <summary>
-        /// Order addess delivery
+        /// Order address delivery
         /// </summary>
         public AddressViewModel AddressDelivery { get; set; }
 

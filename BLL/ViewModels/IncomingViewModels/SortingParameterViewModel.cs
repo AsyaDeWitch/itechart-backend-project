@@ -5,22 +5,22 @@
         /// <summary>
         /// Total rating ascending sorting parameter
         /// </summary>
-        TotalRating_asc,
+        TotalRatingAsc,
 
         /// <summary>
         /// Total rating descending sorting parameter
         /// </summary>
-        TotalRating_desc,
+        TotalRatingDesc,
 
         /// <summary>
         /// Price ascending sorting parameter
         /// </summary>
-        Price_asc,
+        PriceAsc,
 
         /// <summary>
         /// Price descending sorting parameter
         /// </summary>
-        Price_desc,
+        PriceDesc,
 
         /// <summary>
         /// Default sorting by name alphabetically

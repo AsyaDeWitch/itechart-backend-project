@@ -1,6 +1,5 @@
 ﻿using BLL.ViewModels;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.JsonPatch;
 using System.Threading.Tasks;
 
 namespace BLL.Interfaces

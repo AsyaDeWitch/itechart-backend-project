@@ -46,44 +46,49 @@ namespace BLL.Services
 
         public async Task<(ExtendedUser, string)> SignInUserAsync(string email, string password, string issuer, string audience, string key)
         {
-            if(_validatorService.IsValidEmail(email))
+            if(!_validatorService.IsValidEmail(email))
             {
-                var user = await _unitOfWork.ExtendedUsers.FindByEmailAsync(email);
-
-                if (user != null && _validatorService.IsValidPassword(password))
-                {
-                    var signInResult = await _unitOfWork.ExtendedUsers.PasswordSignInAsync(user, password);
-                    if (signInResult.Succeeded)
-                    {
-                        var tokenString = _tokenService.BuildToken(user, issuer, audience, key);
-                        if (tokenString != null)
-                        {
-                            return (user, tokenString);
-                        }
-                    }
-                }
+                return (null, null);
             }
-            return (null, null);
+
+            var user = await _unitOfWork.ExtendedUsers.FindByEmailAsync(email);
+            if (user == null || !_validatorService.IsValidPassword(password))
+            {
+                return (null, null);
+            }
+
+            var signInResult = await _unitOfWork.ExtendedUsers.PasswordSignInAsync(user, password);
+            if (!signInResult.Succeeded)
+            {
+                return (null, null);
+            }
+
+            var tokenString = _tokenService.BuildToken(user, issuer, audience, key);
+            return tokenString == null ? (null, null) : (user, tokenString);
         }
 
         public async Task<ExtendedUser> SignUpUserAsync(string email, string password)
         {
-            if(_validatorService.IsValidEmail(email) && _validatorService.IsValidPassword(password))
+            if(!_validatorService.IsValidEmail(email) || !_validatorService.IsValidPassword(password))
             {
-                var existUser = await _unitOfWork.ExtendedUsers.FindByEmailAsync(email);
-                if (existUser == null)
-                {
-                    var user = await _unitOfWork.ExtendedUsers.CreateForSignUpAsync(email);
-                    var result = await _unitOfWork.ExtendedUsers.CreateAsync(user, password);
-
-                    if (result.Succeeded)
-                    {
-                        await _unitOfWork.ExtendedUsers.AddToRoleAsync(user, "User");
-                        return user;
-                    }
-                }
+                return null;
             }
-            return null;
+
+            var existUser = await _unitOfWork.ExtendedUsers.FindByEmailAsync(email);
+            if (existUser != null)
+            {
+                return null;
+            }
+
+            var user = await _unitOfWork.ExtendedUsers.CreateForSignUpAsync(email);
+            var result = await _unitOfWork.ExtendedUsers.CreateAsync(user, password);
+            if (!result.Succeeded)
+            {
+                return null;
+            }
+
+            await _unitOfWork.ExtendedUsers.AddToRoleAsync(user, "User");
+            return user;
         }
     }
 }

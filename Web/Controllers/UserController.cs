@@ -84,7 +84,7 @@ namespace Web.Controllers
             var token = HttpContext.Request.Cookies["JwtToken"];
             var userId = _userService.GetUserId(token);
 
-            if (_memoryCacher.TryGetValue(userId, out ReturnUserProfileViewModel user))
+            if (_memoryCacher.TryGetValue(userId, out var user))
             {
                 return Ok(user);
             }

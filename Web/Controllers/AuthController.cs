@@ -38,18 +38,15 @@ namespace Web.Controllers
         {
             var (user, tokenString) = await _authService.SignInUserAsync(signInModel.Email, signInModel.Password, _jwtSettings.Issuer, _jwtSettings.Audience, _jwtSettings.Key);
 
-            if(user != null)
+            if(user == null || tokenString == null)
             {
-                if(tokenString != null)
-                {
-                    HttpContext.Response.Cookies.Append("JwtToken", tokenString, new CookieOptions
-                    {
-                        MaxAge = TimeSpan.FromMinutes(120)
-                    });
-                    return Ok(new { token = tokenString });
-                }
+                return Unauthorized();
             }
-            return Unauthorized();
+            HttpContext.Response.Cookies.Append("JwtToken", tokenString, new CookieOptions
+            {
+                MaxAge = TimeSpan.FromMinutes(120)
+            });
+            return Ok(new { token = tokenString });
         }
 
         /// <summary>
@@ -66,16 +63,15 @@ namespace Web.Controllers
         {
             var user = await _authService.SignUpUserAsync(signUpModel.Email, signUpModel.Password);
 
-            if(user != null)
+            if(user == null)
             {
-                var token = await _authService.GenerateConfirmationLinkAsync(user);
-                var confirmationLink = Url.Action("ConfirmEmail", "Auth", new { user.Id, token }, Request.Scheme);
-                await _authService.SendConfirmationLinkAsync(user.Email, confirmationLink);
-
-                return Created(new Uri("/user", UriKind.Relative), null);
+                return BadRequest("Email or password is incorrect");
             }
+            var token = await _authService.GenerateConfirmationLinkAsync(user);
+            var confirmationLink = Url.Action("ConfirmEmail", "Auth", new { user.Id, token }, Request.Scheme);
+            await _authService.SendConfirmationLinkAsync(user.Email, confirmationLink);
 
-            return BadRequest("Email or password is incorrect");
+            return Created(new Uri("/user", UriKind.Relative), null);
         }
 
         /// <summary>
@@ -91,13 +87,14 @@ namespace Web.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         public async Task<IActionResult> ConfirmEmailAsync(string id, string token)
         {
-            if (id != null && token != null)
+            if (id == null || token == null)
             {
-                var result = await _authService.ConfirmEmailAsync(id, token);
-                if(result.Succeeded)
-                {
-                    return NoContent();
-                }
+                return BadRequest("Confirmation link is incorrect");
+            }
+            var result = await _authService.ConfirmEmailAsync(id, token);
+            if (result.Succeeded)
+            {
+                return NoContent();
             }
             return BadRequest("Confirmation link is incorrect");
         }

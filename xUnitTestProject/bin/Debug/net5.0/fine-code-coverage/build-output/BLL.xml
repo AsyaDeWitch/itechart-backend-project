@@ -119,7 +119,7 @@
         </member>
         <member name="P:BLL.ViewModels.OrderViewModel.AddressDelivery">
             <summary>
-            Order addess delivery
+            Order address delivery
             </summary>
         </member>
         <member name="P:BLL.ViewModels.OrderViewModel.UserId">
@@ -242,22 +242,22 @@
             Background image file
             </summary>
         </member>
-        <member name="F:BLL.ViewModels.SortingParameterViewModel.TotalRating_asc">
+        <member name="F:BLL.ViewModels.SortingParameterViewModel.TotalRatingAsc">
             <summary>
             Total rating ascending sorting parameter
             </summary>
         </member>
-        <member name="F:BLL.ViewModels.SortingParameterViewModel.TotalRating_desc">
+        <member name="F:BLL.ViewModels.SortingParameterViewModel.TotalRatingDesc">
             <summary>
             Total rating descending sorting parameter
             </summary>
         </member>
-        <member name="F:BLL.ViewModels.SortingParameterViewModel.Price_asc">
+        <member name="F:BLL.ViewModels.SortingParameterViewModel.PriceAsc">
             <summary>
             Price ascending sorting parameter
             </summary>
         </member>
-        <member name="F:BLL.ViewModels.SortingParameterViewModel.Price_desc">
+        <member name="F:BLL.ViewModels.SortingParameterViewModel.PriceDesc">
             <summary>
             Price descending sorting parameter
             </summary>
@@ -281,7 +281,7 @@
         </member>
         <member name="P:BLL.ViewModels.UserProfileViewModel.AddressDelivery">
             <summary>
-            User addess delivery
+            User address delivery
             </summary>
         </member>
         <member name="P:BLL.ViewModels.ReturnOrderViewModel.Id">
@@ -316,7 +316,7 @@
         </member>
         <member name="P:BLL.ViewModels.ReturnOrderViewModel.AddressDelivery">
             <summary>
-            Order addess delivery
+            Order address delivery
             </summary>
         </member>
         <member name="P:BLL.ViewModels.ReturnProductOrderViewModel.ReturnOrderViewModel">

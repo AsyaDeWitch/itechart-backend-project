@@ -61,7 +61,7 @@ namespace Web.Controllers
         }
 
         /// <summary>
-        /// Performs role updation
+        /// Performs role renewal
         /// </summary>
         /// <param name="userPatch">User old and new roles</param>
         /// <response code="204">Role updated successfully</response>
@@ -70,7 +70,7 @@ namespace Web.Controllers
         [Route("update-role")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
-        public async Task<IActionResult> UpdateRoleAsync([FromBody] JsonPatchDocument<PatchUserRoleViewModel> userPatch)
+        public async Task<IActionResult> UpdateUserRoleAsync([FromBody] JsonPatchDocument<PatchUserRoleViewModel> userPatch)
         {
             var updatedRole = new PatchUserRoleViewModel();
             userPatch.ApplyTo(updatedRole);

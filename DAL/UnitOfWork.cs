@@ -7,74 +7,33 @@ namespace DAL
     public class UnitOfWork : IUnitOfWork, IDisposable
     {
         private readonly ApplicationDbContext _context;
-        private readonly IAddressRepository _addressRepository;
-        private readonly IOrderRepository _orderRepository;
-        private readonly IProductOrderRepository _productOrderRepository;
-        private readonly IProductRatingRepository _productRatingRepository;
-        private readonly IProductRepository _productRepository;
-        private readonly IExtendedUserRepository _extendedUserRepository;
         private bool _isDisposed;
 
         public UnitOfWork(ApplicationDbContext context, IAddressRepository addressRepository, IOrderRepository orderRepository, IProductOrderRepository productOrderRepository, 
             IProductRatingRepository productRatingRepository, IProductRepository productRepository, IExtendedUserRepository extendedUserRepository)
         {
             _context = context;
-            _addressRepository = addressRepository;
-            _orderRepository = orderRepository;
-            _productOrderRepository = productOrderRepository;
-            _productRatingRepository = productRatingRepository;
-            _productRepository = productRepository;
-            _extendedUserRepository = extendedUserRepository;
+            Addresses = addressRepository;
+            Orders = orderRepository;
+            ProductOrders = productOrderRepository;
+            ProductRatings = productRatingRepository;
+            Products = productRepository;
+            ExtendedUsers = extendedUserRepository;
             _isDisposed = false;
         }
 
-        public IAddressRepository Addresses
-        {
-            get
-            {
-                return _addressRepository;
-            }
-        }
+        public IAddressRepository Addresses { get; }
 
-        public IOrderRepository Orders
-        {
-            get
-            {
-                return _orderRepository;
-            }
-        }
 
-        public IProductOrderRepository ProductOrders
-        {
-            get
-            {
-                return _productOrderRepository;
-            }
-        }
+        public IOrderRepository Orders { get; }
 
-        public IProductRatingRepository ProductRatings
-        {
-            get
-            {
-                return _productRatingRepository;
-            }
-        }
+        public IProductOrderRepository ProductOrders { get; }
 
-        public IProductRepository Products
-        {
-            get
-            {
-                return _productRepository;
-            }
-        }
+        public IProductRatingRepository ProductRatings { get; }
 
-        public IExtendedUserRepository ExtendedUsers
-        {
-            get
-            {
-                return _extendedUserRepository;
-            }
-        }
+        public IProductRepository Products { get; }
+
+        public IExtendedUserRepository ExtendedUsers { get; }
 
         public virtual void Dispose(bool disposing)
         {

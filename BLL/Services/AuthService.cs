@@ -80,7 +80,7 @@ namespace BLL.Services
                 return null;
             }
 
-            var user = await _unitOfWork.ExtendedUsers.CreateForSignUpAsync(email);
+            var user = _unitOfWork.ExtendedUsers.CreateForSignUp(email);
             var result = await _unitOfWork.ExtendedUsers.CreateAsync(user, password);
             if (!result.Succeeded)
             {

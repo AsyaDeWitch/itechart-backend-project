@@ -25,7 +25,7 @@ using DIL.ActionFilters;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.ResponseCompression;
 using System.IO.Compression;
-using BLL.Chachers;
+using BLL.Cachers;
 using DAL.Interfaces;
 using DAL.Repositories;
 using BLL.Converters;

@@ -16,9 +16,9 @@ namespace Web.Controllers
         }
 
         /// <summary>
-        /// Receives detail occured exception info and loggin them into log file
+        /// Receives detail occurred exception info and logging them into log file
         /// </summary>
-        /// <returns>View with detail occured exception info </returns>
+        /// <returns>View with detail occurred exception info </returns>
         [AllowAnonymous]
         [Route("Error")]
         public IActionResult Error()

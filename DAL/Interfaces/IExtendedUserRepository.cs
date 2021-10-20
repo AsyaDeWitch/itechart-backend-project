@@ -11,7 +11,7 @@ namespace DAL.Interfaces
         public Task<IdentityResult> ConfirmEmailAsync(ExtendedUser user, string token);
         public Task<string> GenerateEmailConfirmationTokenAsync(ExtendedUser user);
         public Task<IdentityResult> CreateAsync(ExtendedUser user, string password);
-        public Task<ExtendedUser> CreateForSignUpAsync(string email);
+        public ExtendedUser CreateForSignUp(string email);
         public Task<IdentityResult> UpdateAsync(ExtendedUser user);
         public Task<IdentityResult> DeleteAsync(ExtendedUser user);
         public Task<IdentityResult> ChangePasswordAsync(ExtendedUser user, string currentPassword, string newPassword);

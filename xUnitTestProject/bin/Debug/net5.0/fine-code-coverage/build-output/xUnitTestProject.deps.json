@@ -14,7 +14,6 @@
           "FakeItEasy": "7.2.0",
           "Microsoft.AspNetCore.TestHost": "5.0.10",
           "Microsoft.NET.Test.Sdk": "16.11.0",
-          "Moq": "4.16.1",
           "Web": "1.0.0",
           "coverlet.collector": "3.1.0",
           "xunit": "2.4.1",
@@ -141,7 +140,7 @@
           }
         }
       },
-      "Castle.Core/4.4.0": {
+      "Castle.Core/4.3.1": {
         "dependencies": {
           "NETStandard.Library": "2.0.0-preview1-25301-01",
           "System.Collections.Specialized": "4.3.0",
@@ -157,14 +156,14 @@
         "runtime": {
           "lib/netstandard1.5/Castle.Core.dll": {
             "assemblyVersion": "4.0.0.0",
-            "fileVersion": "4.4.0.0"
+            "fileVersion": "4.3.1.0"
           }
         }
       },
       "coverlet.collector/3.1.0": {},
       "FakeItEasy/7.2.0": {
         "dependencies": {
-          "Castle.Core": "4.4.0"
+          "Castle.Core": "4.3.1"
         },
         "runtime": {
           "lib/net5.0/FakeItEasy.dll": {
@@ -1173,6 +1172,7 @@
           }
         }
       },
+      "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.11.1": {},
       "Microsoft.Win32.Registry/4.7.0": {
         "dependencies": {
           "System.Security.AccessControl": "4.7.0",
@@ -1196,18 +1196,6 @@
           "lib/net50/MimeKit.dll": {
             "assemblyVersion": "2.15.0.0",
             "fileVersion": "2.15.0.0"
-          }
-        }
-      },
-      "Moq/4.16.1": {
-        "dependencies": {
-          "Castle.Core": "4.4.0",
-          "System.Threading.Tasks.Extensions": "4.5.4"
-        },
-        "runtime": {
-          "lib/netstandard2.1/Moq.dll": {
-            "assemblyVersion": "4.16.0.0",
-            "fileVersion": "4.16.1.0"
           }
         }
       },
@@ -1959,7 +1947,13 @@
           "System.Runtime": "4.3.0"
         }
       },
-      "System.Threading.Tasks.Extensions/4.5.4": {},
+      "System.Threading.Tasks.Extensions/4.3.0": {
+        "dependencies": {
+          "System.Collections": "4.3.0",
+          "System.Runtime": "4.3.0",
+          "System.Threading.Tasks": "4.3.0"
+        }
+      },
       "System.Threading.Timer/4.0.1": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "3.1.0",
@@ -1988,7 +1982,7 @@
           "System.Text.Encoding.Extensions": "4.3.0",
           "System.Text.RegularExpressions": "4.3.0",
           "System.Threading.Tasks": "4.3.0",
-          "System.Threading.Tasks.Extensions": "4.5.4"
+          "System.Threading.Tasks.Extensions": "4.3.0"
         }
       },
       "System.Xml.XmlDocument/4.3.0": {
@@ -2073,7 +2067,6 @@
       },
       "BLL/1.0.0": {
         "dependencies": {
-          "AutoMapper": "10.1.1",
           "DAL": "1.0.0",
           "FirebaseAuthentication.net": "3.7.2",
           "FirebaseStorage.net": "1.0.3",
@@ -2127,7 +2120,7 @@
           "BLL": "1.0.0",
           "DIL": "1.0.0",
           "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore": "5.0.10",
-          "Microsoft.Extensions.Caching.Memory": "5.0.0",
+          "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": "1.11.1",
           "RIL": "1.0.0",
           "Serilog.AspNetCore": "4.1.0",
           "Swashbuckle.AspNetCore": "6.2.2"
@@ -2207,12 +2200,12 @@
       "path": "automapper.extensions.microsoft.dependencyinjection/8.1.1",
       "hashPath": "automapper.extensions.microsoft.dependencyinjection.8.1.1.nupkg.sha512"
     },
-    "Castle.Core/4.4.0": {
+    "Castle.Core/4.3.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-b5rRL5zeaau1y/5hIbI+6mGw3cwun16YjkHZnV9RRT5UyUIFsgLmNXJ0YnIN9p8Hw7K7AbG1q1UclQVU3DinAQ==",
-      "path": "castle.core/4.4.0",
-      "hashPath": "castle.core.4.4.0.nupkg.sha512"
+      "sha512": "sha512-8Y/eTr6GTElAGV7eAmJuhfLhGdFpNvaNrQ9UQYDScziLmX+/BLGM+9eQr0IcdNDcPN0ADmbtwT6MgecGKy4obw==",
+      "path": "castle.core/4.3.1",
+      "hashPath": "castle.core.4.3.1.nupkg.sha512"
     },
     "coverlet.collector/3.1.0": {
       "type": "package",
@@ -2830,6 +2823,13 @@
       "path": "microsoft.testplatform.testhost/16.11.0",
       "hashPath": "microsoft.testplatform.testhost.16.11.0.nupkg.sha512"
     },
+    "Microsoft.VisualStudio.Azure.Containers.Tools.Targets/1.11.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1jHxWlSi6/ryWODk6SUjsZPHk/BdsucxqhIi1szEzwc84e8nvZWF45qRXcT2gWPISJ3Ybbyg2LsNG6yX8r7VuA==",
+      "path": "microsoft.visualstudio.azure.containers.tools.targets/1.11.1",
+      "hashPath": "microsoft.visualstudio.azure.containers.tools.targets.1.11.1.nupkg.sha512"
+    },
     "Microsoft.Win32.Registry/4.7.0": {
       "type": "package",
       "serviceable": true,
@@ -2850,13 +2850,6 @@
       "sha512": "sha512-146As77LbmZezdSJ5W/2ZEQsZyqVSAM8yOjDjvsy6NpLmyqG8lgzmX6ps3P/fKzUN5Ey4hxwnAtH+KLlJW0CsQ==",
       "path": "mimekit/2.15.0",
       "hashPath": "mimekit.2.15.0.nupkg.sha512"
-    },
-    "Moq/4.16.1": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-bw3R9q8cVNhWXNpnvWb0OGP4HadS4zvClq+T1zf7AF+tLY1haZ2AvbHidQekf4PDv1T40c6brZeT/V0IBq7cEQ==",
-      "path": "moq/4.16.1",
-      "hashPath": "moq.4.16.1.nupkg.sha512"
     },
     "NETStandard.Library/2.0.0-preview1-25301-01": {
       "type": "package",
@@ -3425,12 +3418,12 @@
       "path": "system.threading.tasks/4.3.0",
       "hashPath": "system.threading.tasks.4.3.0.nupkg.sha512"
     },
-    "System.Threading.Tasks.Extensions/4.5.4": {
+    "System.Threading.Tasks.Extensions/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-zteT+G8xuGu6mS+mzDzYXbzS7rd3K6Fjb9RiZlYlJPam2/hU7JCBZBVEcywNuR+oZ1ncTvc/cq0faRr3P01OVg==",
-      "path": "system.threading.tasks.extensions/4.5.4",
-      "hashPath": "system.threading.tasks.extensions.4.5.4.nupkg.sha512"
+      "sha512": "sha512-npvJkVKl5rKXrtl1Kkm6OhOUaYGEiF9wFbppFRWSMoApKzt2PiPHT2Bb8a5sAWxprvdOAtvaARS9QYMznEUtug==",
+      "path": "system.threading.tasks.extensions/4.3.0",
+      "hashPath": "system.threading.tasks.extensions.4.3.0.nupkg.sha512"
     },
     "System.Threading.Timer/4.0.1": {
       "type": "package",

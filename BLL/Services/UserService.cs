@@ -29,46 +29,48 @@ namespace BLL.Services
         public async Task<ReturnUserProfileViewModel> UpdateUserProfileAsync(UserProfileViewModel userProfile, string userId)
         {
             var user = await _unitOfWork.ExtendedUsers.FindByIdAsync(userId);
-            if (user != null)
+            if (user== null)
             {
-                if (!string.IsNullOrWhiteSpace(userProfile.PhoneNumber))
-                {
-                    if (_validatorService.IsValidPhoneNumber(userProfile.PhoneNumber))
-                    {
-                        user.PhoneNumber = userProfile.PhoneNumber;
-                    }
-                    else
-                        return null; 
-                }
+                return null;
+            }
 
-                if (!string.IsNullOrWhiteSpace(userProfile.UserName))
+            if (!string.IsNullOrWhiteSpace(userProfile.PhoneNumber))
+            {
+                if (_validatorService.IsValidPhoneNumber(userProfile.PhoneNumber))
                 {
-                    if(user.UserName != userProfile.UserName)
-                    {
-                        user.UserName = userProfile.UserName;
-                    }
-                }
-
-                if (userProfile.AddressDelivery != null)
-                {
-                    user.AddressDelivery = _converter.Address.ConvertToAddress(userProfile.AddressDelivery);
+                    user.PhoneNumber = userProfile.PhoneNumber;
                 }
                 else
-                {
-                    user.AddressDelivery = await _unitOfWork.Addresses.GetByIdAsync(user.AddressDeliveryId);
-                }
+                    return null;
+            }
 
-                var result = await _unitOfWork.ExtendedUsers.UpdateAsync(user);
-                if (result.Succeeded)
+            if (!string.IsNullOrWhiteSpace(userProfile.UserName))
+            {
+                if (user.UserName != userProfile.UserName)
                 {
-                    return new ReturnUserProfileViewModel
-                    {
-                        AddressDelivery = _converter.Address.ConvertToAddressViewModel(user.AddressDelivery),
-                        UserName = user.UserName,
-                        Email = user.Email,
-                        PhoneNumber = user.PhoneNumber,
-                    };
+                    user.UserName = userProfile.UserName;
                 }
+            }
+
+            if (userProfile.AddressDelivery != null)
+            {
+                user.AddressDelivery = _converter.Address.ConvertToAddress(userProfile.AddressDelivery);
+            }
+            else
+            {
+                user.AddressDelivery = await _unitOfWork.Addresses.GetByIdAsync(user.AddressDeliveryId);
+            }
+
+            var result = await _unitOfWork.ExtendedUsers.UpdateAsync(user);
+            if (result.Succeeded)
+            {
+                return new ReturnUserProfileViewModel
+                {
+                    AddressDelivery = _converter.Address.ConvertToAddressViewModel(user.AddressDelivery),
+                    UserName = user.UserName,
+                    Email = user.Email,
+                    PhoneNumber = user.PhoneNumber,
+                };
             }
             return null;
         }

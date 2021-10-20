@@ -38,13 +38,13 @@ namespace DAL.Repositories
             return await _userManager.CreateAsync(user, password);
         }
 
-        public async Task<ExtendedUser> CreateForSignUpAsync(string email)
+        public ExtendedUser CreateForSignUp(string email)
         {
             return new ExtendedUser
-                {
-                    UserName = email,
-                    Email = email,
-                };
+            {
+                UserName = email,
+                Email = email,
+            };
         }
 
         public async Task<IdentityResult> CreateRoleAsync(string roleName)

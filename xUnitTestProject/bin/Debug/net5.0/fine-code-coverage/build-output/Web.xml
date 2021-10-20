@@ -6,7 +6,7 @@
     <members>
         <member name="M:Web.Controllers.AdministrationController.CreateRoleAsync(System.String)">
             <summary>
-            Performes role creation
+            Performs role creation
             </summary>
             <param name="roleName">Name of new role</param>
             <response code="201">Role created successfully</response>
@@ -14,15 +14,15 @@
         </member>
         <member name="M:Web.Controllers.AdministrationController.DeleteRoleAsync(System.String)">
             <summary>
-            Performes role deletion
+            Performs role deletion
             </summary>
             <param name="roleName">Name of role need to delete</param>
             <response code="204">Role deleted successfully</response>
             <response code="400">Incorrect role name</response>
         </member>
-        <member name="M:Web.Controllers.AdministrationController.UpdateRoleAsync(Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{BLL.ViewModels.PatchUserRoleViewModel})">
+        <member name="M:Web.Controllers.AdministrationController.UpdateUserRoleAsync(Microsoft.AspNetCore.JsonPatch.JsonPatchDocument{BLL.ViewModels.PatchUserRoleViewModel})">
             <summary>
-            Performs role updatition
+            Performs role renewal
             </summary>
             <param name="userPatch">User old and new roles</param>
             <response code="204">Role updated successfully</response>
@@ -30,7 +30,7 @@
         </member>
         <member name="M:Web.Controllers.AdministrationController.DeleteUserByEmailAsync(System.String)">
             <summary>
-            Performes user deletion by email
+            Performs user deletion by email
             </summary>
             <param name="email">Email of user need to delete</param>
             /// <response code="204">User deleted successfully</response>
@@ -46,7 +46,7 @@
         </member>
         <member name="M:Web.Controllers.AdministrationController.AssignRoleToUserAsync(BLL.ViewModels.AssignRoleToUserViewModel)">
             <summary>
-            Performes assigning role to user
+            Performs assigning role to user
             </summary>
             <response code="204">Role assigned to user successfully</response>
             <response code="400">Incorrect role name or user email</response>
@@ -79,9 +79,9 @@
         </member>
         <member name="M:Web.Controllers.ErrorController.Error">
             <summary>
-            Receives detail occured exception info and loggin them into log file
+            Receives detail occurred exception info and logging them into log file
             </summary>
-            <returns>View with detail occured exception info </returns>
+            <returns>View with detail occurred exception info </returns>
         </member>
         <member name="M:Web.Controllers.GamesController.GetTopPlatforms">
             <summary>
@@ -98,8 +98,8 @@
             <param name="limit">Count of games need to receive</param>
             <param name="offset">Minimum game score on a 10-point scale</param>
             <param name="name">Game name or part of the game name</param>
-            <response code="200">Games mathes search term returned</response>
-            <returns>Games mathes search term</returns>
+            <response code="200">Games matches search term returned</response>
+            <returns>Games matches search term</returns>
         </member>
         <member name="M:Web.Controllers.GamesController.GetProductFullInfoAsync(System.String)">
             <summary>
@@ -168,7 +168,7 @@
         </member>
         <member name="M:Web.Controllers.HomeController.GetInfo">
             <summary>
-            Test action for Admin role policy, logging and responce body, contains string "Hello World"
+            Test action for Admin role policy, logging and response body, contains string "Hello World"
             </summary>
             <response code="200">String "Hello world" returned</response>
             <returns>"Hello world" string</returns>
@@ -203,7 +203,7 @@
             Performs order removing
             </summary>
             <param name="id">Order id</param>
-            <param name="products">Product ids with amount need to delte from order</param>
+            <param name="products">Product ids with amount need to delete from order</param>
             <response code="204">Products from order successfully deleted</response>
         </member>
         <member name="M:Web.Controllers.OrdersController.BuyOrderAsync(System.Int32)">

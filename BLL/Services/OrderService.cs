@@ -130,7 +130,5 @@ namespace BLL.Services
                 };
             } 
         }
-
-       
     }
 }

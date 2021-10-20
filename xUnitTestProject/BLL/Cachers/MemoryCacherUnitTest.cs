@@ -1,5 +1,5 @@
 ﻿using AutoFixture;
-using BLL.Chachers;
+using BLL.Cachers;
 using BLL.ViewModels;
 using Xunit;
 using xUnitTestProject.AutoFakeItEasyDataAttributes;

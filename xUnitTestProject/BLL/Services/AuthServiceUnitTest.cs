@@ -219,7 +219,7 @@ namespace xUnitTestProject.BLL.Services
                 .Returns(true);
             A.CallTo(() => validatorService.IsValidPassword(password))
                 .Returns(true);
-            A.CallTo(() => service.ExtendedUsers.CreateForSignUpAsync(email))
+            A.CallTo(() => service.ExtendedUsers.CreateForSignUp(email))
                 .Returns(newUser);
             A.CallTo(() => service.ExtendedUsers.FindByEmailAsync(email))
                 .Returns<ExtendedUser>(null);
@@ -252,7 +252,7 @@ namespace xUnitTestProject.BLL.Services
                 .Returns(isValidEmail);
             A.CallTo(() => validatorService.IsValidPassword(password))
                 .Returns(isValidPassword);
-            A.CallTo(() => service.ExtendedUsers.CreateForSignUpAsync(email))
+            A.CallTo(() => service.ExtendedUsers.CreateForSignUp(email))
                 .Returns(newUser);
             A.CallTo(() => service.ExtendedUsers.FindByEmailAsync(email))
                 .Returns(user);
@@ -279,7 +279,7 @@ namespace xUnitTestProject.BLL.Services
                 .Returns(true);
             A.CallTo(() => validatorService.IsValidPassword(password))
                 .Returns(true);
-            A.CallTo(() => service.ExtendedUsers.CreateForSignUpAsync(email))
+            A.CallTo(() => service.ExtendedUsers.CreateForSignUp(email))
                 .Returns(newUser);
             A.CallTo(() => service.ExtendedUsers.FindByEmailAsync(email))
                 .Returns<ExtendedUser>(null);

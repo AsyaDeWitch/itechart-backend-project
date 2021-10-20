@@ -3,7 +3,7 @@ using BLL.Interfaces;
 using BLL.ViewModels;
 using Microsoft.Extensions.Caching.Memory;
 
-namespace BLL.Chachers
+namespace BLL.Cachers
 {
     public class MemoryCacher : IMemoryCacher
     {
@@ -27,10 +27,10 @@ namespace BLL.Chachers
         public ReturnUserProfileViewModel Set(string userId, ReturnUserProfileViewModel user)
         {
             return _memoryCache.Set(userId, user, new MemoryCacheEntryOptions
-                {
-                    AbsoluteExpirationRelativeToNow = TimeSpan.FromDays(1),
-                    SlidingExpiration = TimeSpan.FromHours(6),
-                });
+            {
+                AbsoluteExpirationRelativeToNow = TimeSpan.FromDays(1),
+                SlidingExpiration = TimeSpan.FromHours(6),
+            });
         }
     }
 }

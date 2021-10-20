@@ -43,10 +43,7 @@ namespace DAL.Repositories
 
         public async Task<List<Product>> GetProductsByParametersAsync(DateTime term, int limit, double offset, string name)
         {
-            if (name == null)
-            {
-                name = "";
-            }
+            name ??= "";
             if (limit == 0)
             {
                 return await GetListByParametersWithoutLimitAsync(term, offset, name);

@@ -13,15 +13,8 @@ namespace DIL.ActionFilters
         {
             if(context.ActionArguments.ContainsKey("sortingParameter"))
             {
-                if (context.ActionArguments["sortingParameter"] != null)
-                {
-                    if ((int)context.ActionArguments["sortingParameter"] > Enum.GetValues(typeof(SortingParameterViewModel)).Cast<int>().Last()
-                        || (int)context.ActionArguments["sortingParameter"] < Enum.GetValues(typeof(SortingParameterViewModel)).Cast<int>().First())
-                    {
-                        context.ActionArguments["sortingParameter"] = (int)SortingParameterViewModel.Default;
-                    }
-                }
-                else
+                if ((int)context.ActionArguments["sortingParameter"] > Enum.GetValues(typeof(SortingParameterViewModel)).Cast<int>().Last()
+                    || (int)context.ActionArguments["sortingParameter"] < Enum.GetValues(typeof(SortingParameterViewModel)).Cast<int>().First())
                 {
                     context.ActionArguments["sortingParameter"] = (int)SortingParameterViewModel.Default;
                 }

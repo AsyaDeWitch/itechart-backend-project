@@ -1,4 +1,5 @@
 ﻿using DAL.Data;
+using DAL.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using RIL.Models;
 using System;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DAL.Repositories
 {
-    public class OrderRepository
+    public class OrderRepository : IOrderRepository
     {
         private readonly ApplicationDbContext _context;
 
@@ -17,80 +18,87 @@ namespace DAL.Repositories
             _context = context;
         }
 
-        public async Task<bool> BuyOrderAsync(int orderId)
+        public async Task<bool> BuyAsync(int id)
         {
             var order = await _context.Orders
-                .Where(o => o.Id == orderId)
+                .Where(o => o.Id == id)
                 .FirstOrDefaultAsync();
 
-            if (order != null && order.Status != (int)OrderStatus.Completed)
+            if (order == null || order.Status == (int)OrderStatus.Completed)
             {
-                order.Status = (int)OrderStatus.Completed;
-                await _context.SaveChangesAsync();
-                return true;
+                return false;
             }
-            return false;
+            order.Status = (int)OrderStatus.Completed;
+            await _context.SaveChangesAsync();
+            return true;
         }
 
-        public async Task<Order> GetOrderInfoAsync(int orderId)
+        public async Task<Order> GetByIdAsync(int id)
         {
             return await _context.Orders
-                .Where(o => o.Id == orderId)
+                .AsNoTracking()
+                .Where(o => o.Id == id)
                 .FirstOrDefaultAsync();
         }
 
-        public async Task<Order> CreateOrderAsync(ExtendedUser user, int totalAmount)
+        public async Task<Order> CreateAsync(ExtendedUser user, int totalAmount)
         {
             var order = new Order()
             {
                 CreationDate = DateTime.Now,
                 TotalAmount = totalAmount,
-                DeliveryType = (int)DeliveryType.On_Demand_Delivery,
+                DeliveryType = (int)DeliveryType.OnDemandDelivery,
                 AddressDelivery = user.AddressDelivery,
                 User = user,
             };
 
-            await _context.AddAsync<Order>(order);
+            await _context.AddAsync(order);
             await _context.SaveChangesAsync();
 
             return order;
         }
 
-        public async Task<List<Order>> GetOrdersListAsync(int userId)
+        public async Task<List<Order>> GetListByUserIdAsync(int userId)
         {
             return await _context.Orders
+                .AsNoTracking()
                 .Where(o => o.UserId == userId)
                 .ToListAsync();
         }
 
-        public async Task<Order> UpdateOrderInfoAsync(int orderId, Order order)
+        public async Task<Order> UpdateAsync(Order newOrder)
         {
-            var oldOrder = await _context.Orders
-               .Where(o => o.Id == orderId && o.Status == (int)OrderStatus.Awaiting_Payment)
+            var order = await _context.Orders
+               .Where(o => o.Id == newOrder.Id && o.Status == (int)OrderStatus.AwaitingPayment)
                .FirstOrDefaultAsync();
-            if (oldOrder != null)
+
+            if (order == null)
             {
-                oldOrder.DeliveryType = order.DeliveryType;
-                if(order.AddressDelivery != null)
-                {
-                    oldOrder.AddressDelivery = order.AddressDelivery;
-                }
-                await _context.SaveChangesAsync();
+                return null;
             }
-            return oldOrder;
+
+            order.DeliveryType = newOrder.DeliveryType;
+            if (newOrder.AddressDelivery != null)
+            {
+                order.AddressDelivery = newOrder.AddressDelivery;
+            }
+
+            await _context.SaveChangesAsync();
+            return order;
         }
 
-        public async Task<Order> UpdateProductTotalAmount(int orderId, int totalAmount)
+        public async Task<Order> UpdateProductTotalAmountAsync(int id, int totalAmount)
         {
-            var oldOrder = _context.Orders
-               .Where(o => o.Id == orderId && o.Status == (int)OrderStatus.Awaiting_Payment)
-               .FirstOrDefault();
-            if (oldOrder != null)
+            var oldOrder = await _context.Orders
+               .Where(o => o.Id == id && o.Status == (int)OrderStatus.AwaitingPayment)
+               .FirstOrDefaultAsync();
+
+            if (oldOrder == null)
             {
-                oldOrder.TotalAmount = totalAmount;
-                _context.Update<Order>(oldOrder);
-                await _context.SaveChangesAsync();
+                return null;
             }
+            oldOrder.TotalAmount = totalAmount;
+            await _context.SaveChangesAsync();
             return oldOrder;
         }
     }

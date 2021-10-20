@@ -5,12 +5,12 @@ namespace RIL.Models
     public enum DeliveryType
     {
         [Description("On-Demand Delivery")]
-        On_Demand_Delivery,
+        OnDemandDelivery,
 
         [Description("Scheduled On-Demand Delivery")]
-        Scheduled_On_Demand_Delivery,
+        ScheduledOnDemandDelivery,
 
         [Description("Self Pickup")]
-        Self_Pickup,
+        SelfPickup,
     }
 }

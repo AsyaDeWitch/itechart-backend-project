@@ -34,11 +34,11 @@ namespace Web.Controllers
         [ServiceFilter(typeof(ProductValidationActionFilter))]
         public async Task<IActionResult> CreateOrderAsync([FromBody]ProductOrderViewModel[] products)
         {
-            string token = HttpContext.Request.Cookies["JwtToken"];
+            var token = HttpContext.Request.Cookies["JwtToken"];
             var userId = int.Parse(_userService.GetUserId(token));
 
             var createdOrder = await _orderService.CreateOrderAsync(userId, products);
-            return Created("/orders/id/" + createdOrder.ReturnOrderViewModel.Id.ToString(), createdOrder);
+            return Created("/orders/id/" + createdOrder.ReturnOrderViewModel.Id, createdOrder);
         }
 
         /// <summary>
@@ -75,7 +75,7 @@ namespace Web.Controllers
         [ServiceFilter(typeof(OrderAndProductsValidationActionFilter))]
         public async Task<IActionResult> UpdateOrderAsync(int id, [FromBody] OrderProductsViewModel orderProducts)
         {
-            string token = HttpContext.Request.Cookies["JwtToken"];
+            var token = HttpContext.Request.Cookies["JwtToken"];
             var userId = int.Parse(_userService.GetUserId(token));
             orderProducts.Order.UserId = userId;
             var updatedOrder = await _orderService.UpdateOrderAsync(id, orderProducts.Order, orderProducts.Products);
@@ -86,7 +86,7 @@ namespace Web.Controllers
         /// Performs order removing
         /// </summary>
         /// <param name="id">Order id</param>
-        /// <param name="products">Product ids with amount need to delte from order</param>
+        /// <param name="products">Product ids with amount need to delete from order</param>
         /// <response code="204">Products from order successfully deleted</response>
         [HttpDelete]
         [Authorize(Policy = "RequireUserRole")]
@@ -118,13 +118,13 @@ namespace Web.Controllers
         /// </summary>
         /// <response code="200">Order list returned</response>
         /// <returns>Order list</returns>
-        [HttpPost]
+        [HttpGet]
         [Authorize(Policy = "RequireUserRole")]
         [Route("list")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ReturnOrderViewModel>))]
         public async Task<IActionResult> GetOrdersListAsync()
         {
-            string token = HttpContext.Request.Cookies["JwtToken"];
+            var token = HttpContext.Request.Cookies["JwtToken"];
             var userId = int.Parse(_userService.GetUserId(token));
             
             var orderList = await _orderService.GetOrdersListAsync(userId);

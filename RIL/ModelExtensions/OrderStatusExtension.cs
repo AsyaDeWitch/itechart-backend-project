@@ -7,7 +7,7 @@ namespace RIL.ModelExtensions
     {
         public static string ToDescriptionString(this OrderStatus value)
         {
-            DescriptionAttribute[] attributes = (DescriptionAttribute[])value
+            var attributes = (DescriptionAttribute[])value
                 .GetType()
                 .GetField(value.ToString())
                 .GetCustomAttributes(typeof(DescriptionAttribute), false);

@@ -4,10 +4,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using DAL.Interfaces;
 
 namespace DAL.Repositories
 {
-    public class ProductOrderRepository
+    public class ProductOrderRepository : IProductOrderRepository
     {
         private readonly ApplicationDbContext _context;
 
@@ -16,24 +17,24 @@ namespace DAL.Repositories
             _context = context;
         }
 
-        public async Task<List<ProductOrder>> GetOrderProductListAsync(int orderId)
+        public async Task<List<ProductOrder>> GetProductListByOrderIdAsync(int id)
         {
             return await _context.ProductOrders
                 .AsNoTracking()
-                .Where(po => po.OrderId == orderId)
+                .Where(po => po.OrderId == id)
                 .ToListAsync();
         }
 
-        public async Task DeleteProductsFromOrderAsync(int orderId, List<ProductOrder> products)
+        public async Task DeleteProductsFromOrderAsync(int orderId, List<ProductOrder> deletedProducts)
         {
-            foreach(var product in products)
+            foreach(var deletedProduct in deletedProducts)
             {
-                var oldProduct = await _context.ProductOrders
-                   .Where(po => po.OrderId == orderId && po.ProductId == product.ProductId)
+                var product = await _context.ProductOrders
+                   .Where(po => po.OrderId == orderId && po.ProductId == deletedProduct.ProductId)
                    .FirstOrDefaultAsync();
-                if (oldProduct != null)
+                if (product != null)
                 {
-                    _context.Remove<ProductOrder>(oldProduct);
+                    _context.Remove(product);
                     await _context.SaveChangesAsync();
                 }
             }
@@ -50,22 +51,22 @@ namespace DAL.Repositories
                 .ToListAsync();
         }
 
-        public async Task<List<ProductOrder>> UpdateOrderProductListAsync(int orderId, List<ProductOrder> products)
+        public async Task<List<ProductOrder>> UpdateProductListInOrderAsync(int orderId, List<ProductOrder> newProducts)
         {
-            foreach(var product in products)
+            foreach(var newProduct in newProducts)
             {
-                var oldProduct = await _context.ProductOrders
-                    .Where(po => po.OrderId == orderId && po.ProductId == product.ProductId)
+                var product = await _context.ProductOrders
+                    .Where(po => po.OrderId == orderId && po.ProductId == newProduct.ProductId)
                     .FirstOrDefaultAsync();
-                if (oldProduct != null)
+                if (product != null)
                 {
-                    oldProduct.ProductAmount = product.ProductAmount;
+                    product.ProductAmount = newProduct.ProductAmount;
                 }
                 else
                 {
-                    await _context.AddAsync<ProductOrder>(product);
+                    await _context.AddAsync(newProduct);
                 }
-                await _context.SaveChangesAsync();
+                await _context.SaveChangesAsync(); 
             }
 
             return await _context.ProductOrders

@@ -8,16 +8,16 @@ namespace RIL.Models
         Sandbox,
 
         [Description("Real-time strategy")]
-        RTS,
+        Rts,
 
         [Description("Shooter")]
         Shooter,
 
         [Description("Multiplayer online battle arena")]
-        MOBA,
+        Moba,
 
         [Description("Role-playing")]
-        RPG,
+        Rpg,
 
         [Description("Simulation")]
         Simulation,
@@ -32,7 +32,7 @@ namespace RIL.Models
         Party,
 
         [Description("Action-adventure")]
-        Action_adventure,
+        ActionAdventure,
 
         [Description("Survival")]
         Survival,
@@ -44,6 +44,6 @@ namespace RIL.Models
         Platformer,
 
         [Description("Turn-based strategy with RPG elements")]
-        TBS_with_RPG,
+        TbsWithRpg,
     }
 }

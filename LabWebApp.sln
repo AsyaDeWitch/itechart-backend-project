@@ -13,7 +13,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DIL", "DIL\DIL.csproj", "{6
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RIL", "RIL\RIL.csproj", "{46C9BB65-D742-4F2E-B2AC-660C8FE93B8E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xUnitTestProject", "xUnitTestProject\xUnitTestProject.csproj", "{07EBD000-24E9-4CEE-92BC-9C67A8E46A70}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xUnitTestProject", "xUnitTestProject\xUnitTestProject.csproj", "{4BFABA73-55CE-441F-8D6C-AB93B6BB900B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -41,10 +41,10 @@ Global
 		{46C9BB65-D742-4F2E-B2AC-660C8FE93B8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{46C9BB65-D742-4F2E-B2AC-660C8FE93B8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{46C9BB65-D742-4F2E-B2AC-660C8FE93B8E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{07EBD000-24E9-4CEE-92BC-9C67A8E46A70}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{07EBD000-24E9-4CEE-92BC-9C67A8E46A70}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{07EBD000-24E9-4CEE-92BC-9C67A8E46A70}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{07EBD000-24E9-4CEE-92BC-9C67A8E46A70}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BFABA73-55CE-441F-8D6C-AB93B6BB900B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BFABA73-55CE-441F-8D6C-AB93B6BB900B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BFABA73-55CE-441F-8D6C-AB93B6BB900B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BFABA73-55CE-441F-8D6C-AB93B6BB900B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

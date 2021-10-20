@@ -1,6 +1,5 @@
 ﻿using BLL.ViewModels;
-using DAL.Data;
-using DAL.Repositories;
+using DAL.Interfaces;
 using Microsoft.AspNetCore.Mvc.Filters;
 using RIL.Models;
 using System;
@@ -11,13 +10,11 @@ namespace DIL.ActionFilters
 {
     public class OrderAndProductsValidationActionFilter : IAsyncActionFilter
     {
-        private readonly ProductRepository _productRepository;
-        private readonly ApplicationDbContext _context;
+        private readonly IUnitOfWork _unitOfWork;
 
-        public OrderAndProductsValidationActionFilter(ApplicationDbContext context)
+        public OrderAndProductsValidationActionFilter(IUnitOfWork unitOfWork)
         {
-            _context = context;
-            _productRepository = new ProductRepository(_context);
+            _unitOfWork = unitOfWork;
         }
 
         public async Task OnActionExecutionAsync(ActionExecutingContext context, ActionExecutionDelegate next)
@@ -31,9 +28,9 @@ namespace DIL.ActionFilters
                 {
                     foreach (var product in products)
                     {
-                        if (await _productRepository.IsContainedInDb(product.ProductId))
+                        if (await _unitOfWork.Products.IsContainedInDbAsync(product.ProductId))
                         {
-                            var count = await _productRepository.GetProductCount(product.ProductId);
+                            var count = await _unitOfWork.Products.GetCountByIdAsync(product.ProductId);
                             if (product.ProductAmount > count)
                             {
                                 product.ProductAmount = count;
@@ -54,12 +51,12 @@ namespace DIL.ActionFilters
                 if (order.DeliveryType > Enum.GetValues(typeof(DeliveryType)).Cast<int>().Last()
                     || order.DeliveryType < Enum.GetValues(typeof(DeliveryType)).Cast<int>().First())
                 {
-                    order.DeliveryType = (int)DeliveryType.On_Demand_Delivery;
+                    order.DeliveryType = (int)DeliveryType.OnDemandDelivery;
                 }
                 if (order.Status > Enum.GetValues(typeof(OrderStatus)).Cast<int>().Last()
                     || order.Status < Enum.GetValues(typeof(OrderStatus)).Cast<int>().First())
                 {
-                    order.Status = (int)OrderStatus.Awaiting_Payment;
+                    order.Status = (int)OrderStatus.AwaitingPayment;
                 }
                 context.ActionArguments["orderProducts"] = new OrderProductsViewModel
                 {

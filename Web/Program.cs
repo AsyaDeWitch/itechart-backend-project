@@ -18,13 +18,6 @@ namespace Web
                 .AddJsonFile($"appsettings.{Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") ?? "Production"}.json", true)
                 .Build();
 
-            //var host = new WebHostBuilder()
-            //    .UseKestrel()
-            //    .UseContentRoot(Directory.GetCurrentDirectory())
-            //    .UseIISIntegration()
-            //    .UseStartup<Startup>()
-            //    .Build();
-
             Log.Logger = new LoggerConfiguration()
                 .ReadFrom.Configuration(configuration)
                 .Enrich.FromLogContext()
@@ -32,7 +25,7 @@ namespace Web
                 .CreateLogger();
             try
             {
-                Log.Information("Strating web host");
+                Log.Information("Starting web host");
                 //CreateWebHostBuilder(args).Build().Run();
                 CreateHostBuilder(args).Build().Run();
             }
@@ -44,7 +37,6 @@ namespace Web
             {
                 Log.CloseAndFlush();
             }
-            
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>

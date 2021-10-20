@@ -1,0 +1,53 @@
+2021-10-20T17:23:52.8677406+03:00 [INF] (Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager) User profile is available. Using '"C:\Users\A.Dzenisevich\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-10-20T17:23:52.9575959+03:00 [INF] (HealthChecks.UI.Core.HostedService.UIInitializationHostedService) Initializing UI Database
+2021-10-20T17:23:53.3786485+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:23:53.5082602+03:00 [INF] (HealthChecks.UI.Core.HostedService.UIInitializationHostedService) Saving healthchecks configuration to database
+2021-10-20T17:23:53.5979214+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:23:53.8297691+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T17:23:53.8412990+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/index.html - -
+2021-10-20T17:23:53.8463341+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:23:53.8859074+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) Start processing HTTP request "GET" https://localhost:44370/health
+2021-10-20T17:23:53.8866778+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Sending HTTP request "GET" https://localhost:44370/health
+2021-10-20T17:23:53.9848311+03:00 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2021-10-20T17:23:53.9849951+03:00 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Development"
+2021-10-20T17:23:53.9850759+03:00 [INF] (Microsoft.Hosting.Lifetime) Content root path: "D:\LabWebApp\Web"
+2021-10-20T17:23:54.0429883+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/health - -
+2021-10-20T17:23:54.0471539+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Health checks"'
+2021-10-20T17:23:54.0524749+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/index.html - - - 200 - text/html;charset=utf-8 212.2242ms
+2021-10-20T17:23:54.1794116+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/swagger/v1/swagger.json - -
+2021-10-20T17:23:54.3265490+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 147.0777ms
+2021-10-20T17:23:54.3275643+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Health checks"'
+2021-10-20T17:23:54.3293710+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/health - - - 200 - application/json 286.3781ms
+2021-10-20T17:23:54.3410603+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Received HTTP response headers after 451.1671ms - 200
+2021-10-20T17:23:54.3416471+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) End processing HTTP request after 459.3997ms - 200
+2021-10-20T17:23:54.5428630+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector - health report execution history saved.
+2021-10-20T17:23:54.5445157+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) Creating a new HealthReport history.
+2021-10-20T17:23:54.5990730+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 3 entities to in-memory store.
+2021-10-20T17:23:54.5995748+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T17:23:54.6000812+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T17:23:55.8001665+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/healthchecks-ui - -
+2021-10-20T17:23:55.8079473+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:23:55.8094866+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:23:55.8099698+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/healthchecks-ui - - - 200 - text/html 9.8106ms
+2021-10-20T17:23:55.8253236+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/ui/resources/healthchecks-bundle.js - -
+2021-10-20T17:23:55.8253236+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/ui/resources/vendors-dll.js - -
+2021-10-20T17:23:55.8253235+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/ui/resources/healthchecksui-min.css - -
+2021-10-20T17:23:55.8262965+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/ui/resources/healthchecks-bundle.js HTTP: GET"'
+2021-10-20T17:23:55.8262964+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/ui/resources/healthchecksui-min.css HTTP: GET"'
+2021-10-20T17:23:55.8262979+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/ui/resources/vendors-dll.js HTTP: GET"'
+2021-10-20T17:23:55.8274574+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/ui/resources/healthchecksui-min.css HTTP: GET"'
+2021-10-20T17:23:55.8280387+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/ui/resources/healthchecksui-min.css - - - 200 - text/css 2.6687ms
+2021-10-20T17:23:55.8285011+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/ui/resources/healthchecks-bundle.js HTTP: GET"'
+2021-10-20T17:23:55.8356275+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/ui/resources/healthchecks-bundle.js - - - 200 - text/javascript 10.1441ms
+2021-10-20T17:23:55.8418129+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/ui/resources/vendors-dll.js HTTP: GET"'
+2021-10-20T17:23:55.8496988+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/ui/resources/vendors-dll.js - - - 200 - text/javascript 24.3098ms
+2021-10-20T17:23:55.8931007+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/healthchecks-api/ui-settings - -
+2021-10-20T17:23:55.8936637+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-api/ui-settings"'
+2021-10-20T17:23:55.9604329+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-api/ui-settings"'
+2021-10-20T17:23:55.9644753+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/healthchecks-api/ui-settings - - - 200 - application/json 71.3739ms
+2021-10-20T17:23:55.9727834+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/healthchecks-api - -
+2021-10-20T17:23:55.9732944+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"HealthChecks UI Api"'
+2021-10-20T17:23:55.9755313+03:00 [DBG] (HealthChecks.UI.Middleware.UIApiEndpointMiddleware) Executing api middleware for client "::1", remaining slots: 2
+2021-10-20T17:23:55.9970272+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:23:56.0332692+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"HealthChecks UI Api"'
+2021-10-20T17:23:56.0336916+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/healthchecks-api - - - 200 - application/json 60.9048ms

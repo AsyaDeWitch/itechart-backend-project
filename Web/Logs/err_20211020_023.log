@@ -1,0 +1,690 @@
+2021-10-20T17:20:33.6549711+03:00 [INF] (Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager) User profile is available. Using '"C:\Users\A.Dzenisevich\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-10-20T17:20:33.7473915+03:00 [INF] (HealthChecks.UI.Core.HostedService.UIInitializationHostedService) Initializing UI Database
+2021-10-20T17:20:34.1711763+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:20:34.3048272+03:00 [INF] (HealthChecks.UI.Core.HostedService.UIInitializationHostedService) Saving healthchecks configuration to database
+2021-10-20T17:20:34.3966832+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:20:34.6382064+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T17:20:34.6524530+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/index.html - -
+2021-10-20T17:20:34.6561525+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:20:34.6975794+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) Start processing HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:20:34.6985397+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Sending HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:20:34.7981292+03:00 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2021-10-20T17:20:34.7982635+03:00 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Development"
+2021-10-20T17:20:34.7983215+03:00 [INF] (Microsoft.Hosting.Lifetime) Content root path: "D:\LabWebApp\Web"
+2021-10-20T17:20:34.8617010+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/healthchecks-ui - -
+2021-10-20T17:20:34.8667643+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:20:34.8769382+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:20:34.8816308+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/healthchecks-ui - - - 200 - text/html 19.2197ms
+2021-10-20T17:20:34.8948949+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Received HTTP response headers after 193.8263ms - 200
+2021-10-20T17:20:34.8956465+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) End processing HTTP request after 202.0203ms - 200
+2021-10-20T17:20:34.9801006+03:00 [ERR] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) GetHealthReport threw an exception when trying to get report from https://localhost:44370/healthchecks-ui configured with name HealthCheckExample.
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at System.Net.Http.HttpResponseMessageExtensions.As[TContent](HttpResponseMessage response)
+   at HealthChecks.UI.Core.HostedService.HealthCheckReportCollector.GetHealthReport(HealthCheckConfiguration configuration)
+2021-10-20T17:20:35.0712917+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:20:35.0747163+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector - health report execution history saved.
+2021-10-20T17:20:35.1076546+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) Creating a new HealthReport history.
+2021-10-20T17:20:35.1527974+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 2 entities to in-memory store.
+2021-10-20T17:20:35.1532737+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T17:20:35.1536616+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T17:20:35.1537734+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2021-10-20T17:20:35.5145876+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("39"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[AddressDeliveryId], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0"
+2021-10-20T17:20:35.6035345+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("3"ms) [Parameters=["@__user_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0"
+2021-10-20T17:20:35.6277175+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("2"ms) [Parameters=["@__userId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0"
+2021-10-20T17:20:35.6418326+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("2"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0"
+2021-10-20T17:20:35.6563760+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=["@__role_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0"
+2021-10-20T17:20:35.7428116+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/index.html - - - 200 - text/html;charset=utf-8 1092.5706ms
+2021-10-20T17:20:35.8666438+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/swagger/v1/swagger.json - -
+2021-10-20T17:20:35.9928859+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 126.2255ms
+2021-10-20T17:20:37.7932262+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/healthchecks-ui - -
+2021-10-20T17:20:37.8012731+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:20:37.8020741+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:20:37.8066465+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/healthchecks-ui - - - 200 - text/html 13.3220ms
+2021-10-20T17:20:37.8150669+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/ui/resources/vendors-dll.js - -
+2021-10-20T17:20:37.8150669+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/ui/resources/healthchecksui-min.css - -
+2021-10-20T17:20:37.8152604+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/ui/resources/healthchecks-bundle.js - -
+2021-10-20T17:20:37.8162218+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/ui/resources/vendors-dll.js HTTP: GET"'
+2021-10-20T17:20:37.8162216+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/ui/resources/healthchecks-bundle.js HTTP: GET"'
+2021-10-20T17:20:37.8162242+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/ui/resources/healthchecksui-min.css HTTP: GET"'
+2021-10-20T17:20:37.8175361+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/ui/resources/healthchecksui-min.css HTTP: GET"'
+2021-10-20T17:20:37.8212713+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/ui/resources/healthchecks-bundle.js HTTP: GET"'
+2021-10-20T17:20:37.8219146+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/ui/resources/healthchecksui-min.css - - - 200 - text/css 6.8459ms
+2021-10-20T17:20:37.8265726+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/ui/resources/healthchecks-bundle.js - - - 200 - text/javascript 11.2676ms
+2021-10-20T17:20:37.8296137+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/ui/resources/vendors-dll.js HTTP: GET"'
+2021-10-20T17:20:37.8377743+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/ui/resources/vendors-dll.js - - - 200 - text/javascript 22.6561ms
+2021-10-20T17:20:38.1571446+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/healthchecks-ui - -
+2021-10-20T17:20:38.1576996+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:20:38.1580308+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:20:38.1584865+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/healthchecks-ui - - - 200 - text/html 1.3659ms
+2021-10-20T17:20:38.2409403+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/healthchecks-api/ui-settings - -
+2021-10-20T17:20:38.2414702+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-api/ui-settings"'
+2021-10-20T17:20:38.3241672+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-api/ui-settings"'
+2021-10-20T17:20:38.3287108+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/healthchecks-api/ui-settings - - - 200 - application/json 87.7809ms
+2021-10-20T17:20:38.3386865+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/healthchecks-api - -
+2021-10-20T17:20:38.3391527+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"HealthChecks UI Api"'
+2021-10-20T17:20:38.3412787+03:00 [DBG] (HealthChecks.UI.Middleware.UIApiEndpointMiddleware) Executing api middleware for client "::1", remaining slots: 2
+2021-10-20T17:20:38.3629648+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:20:38.4004506+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"HealthChecks UI Api"'
+2021-10-20T17:20:38.4009179+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/healthchecks-api - - - 200 - application/json 62.2217ms
+2021-10-20T17:20:45.1700590+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T17:20:45.1705196+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:20:45.1708649+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) Start processing HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:20:45.1709297+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Sending HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:20:45.1733150+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/healthchecks-ui - -
+2021-10-20T17:20:45.1738913+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:20:45.1741664+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:20:45.1745524+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/healthchecks-ui - - - 200 - text/html 1.2280ms
+2021-10-20T17:20:45.1746574+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Received HTTP response headers after 3.7219ms - 200
+2021-10-20T17:20:45.1747341+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) End processing HTTP request after 3.8834ms - 200
+2021-10-20T17:20:45.1756485+03:00 [ERR] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) GetHealthReport threw an exception when trying to get report from https://localhost:44370/healthchecks-ui configured with name HealthCheckExample.
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at System.Net.Http.HttpResponseMessageExtensions.As[TContent](HttpResponseMessage response)
+   at HealthChecks.UI.Core.HostedService.HealthCheckReportCollector.GetHealthReport(HealthCheckConfiguration configuration)
+2021-10-20T17:20:45.1800940+03:00 [INF] (HealthChecks.UI.Core.Notifications.WebHookFailureNotifier) Notification is sent on same window time.
+2021-10-20T17:20:45.1803071+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector - health report execution history saved.
+2021-10-20T17:20:45.1848929+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReport history already exists and is in the same state, updating the values.
+2021-10-20T17:20:45.1878912+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:20:45.1879705+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T17:20:45.1880125+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T17:20:48.4062540+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/healthchecks-api - -
+2021-10-20T17:20:48.4067948+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"HealthChecks UI Api"'
+2021-10-20T17:20:48.4069381+03:00 [DBG] (HealthChecks.UI.Middleware.UIApiEndpointMiddleware) Executing api middleware for client "::1", remaining slots: 2
+2021-10-20T17:20:48.4078585+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:20:48.4091074+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"HealthChecks UI Api"'
+2021-10-20T17:20:48.4127497+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/healthchecks-api - - - 200 - application/json 6.4925ms
+2021-10-20T17:20:55.1961526+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T17:20:55.1997243+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:20:55.2002383+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) Start processing HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:20:55.2003794+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Sending HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:20:55.2030828+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/healthchecks-ui - -
+2021-10-20T17:20:55.2032351+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:20:55.2035422+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:20:55.2041617+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/healthchecks-ui - - - 200 - text/html 1.0897ms
+2021-10-20T17:20:55.2042077+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Received HTTP response headers after 3.8311ms - 200
+2021-10-20T17:20:55.2042832+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) End processing HTTP request after 4.098ms - 200
+2021-10-20T17:20:55.2050694+03:00 [ERR] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) GetHealthReport threw an exception when trying to get report from https://localhost:44370/healthchecks-ui configured with name HealthCheckExample.
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at System.Net.Http.HttpResponseMessageExtensions.As[TContent](HttpResponseMessage response)
+   at HealthChecks.UI.Core.HostedService.HealthCheckReportCollector.GetHealthReport(HealthCheckConfiguration configuration)
+2021-10-20T17:20:55.2062796+03:00 [INF] (HealthChecks.UI.Core.Notifications.WebHookFailureNotifier) Notification is sent on same window time.
+2021-10-20T17:20:55.2063258+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector - health report execution history saved.
+2021-10-20T17:20:55.2066344+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReport history already exists and is in the same state, updating the values.
+2021-10-20T17:20:55.2068472+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:20:55.2069075+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T17:20:55.2069438+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T17:20:58.4172910+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/healthchecks-api - -
+2021-10-20T17:20:58.4178019+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"HealthChecks UI Api"'
+2021-10-20T17:20:58.4179005+03:00 [DBG] (HealthChecks.UI.Middleware.UIApiEndpointMiddleware) Executing api middleware for client "::1", remaining slots: 2
+2021-10-20T17:20:58.4181657+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:20:58.4195683+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"HealthChecks UI Api"'
+2021-10-20T17:20:58.4200499+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/healthchecks-api - - - 200 - application/json 2.7683ms
+2021-10-20T17:21:05.2255278+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T17:21:05.2260471+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:21:05.2263513+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) Start processing HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:21:05.2264416+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Sending HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:21:05.2291077+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/healthchecks-ui - -
+2021-10-20T17:21:05.2293005+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:21:05.2296080+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:21:05.2300694+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Received HTTP response headers after 3.6315ms - 200
+2021-10-20T17:21:05.2300851+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/healthchecks-ui - - - 200 - text/html 0.9729ms
+2021-10-20T17:21:05.2301364+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) End processing HTTP request after 3.8012ms - 200
+2021-10-20T17:21:05.2308856+03:00 [ERR] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) GetHealthReport threw an exception when trying to get report from https://localhost:44370/healthchecks-ui configured with name HealthCheckExample.
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at System.Net.Http.HttpResponseMessageExtensions.As[TContent](HttpResponseMessage response)
+   at HealthChecks.UI.Core.HostedService.HealthCheckReportCollector.GetHealthReport(HealthCheckConfiguration configuration)
+2021-10-20T17:21:05.2320212+03:00 [INF] (HealthChecks.UI.Core.Notifications.WebHookFailureNotifier) Notification is sent on same window time.
+2021-10-20T17:21:05.2320613+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector - health report execution history saved.
+2021-10-20T17:21:05.2323363+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReport history already exists and is in the same state, updating the values.
+2021-10-20T17:21:05.2325374+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:21:05.2325983+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T17:21:05.2326350+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T17:21:08.4382962+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/healthchecks-api - -
+2021-10-20T17:21:08.4393780+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"HealthChecks UI Api"'
+2021-10-20T17:21:08.4395835+03:00 [DBG] (HealthChecks.UI.Middleware.UIApiEndpointMiddleware) Executing api middleware for client "::1", remaining slots: 2
+2021-10-20T17:21:08.4401819+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:21:08.4437941+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"HealthChecks UI Api"'
+2021-10-20T17:21:08.4450446+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/healthchecks-api - - - 200 - application/json 7.3365ms
+2021-10-20T17:21:15.2506877+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T17:21:15.2517215+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:21:15.2524072+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) Start processing HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:21:15.2527451+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Sending HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:21:15.2566511+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/healthchecks-ui - -
+2021-10-20T17:21:15.2568449+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:21:15.2571511+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:21:15.2577997+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/healthchecks-ui - - - 200 - text/html 1.1295ms
+2021-10-20T17:21:15.2578329+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Received HTTP response headers after 5.1669ms - 200
+2021-10-20T17:21:15.2579062+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) End processing HTTP request after 5.5568ms - 200
+2021-10-20T17:21:15.2588769+03:00 [ERR] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) GetHealthReport threw an exception when trying to get report from https://localhost:44370/healthchecks-ui configured with name HealthCheckExample.
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at System.Net.Http.HttpResponseMessageExtensions.As[TContent](HttpResponseMessage response)
+   at HealthChecks.UI.Core.HostedService.HealthCheckReportCollector.GetHealthReport(HealthCheckConfiguration configuration)
+2021-10-20T17:21:15.2600676+03:00 [INF] (HealthChecks.UI.Core.Notifications.WebHookFailureNotifier) Notification is sent on same window time.
+2021-10-20T17:21:15.2601070+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector - health report execution history saved.
+2021-10-20T17:21:15.2603654+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReport history already exists and is in the same state, updating the values.
+2021-10-20T17:21:15.2605354+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:21:15.2605955+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T17:21:15.2606317+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T17:21:18.4547942+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/healthchecks-api - -
+2021-10-20T17:21:18.4559653+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"HealthChecks UI Api"'
+2021-10-20T17:21:18.4561943+03:00 [DBG] (HealthChecks.UI.Middleware.UIApiEndpointMiddleware) Executing api middleware for client "::1", remaining slots: 2
+2021-10-20T17:21:18.4567406+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:21:18.4591207+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"HealthChecks UI Api"'
+2021-10-20T17:21:18.4600103+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/healthchecks-api - - - 200 - application/json 5.2199ms
+2021-10-20T17:21:25.2682185+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T17:21:25.2699281+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:21:25.2705343+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) Start processing HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:21:25.2707625+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Sending HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:21:25.2745164+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/healthchecks-ui - -
+2021-10-20T17:21:25.2746893+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:21:25.2749350+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:21:25.2752830+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Received HTTP response headers after 4.5277ms - 200
+2021-10-20T17:21:25.2753168+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/healthchecks-ui - - - 200 - text/html 0.7706ms
+2021-10-20T17:21:25.2753533+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) End processing HTTP request after 4.8574ms - 200
+2021-10-20T17:21:25.2761020+03:00 [ERR] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) GetHealthReport threw an exception when trying to get report from https://localhost:44370/healthchecks-ui configured with name HealthCheckExample.
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at System.Net.Http.HttpResponseMessageExtensions.As[TContent](HttpResponseMessage response)
+   at HealthChecks.UI.Core.HostedService.HealthCheckReportCollector.GetHealthReport(HealthCheckConfiguration configuration)
+2021-10-20T17:21:25.2772967+03:00 [INF] (HealthChecks.UI.Core.Notifications.WebHookFailureNotifier) Notification is sent on same window time.
+2021-10-20T17:21:25.2773382+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector - health report execution history saved.
+2021-10-20T17:21:25.2776188+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReport history already exists and is in the same state, updating the values.
+2021-10-20T17:21:25.2777910+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:21:25.2779475+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T17:21:25.2779933+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T17:21:28.4885038+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/healthchecks-api - -
+2021-10-20T17:21:28.4890229+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"HealthChecks UI Api"'
+2021-10-20T17:21:28.4891483+03:00 [DBG] (HealthChecks.UI.Middleware.UIApiEndpointMiddleware) Executing api middleware for client "::1", remaining slots: 2
+2021-10-20T17:21:28.4893480+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:21:28.4901563+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"HealthChecks UI Api"'
+2021-10-20T17:21:28.4905158+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/healthchecks-api - - - 200 - application/json 2.0190ms
+2021-10-20T17:21:35.2919074+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T17:21:35.2923221+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:21:35.2924946+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) Start processing HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:21:35.2925493+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Sending HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:21:35.2939749+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/healthchecks-ui - -
+2021-10-20T17:21:35.2943829+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:21:35.2945999+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:21:35.2950716+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/healthchecks-ui - - - 200 - text/html 0.9928ms
+2021-10-20T17:21:35.2951245+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Received HTTP response headers after 2.5712ms - 200
+2021-10-20T17:21:35.2951932+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) End processing HTTP request after 2.705ms - 200
+2021-10-20T17:21:35.2959642+03:00 [ERR] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) GetHealthReport threw an exception when trying to get report from https://localhost:44370/healthchecks-ui configured with name HealthCheckExample.
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at System.Net.Http.HttpResponseMessageExtensions.As[TContent](HttpResponseMessage response)
+   at HealthChecks.UI.Core.HostedService.HealthCheckReportCollector.GetHealthReport(HealthCheckConfiguration configuration)
+2021-10-20T17:21:35.2973889+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:21:35.2974659+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector - health report execution history saved.
+2021-10-20T17:21:35.2977456+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReport history already exists and is in the same state, updating the values.
+2021-10-20T17:21:35.2978699+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:21:35.2979335+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T17:21:35.2979736+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T17:21:38.4949728+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/healthchecks-api - -
+2021-10-20T17:21:38.4955578+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"HealthChecks UI Api"'
+2021-10-20T17:21:38.4956649+03:00 [DBG] (HealthChecks.UI.Middleware.UIApiEndpointMiddleware) Executing api middleware for client "::1", remaining slots: 2
+2021-10-20T17:21:38.4959283+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:21:38.4969459+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"HealthChecks UI Api"'
+2021-10-20T17:21:38.4972516+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/healthchecks-api - - - 200 - application/json 2.2858ms
+2021-10-20T17:21:45.3061821+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T17:21:45.3067171+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:21:45.3068870+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) Start processing HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:21:45.3069309+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Sending HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:21:45.3083207+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/healthchecks-ui - -
+2021-10-20T17:21:45.3088282+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:21:45.3090592+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:21:45.3094974+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/healthchecks-ui - - - 200 - text/html 1.1725ms
+2021-10-20T17:21:45.3120765+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Received HTTP response headers after 5.1392ms - 200
+2021-10-20T17:21:45.3121459+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) End processing HTTP request after 5.2705ms - 200
+2021-10-20T17:21:45.3129129+03:00 [ERR] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) GetHealthReport threw an exception when trying to get report from https://localhost:44370/healthchecks-ui configured with name HealthCheckExample.
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at System.Net.Http.HttpResponseMessageExtensions.As[TContent](HttpResponseMessage response)
+   at HealthChecks.UI.Core.HostedService.HealthCheckReportCollector.GetHealthReport(HealthCheckConfiguration configuration)
+2021-10-20T17:21:45.3142364+03:00 [INF] (HealthChecks.UI.Core.Notifications.WebHookFailureNotifier) Notification is sent on same window time.
+2021-10-20T17:21:45.3142827+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector - health report execution history saved.
+2021-10-20T17:21:45.3145277+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReport history already exists and is in the same state, updating the values.
+2021-10-20T17:21:45.3146761+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:21:45.3147331+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T17:21:45.3147705+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T17:21:55.3227136+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T17:21:55.3232829+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:21:55.3234415+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) Start processing HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:21:55.3234869+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Sending HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:21:55.3250967+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/healthchecks-ui - -
+2021-10-20T17:21:55.3253835+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:21:55.3256422+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:21:55.3261314+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/healthchecks-ui - - - 200 - text/html 1.1782ms
+2021-10-20T17:21:55.3261545+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Received HTTP response headers after 2.6618ms - 200
+2021-10-20T17:21:55.3262367+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) End processing HTTP request after 2.8074ms - 200
+2021-10-20T17:21:55.3269586+03:00 [ERR] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) GetHealthReport threw an exception when trying to get report from https://localhost:44370/healthchecks-ui configured with name HealthCheckExample.
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at System.Net.Http.HttpResponseMessageExtensions.As[TContent](HttpResponseMessage response)
+   at HealthChecks.UI.Core.HostedService.HealthCheckReportCollector.GetHealthReport(HealthCheckConfiguration configuration)
+2021-10-20T17:21:55.3280442+03:00 [INF] (HealthChecks.UI.Core.Notifications.WebHookFailureNotifier) Notification is sent on same window time.
+2021-10-20T17:21:55.3280891+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector - health report execution history saved.
+2021-10-20T17:21:55.3283272+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReport history already exists and is in the same state, updating the values.
+2021-10-20T17:21:55.3284684+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:21:55.3285249+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T17:21:55.3285603+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T17:22:05.3461463+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T17:22:05.3471016+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:22:05.3476476+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) Start processing HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:22:05.3479175+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Sending HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:22:05.3523444+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/healthchecks-ui - -
+2021-10-20T17:22:05.3539692+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:22:05.3542263+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:22:05.3547100+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Received HTTP response headers after 6.8074ms - 200
+2021-10-20T17:22:05.3547387+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/healthchecks-ui - - - 200 - text/html 2.4284ms
+2021-10-20T17:22:05.3547938+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) End processing HTTP request after 7.1837ms - 200
+2021-10-20T17:22:05.3556012+03:00 [ERR] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) GetHealthReport threw an exception when trying to get report from https://localhost:44370/healthchecks-ui configured with name HealthCheckExample.
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at System.Net.Http.HttpResponseMessageExtensions.As[TContent](HttpResponseMessage response)
+   at HealthChecks.UI.Core.HostedService.HealthCheckReportCollector.GetHealthReport(HealthCheckConfiguration configuration)
+2021-10-20T17:22:05.3570869+03:00 [INF] (HealthChecks.UI.Core.Notifications.WebHookFailureNotifier) Notification is sent on same window time.
+2021-10-20T17:22:05.3571638+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector - health report execution history saved.
+2021-10-20T17:22:05.3574625+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReport history already exists and is in the same state, updating the values.
+2021-10-20T17:22:05.3577007+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:22:05.3578018+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T17:22:05.3578648+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T17:22:15.3587830+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T17:22:15.3593846+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:22:15.3595872+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) Start processing HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:22:15.3596496+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Sending HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:22:15.3612665+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/healthchecks-ui - -
+2021-10-20T17:22:15.3614228+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:22:15.3616562+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:22:15.3620943+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/healthchecks-ui - - - 200 - text/html 0.9095ms
+2021-10-20T17:22:15.3621130+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Received HTTP response headers after 2.4643ms - 200
+2021-10-20T17:22:15.3621848+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) End processing HTTP request after 2.6068ms - 200
+2021-10-20T17:22:15.3629452+03:00 [ERR] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) GetHealthReport threw an exception when trying to get report from https://localhost:44370/healthchecks-ui configured with name HealthCheckExample.
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at System.Net.Http.HttpResponseMessageExtensions.As[TContent](HttpResponseMessage response)
+   at HealthChecks.UI.Core.HostedService.HealthCheckReportCollector.GetHealthReport(HealthCheckConfiguration configuration)
+2021-10-20T17:22:15.3640617+03:00 [INF] (HealthChecks.UI.Core.Notifications.WebHookFailureNotifier) Notification is sent on same window time.
+2021-10-20T17:22:15.3641064+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector - health report execution history saved.
+2021-10-20T17:22:15.3643536+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReport history already exists and is in the same state, updating the values.
+2021-10-20T17:22:15.3645537+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:22:15.3646115+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T17:22:15.3646464+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T17:22:25.3693870+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T17:22:25.3700257+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:22:25.3701879+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) Start processing HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:22:25.3702362+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Sending HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:22:25.3714086+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/healthchecks-ui - -
+2021-10-20T17:22:25.3717254+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:22:25.3720396+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:22:25.3729791+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/healthchecks-ui - - - 200 - text/html 1.0656ms
+2021-10-20T17:22:25.3749363+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Received HTTP response headers after 4.6951ms - 200
+2021-10-20T17:22:25.3750078+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) End processing HTTP request after 4.8282ms - 200
+2021-10-20T17:22:25.3757414+03:00 [ERR] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) GetHealthReport threw an exception when trying to get report from https://localhost:44370/healthchecks-ui configured with name HealthCheckExample.
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at System.Net.Http.HttpResponseMessageExtensions.As[TContent](HttpResponseMessage response)
+   at HealthChecks.UI.Core.HostedService.HealthCheckReportCollector.GetHealthReport(HealthCheckConfiguration configuration)
+2021-10-20T17:22:25.3768981+03:00 [INF] (HealthChecks.UI.Core.Notifications.WebHookFailureNotifier) Notification is sent on same window time.
+2021-10-20T17:22:25.3769445+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector - health report execution history saved.
+2021-10-20T17:22:25.3771851+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReport history already exists and is in the same state, updating the values.
+2021-10-20T17:22:25.3773254+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:22:25.3773846+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T17:22:25.3774211+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T17:22:26.0187160+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/healthchecks-api/ui-settings - -
+2021-10-20T17:22:26.0191403+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-api/ui-settings"'
+2021-10-20T17:22:26.0194326+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-api/ui-settings"'
+2021-10-20T17:22:26.0199213+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/healthchecks-api/ui-settings - - - 200 - application/json 1.1567ms
+2021-10-20T17:22:26.0211909+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/healthchecks-api - -
+2021-10-20T17:22:26.0216184+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"HealthChecks UI Api"'
+2021-10-20T17:22:26.0217001+03:00 [DBG] (HealthChecks.UI.Middleware.UIApiEndpointMiddleware) Executing api middleware for client "::1", remaining slots: 2
+2021-10-20T17:22:26.0219698+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:22:26.0232348+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"HealthChecks UI Api"'
+2021-10-20T17:22:26.0238576+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/healthchecks-api - - - 200 - application/json 2.5719ms
+2021-10-20T17:22:35.3854096+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T17:22:35.3858072+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:22:35.3859633+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) Start processing HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:22:35.3861201+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Sending HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:22:35.3945134+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/healthchecks-ui - -
+2021-10-20T17:22:35.3946834+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:22:35.3948994+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:22:35.3952858+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/healthchecks-ui - - - 200 - text/html 0.7633ms
+2021-10-20T17:22:35.3976569+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Received HTTP response headers after 11.5336ms - 200
+2021-10-20T17:22:35.3977290+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) End processing HTTP request after 11.7811ms - 200
+2021-10-20T17:22:35.3984739+03:00 [ERR] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) GetHealthReport threw an exception when trying to get report from https://localhost:44370/healthchecks-ui configured with name HealthCheckExample.
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at System.Net.Http.HttpResponseMessageExtensions.As[TContent](HttpResponseMessage response)
+   at HealthChecks.UI.Core.HostedService.HealthCheckReportCollector.GetHealthReport(HealthCheckConfiguration configuration)
+2021-10-20T17:22:35.3997417+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:22:35.3998011+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector - health report execution history saved.
+2021-10-20T17:22:35.4000434+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReport history already exists and is in the same state, updating the values.
+2021-10-20T17:22:35.4001479+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:22:35.4001985+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T17:22:35.4002364+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T17:22:45.4000425+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T17:22:45.4004919+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:22:45.4006572+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) Start processing HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:22:45.4007060+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Sending HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:22:45.4018731+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/healthchecks-ui - -
+2021-10-20T17:22:45.4024428+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:22:45.4026953+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:22:45.4030246+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Received HTTP response headers after 2.3122ms - 200
+2021-10-20T17:22:45.4030533+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/healthchecks-ui - - - 200 - text/html 1.1751ms
+2021-10-20T17:22:45.4030999+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) End processing HTTP request after 2.4521ms - 200
+2021-10-20T17:22:45.4038343+03:00 [ERR] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) GetHealthReport threw an exception when trying to get report from https://localhost:44370/healthchecks-ui configured with name HealthCheckExample.
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at System.Net.Http.HttpResponseMessageExtensions.As[TContent](HttpResponseMessage response)
+   at HealthChecks.UI.Core.HostedService.HealthCheckReportCollector.GetHealthReport(HealthCheckConfiguration configuration)
+2021-10-20T17:22:45.4049075+03:00 [INF] (HealthChecks.UI.Core.Notifications.WebHookFailureNotifier) Notification is sent on same window time.
+2021-10-20T17:22:45.4049551+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector - health report execution history saved.
+2021-10-20T17:22:45.4051949+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReport history already exists and is in the same state, updating the values.
+2021-10-20T17:22:45.4053365+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:22:45.4054057+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T17:22:45.4054504+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T17:22:48.4709806+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/healthchecks-api/ui-settings - -
+2021-10-20T17:22:48.4715462+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-api/ui-settings"'
+2021-10-20T17:22:48.4719450+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-api/ui-settings"'
+2021-10-20T17:22:48.4725233+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/healthchecks-api/ui-settings - - - 200 - application/json 1.5374ms
+2021-10-20T17:22:48.4755279+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/healthchecks-api - -
+2021-10-20T17:22:48.4806687+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"HealthChecks UI Api"'
+2021-10-20T17:22:48.4807721+03:00 [DBG] (HealthChecks.UI.Middleware.UIApiEndpointMiddleware) Executing api middleware for client "::1", remaining slots: 2
+2021-10-20T17:22:48.4809675+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:22:48.4818811+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"HealthChecks UI Api"'
+2021-10-20T17:22:48.4822709+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/healthchecks-api - - - 200 - application/json 8.1619ms
+2021-10-20T17:22:55.4156447+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T17:22:55.4171181+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:22:55.4176818+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) Start processing HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:22:55.4178944+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Sending HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:22:55.4234927+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/healthchecks-ui - -
+2021-10-20T17:22:55.4244575+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:22:55.4246778+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:22:55.4250400+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/healthchecks-ui - - - 200 - text/html 2.0856ms
+2021-10-20T17:22:55.4253894+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Received HTTP response headers after 7.5042ms - 200
+2021-10-20T17:22:55.4254573+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) End processing HTTP request after 7.8118ms - 200
+2021-10-20T17:22:55.4267117+03:00 [ERR] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) GetHealthReport threw an exception when trying to get report from https://localhost:44370/healthchecks-ui configured with name HealthCheckExample.
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at System.Net.Http.HttpResponseMessageExtensions.As[TContent](HttpResponseMessage response)
+   at HealthChecks.UI.Core.HostedService.HealthCheckReportCollector.GetHealthReport(HealthCheckConfiguration configuration)
+2021-10-20T17:22:55.4277623+03:00 [INF] (HealthChecks.UI.Core.Notifications.WebHookFailureNotifier) Notification is sent on same window time.
+2021-10-20T17:22:55.4278154+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector - health report execution history saved.
+2021-10-20T17:22:55.4280707+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReport history already exists and is in the same state, updating the values.
+2021-10-20T17:22:55.4282167+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:22:55.4282716+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T17:22:55.4283097+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T17:22:59.7612887+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/healthchecks-api/ui-settings - -
+2021-10-20T17:22:59.7612886+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/healthchecks-api - -
+2021-10-20T17:22:59.7618437+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-api/ui-settings"'
+2021-10-20T17:22:59.7618453+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"HealthChecks UI Api"'
+2021-10-20T17:22:59.7619340+03:00 [DBG] (HealthChecks.UI.Middleware.UIApiEndpointMiddleware) Executing api middleware for client "::1", remaining slots: 2
+2021-10-20T17:22:59.7621297+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-api/ui-settings"'
+2021-10-20T17:22:59.7624519+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:22:59.7624883+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/healthchecks-api/ui-settings - - - 200 - application/json 1.2058ms
+2021-10-20T17:22:59.7632263+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"HealthChecks UI Api"'
+2021-10-20T17:22:59.7635761+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/healthchecks-api - - - 200 - application/json 2.2749ms
+2021-10-20T17:23:05.4378711+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T17:23:05.4388167+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:23:05.4393560+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) Start processing HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:23:05.4395662+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Sending HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:23:05.4440116+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/healthchecks-ui - -
+2021-10-20T17:23:05.4444305+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:23:05.4446656+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:23:05.4451351+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/healthchecks-ui - - - 200 - text/html 1.5977ms
+2021-10-20T17:23:05.4477161+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Received HTTP response headers after 8.1604ms - 200
+2021-10-20T17:23:05.4477979+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) End processing HTTP request after 8.5069ms - 200
+2021-10-20T17:23:05.4485312+03:00 [ERR] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) GetHealthReport threw an exception when trying to get report from https://localhost:44370/healthchecks-ui configured with name HealthCheckExample.
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at System.Net.Http.HttpResponseMessageExtensions.As[TContent](HttpResponseMessage response)
+   at HealthChecks.UI.Core.HostedService.HealthCheckReportCollector.GetHealthReport(HealthCheckConfiguration configuration)
+2021-10-20T17:23:05.4496423+03:00 [INF] (HealthChecks.UI.Core.Notifications.WebHookFailureNotifier) Notification is sent on same window time.
+2021-10-20T17:23:05.4496906+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector - health report execution history saved.
+2021-10-20T17:23:05.4499450+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReport history already exists and is in the same state, updating the values.
+2021-10-20T17:23:05.4500986+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:23:05.4501536+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T17:23:05.4501948+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T17:23:09.1136243+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/health - -
+2021-10-20T17:23:09.1141106+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Health checks"'
+2021-10-20T17:23:09.1547944+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Health checks"'
+2021-10-20T17:23:09.1549871+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/health - - - 200 - application/json 41.3625ms
+2021-10-20T17:23:09.7217086+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/health - -
+2021-10-20T17:23:09.7220428+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Health checks"'
+2021-10-20T17:23:09.7307326+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Health checks"'
+2021-10-20T17:23:09.7309174+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/health - - - 200 - application/json 9.2072ms
+2021-10-20T17:23:15.4596995+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T17:23:15.4601936+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:23:15.4604355+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) Start processing HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:23:15.4604977+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Sending HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:23:15.4619900+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/healthchecks-ui - -
+2021-10-20T17:23:15.4620952+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:23:15.4623227+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:23:15.4627881+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/healthchecks-ui - - - 200 - text/html 0.9015ms
+2021-10-20T17:23:15.4629987+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Received HTTP response headers after 2.4948ms - 200
+2021-10-20T17:23:15.4630596+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) End processing HTTP request after 2.6436ms - 200
+2021-10-20T17:23:15.4637963+03:00 [ERR] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) GetHealthReport threw an exception when trying to get report from https://localhost:44370/healthchecks-ui configured with name HealthCheckExample.
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at System.Net.Http.HttpResponseMessageExtensions.As[TContent](HttpResponseMessage response)
+   at HealthChecks.UI.Core.HostedService.HealthCheckReportCollector.GetHealthReport(HealthCheckConfiguration configuration)
+2021-10-20T17:23:15.4648030+03:00 [INF] (HealthChecks.UI.Core.Notifications.WebHookFailureNotifier) Notification is sent on same window time.
+2021-10-20T17:23:15.4648407+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector - health report execution history saved.
+2021-10-20T17:23:15.4650616+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReport history already exists and is in the same state, updating the values.
+2021-10-20T17:23:15.4651885+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:23:15.4652404+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T17:23:15.4652743+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T17:23:25.4898611+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T17:23:25.4901544+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:23:25.4903252+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) Start processing HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:23:25.4903832+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Sending HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:23:25.4914873+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/healthchecks-ui - -
+2021-10-20T17:23:25.4919081+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:23:25.4922461+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:23:25.4925974+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/healthchecks-ui - - - 200 - text/html 1.1068ms
+2021-10-20T17:23:25.4952233+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Received HTTP response headers after 4.8341ms - 200
+2021-10-20T17:23:25.4952940+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) End processing HTTP request after 4.9778ms - 200
+2021-10-20T17:23:25.4960476+03:00 [ERR] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) GetHealthReport threw an exception when trying to get report from https://localhost:44370/healthchecks-ui configured with name HealthCheckExample.
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at System.Net.Http.HttpResponseMessageExtensions.As[TContent](HttpResponseMessage response)
+   at HealthChecks.UI.Core.HostedService.HealthCheckReportCollector.GetHealthReport(HealthCheckConfiguration configuration)
+2021-10-20T17:23:25.4971210+03:00 [INF] (HealthChecks.UI.Core.Notifications.WebHookFailureNotifier) Notification is sent on same window time.
+2021-10-20T17:23:25.4971662+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector - health report execution history saved.
+2021-10-20T17:23:25.4974080+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReport history already exists and is in the same state, updating the values.
+2021-10-20T17:23:25.4975675+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:23:25.4976219+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T17:23:25.4976615+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T17:23:35.5195731+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T17:23:35.5199112+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T17:23:35.5200589+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) Start processing HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:23:35.5201009+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Sending HTTP request "GET" https://localhost:44370/healthchecks-ui
+2021-10-20T17:23:35.5221269+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/healthchecks-ui - -
+2021-10-20T17:23:35.5223992+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:23:35.5226720+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"/healthchecks-ui HTTP: GET"'
+2021-10-20T17:23:35.5230269+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/healthchecks-ui - - - 200 - text/html 0.8980ms
+2021-10-20T17:23:35.5232296+03:00 [INF] (System.Net.Http.HttpClient.health-checks.ClientHandler) Received HTTP response headers after 3.1164ms - 200
+2021-10-20T17:23:35.5232898+03:00 [INF] (System.Net.Http.HttpClient.health-checks.LogicalHandler) End processing HTTP request after 3.2427ms - 200
+2021-10-20T17:23:35.5240066+03:00 [ERR] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) GetHealthReport threw an exception when trying to get report from https://localhost:44370/healthchecks-ui configured with name HealthCheckExample.
+Newtonsoft.Json.JsonReaderException: Unexpected character encountered while parsing value: <. Path '', line 0, position 0.
+   at Newtonsoft.Json.JsonTextReader.ParseValue()
+   at Newtonsoft.Json.JsonReader.ReadAndMoveToContent()
+   at Newtonsoft.Json.JsonReader.ReadForType(JsonContract contract, Boolean hasConverter)
+   at Newtonsoft.Json.Serialization.JsonSerializerInternalReader.Deserialize(JsonReader reader, Type objectType, Boolean checkAdditionalContent)
+   at Newtonsoft.Json.JsonSerializer.DeserializeInternal(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonSerializer.Deserialize(JsonReader reader, Type objectType)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject(String value, Type type, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value, JsonSerializerSettings settings)
+   at Newtonsoft.Json.JsonConvert.DeserializeObject[T](String value)
+   at System.Net.Http.HttpResponseMessageExtensions.As[TContent](HttpResponseMessage response)
+   at HealthChecks.UI.Core.HostedService.HealthCheckReportCollector.GetHealthReport(HealthCheckConfiguration configuration)
+2021-10-20T17:23:35.5252192+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:23:35.5252804+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector - health report execution history saved.
+2021-10-20T17:23:35.5255150+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReport history already exists and is in the same state, updating the values.
+2021-10-20T17:23:35.5256281+03:00 [INF] (Microsoft.EntityFrameworkCore.Update) Saved 1 entities to in-memory store.
+2021-10-20T17:23:35.5256751+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T17:23:35.5257137+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T17:23:51.7559376+03:00 [INF] () Starting web host

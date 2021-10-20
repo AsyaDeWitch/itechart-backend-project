@@ -1,0 +1,2 @@
+2021-10-20T17:01:11.0797656+03:00 [INF] (Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager) User profile is available. Using '"C:\Users\A.Dzenisevich\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-10-20T17:04:18.5723659+03:00 [INF] () Starting web host

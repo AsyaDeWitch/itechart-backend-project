@@ -268,6 +268,46 @@ namespace DAL.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("RIL.Models.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AddressDeliveryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DeliveryType")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(1);
+
+                    b.Property<int>("TotalAmount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AddressDeliveryId");
+
+                    b.HasIndex("CreationDate");
+
+                    b.HasIndex("Status");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Orders");
+                });
+
             modelBuilder.Entity("RIL.Models.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -639,6 +679,26 @@ namespace DAL.Migrations
                         });
                 });
 
+            modelBuilder.Entity("RIL.Models.ProductOrder", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductAmount")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(1);
+
+                    b.HasKey("ProductId", "OrderId");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("ProductOrders");
+                });
+
             modelBuilder.Entity("RIL.Models.ProductRating", b =>
                 {
                     b.Property<int>("ProductId")
@@ -719,6 +779,42 @@ namespace DAL.Migrations
                     b.Navigation("AddressDelivery");
                 });
 
+            modelBuilder.Entity("RIL.Models.Order", b =>
+                {
+                    b.HasOne("RIL.Models.Address", "AddressDelivery")
+                        .WithMany()
+                        .HasForeignKey("AddressDeliveryId");
+
+                    b.HasOne("RIL.Models.ExtendedUser", "User")
+                        .WithMany("Orders")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AddressDelivery");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("RIL.Models.ProductOrder", b =>
+                {
+                    b.HasOne("RIL.Models.Order", "Order")
+                        .WithMany("ProductOrders")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RIL.Models.Product", "Product")
+                        .WithMany("ProductOrders")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Product");
+                });
+
             modelBuilder.Entity("RIL.Models.ProductRating", b =>
                 {
                     b.HasOne("RIL.Models.Product", "Product")
@@ -740,11 +836,20 @@ namespace DAL.Migrations
 
             modelBuilder.Entity("RIL.Models.ExtendedUser", b =>
                 {
+                    b.Navigation("Orders");
+
                     b.Navigation("Ratings");
+                });
+
+            modelBuilder.Entity("RIL.Models.Order", b =>
+                {
+                    b.Navigation("ProductOrders");
                 });
 
             modelBuilder.Entity("RIL.Models.Product", b =>
                 {
+                    b.Navigation("ProductOrders");
+
                     b.Navigation("Ratings");
                 });
 #pragma warning restore 612, 618

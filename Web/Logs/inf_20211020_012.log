@@ -1,0 +1,460 @@
+2021-10-20T15:29:05.6760753+03:00 [INF] (Microsoft.AspNetCore.DataProtection.KeyManagement.XmlKeyManager) User profile is available. Using '"C:\Users\A.Dzenisevich\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-10-20T15:29:05.7576063+03:00 [INF] (HealthChecks.UI.Core.HostedService.UIInitializationHostedService) Initializing UI Database
+2021-10-20T15:29:06.1518225+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:29:06.5228472+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:29:06.5292574+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/index.html - -
+2021-10-20T15:29:06.5368050+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:29:06.5700542+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:29:06.5704945+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:29:06.5721655+03:00 [INF] (Microsoft.Hosting.Lifetime) Application started. Press Ctrl+C to shut down.
+2021-10-20T15:29:06.5722722+03:00 [INF] (Microsoft.Hosting.Lifetime) Hosting environment: "Development"
+2021-10-20T15:29:06.5723407+03:00 [INF] (Microsoft.Hosting.Lifetime) Content root path: "D:\LabWebApp\Web"
+2021-10-20T15:29:06.6977323+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/index.html - - - 200 - text/html;charset=utf-8 170.0356ms
+2021-10-20T15:29:06.8157894+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/2 GET https://localhost:44370/swagger/v1/swagger.json - -
+2021-10-20T15:29:06.9366232+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/2 GET https://localhost:44370/swagger/v1/swagger.json - - - 200 - application/json;charset=utf-8 120.8073ms
+2021-10-20T15:29:09.1054159+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 POST https://localhost:44370/auth/sign-in application/json 71
+2021-10-20T15:29:09.1152188+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Web.Controllers.AuthController.SignInAsync (Web)"'
+2021-10-20T15:29:09.1334446+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Route matched with "{action = \"SignIn\", controller = \"Auth\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] SignInAsync(BLL.ViewModels.AuthViewModel)" on controller "Web.Controllers.AuthController" ("Web").
+2021-10-20T15:29:09.5544357+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2021-10-20T15:29:09.9176790+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("39"ms) [Parameters=["@__normalizedEmail_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(2) [a].[Id], [a].[AccessFailedCount], [a].[AddressDeliveryId], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[NormalizedEmail] = @__normalizedEmail_0"
+2021-10-20T15:29:10.0568765+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("3"ms) [Parameters=["@__user_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[Id], [a].[ClaimType], [a].[ClaimValue], [a].[UserId]
+FROM [AspNetUserClaims] AS [a]
+WHERE [a].[UserId] = @__user_Id_0"
+2021-10-20T15:29:10.0813116+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__userId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a0].[Name]
+FROM [AspNetUserRoles] AS [a]
+INNER JOIN [AspNetRoles] AS [a0] ON [a].[RoleId] = [a0].[Id]
+WHERE [a].[UserId] = @__userId_0"
+2021-10-20T15:29:10.0888780+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=["@__normalizedName_0='?' (Size = 256)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[ConcurrencyStamp], [a].[Name], [a].[NormalizedName]
+FROM [AspNetRoles] AS [a]
+WHERE [a].[NormalizedName] = @__normalizedName_0"
+2021-10-20T15:29:10.1036016+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=["@__role_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [a].[ClaimType], [a].[ClaimValue]
+FROM [AspNetRoleClaims] AS [a]
+WHERE [a].[RoleId] = @__role_Id_0"
+2021-10-20T15:29:10.1146667+03:00 [INF] (Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationHandler) AuthenticationScheme: "Identity.Application" signed in.
+2021-10-20T15:29:10.2127044+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor) Executing "OkObjectResult", writing value of type '"<>f__AnonymousType0`1[[System.String, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'.
+2021-10-20T15:29:10.2481266+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Executed action "Web.Controllers.AuthController.SignInAsync (Web)" in 1111.122ms
+2021-10-20T15:29:10.2486914+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Web.Controllers.AuthController.SignInAsync (Web)"'
+2021-10-20T15:29:10.2510636+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 POST https://localhost:44370/auth/sign-in application/json 71 - 200 261 application/json;+charset=utf-8 1145.6602ms
+2021-10-20T15:29:14.9603936+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/games/top-platforms - -
+2021-10-20T15:29:14.9617134+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Web.Controllers.GamesController.GetTopPlatforms (Web)"'
+2021-10-20T15:29:14.9639655+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Route matched with "{action = \"GetTopPlatforms\", controller = \"Games\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetTopPlatforms()" on controller "Web.Controllers.GamesController" ("Web").
+2021-10-20T15:29:14.9860698+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2021-10-20T15:29:15.0067529+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("6"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE ([p].[IsDeleted] <> CAST(1 AS bit)) AND ([p].[Platform] = @__i_0)"
+2021-10-20T15:29:15.0143106+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE ([p].[IsDeleted] <> CAST(1 AS bit)) AND ([p].[Platform] = @__i_0)"
+2021-10-20T15:29:15.0152615+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE ([p].[IsDeleted] <> CAST(1 AS bit)) AND ([p].[Platform] = @__i_0)"
+2021-10-20T15:29:15.0163897+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE ([p].[IsDeleted] <> CAST(1 AS bit)) AND ([p].[Platform] = @__i_0)"
+2021-10-20T15:29:15.0173493+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE ([p].[IsDeleted] <> CAST(1 AS bit)) AND ([p].[Platform] = @__i_0)"
+2021-10-20T15:29:15.0182847+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE ([p].[IsDeleted] <> CAST(1 AS bit)) AND ([p].[Platform] = @__i_0)"
+2021-10-20T15:29:15.0191075+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE ([p].[IsDeleted] <> CAST(1 AS bit)) AND ([p].[Platform] = @__i_0)"
+2021-10-20T15:29:15.0202917+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE ([p].[IsDeleted] <> CAST(1 AS bit)) AND ([p].[Platform] = @__i_0)"
+2021-10-20T15:29:15.0213818+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE ([p].[IsDeleted] <> CAST(1 AS bit)) AND ([p].[Platform] = @__i_0)"
+2021-10-20T15:29:15.0224224+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE ([p].[IsDeleted] <> CAST(1 AS bit)) AND ([p].[Platform] = @__i_0)"
+2021-10-20T15:29:15.0236371+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE ([p].[IsDeleted] <> CAST(1 AS bit)) AND ([p].[Platform] = @__i_0)"
+2021-10-20T15:29:15.0245038+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__i_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Products] AS [p]
+WHERE ([p].[IsDeleted] <> CAST(1 AS bit)) AND ([p].[Platform] = @__i_0)"
+2021-10-20T15:29:15.0271178+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor) Executing "OkObjectResult", writing value of type '"System.Collections.Generic.Dictionary`2[[System.String, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Int32, System.Private.CoreLib, Version=5.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]"'.
+2021-10-20T15:29:15.0324029+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Executed action "Web.Controllers.GamesController.GetTopPlatforms (Web)" in 68.3558ms
+2021-10-20T15:29:15.0324910+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Web.Controllers.GamesController.GetTopPlatforms (Web)"'
+2021-10-20T15:29:15.0327554+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/games/top-platforms - - - 200 42 application/json;+charset=utf-8 72.4218ms
+2021-10-20T15:29:16.5887371+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:29:16.6060815+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:29:16.6067387+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:29:16.6067934+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:29:26.6082003+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:29:26.6102436+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:29:26.6103694+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:29:26.6104080+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:29:33.2864913+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/games/list?sortingParameter=1 - -
+2021-10-20T15:29:33.2877048+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Web.Controllers.GamesController.GetProductListAsync (Web)"'
+2021-10-20T15:29:33.2917075+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Route matched with "{action = \"GetProductList\", controller = \"Games\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetProductListAsync(System.Nullable`1[System.Int32], Int32[], Int32[], System.Nullable`1[System.Int32], System.Nullable`1[System.Int32])" on controller "Web.Controllers.GamesController" ("Web").
+2021-10-20T15:29:33.3095915+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2021-10-20T15:29:33.3155737+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[Id], [p].[Background], [p].[Count], [p].[DateCreated], [p].[Genre], [p].[IsDeleted], [p].[Logo], [p].[Name], [p].[Platform], [p].[Price], [p].[Rating], [p].[TotalRating]
+FROM [Products] AS [p]
+WHERE [p].[IsDeleted] <> CAST(1 AS bit)"
+2021-10-20T15:29:33.3368072+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor) Executing "OkObjectResult", writing value of type '"RIL.Models.PaginatedList`1[[BLL.ViewModels.ReturnProductViewModel, BLL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+2021-10-20T15:29:33.3455746+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Executed action "Web.Controllers.GamesController.GetProductListAsync (Web)" in 53.7569ms
+2021-10-20T15:29:33.3456739+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Web.Controllers.GamesController.GetProductListAsync (Web)"'
+2021-10-20T15:29:33.3458654+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/games/list?sortingParameter=1 - - - 200 5852 application/json;+charset=utf-8 59.3743ms
+2021-10-20T15:29:36.6134984+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:29:36.6138865+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:29:36.6142170+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:29:36.6142731+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:29:46.6341124+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:29:46.6345931+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:29:46.6347505+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:29:46.6348075+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:29:56.6386554+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:29:56.6390569+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:29:56.6391829+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:29:56.6392261+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:30:06.6407740+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:30:06.6431829+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:30:06.6440300+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:30:06.6441005+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:30:16.6631241+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:30:16.6634717+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:30:16.6635818+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:30:16.6636159+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:30:26.6684758+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:30:26.6700726+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:30:26.6704826+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:30:26.6708436+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:30:36.6718767+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:30:36.6752260+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:30:36.6753387+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:30:36.6753780+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:30:39.6486748+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 POST https://localhost:44370/orders/ application/json 118
+2021-10-20T15:30:39.6529567+03:00 [INF] (Microsoft.AspNetCore.Authorization.DefaultAuthorizationService) Authorization was successful.
+2021-10-20T15:30:39.6540822+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Web.Controllers.OrdersController.CreateOrderAsync (Web)"'
+2021-10-20T15:30:39.6561151+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Route matched with "{action = \"CreateOrder\", controller = \"Orders\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateOrderAsync(BLL.ViewModels.ProductOrderViewModel[])" on controller "Web.Controllers.OrdersController" ("Web").
+2021-10-20T15:30:39.6567016+03:00 [INF] (Microsoft.AspNetCore.Authorization.DefaultAuthorizationService) Authorization was successful.
+2021-10-20T15:30:39.6682620+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2021-10-20T15:30:39.6820058+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("5"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]
+        WHERE [p].[Id] = @__id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END"
+2021-10-20T15:30:39.6895594+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [p].[Id], [p].[Background], [p].[Count], [p].[DateCreated], [p].[Genre], [p].[IsDeleted], [p].[Logo], [p].[Name], [p].[Platform], [p].[Price], [p].[Rating], [p].[TotalRating]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__id_0"
+2021-10-20T15:30:39.6912869+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]
+        WHERE [p].[Id] = @__id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END"
+2021-10-20T15:30:39.6924868+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [p].[Id], [p].[Background], [p].[Count], [p].[DateCreated], [p].[Genre], [p].[IsDeleted], [p].[Logo], [p].[Name], [p].[Platform], [p].[Price], [p].[Rating], [p].[TotalRating]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__id_0"
+2021-10-20T15:30:39.7361139+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[AddressDeliveryId], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0"
+2021-10-20T15:30:39.8631316+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("5"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = DateTime2), @p2='?' (DbType = Int32), @p3='?' (DbType = Int32), @p4='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Orders] ([AddressDeliveryId], [CreationDate], [DeliveryType], [TotalAmount], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4);
+SELECT [Id], [Status]
+FROM [Orders]
+WHERE @@ROWCOUNT = 1 AND [Id] = scope_identity();"
+2021-10-20T15:30:39.9120256+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("2"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [ProductOrders] ([OrderId], [ProductId], [ProductAmount])
+VALUES (@p0, @p1, @p2);"
+2021-10-20T15:30:39.9126268+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [ProductOrders] ([OrderId], [ProductId], [ProductAmount])
+VALUES (@p0, @p1, @p2);"
+2021-10-20T15:30:39.9181530+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("2"ms) [Parameters=["@__orderId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[ProductId], [p].[OrderId], [p].[ProductAmount]
+FROM [ProductOrders] AS [p]
+WHERE [p].[OrderId] = @__orderId_0"
+2021-10-20T15:30:39.9269142+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor) Executing "CreatedResult", writing value of type '"BLL.ViewModels.ReturnProductOrderViewModel"'.
+2021-10-20T15:30:39.9307017+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Executed action "Web.Controllers.OrdersController.CreateOrderAsync (Web)" in 274.4866ms
+2021-10-20T15:30:39.9307964+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Web.Controllers.OrdersController.CreateOrderAsync (Web)"'
+2021-10-20T15:30:39.9314017+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 POST https://localhost:44370/orders/ application/json 118 - 201 263 application/json;+charset=utf-8 282.7231ms
+2021-10-20T15:30:46.6859621+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:30:46.6870443+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:30:46.6874336+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:30:46.6876124+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:30:56.7010320+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:30:56.7026666+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:30:56.7030346+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:30:56.7031984+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:31:06.7156794+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:31:06.7162172+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:31:06.7165048+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:31:06.7165480+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:31:16.7292341+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:31:16.7302236+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:31:16.7305942+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:31:16.7307429+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:31:26.7324505+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:31:26.7328096+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:31:26.7329077+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:31:26.7329381+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:31:36.7391606+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:31:36.7394719+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:31:36.7395790+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:31:36.7396140+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:31:46.7441408+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:31:46.7444573+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:31:46.7445560+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:31:46.7445898+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:31:56.7470156+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:31:56.7479495+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:31:56.7483349+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:31:56.7484866+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:32:03.4343059+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 PUT https://localhost:44370/orders/?id=3 application/json 151
+2021-10-20T15:32:03.4348441+03:00 [INF] (Microsoft.AspNetCore.Authorization.DefaultAuthorizationService) Authorization was successful.
+2021-10-20T15:32:03.4351556+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Web.Controllers.OrdersController.UpdateOrderAsync (Web)"'
+2021-10-20T15:32:03.4401079+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Route matched with "{action = \"UpdateOrder\", controller = \"Orders\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateOrderAsync(Int32, BLL.ViewModels.OrderProductsViewModel)" on controller "Web.Controllers.OrdersController" ("Web").
+2021-10-20T15:32:03.4402910+03:00 [INF] (Microsoft.AspNetCore.Authorization.DefaultAuthorizationService) Authorization was successful.
+2021-10-20T15:32:03.4494598+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2021-10-20T15:32:03.4504077+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [Products] AS [p]
+        WHERE [p].[Id] = @__id_0) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END"
+2021-10-20T15:32:03.4525182+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [p].[Id], [p].[Background], [p].[Count], [p].[DateCreated], [p].[Genre], [p].[IsDeleted], [p].[Logo], [p].[Name], [p].[Platform], [p].[Price], [p].[Rating], [p].[TotalRating]
+FROM [Products] AS [p]
+WHERE [p].[Id] = @__id_0"
+2021-10-20T15:32:03.4597660+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[AddressDeliveryId], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0"
+2021-10-20T15:32:03.4738531+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=["@__newOrder_Id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [o].[Id], [o].[AddressDeliveryId], [o].[CreationDate], [o].[DeliveryType], [o].[Status], [o].[TotalAmount], [o].[UserId]
+FROM [Orders] AS [o]
+WHERE ([o].[Id] = @__newOrder_Id_0) AND ([o].[Status] = 1)"
+2021-10-20T15:32:03.4791691+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=["@__8__locals1_orderId_0='?' (DbType = Int32), @__newProduct_ProductId_1='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [p].[ProductId], [p].[OrderId], [p].[ProductAmount]
+FROM [ProductOrders] AS [p]
+WHERE ([p].[OrderId] = @__8__locals1_orderId_0) AND ([p].[ProductId] = @__newProduct_ProductId_1)"
+2021-10-20T15:32:03.4803373+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@p0='?' (DbType = Int32), @p1='?' (DbType = Int32), @p2='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [ProductOrders] ([OrderId], [ProductId], [ProductAmount])
+VALUES (@p0, @p1, @p2);"
+2021-10-20T15:32:03.4876179+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("0"ms) [Parameters=["@__orderId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [p].[ProductId], [p].[OrderId], [p].[ProductAmount]
+FROM [ProductOrders] AS [p]
+WHERE [p].[OrderId] = @__orderId_0"
+2021-10-20T15:32:03.4933638+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [o].[Id], [o].[AddressDeliveryId], [o].[CreationDate], [o].[DeliveryType], [o].[Status], [o].[TotalAmount], [o].[UserId]
+FROM [Orders] AS [o]
+WHERE ([o].[Id] = @__id_0) AND ([o].[Status] = 1)"
+2021-10-20T15:32:03.4976994+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=["@p1='?' (DbType = Int32), @p0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+UPDATE [Orders] SET [TotalAmount] = @p0
+WHERE [Id] = @p1;
+SELECT @@ROWCOUNT;"
+2021-10-20T15:32:03.4997492+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor) Executing "OkObjectResult", writing value of type '"BLL.ViewModels.ReturnProductOrderViewModel"'.
+2021-10-20T15:32:03.5001268+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Executed action "Web.Controllers.OrdersController.UpdateOrderAsync (Web)" in 59.9226ms
+2021-10-20T15:32:03.5001959+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Web.Controllers.OrdersController.UpdateOrderAsync (Web)"'
+2021-10-20T15:32:03.5003636+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 PUT https://localhost:44370/orders/?id=3 application/json 151 - 200 292 application/json;+charset=utf-8 66.0598ms
+2021-10-20T15:32:06.7647148+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:32:06.7652390+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:32:06.7653782+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:32:06.7654110+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:32:16.7763062+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:32:16.7773479+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:32:16.7777159+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:32:16.7778945+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:32:24.4373695+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 POST https://localhost:44370/orders/buy/?id=1 - 0
+2021-10-20T15:32:24.4385307+03:00 [INF] (Microsoft.AspNetCore.Authorization.DefaultAuthorizationService) Authorization was successful.
+2021-10-20T15:32:24.4386347+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Web.Controllers.OrdersController.BuyOrderAsync (Web)"'
+2021-10-20T15:32:24.4407007+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Route matched with "{action = \"BuyOrder\", controller = \"Orders\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] BuyOrderAsync(Int32)" on controller "Web.Controllers.OrdersController" ("Web").
+2021-10-20T15:32:24.4408348+03:00 [INF] (Microsoft.AspNetCore.Authorization.DefaultAuthorizationService) Authorization was successful.
+2021-10-20T15:32:24.4472874+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2021-10-20T15:32:24.4514486+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=["@__id_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [o].[Id], [o].[AddressDeliveryId], [o].[CreationDate], [o].[DeliveryType], [o].[Status], [o].[TotalAmount], [o].[UserId]
+FROM [Orders] AS [o]
+WHERE [o].[Id] = @__id_0"
+2021-10-20T15:32:24.4570938+03:00 [INF] (Microsoft.AspNetCore.Mvc.StatusCodeResult) Executing HttpStatusCodeResult, setting HTTP status code 204
+2021-10-20T15:32:24.4572071+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Executed action "Web.Controllers.OrdersController.BuyOrderAsync (Web)" in 16.4315ms
+2021-10-20T15:32:24.4572629+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Web.Controllers.OrdersController.BuyOrderAsync (Web)"'
+2021-10-20T15:32:24.4579679+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 POST https://localhost:44370/orders/buy/?id=1 - 0 - 204 - - 20.6060ms
+2021-10-20T15:32:26.7993952+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:32:26.7999125+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:32:26.8000242+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:32:26.8000613+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:32:31.3253082+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/orders/list - -
+2021-10-20T15:32:31.3284520+03:00 [INF] (Microsoft.AspNetCore.Authorization.DefaultAuthorizationService) Authorization was successful.
+2021-10-20T15:32:31.3285452+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Web.Controllers.OrdersController.GetOrdersListAsync (Web)"'
+2021-10-20T15:32:31.3302729+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Route matched with "{action = \"GetOrdersList\", controller = \"Orders\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetOrdersListAsync()" on controller "Web.Controllers.OrdersController" ("Web").
+2021-10-20T15:32:31.3303840+03:00 [INF] (Microsoft.AspNetCore.Authorization.DefaultAuthorizationService) Authorization was successful.
+2021-10-20T15:32:31.3328542+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2021-10-20T15:32:31.3363467+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=["@__userId_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [o].[Id], [o].[AddressDeliveryId], [o].[CreationDate], [o].[DeliveryType], [o].[Status], [o].[TotalAmount], [o].[UserId]
+FROM [Orders] AS [o]
+WHERE [o].[UserId] = @__userId_0"
+2021-10-20T15:32:31.3391207+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor) Executing "OkObjectResult", writing value of type '"System.Collections.Generic.List`1[[BLL.ViewModels.ReturnOrderViewModel, BLL, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]"'.
+2021-10-20T15:32:31.3405654+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Executed action "Web.Controllers.OrdersController.GetOrdersListAsync (Web)" in 10.2214ms
+2021-10-20T15:32:31.3406442+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Web.Controllers.OrdersController.GetOrdersListAsync (Web)"'
+2021-10-20T15:32:31.3408969+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/orders/list - - - 200 136 application/json;+charset=utf-8 15.7257ms
+2021-10-20T15:32:36.8062730+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:32:36.8065846+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:32:36.8066877+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:32:36.8067221+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:32:38.5562735+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 GET https://localhost:44370/user - -
+2021-10-20T15:32:38.5567564+03:00 [INF] (Microsoft.AspNetCore.Authorization.DefaultAuthorizationService) Authorization was successful.
+2021-10-20T15:32:38.5568221+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Web.Controllers.UserController.GetUserProfileAsync (Web)"'
+2021-10-20T15:32:38.5587218+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Route matched with "{action = \"GetUserProfile\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetUserProfileAsync()" on controller "Web.Controllers.UserController" ("Web").
+2021-10-20T15:32:38.5588321+03:00 [INF] (Microsoft.AspNetCore.Authorization.DefaultAuthorizationService) Authorization was successful.
+2021-10-20T15:32:38.5609644+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2021-10-20T15:32:38.5622328+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[AddressDeliveryId], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0"
+2021-10-20T15:32:38.5649927+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor) Executing "OkObjectResult", writing value of type '"BLL.ViewModels.ReturnUserProfileViewModel"'.
+2021-10-20T15:32:38.5665815+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Executed action "Web.Controllers.UserController.GetUserProfileAsync (Web)" in 7.7846ms
+2021-10-20T15:32:38.5666477+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Web.Controllers.UserController.GetUserProfileAsync (Web)"'
+2021-10-20T15:32:38.5668101+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 GET https://localhost:44370/user - - - 200 68 application/json;+charset=utf-8 10.5310ms
+2021-10-20T15:32:46.8223610+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:32:46.8227647+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:32:46.8229070+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:32:46.8229580+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:32:56.8401248+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:32:56.8404978+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:32:56.8406208+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:32:56.8406519+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:33:06.8427392+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:33:06.8431703+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:33:06.8432787+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:33:06.8433127+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:33:16.8562459+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:33:16.8572755+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:33:16.8576452+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:33:16.8577907+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:33:26.8677664+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:33:26.8687264+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:33:26.8691012+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:33:26.8692465+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:33:36.1006046+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 PUT https://localhost:44370/user application/json 303
+2021-10-20T15:33:36.1011001+03:00 [INF] (Microsoft.AspNetCore.Authorization.DefaultAuthorizationService) Authorization was successful.
+2021-10-20T15:33:36.1011714+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Web.Controllers.UserController.UpdateUserProfileAsync (Web)"'
+2021-10-20T15:33:36.1031696+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Route matched with "{action = \"UpdateUserProfile\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUserProfileAsync(BLL.ViewModels.UserProfileViewModel)" on controller "Web.Controllers.UserController" ("Web").
+2021-10-20T15:33:36.1032805+03:00 [INF] (Microsoft.AspNetCore.Authorization.DefaultAuthorizationService) Authorization was successful.
+2021-10-20T15:33:36.1112115+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2021-10-20T15:33:36.1152442+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[AddressDeliveryId], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0"
+2021-10-20T15:33:36.1297318+03:00 [WRN] (Microsoft.AspNetCore.Identity.UserManager) User validation failed: "InvalidUserName".
+2021-10-20T15:33:36.1300872+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor) Executing "BadRequestObjectResult", writing value of type '"System.String"'.
+2021-10-20T15:33:36.1305047+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Executed action "Web.Controllers.UserController.UpdateUserProfileAsync (Web)" in 27.252ms
+2021-10-20T15:33:36.1305778+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Web.Controllers.UserController.UpdateUserProfileAsync (Web)"'
+2021-10-20T15:33:36.1310028+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 PUT https://localhost:44370/user application/json 303 - 400 - text/plain;+charset=utf-8 30.4198ms
+2021-10-20T15:33:36.8888736+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:33:36.8899517+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:33:36.8903134+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:33:36.8904857+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:33:46.3316640+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 PUT https://localhost:44370/user application/json 303
+2021-10-20T15:33:46.3321347+03:00 [INF] (Microsoft.AspNetCore.Authorization.DefaultAuthorizationService) Authorization was successful.
+2021-10-20T15:33:46.3321970+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Web.Controllers.UserController.UpdateUserProfileAsync (Web)"'
+2021-10-20T15:33:46.3323484+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Route matched with "{action = \"UpdateUserProfile\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUserProfileAsync(BLL.ViewModels.UserProfileViewModel)" on controller "Web.Controllers.UserController" ("Web").
+2021-10-20T15:33:46.3324466+03:00 [INF] (Microsoft.AspNetCore.Authorization.DefaultAuthorizationService) Authorization was successful.
+2021-10-20T15:33:46.3334141+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2021-10-20T15:33:46.3348381+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[AddressDeliveryId], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0"
+2021-10-20T15:33:46.3367949+03:00 [WRN] (Microsoft.AspNetCore.Identity.UserManager) User validation failed: "InvalidUserName".
+2021-10-20T15:33:46.3372381+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ObjectResultExecutor) Executing "BadRequestObjectResult", writing value of type '"System.String"'.
+2021-10-20T15:33:46.3380400+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Executed action "Web.Controllers.UserController.UpdateUserProfileAsync (Web)" in 5.6297ms
+2021-10-20T15:33:46.3382431+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executed endpoint '"Web.Controllers.UserController.UpdateUserProfileAsync (Web)"'
+2021-10-20T15:33:46.3384441+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request finished HTTP/1.1 PUT https://localhost:44370/user application/json 303 - 400 - text/plain;+charset=utf-8 6.7886ms
+2021-10-20T15:33:46.9023535+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:33:46.9028597+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:33:46.9030463+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:33:46.9031220+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:33:56.9116626+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:33:56.9125062+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:33:56.9129449+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:33:56.9131197+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:34:06.9138335+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:34:06.9141242+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:34:06.9142360+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:34:06.9142685+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:34:16.9186335+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:34:16.9189655+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:34:16.9190979+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:34:16.9191601+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:34:17.0062694+03:00 [INF] (Microsoft.AspNetCore.Hosting.Diagnostics) Request starting HTTP/1.1 PUT https://localhost:44370/user application/json 303
+2021-10-20T15:34:17.0067198+03:00 [INF] (Microsoft.AspNetCore.Authorization.DefaultAuthorizationService) Authorization was successful.
+2021-10-20T15:34:17.0067865+03:00 [INF] (Microsoft.AspNetCore.Routing.EndpointMiddleware) Executing endpoint '"Web.Controllers.UserController.UpdateUserProfileAsync (Web)"'
+2021-10-20T15:34:17.0068813+03:00 [INF] (Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker) Route matched with "{action = \"UpdateUserProfile\", controller = \"User\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] UpdateUserProfileAsync(BLL.ViewModels.UserProfileViewModel)" on controller "Web.Controllers.UserController" ("Web").
+2021-10-20T15:34:17.0069616+03:00 [INF] (Microsoft.AspNetCore.Authorization.DefaultAuthorizationService) Authorization was successful.
+2021-10-20T15:34:27.2663230+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:34:27.2672336+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:34:27.2682360+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:34:27.2683130+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:34:37.9234473+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:34:37.9253156+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:34:37.9278455+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:34:37.9278908+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:34:43.5605377+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"ApplicationDbContext"' using provider '"Microsoft.EntityFrameworkCore.SqlServer"' with options: "None"
+2021-10-20T15:34:43.5621102+03:00 [INF] (Microsoft.EntityFrameworkCore.Database.Command) Executed DbCommand ("1"ms) [Parameters=["@__p_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [a].[Id], [a].[AccessFailedCount], [a].[AddressDeliveryId], [a].[ConcurrencyStamp], [a].[Email], [a].[EmailConfirmed], [a].[LockoutEnabled], [a].[LockoutEnd], [a].[NormalizedEmail], [a].[NormalizedUserName], [a].[PasswordHash], [a].[PhoneNumber], [a].[PhoneNumberConfirmed], [a].[SecurityStamp], [a].[TwoFactorEnabled], [a].[UserName]
+FROM [AspNetUsers] AS [a]
+WHERE [a].[Id] = @__p_0"
+2021-10-20T15:35:00.3038140+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:35:00.3061487+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:35:00.3062675+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:35:00.3062994+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:35:11.2116578+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:35:11.2244075+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:35:22.7257319+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:35:22.7292010+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:35:33.7088306+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:35:33.7101852+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:35:33.7103272+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:35:33.7103952+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:35:44.2423762+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:35:44.2542230+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:35:44.2544188+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:35:44.2551042+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:35:54.4243330+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:35:54.4258896+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:35:54.4259997+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:35:54.4260319+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:36:02.3687561+03:00 [WRN] (Microsoft.AspNetCore.Identity.UserManager) User validation failed: "InvalidUserName".
+2021-10-20T15:36:12.6206377+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) Executing HealthCheck collector HostedService.
+2021-10-20T15:36:12.6315167+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
+2021-10-20T15:36:12.6325305+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
+2021-10-20T15:36:12.6325841+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T15:37:46.0424881+03:00 [INF] () Starting web host

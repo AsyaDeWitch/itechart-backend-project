@@ -13,9 +13,6 @@ using Microsoft.OpenApi.Models;
 using System.Reflection;
 using System.Linq;
 using System;
-using System.Net.Http;
-using DIL.HealthChecks;
-using HealthChecks.UI.Client;
 
 namespace Web
 {
@@ -73,25 +70,7 @@ namespace Web
                 });
 
             // Register required services for health checks
-            services.AddHealthChecks()
-                .AddCheck(
-                    "DbConnection-check",
-                    new SqlConnectionHealthCheck(Configuration["ConnectionStrings:DefaultConnection"]),
-                    HealthStatus.Unhealthy,
-                    new string[] {"dbconnection"});
-                //.AddSqlServer(Configuration["ConnectionStrings:DefaultConnection"], failureStatus: HealthStatus.Unhealthy);
-
-            services.AddHealthChecksUI(setup => 
-            {
-                setup.UseApiEndpointHttpMessageHandler(sp =>
-                {
-                    return new HttpClientHandler
-                    {
-                        ClientCertificateOptions = ClientCertificateOption.Manual,
-                        ServerCertificateCustomValidationCallback = (httpRequestMessage, cert, cetChain, policyErrors) => { return true; }
-                    };
-                });
-            })
+            services.AddHealthChecksUI()
                 .AddInMemoryStorage();
         }
 
@@ -137,19 +116,17 @@ namespace Web
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+                endpoints.MapHealthChecksUI();
                 endpoints.MapHealthChecks("/health", new HealthCheckOptions()
                 {
                     AllowCachingResponses = false,
                     ResultStatusCodes =
                     {
                         [HealthStatus.Healthy] = StatusCodes.Status200OK,
-                        [HealthStatus.Degraded] = StatusCodes.Status500InternalServerError,
+                        [HealthStatus.Degraded] = StatusCodes.Status200OK,
                         [HealthStatus.Unhealthy] = StatusCodes.Status503ServiceUnavailable
-                    },
-                    Predicate = _ => true,
-                    ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+                    }
                 });
-                endpoints.MapHealthChecksUI(config => config.UIPath = "/healthchecks-ui");
             });
 
             // Enable middleware to serve generated Swagger as a JSON endpoint.
@@ -162,7 +139,7 @@ namespace Web
                 c.RoutePrefix = string.Empty;
             });
 
-            //app.UseHealthChecksUI(config => config.UIPath = "/healthchecks-ui");
+            app.UseHealthChecksUI(config => config.UIPath = "/healthchecks-ui");
         }
     }
 }

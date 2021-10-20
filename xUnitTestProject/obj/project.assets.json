@@ -37,22 +37,6 @@
           "Microsoft.AspNetCore.App"
         ]
       },
-      "AspNetCore.HealthChecks.UI.Client/5.0.1": {
-        "type": "package",
-        "dependencies": {
-          "AspNetCore.HealthChecks.UI.Core": "5.0.1",
-          "Microsoft.Extensions.Diagnostics.HealthChecks": "5.0.1"
-        },
-        "compile": {
-          "lib/net5.0/HealthChecks.UI.Client.dll": {}
-        },
-        "runtime": {
-          "lib/net5.0/HealthChecks.UI.Client.dll": {}
-        },
-        "frameworkReferences": [
-          "Microsoft.AspNetCore.App"
-        ]
-      },
       "AspNetCore.HealthChecks.UI.Core/5.0.1": {
         "type": "package",
         "dependencies": {
@@ -3041,7 +3025,6 @@
         "dependencies": {
           "AspNetCore.HealthChecks.SqlServer": "5.0.3",
           "AspNetCore.HealthChecks.UI": "5.0.1",
-          "AspNetCore.HealthChecks.UI.Client": "5.0.1",
           "AspNetCore.HealthChecks.UI.InMemory.Storage": "5.0.1",
           "BLL": "1.0.0",
           "DIL": "1.0.0",
@@ -3088,18 +3071,6 @@
         "aspnetcore.healthchecks.ui.nuspec",
         "lib/net5.0/HealthChecks.UI.dll",
         "lib/net5.0/HealthChecks.UI.runtimeconfig.json"
-      ]
-    },
-    "AspNetCore.HealthChecks.UI.Client/5.0.1": {
-      "sha512": "bmxam2fOFphbF3NgvSwZAEX7YSGhy8ngIb0WBwR6aI4w5wyXJNftMuI+60bKE4u+/5oEtnVes7YvPuK6Jzpwxw==",
-      "type": "package",
-      "path": "aspnetcore.healthchecks.ui.client/5.0.1",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "aspnetcore.healthchecks.ui.client.5.0.1.nupkg.sha512",
-        "aspnetcore.healthchecks.ui.client.nuspec",
-        "lib/net5.0/HealthChecks.UI.Client.dll"
       ]
     },
     "AspNetCore.HealthChecks.UI.Core/5.0.1": {

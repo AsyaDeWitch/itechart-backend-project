@@ -507,3 +507,4 @@ WHERE [o].[UserId] = @__userId_0"
 2021-10-20T16:06:10.1951967+03:00 [INF] (Microsoft.EntityFrameworkCore.Infrastructure) Entity Framework Core "5.0.10" initialized '"HealthChecksDb"' using provider '"Microsoft.EntityFrameworkCore.InMemory"' with options: "StoreName=HealthChecksUI "
 2021-10-20T16:06:10.1953054+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckReportCollector) HealthReportCollector has completed.
 2021-10-20T16:06:10.1953370+03:00 [DBG] (HealthChecks.UI.Core.HostedService.HealthCheckCollectorHostedService) HealthCheck collector HostedService executed successfully.
+2021-10-20T17:48:54.4501862+03:00 [INF] () Starting web host

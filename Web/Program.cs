@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
@@ -24,7 +25,8 @@ namespace Web
                 .CreateLogger();
             try
             {
-                Log.Information("Strating web host");
+                Log.Information("Starting web host");
+                //CreateWebHostBuilder(args).Build().Run();
                 CreateHostBuilder(args).Build().Run();
             }
             catch (Exception ex)
@@ -35,7 +37,6 @@ namespace Web
             {
                 Log.CloseAndFlush();
             }
-            
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -47,5 +48,13 @@ namespace Web
                 {
                     webBuilder.UseStartup<Startup>();
                 });
+
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+            .UseSerilog((hostingContext, loggerConfig) =>
+                    loggerConfig.ReadFrom.Configuration(hostingContext.Configuration)
+                )
+            .UseUrls("http://*:5000;http://localhost:5001;https://game-store.com:5002")
+            .UseStartup<Startup>();
     }
 }

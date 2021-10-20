@@ -8,36 +8,36 @@ namespace RIL.Models
         Windows,
 
         [Description("MacOS")]
-        MacOS,
+        MacOs,
 
         [Description("Linux")]
         Linux,
 
         [Description("Xbox 360")]
-        Xbox_360,
+        Xbox360,
 
         [Description("Xbox One")]
-        Xbox_One,
+        XboxOne,
 
         [Description("Xbox Series X/S")]
-        Xbox_Series_XS,
+        XboxSeriesXs,
 
         [Description("Playstation 3")]
-        Playstation_3,
+        Playstation3,
 
         [Description("Playstation 4")]
-        Playstation_4,
+        Playstation4,
 
         [Description("Playstation 5")]
-        Playstation_5,
+        Playstation5,
 
         [Description("Nintendo Switch")]
-        Nintendo_Switch,
+        NintendoSwitch,
 
         [Description("Android")]
         Android,
 
         [Description("iOS")]
-        iOS,
+        IOs,
     }
 }

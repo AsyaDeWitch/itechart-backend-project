@@ -25,18 +25,16 @@ namespace Web
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //appsettings.json parameters validation
             services.ConfigureAndValidate<JwtSettings>(Configuration);
 
+            //Register application dependencies
             ServicesSettings.InjectDependencies(services, Configuration);
             services.AddDatabaseDeveloperPageExceptionFilter();
 
+            //Register AutoMapper
             services.AddAutoMapper(typeof(Startup).Assembly);
-
-            //services.AddResponseCompression();
 
             //Register required services for health checks
             services.AddHealthChecks()
@@ -76,18 +74,17 @@ namespace Web
                 .AddInMemoryStorage();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
             {
+                //Captures synchronous and asynchronous Exception instances from the pipeline and generates HTML error responses.
                 app.UseDeveloperExceptionPage();
                 app.UseMigrationsEndPoint();
             }
             else
             {
                 app.UseExceptionHandler("/Error");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
 
@@ -114,7 +111,7 @@ namespace Web
             app.UseAuthentication();
             app.UseAuthorization();
 
-            //app.UseResponseCompression();
+            app.UseResponseCompression();
 
             app.UseEndpoints(endpoints =>
             {

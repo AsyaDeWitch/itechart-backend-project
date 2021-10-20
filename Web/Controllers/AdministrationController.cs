@@ -21,7 +21,7 @@ namespace Web.Controllers
         }
 
         /// <summary>
-        /// Performes role creation
+        /// Performs role creation
         /// </summary>
         /// <param name="roleName">Name of new role</param>
         /// <response code="201">Role created successfully</response>
@@ -41,7 +41,7 @@ namespace Web.Controllers
         }
 
         /// <summary>
-        /// Performes role deletion
+        /// Performs role deletion
         /// </summary>
         /// <param name="roleName">Name of role need to delete</param>
         /// <response code="204">Role deleted successfully</response>
@@ -61,7 +61,7 @@ namespace Web.Controllers
         }
 
         /// <summary>
-        /// Performs role updatition
+        /// Performs role renewal
         /// </summary>
         /// <param name="userPatch">User old and new roles</param>
         /// <response code="204">Role updated successfully</response>
@@ -70,9 +70,11 @@ namespace Web.Controllers
         [Route("update-role")]
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
-        public async Task<IActionResult> UpdateRoleAsync([FromBody] JsonPatchDocument<PatchUserRoleViewModel> userPatch)
+        public async Task<IActionResult> UpdateUserRoleAsync([FromBody] JsonPatchDocument<PatchUserRoleViewModel> userPatch)
         {
-            var result = await _administrationService.UpdateRoleAsync(userPatch);
+            var updatedRole = new PatchUserRoleViewModel();
+            userPatch.ApplyTo(updatedRole);
+            var result = await _administrationService.UpdateRoleAsync(updatedRole);
             if (result.Succeeded)
             {
                 return NoContent();
@@ -81,7 +83,7 @@ namespace Web.Controllers
         }
 
         /// <summary>
-        /// Performes user deletion by email
+        /// Performs user deletion by email
         /// </summary>
         /// <param name="email">Email of user need to delete</param>
         /// /// <response code="204">User deleted successfully</response>
@@ -121,7 +123,7 @@ namespace Web.Controllers
         }
 
         /// <summary>
-        /// Performes assigning role to user
+        /// Performs assigning role to user
         /// </summary>
         /// <response code="204">Role assigned to user successfully</response>
         /// <response code="400">Incorrect role name or user email</response>

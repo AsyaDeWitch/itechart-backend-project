@@ -8,7 +8,7 @@ namespace BLL.Interfaces
     {
         public Task<(ExtendedUser, string)> SignInUserAsync(string email, string password, string issuer, string audience, string key);
         public Task<ExtendedUser> SignUpUserAsync(string email, string password);
-        public Task<string> GenerateComfirmationLinkAsync(ExtendedUser user);
+        public Task<string> GenerateConfirmationLinkAsync(ExtendedUser user);
         public Task SendConfirmationLinkAsync(string userId, string confirmationLink);
         public Task<IdentityResult> ConfirmEmailAsync(string userId, string token);
     }

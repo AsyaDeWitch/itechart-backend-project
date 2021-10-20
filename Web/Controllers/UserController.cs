@@ -13,10 +13,14 @@ namespace Web.Controllers
     public class UserController : Controller
     {
         private readonly IUserService _userService;
+        private readonly IMemoryCacher _memoryCacher;
+        private readonly IConverter _converter;
 
-        public UserController(IUserService userService)
+        public UserController(IUserService userService, IMemoryCacher memoryCacher, IConverter converter)
         {
             _userService = userService;
+            _memoryCacher = memoryCacher;
+            _converter = converter;
         }
 
         /// <summary>
@@ -31,14 +35,15 @@ namespace Web.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         public async Task<IActionResult> UpdateUserProfileAsync([FromBody] UserProfileViewModel user)
         {
-            string token = HttpContext.Request.Cookies["JwtToken"];
+            var token = HttpContext.Request.Cookies["JwtToken"];
             var userId = _userService.GetUserId(token);
             var updatedUser = await _userService.UpdateUserProfileAsync(user, userId);
-            if (updatedUser != null)
+            if (updatedUser == null)
             {
-                return Ok(updatedUser);
+                return BadRequest("Invalid phone number");
             }
-            return BadRequest("Invalid phone number");
+            _memoryCacher.Remove(userId);
+            return Ok(updatedUser);
         }
 
         /// <summary>
@@ -53,9 +58,13 @@ namespace Web.Controllers
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(string))]
         public async Task<IActionResult> UpdateUserPasswordAsync([FromBody]JsonPatchDocument<PatchUserPasswordViewModel> userPatch)
         {
-            string token = HttpContext.Request.Cookies["JwtToken"];
+            var token = HttpContext.Request.Cookies["JwtToken"];
             var userId = _userService.GetUserId(token);
-            var result = await _userService.UpdateUserPasswordAsync(userPatch, userId);
+            _memoryCacher.Remove(userId);
+
+            var updatedUser = _converter.User.ApplyTo(userPatch);
+
+            var result = await _userService.UpdateUserPasswordAsync(updatedUser, userId);
             if (result.Succeeded)
             {
                 return NoContent();
@@ -72,9 +81,19 @@ namespace Web.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ReturnUserProfileViewModel))]
         public async Task<IActionResult> GetUserProfileAsync()
         {
-            string token = HttpContext.Request.Cookies["JwtToken"];
+            var token = HttpContext.Request.Cookies["JwtToken"];
             var userId = _userService.GetUserId(token);
-            var user = await _userService.GetUserProfileAsync(userId);
+
+            if (_memoryCacher.TryGetValue(userId, out var user))
+            {
+                return Ok(user);
+            }
+
+            user = await _userService.GetUserProfileAsync(userId);
+            if(user != null)
+            {
+                _memoryCacher.Set(userId, user);
+            }
             return Ok(user);
         }
     }

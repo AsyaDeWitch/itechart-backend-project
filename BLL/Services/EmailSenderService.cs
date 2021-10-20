@@ -11,7 +11,8 @@ namespace BLL.Services
         private readonly string _fromEmail = "itechartlabtester@gmail.com";
         private readonly string _fromPassword = "AV9Laaqpq9N5PZH1HemL";
         private readonly string _smtpClient = "smtp.gmail.com";
-        private readonly int _port = 465;
+        private readonly int _portMailKit = 465;
+        private readonly int _portNetMail = 587;
         private readonly string _subject = "Email confirmation";
 
         public async Task SendEmailByNetMailAsync(string email, string htmlMessage)
@@ -23,15 +24,14 @@ namespace BLL.Services
             message.Body = GetHtmlBody(htmlMessage);
             message.IsBodyHtml = true;
 
-            using (var smtpClient = new SmtpClient(_smtpClient)
+            using var smtpClient = new SmtpClient(_smtpClient)
             {
-                Port = _port,
+                Port = _portNetMail,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
                 Credentials = new NetworkCredential(_fromEmail, _fromPassword),
                 EnableSsl = true,
-            })
-            {
-                await smtpClient.SendMailAsync(message);
             };
+            await smtpClient.SendMailAsync(message);
         }
 
         public async Task SendEmailByMailKitAsync(string email, string htmlMessage)
@@ -46,14 +46,12 @@ namespace BLL.Services
             }
             .ToMessageBody();
 
-            using (var smtpClient = new MailKit.Net.Smtp.SmtpClient())
-            {
-                await smtpClient.ConnectAsync(_smtpClient, _port, true);
-                await smtpClient.AuthenticateAsync(_fromEmail, _fromPassword);
-                await smtpClient.SendAsync(message);
+            using var smtpClient = new MailKit.Net.Smtp.SmtpClient();
+            await smtpClient.ConnectAsync(_smtpClient, _portMailKit, true);
+            await smtpClient.AuthenticateAsync(_fromEmail, _fromPassword);
+            await smtpClient.SendAsync(message);
 
-                await smtpClient.DisconnectAsync(true);
-            }
+            await smtpClient.DisconnectAsync(true);
         }
 
         private static string GetHtmlBody(string message)

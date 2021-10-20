@@ -16,6 +16,7 @@ namespace Web.Controllers
     {
         private readonly IGamesService _gamesService;
         private readonly IUserService _userService;
+        private const int TopPlatformsAmount = 3;
 
         public GamesController(IGamesService gamesService, IUserService userService)
         {
@@ -34,7 +35,7 @@ namespace Web.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Dictionary<string, int>))]
         public async Task<IActionResult> GetTopPlatforms()
         {
-            Dictionary<string, int> topPlatformsInfo = await _gamesService.GetTopPlatformsAsync(3);
+            var topPlatformsInfo = await _gamesService.GetTopPlatformsAsync(TopPlatformsAmount);
 
             return Ok(topPlatformsInfo);
         }
@@ -46,8 +47,8 @@ namespace Web.Controllers
         /// <param name="limit">Count of games need to receive</param>
         /// <param name="offset">Minimum game score on a 10-point scale</param>
         /// <param name="name">Game name or part of the game name</param>
-        /// <response code="200">Games mathes search term returned</response>
-        /// <returns>Games mathes search term</returns>
+        /// <response code="200">Games matches search term returned</response>
+        /// <returns>Games matches search term</returns>
         [HttpGet]
         [AllowAnonymous]
         [Route("search")]
@@ -136,7 +137,7 @@ namespace Web.Controllers
         [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ProductRatingViewModel))]
         public async Task<IActionResult> CreateProductRatingAsync([FromBody]ProductRatingViewModel productRating)
         {
-            string token = HttpContext.Request.Cookies["JwtToken"];
+            var token = HttpContext.Request.Cookies["JwtToken"];
             productRating.UserId = int.Parse(_userService.GetUserId(token));
             var createdProductRating = await _gamesService.CreateProductRatingAsync(productRating);
             return Created("/games/rating/", createdProductRating);
@@ -154,7 +155,7 @@ namespace Web.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductRatingViewModel))]
         public async Task<IActionResult> UpdateProductRatingAsync([FromBody] ProductRatingViewModel productRating)
         {
-            string token = HttpContext.Request.Cookies["JwtToken"];
+            var token = HttpContext.Request.Cookies["JwtToken"];
             productRating.UserId = int.Parse(_userService.GetUserId(token));
             var updatedProductRating = await _gamesService.UpdateProductRatingAsync(productRating);
             return Ok(updatedProductRating);
@@ -171,7 +172,7 @@ namespace Web.Controllers
         [ProducesResponseType(StatusCodes.Status204NoContent)]
         public async Task<IActionResult> DeleteProductRatingAsync([FromBody] ProductRatingViewModel productRating)
         {
-            string token = HttpContext.Request.Cookies["JwtToken"];
+            var token = HttpContext.Request.Cookies["JwtToken"];
             productRating.UserId = int.Parse(_userService.GetUserId(token));
             await _gamesService.DeleteProductRatingAsync(productRating);
             return NoContent();

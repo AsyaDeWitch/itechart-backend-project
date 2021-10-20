@@ -9,7 +9,6 @@ namespace BLL.Interfaces
     public interface IGamesService
     {
         public Task<Dictionary<string, int>> GetTopPlatformsAsync(int quantity);
-        public Task<List<ReturnProductViewModel>> SearchGamesByNameAsync(string name);
         public Task<List<ReturnProductViewModel>> SearchGamesByParametersAsync(DateTime term, int limit, double offset, string name);
         public Task<ReturnProductViewModel> GetProductFullInfoAsync(string id);
         public Task<ReturnProductViewModel> CreateProductAsync(ProductViewModel product);

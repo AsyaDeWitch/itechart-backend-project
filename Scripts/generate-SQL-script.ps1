@@ -13,7 +13,7 @@ function Generate-SQL {
         if(Test-Path ($Path + "\DAL")) {
             $loc = Get-Location
             Set-Location ($Path + "\DAL")
-            dotnet ef --startup-project ($Path + "\Web") migrations script | Out-File -FilePath ($Path + "\SQLScripts\" + (Get-Date -format "yyyyMMddHHmmss") + "_sqlScript.sql")
+            dotnet ef --startup-project ($Path + "\Web") migrations script --context ApplicationDbContext| Out-File -FilePath ($Path + "\SQLScripts\" + (Get-Date -format "yyyyMMddHHmmss") + "_sqlScript.sql") 
             Write-Host "Generate SQL script executed successfully" -BackgroundColor Green -ForegroundColor Black
             Set-Location $loc
         }

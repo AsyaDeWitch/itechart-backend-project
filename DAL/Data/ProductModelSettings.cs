@@ -25,6 +25,12 @@ namespace DAL.Data
                 .HasIndex(p => p.DateCreated);
             _builder.Entity<Product>()
                 .HasIndex(p => p.TotalRating);
+            _builder.Entity<Product>()
+                .HasIndex(p => p.Rating);
+            _builder.Entity<Product>()
+                .HasIndex(p => p.Price);
+            _builder.Entity<Product>()
+                .HasIndex(p => p.Genre);
 
             _builder.Entity<Product>()
                 .Property(p => p.Name)
@@ -41,8 +47,7 @@ namespace DAL.Data
                 .IsRequired();
             _builder.Entity<Product>()
                 .Property(p => p.Genre)
-                .IsRequired()
-                .HasMaxLength(100);
+                .IsRequired();
             _builder.Entity<Product>()
                 .Property(p => p.Rating)
                 .IsRequired();
@@ -64,6 +69,41 @@ namespace DAL.Data
                 .Property(p => p.IsDeleted)
                 .IsRequired()
                 .HasDefaultValue(false);
+
+            _builder.Entity<Product>()
+                .HasMany(p => p.Users)
+                .WithMany(p => p.Products)
+                .UsingEntity<ProductRating>(
+                    j => j
+                        .HasOne(pr => pr.User)
+                        .WithMany(u => u.Ratings)
+                        .HasForeignKey(pr => pr.UserId),
+                    j => j
+                        .HasOne(pr => pr.Product)
+                        .WithMany(p => p.Ratings)
+                        .HasForeignKey(pr => pr.ProductId),
+                    j =>
+                    {
+                        j.Property(pr => pr.Rating).HasDefaultValue(10.0);
+                        j.HasKey(pr => new { pr.ProductId, pr.UserId });
+                    });
+            _builder.Entity<Product>()
+                .HasMany(p => p.Orders)
+                .WithMany(p => p.Products)
+                .UsingEntity<ProductOrder>(
+                    j => j
+                        .HasOne(pr => pr.Order)
+                        .WithMany(u => u.ProductOrders)
+                        .HasForeignKey(pr => pr.OrderId),
+                    j => j
+                        .HasOne(pr => pr.Product)
+                        .WithMany(p => p.ProductOrders)
+                        .HasForeignKey(pr => pr.ProductId),
+                    j =>
+                    {
+                        j.Property(pr => pr.ProductAmount).HasDefaultValue(1);
+                        j.HasKey(pr => new { pr.ProductId, pr.OrderId });
+                    });
         }
     }
 }

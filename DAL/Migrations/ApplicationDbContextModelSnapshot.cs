@@ -268,6 +268,46 @@ namespace DAL.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
+            modelBuilder.Entity("RIL.Models.Order", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("AddressDeliveryId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("CreationDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("DeliveryType")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Status")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(1);
+
+                    b.Property<int>("TotalAmount")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AddressDeliveryId");
+
+                    b.HasIndex("CreationDate");
+
+                    b.HasIndex("Status");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Orders");
+                });
+
             modelBuilder.Entity("RIL.Models.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -287,10 +327,8 @@ namespace DAL.Migrations
                     b.Property<DateTime>("DateCreated")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Genre")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("nvarchar(100)");
+                    b.Property<int>("Genre")
+                        .HasColumnType("int");
 
                     b.Property<bool>("IsDeleted")
                         .ValueGeneratedOnAdd()
@@ -324,9 +362,15 @@ namespace DAL.Migrations
 
                     b.HasIndex("DateCreated");
 
+                    b.HasIndex("Genre");
+
                     b.HasIndex("Name");
 
                     b.HasIndex("Platform");
+
+                    b.HasIndex("Price");
+
+                    b.HasIndex("Rating");
 
                     b.HasIndex("TotalRating");
 
@@ -338,7 +382,7 @@ namespace DAL.Migrations
                             Id = 1,
                             Count = 10,
                             DateCreated = new DateTime(2015, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "RPG",
+                            Genre = 4,
                             Name = "The Witcher 3: Wild Hunt",
                             Platform = 0,
                             Price = 19.989999999999998,
@@ -350,7 +394,7 @@ namespace DAL.Migrations
                             Id = 2,
                             Count = 5,
                             DateCreated = new DateTime(2015, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "RPG",
+                            Genre = 4,
                             Name = "The Witcher 3: Wild Hunt",
                             Platform = 7,
                             Price = 19.989999999999998,
@@ -362,7 +406,7 @@ namespace DAL.Migrations
                             Id = 3,
                             Count = 7,
                             DateCreated = new DateTime(2015, 5, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "RPG",
+                            Genre = 4,
                             Name = "The Witcher 3: Wild Hunt",
                             Platform = 4,
                             Price = 19.989999999999998,
@@ -374,7 +418,7 @@ namespace DAL.Migrations
                             Id = 4,
                             Count = 8,
                             DateCreated = new DateTime(2019, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "RPG",
+                            Genre = 4,
                             Name = "The Witcher 3: Wild Hunt",
                             Platform = 9,
                             Price = 19.989999999999998,
@@ -386,7 +430,7 @@ namespace DAL.Migrations
                             Id = 5,
                             Count = 8,
                             DateCreated = new DateTime(2009, 6, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Simulation",
+                            Genre = 5,
                             Name = "The Sims 3",
                             Platform = 0,
                             Price = 19.989999999999998,
@@ -398,7 +442,7 @@ namespace DAL.Migrations
                             Id = 6,
                             Count = 13,
                             DateCreated = new DateTime(2009, 6, 2, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Simulation",
+                            Genre = 5,
                             Name = "The Sims 3",
                             Platform = 1,
                             Price = 19.989999999999998,
@@ -410,7 +454,7 @@ namespace DAL.Migrations
                             Id = 7,
                             Count = 6,
                             DateCreated = new DateTime(1999, 2, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Turn-based strategy with RPG elements",
+                            Genre = 13,
                             Name = "Heroes of Might and Magic III",
                             Platform = 0,
                             Price = 8.25,
@@ -422,7 +466,7 @@ namespace DAL.Migrations
                             Id = 8,
                             Count = 3,
                             DateCreated = new DateTime(1999, 12, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Turn-based strategy with RPG elements",
+                            Genre = 13,
                             Name = "Heroes of Might and Magic III",
                             Platform = 1,
                             Price = 8.25,
@@ -434,7 +478,7 @@ namespace DAL.Migrations
                             Id = 9,
                             Count = 1,
                             DateCreated = new DateTime(1999, 12, 21, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Turn-based strategy with RPG elements",
+                            Genre = 13,
                             Name = "Heroes of Might and Magic III",
                             Platform = 2,
                             Price = 8.25,
@@ -446,7 +490,7 @@ namespace DAL.Migrations
                             Id = 10,
                             Count = 6,
                             DateCreated = new DateTime(2013, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Action-adventure",
+                            Genre = 9,
                             Name = "Grand Theft Auto V",
                             Platform = 6,
                             Price = 12.58,
@@ -458,7 +502,7 @@ namespace DAL.Migrations
                             Id = 11,
                             Count = 8,
                             DateCreated = new DateTime(2013, 9, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Action-adventure",
+                            Genre = 9,
                             Name = "Grand Theft Auto V",
                             Platform = 3,
                             Price = 12.58,
@@ -470,7 +514,7 @@ namespace DAL.Migrations
                             Id = 12,
                             Count = 12,
                             DateCreated = new DateTime(2014, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Action-adventure",
+                            Genre = 9,
                             Name = "Grand Theft Auto V",
                             Platform = 7,
                             Price = 12.58,
@@ -482,7 +526,7 @@ namespace DAL.Migrations
                             Id = 13,
                             Count = 4,
                             DateCreated = new DateTime(2014, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Action-adventure",
+                            Genre = 9,
                             Name = "Grand Theft Auto V",
                             Platform = 4,
                             Price = 12.58,
@@ -494,7 +538,7 @@ namespace DAL.Migrations
                             Id = 14,
                             Count = 2,
                             DateCreated = new DateTime(2015, 4, 14, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Action-adventure",
+                            Genre = 9,
                             Name = "Grand Theft Auto V",
                             Platform = 0,
                             Price = 12.58,
@@ -506,7 +550,7 @@ namespace DAL.Migrations
                             Id = 15,
                             Count = 2,
                             DateCreated = new DateTime(2008, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "RPG",
+                            Genre = 4,
                             Name = "World of Warcraft: Wrath of the Lich King",
                             Platform = 0,
                             Price = 40.450000000000003,
@@ -518,7 +562,7 @@ namespace DAL.Migrations
                             Id = 16,
                             Count = 3,
                             DateCreated = new DateTime(2008, 11, 18, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "RPG",
+                            Genre = 4,
                             Name = "World of Warcraft: Wrath of the Lich King",
                             Platform = 1,
                             Price = 40.450000000000003,
@@ -530,7 +574,7 @@ namespace DAL.Migrations
                             Id = 17,
                             Count = 25,
                             DateCreated = new DateTime(2018, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Action-adventure",
+                            Genre = 9,
                             Name = "Red Dead Redemption 2",
                             Platform = 7,
                             Price = 34.990000000000002,
@@ -542,7 +586,7 @@ namespace DAL.Migrations
                             Id = 18,
                             Count = 2,
                             DateCreated = new DateTime(2018, 10, 26, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Action-adventure",
+                            Genre = 9,
                             Name = "Red Dead Redemption 2",
                             Platform = 4,
                             Price = 34.990000000000002,
@@ -554,7 +598,7 @@ namespace DAL.Migrations
                             Id = 19,
                             Count = 14,
                             DateCreated = new DateTime(2018, 11, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "Action-adventure",
+                            Genre = 9,
                             Name = "Red Dead Redemption 2",
                             Platform = 0,
                             Price = 34.990000000000002,
@@ -566,7 +610,7 @@ namespace DAL.Migrations
                             Id = 20,
                             Count = 3,
                             DateCreated = new DateTime(2011, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "RPG",
+                            Genre = 4,
                             Name = "The Elder Scrolls V: Skyrim",
                             Platform = 0,
                             Price = 7.9900000000000002,
@@ -578,7 +622,7 @@ namespace DAL.Migrations
                             Id = 21,
                             Count = 7,
                             DateCreated = new DateTime(2011, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "RPG",
+                            Genre = 4,
                             Name = "The Elder Scrolls V: Skyrim",
                             Platform = 6,
                             Price = 7.9900000000000002,
@@ -590,7 +634,7 @@ namespace DAL.Migrations
                             Id = 22,
                             Count = 5,
                             DateCreated = new DateTime(2011, 11, 11, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "RPG",
+                            Genre = 4,
                             Name = "The Elder Scrolls V: Skyrim",
                             Platform = 3,
                             Price = 7.9900000000000002,
@@ -602,7 +646,7 @@ namespace DAL.Migrations
                             Id = 23,
                             Count = 3,
                             DateCreated = new DateTime(2016, 10, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "RPG",
+                            Genre = 4,
                             Name = "The Elder Scrolls V: Skyrim",
                             Platform = 7,
                             Price = 7.9900000000000002,
@@ -614,7 +658,7 @@ namespace DAL.Migrations
                             Id = 24,
                             Count = 5,
                             DateCreated = new DateTime(2016, 10, 28, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "RPG",
+                            Genre = 4,
                             Name = "The Elder Scrolls V: Skyrim",
                             Platform = 4,
                             Price = 7.9900000000000002,
@@ -626,13 +670,53 @@ namespace DAL.Migrations
                             Id = 25,
                             Count = 4,
                             DateCreated = new DateTime(2017, 11, 17, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Genre = "RPG",
+                            Genre = 4,
                             Name = "The Elder Scrolls V: Skyrim",
                             Platform = 9,
                             Price = 7.9900000000000002,
                             Rating = 3,
                             TotalRating = 8.4000000000000004
                         });
+                });
+
+            modelBuilder.Entity("RIL.Models.ProductOrder", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("OrderId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductAmount")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasDefaultValue(1);
+
+                    b.HasKey("ProductId", "OrderId");
+
+                    b.HasIndex("OrderId");
+
+                    b.ToTable("ProductOrders");
+                });
+
+            modelBuilder.Entity("RIL.Models.ProductRating", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<double>("Rating")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("float")
+                        .HasDefaultValue(10.0);
+
+                    b.HasKey("ProductId", "UserId");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("ProductRatings");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -693,6 +777,80 @@ namespace DAL.Migrations
                         .HasForeignKey("AddressDeliveryId");
 
                     b.Navigation("AddressDelivery");
+                });
+
+            modelBuilder.Entity("RIL.Models.Order", b =>
+                {
+                    b.HasOne("RIL.Models.Address", "AddressDelivery")
+                        .WithMany()
+                        .HasForeignKey("AddressDeliveryId");
+
+                    b.HasOne("RIL.Models.ExtendedUser", "User")
+                        .WithMany("Orders")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AddressDelivery");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("RIL.Models.ProductOrder", b =>
+                {
+                    b.HasOne("RIL.Models.Order", "Order")
+                        .WithMany("ProductOrders")
+                        .HasForeignKey("OrderId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RIL.Models.Product", "Product")
+                        .WithMany("ProductOrders")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Order");
+
+                    b.Navigation("Product");
+                });
+
+            modelBuilder.Entity("RIL.Models.ProductRating", b =>
+                {
+                    b.HasOne("RIL.Models.Product", "Product")
+                        .WithMany("Ratings")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("RIL.Models.ExtendedUser", "User")
+                        .WithMany("Ratings")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("RIL.Models.ExtendedUser", b =>
+                {
+                    b.Navigation("Orders");
+
+                    b.Navigation("Ratings");
+                });
+
+            modelBuilder.Entity("RIL.Models.Order", b =>
+                {
+                    b.Navigation("ProductOrders");
+                });
+
+            modelBuilder.Entity("RIL.Models.Product", b =>
+                {
+                    b.Navigation("ProductOrders");
+
+                    b.Navigation("Ratings");
                 });
 #pragma warning restore 612, 618
         }

@@ -11,8 +11,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Authorization;
-using BLL.Handlers;
-using BLL.Requiremets;
+using DIL.Handlers;
+using DIL.Requirements;
 using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.Extensions.Options;
@@ -21,19 +21,38 @@ using System.Linq;
 using DAL;
 using RIL.Models;
 using AutoMapper;
+using DIL.ActionFilters;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.ResponseCompression;
+using System.IO.Compression;
+using BLL.Cachers;
+using DAL.Interfaces;
+using DAL.Repositories;
+using BLL.Converters;
 
 namespace DIL.Settings
 {
     public class ServicesSettings
     {
-        public static void InjectDependencies(IServiceCollection services, IConfiguration Configuration)
+        public static void InjectDependencies(IServiceCollection services, IConfiguration configuration)
         {
             services.AddDbContext<ApplicationDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+                    configuration.GetConnectionString("DefaultConnection")));
             services.AddIdentity<ExtendedUser, IdentityRole<int>>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>()
                 .AddDefaultTokenProviders();
+
+            services.AddResponseCompression(options =>
+            {
+                options.Providers.Add<GzipCompressionProvider>();
+            });
+            services.Configure<GzipCompressionProviderOptions>(options =>
+            {
+                options.Level = CompressionLevel.Fastest;
+            });
+
+            services.AddMemoryCache();
 
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
@@ -46,9 +65,9 @@ namespace DIL.Settings
                         ValidateAudience = true,
                         ValidateLifetime = true,
                         ValidateIssuerSigningKey = true,
-                        ValidIssuer = Configuration["JwtSettings:Issuer"],
-                        ValidAudience = Configuration["JwtSettings:Audience"],
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtSettings:Key"]))
+                        ValidIssuer = configuration["JwtSettings:Issuer"],
+                        ValidAudience = configuration["JwtSettings:Audience"],
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JwtSettings:Key"]))
                     };
                     options.Events = new JwtBearerEvents
                     {
@@ -77,9 +96,9 @@ namespace DIL.Settings
             {
                 mc.AddProfile(new MappingSettings());
             });
-            IMapper mapper = mapperConfig.CreateMapper();
-
+            var mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
+
             services.AddSingleton<IAuthorizationHandler, RoleAuthorizationHandler>();
             services.AddSingleton<IAuthorizationMiddlewareResultHandler,
                           RoleAuthorizationMiddlewareResultHandler>();
@@ -89,9 +108,34 @@ namespace DIL.Settings
             services.AddScoped<IAdministrationService, AdministrationService>();
             services.AddScoped<ITokenService, JwtService>();
             services.AddScoped<IUserService, UserService>();
-            services.AddScoped<IUserClaimsPrincipalFactory<ExtendedUser>, ExtendedUserClaimsPrincipalFactory>();
             services.AddScoped<IGamesService, GamesService>();
             services.AddScoped<IFirebaseService, FirebaseService>();
+            services.AddScoped<IOrderService, OrderService>();
+            services.AddScoped<IValidatorService, ValidatorService>();
+
+            services.AddScoped<IAddressRepository, AddressRepository>();
+            services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<IProductOrderRepository, ProductOrderRepository>();
+            services.AddScoped<IProductRatingRepository, ProductRatingRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IExtendedUserRepository, ExtendedUserRepository>();
+            services.AddScoped<IUnitOfWork,UnitOfWork>();
+
+            services.AddScoped<IProductOrderConverter, ProductOrderConverter>();
+            services.AddScoped<IProductRatingConverter, ProductRatingConverter>();
+            services.AddScoped<IOrderConverter, OrderConverter>();
+            services.AddScoped<IProductConverter, ProductConverter>();
+            services.AddScoped<IAddressConverter, AddressConverter>();
+            services.AddScoped<IUserConverter, UserConverter>();
+            services.AddScoped<IConverter, Converter>();
+
+            services.AddScoped<IMemoryCacher, MemoryCacher>();
+
+            services.AddScoped<IUserClaimsPrincipalFactory<ExtendedUser>, ExtendedUserClaimsPrincipalFactory>();
+            
+            services.AddScoped<SortAndFilterParamsValidationActionFilter>();
+            services.AddScoped<ProductValidationActionFilter>();
+            services.AddScoped<OrderAndProductsValidationActionFilter>();
 
             services.AddControllers(config =>
             {
@@ -99,7 +143,10 @@ namespace DIL.Settings
                 config.Filters.Add(new AuthorizeFilter(policy));
                 config.InputFormatters.Insert(0, GetJsonPatchInputFormatter());
             })
-                .AddNewtonsoftJson();
+                .AddNewtonsoftJson(options =>
+                {
+                    options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
+                });
         }
 
         private static NewtonsoftJsonPatchInputFormatter GetJsonPatchInputFormatter()

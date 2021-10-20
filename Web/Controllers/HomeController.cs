@@ -16,7 +16,7 @@ namespace Web.Controllers
         }
 
         /// <summary>
-        /// Test action for Admin role policy, logging and responce body, contains string "Hello World"
+        /// Test action for Admin role policy, logging and response body, contains string "Hello World"
         /// </summary>
         /// <response code="200">String "Hello world" returned</response>
         /// <returns>"Hello world" string</returns>

@@ -1,8 +1,10 @@
 ﻿using BLL.Interfaces;
 using BLL.ViewModels;
+using DIL.ActionFilters;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using RIL.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -13,10 +15,13 @@ namespace Web.Controllers
     public class GamesController : Controller
     {
         private readonly IGamesService _gamesService;
+        private readonly IUserService _userService;
+        private const int TopPlatformsAmount = 3;
 
-        public GamesController(IGamesService gamesService)
+        public GamesController(IGamesService gamesService, IUserService userService)
         {
             _gamesService = gamesService;
+            _userService = userService;
         }
 
         /// <summary>
@@ -30,7 +35,7 @@ namespace Web.Controllers
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Dictionary<string, int>))]
         public async Task<IActionResult> GetTopPlatforms()
         {
-            Dictionary<string, int> topPlatformsInfo = await _gamesService.GetTopPlatformsAsync(3);
+            var topPlatformsInfo = await _gamesService.GetTopPlatformsAsync(TopPlatformsAmount);
 
             return Ok(topPlatformsInfo);
         }
@@ -42,12 +47,12 @@ namespace Web.Controllers
         /// <param name="limit">Count of games need to receive</param>
         /// <param name="offset">Minimum game score on a 10-point scale</param>
         /// <param name="name">Game name or part of the game name</param>
-        /// <response code="200">Games mathes search term returned</response>
-        /// <returns>Games mathes search term</returns>
+        /// <response code="200">Games matches search term returned</response>
+        /// <returns>Games matches search term</returns>
         [HttpGet]
         [AllowAnonymous]
         [Route("search")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ProductViewModel>))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(List<ReturnProductViewModel>))]
         public async Task<IActionResult> SearchGamesByParameters(DateTime term, int limit, double offset, string name)
         {
             var products = await _gamesService.SearchGamesByParametersAsync(term, limit, offset, name);
@@ -64,7 +69,7 @@ namespace Web.Controllers
         [HttpGet]
         [AllowAnonymous]
         [Route("id/{id}")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductViewModel))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ReturnProductViewModel))]
         public async Task<IActionResult> GetProductFullInfoAsync(string id)
         {
             var product = await _gamesService.GetProductFullInfoAsync(id);
@@ -81,7 +86,7 @@ namespace Web.Controllers
         [HttpPost]
         [Authorize(Policy = "RequireAdminRole")]
         [Route("")]
-        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ProductViewModel))]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ReturnProductViewModel))]
         public async Task<IActionResult> CreateProductAsync([FromForm]ProductViewModel product)
         {
             var createdProduct = await _gamesService.CreateProductAsync(product);
@@ -97,7 +102,7 @@ namespace Web.Controllers
         [HttpPut]
         [Authorize(Policy = "RequireAdminRole")]
         [Route("")]
-        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductViewModel))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ReturnProductViewModel))]
         public async Task<IActionResult> UpdateProductAsync([FromForm]ProductViewModel updatedProduct)
         {
             var product = await _gamesService.UpdateProductAsync(updatedProduct);
@@ -118,6 +123,79 @@ namespace Web.Controllers
             await _gamesService.DeleteProductByIdAsync(id);
 
             return NoContent();
+        }
+
+        /// <summary>
+        /// Performs product rating creation
+        /// </summary>
+        /// <param name="productRating">Product rating info</param>
+        /// <response code="201">Created product rating returned</response>
+        /// <returns>Created product rating</returns>
+        [HttpPost]
+        [Authorize(Policy = "RequireUserRole")]
+        [Route("rating")]
+        [ProducesResponseType(StatusCodes.Status201Created, Type = typeof(ProductRatingViewModel))]
+        public async Task<IActionResult> CreateProductRatingAsync([FromBody]ProductRatingViewModel productRating)
+        {
+            var token = HttpContext.Request.Cookies["JwtToken"];
+            productRating.UserId = int.Parse(_userService.GetUserId(token));
+            var createdProductRating = await _gamesService.CreateProductRatingAsync(productRating);
+            return Created("/games/rating/", createdProductRating);
+        }
+
+        /// <summary>
+        /// Performs product rating editing
+        /// </summary>
+        /// <param name="productRating">Product rating info</param>
+        /// <response code="201">Updated product rating returned</response>
+        /// <returns>Updated product rating</returns>
+        [HttpPut]
+        [Authorize(Policy = "RequireUserRole")]
+        [Route("rating")]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(ProductRatingViewModel))]
+        public async Task<IActionResult> UpdateProductRatingAsync([FromBody] ProductRatingViewModel productRating)
+        {
+            var token = HttpContext.Request.Cookies["JwtToken"];
+            productRating.UserId = int.Parse(_userService.GetUserId(token));
+            var updatedProductRating = await _gamesService.UpdateProductRatingAsync(productRating);
+            return Ok(updatedProductRating);
+        }
+
+        /// <summary>
+        /// Performs product rating deleting
+        /// </summary>
+        /// <param name="productRating">Product rating info</param>
+        /// <response code="204">Product rating successfully deleted</response>
+        [HttpDelete]
+        [Authorize(Policy = "RequireUserRole")]
+        [Route("rating")]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        public async Task<IActionResult> DeleteProductRatingAsync([FromBody] ProductRatingViewModel productRating)
+        {
+            var token = HttpContext.Request.Cookies["JwtToken"];
+            productRating.UserId = int.Parse(_userService.GetUserId(token));
+            await _gamesService.DeleteProductRatingAsync(productRating);
+            return NoContent();
+        }
+
+        /// <summary>
+        /// Performs product listing page data loading
+        /// </summary>
+        /// <param name="ageFilter">Array of needed age ratings</param>
+        /// <param name="genreFilter">Array of needed genres</param>
+        /// <param name="sortingParameter">Sort parameter</param>
+        /// <param name="pageNumber">Page number</param>
+        /// <param name="pageSize">Page size</param>
+        /// <response code="200">Product listing page returned</response>
+        [HttpGet]
+        [AllowAnonymous]
+        [Route("list")]
+        [ServiceFilter(typeof(SortAndFilterParamsValidationActionFilter))]
+        [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(PaginatedList<ReturnProductViewModel>))]
+        public async Task<IActionResult> GetProductListAsync(int? sortingParameter, int[] genreFilter, int[] ageFilter, int? pageNumber, int? pageSize)
+        {
+            var paginatedList = await _gamesService.GetProductListAsync(sortingParameter, genreFilter, ageFilter, pageNumber, pageSize);
+            return Ok(paginatedList);
         }
     }
 }

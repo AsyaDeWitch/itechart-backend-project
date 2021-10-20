@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_PublishTargetUrl>D:\LabWebApp\Web\bin\Release\net5.0\publish\</_PublishTargetUrl>
+    <History>True|2021-10-01T13:39:19.6036043Z;True|2021-10-01T16:34:39.1034799+03:00;True|2021-10-01T16:28:21.8290375+03:00;True|2021-10-01T12:28:41.3511081+03:00;True|2021-10-01T12:06:20.3253747+03:00;True|2021-10-01T11:47:40.5010725+03:00;True|2021-10-01T11:35:48.9716060+03:00;True|2021-09-30T19:49:40.9785112+03:00;</History>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+  </PropertyGroup>
+  <ItemGroup>
+    <DestinationConnectionStrings Include="DefaultConnection">
+      <Value>Server=%28localdb%29\mssqllocaldb%3bDatabase=aspnet-LabWebApp-53bc9b9d-9d6a-45d4-8429-2a2761773502%3b User Id=iTechArtLab%3b Password =jRu7S7rU%25Hvy%3b</Value>
+    </DestinationConnectionStrings>
+  </ItemGroup>
+</Project>

@@ -40,7 +40,7 @@ namespace Web.Controllers
             var updatedUser = await _userService.UpdateUserProfileAsync(user, userId);
             if (updatedUser == null)
             {
-                return BadRequest("Invalid phone number");
+                return BadRequest("Existing or invalid name or invalid phone number");
             }
             _memoryCacher.Remove(userId);
             return Ok(updatedUser);

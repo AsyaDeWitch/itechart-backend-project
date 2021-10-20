@@ -121,9 +121,16 @@ namespace DAL.Repositories
                 .FirstOrDefaultAsync();
 
             var productRatings = await _context.ProductRatings.Where(pr => pr.ProductId == id).ToListAsync();
-            var sum = productRatings
-                .Sum(p => p.Rating);
-            product.TotalRating = sum / productRatings.Count;
+            if (productRatings.Count != 0)
+            {
+                var sum = productRatings
+                    .Sum(p => p.Rating);
+                product.TotalRating = sum / productRatings.Count;
+            }
+            else
+            {
+                product.TotalRating = 9.0;
+            }
             await _context.SaveChangesAsync();
         }
 

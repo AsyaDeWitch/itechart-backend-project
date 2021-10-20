@@ -40,7 +40,7 @@ namespace BLL.Services
 
         public async Task SendConfirmationLinkAsync(string userId, string confirmationLink)
         {
-            var htmlMessage = "<p><a href=\"" + confirmationLink + "\">Follow the link to confirm your email</a></p>";
+            var htmlMessage = "<p><a href=\"" + confirmationLink + "\">Click here to confirm your email</a></p>";
             await _emailSender.SendEmailByMailKitAsync(userId, htmlMessage);
         }
 
